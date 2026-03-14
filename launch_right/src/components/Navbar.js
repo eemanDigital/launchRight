@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Bars3Icon, XMarkIcon, CheckCircleIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,16 +10,15 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Requirements", href: "#requirements" },
+    { name: "How it works", href: "#process" },
     { name: "Services", href: "#services" },
-    { name: "Process", href: "#process" },
     { name: "Pricing", href: "#pricing" },
     { name: "FAQ", href: "#faq" },
   ];
@@ -31,68 +31,93 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const isDark = !isScrolled;
+
   return (
     <>
+      <div className="bg-navy text-white/70 text-sm">
+        <div className="container-wide">
+          <div className="flex items-center justify-between h-10">
+            <div className="hidden md:flex items-center gap-6">
+              <a href="tel:08067234189" className="flex items-center gap-2 hover:text-white transition-colors">
+                <PhoneIcon className="w-4 h-4 text-gold" />
+                08067234189
+              </a>
+              <div className="flex items-center gap-2">
+                <MapPinIcon className="w-4 h-4 text-gold" />
+                Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja
+              </div>
+            </div>
+            <div className="flex items-center gap-4 md:hidden">
+              <a href="tel:08067234189" className="flex items-center gap-2 hover:text-white">
+                <PhoneIcon className="w-4 h-4 text-gold" />
+                08067234189
+              </a>
+            </div>
+            <div className="hidden md:flex items-center gap-2 text-xs">
+              <span className="w-2 h-2 bg-success rounded-full animate-pulse"></span>
+              <span>CAC-Accredited Agent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white shadow-lg"
-            : "bg-transparent"
+            ? "bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm"
+            : "bg-navy/95 backdrop-blur-sm"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="container-wide">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             <div className="flex items-center">
               <a href="#" className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-[#C9972B] flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.08 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/>
-                  </svg>
+                <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
+                  <CheckCircleIcon className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-2xl">
-                  <span className="font-['Cormorant_Garamond'] font-bold text-[#C9972B]">Juris</span>
-                  <span className="font-['DM_Sans'] font-semibold text-[#0A1628]">Tech</span>
+                <span className={`text-xl font-semibold ${isDark ? "text-white" : "text-navy"}`}>
+                  JurisTech
                 </span>
               </a>
             </div>
 
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-[#0A1628] hover:text-[#C9972B] font-medium transition-colors relative group"
+                  className={`text-sm font-medium transition-colors ${
+                    isDark ? "text-white/80 hover:text-white" : "text-gray-600 hover:text-navy"
+                  }`}
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C9972B] transition-all group-hover:w-full" />
                 </button>
               ))}
             </div>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:flex items-center gap-4">
               <a
                 href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20register%20my%20business"
-                className="bg-[#C9972B] text-[#0A1628] px-6 py-3 rounded-lg font-semibold hover:bg-[#E8B84B] transition-all"
+                className="btn-primary"
               >
-                Register Now →
+                Get Started
               </a>
             </div>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-[#0A1628] p-2"
+              className={`lg:hidden p-2 ${isDark ? "text-white" : "text-gray-600"}`}
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {isMobileMenuOpen ? (
+                <XMarkIcon className="w-6 h-6" />
+              ) : (
+                <Bars3Icon className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -101,13 +126,13 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0A1628] md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-navy lg:hidden pt-20"
           >
-            <div className="flex flex-col items-center justify-center h-full space-y-8">
+            <div className="flex flex-col items-center justify-center h-full space-y-8 -mt-20">
               {navLinks.map((link, index) => (
                 <motion.button
                   key={link.name}
@@ -115,7 +140,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-white text-2xl font-medium"
+                  className="text-2xl font-semibold text-white"
                 >
                   {link.name}
                 </motion.button>
@@ -125,9 +150,9 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20register%20my%20business"
-                className="bg-[#C9972B] text-[#0A1628] px-8 py-4 rounded-lg font-semibold text-xl"
+                className="btn-gold text-lg"
               >
-                Register Now →
+                Get Started
               </motion.a>
             </div>
           </motion.div>

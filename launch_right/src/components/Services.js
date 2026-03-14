@@ -1,109 +1,148 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BuildingOfficeIcon, GlobeAltIcon, DocumentTextIcon, ArrowRightIcon, ClockIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 
 export default function Services() {
   const services = [
     {
-      icon: "🏪",
-      name: "Business Name Registration",
-      description: "For solo founders, freelancers and sole traders. Fastest route to legitimacy.",
-      timeline: "⚡ 24–48 Hours",
-      timelineNote: "CAC-approved",
+      icon: BuildingOfficeIcon,
+      name: "Business Name",
+      description: "For freelancers and sole traders. Fastest route to legitimacy.",
       price: "From ₦60,000",
+      timeline: "24-48 hours",
+      timelineNote: "Guaranteed",
+      popular: true,
     },
     {
-      icon: "🏢",
-      name: "Private Limited Company (LTD)",
-      description: "Full incorporation for startups, partnerships and businesses ready for contracts, loans and investment.",
-      timeline: "📅 3–5 Working Days",
-      timelineNote: "CAC processing time",
+      icon: GlobeAltIcon,
+      name: "Private Limited Company",
+      description: "Full incorporation for startups ready for investment.",
       price: "From ₦175,000",
+      timeline: "4-15 days",
+      timelineNote: "Subject to CAC",
     },
     {
-      icon: "⛪",
+      icon: ShieldCheckIcon,
       name: "Incorporated Trustees",
-      description: "For NGOs, churches, associations and foundations needing full legal recognition.",
-      timeline: "📅 7–10 Working Days",
-      timelineNote: "CAC processing time",
+      description: "For NGOs, churches, and associations.",
       price: "From ₦350,000",
+      timeline: "4-15 days",
+      timelineNote: "Subject to CAC",
     },
     {
-      icon: "🔄",
-      name: "Annual Returns & Renewal",
-      description: "Stay CAC-compliant every year. We handle your annual returns filing and business name renewals.",
-      timeline: "⚡ 48 Hours",
-      timelineNote: "CAC processing time",
+      icon: DocumentTextIcon,
+      name: "Annual Returns",
+      description: "Stay CAC-compliant every year.",
       price: "From ₦15,000",
+      timeline: "48 hours",
+      timelineNote: "",
     },
     {
-      icon: "⚖️",
-      name: "Legal Document Drafting",
-      description: "Lawyer-drafted Shareholders' Agreements, Employment Contracts, NDAs, Service Agreements and NDPR-compliant website policies.",
-      timeline: "📅 2–4 Working Days",
-      timelineNote: "Turnaround time",
+      icon: DocumentTextIcon,
+      name: "Legal Documents",
+      description: "Shareholders' agreements, contracts, NDAs.",
       price: "From ₦15,000",
+      timeline: "2-4 days",
+      timelineNote: "",
     },
     {
-      icon: "🌐",
-      name: "Business Website Development",
-      description: "Custom, mobile-first websites built for Nigerian businesses — from single-page landing pages to full e-commerce platforms.",
-      timeline: "📅 5–21 Working Days",
-      timelineNote: "Depends on complexity",
+      icon: GlobeAltIcon,
+      name: "Website Development",
+      description: "Professional websites for your business.",
       price: "From ₦50,000",
+      timeline: "5-21 days",
+      timelineNote: "",
     },
   ];
 
   return (
-    <section id="services" className="py-20 bg-[#F7F5F0] section-premium">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="section-pad bg-white">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-['Cormorant_Garamond'] font-bold text-[#0A1628] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
             Our Services
           </h2>
-          <p className="text-[#6B7280] text-lg max-w-2xl mx-auto mb-4">
-            CAC filing done right. Business Name approved in 24–48 hours. Other registrations depend on CAC processing times.
+          <p className="text-gray-500 max-w-xl mx-auto">
+            CAC registration, legal documents, and web development — all in one place.
           </p>
-          <p className="text-[#C9972B] text-sm font-medium">
-            🔍 Free name availability search before you pay
+          <p className="text-gold text-sm mt-2">
+            Business Name: 24-48 hours guaranteed • LTD & IT: 4-15 days (subject to CAC)
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%27m%20interested%20in%20your%20services"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl p-6 border border-gray-100 card-premium hover:border-[#C9972B]/30 transition-all group"
+              className={`group p-6 rounded-2xl border transition-all hover:shadow-lg ${
+                service.popular 
+                  ? "bg-navy border-navy text-white" 
+                  : "bg-white border-gray-100 hover:border-gray-200"
+              }`}
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="text-4xl bg-[#F7F5F0] p-3 rounded-xl">{service.icon}</div>
-                <span className="text-[#C9972B] font-bold text-lg">{service.price}</span>
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                service.popular ? "bg-white/10" : "bg-surface"
+              }`}>
+                <service.icon className={`w-6 h-6 ${service.popular ? "text-white" : "text-navy"}`} />
               </div>
-              <h3 className="text-[#0A1628] text-xl font-bold mb-2">{service.name}</h3>
-              <p className="text-[#6B7280] text-sm mb-4">{service.description}</p>
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+              
+              <div className="flex items-start justify-between mb-3">
+                <h3 className={`text-lg font-semibold ${service.popular ? "text-white" : "text-navy"}`}>
+                  {service.name}
+                </h3>
+                {service.popular && (
+                  <span className="badge bg-white/20 text-white border-0 text-xs">Popular</span>
+                )}
+              </div>
+              
+              <p className={`text-sm mb-4 ${service.popular ? "text-white/70" : "text-gray-500"}`}>
+                {service.description}
+              </p>
+              
+              <div className="flex items-end justify-between">
                 <div>
-                  <span className="text-sm text-[#0A1628] font-medium">{service.timeline}</span>
-                  <p className="text-xs text-[#6B7280]">{service.timelineNote}</p>
+                  <p className={`text-lg font-semibold ${service.popular ? "text-white" : "text-navy"}`}>
+                    {service.price}
+                  </p>
                 </div>
-                <a
-                  href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%27m%20interested%20in%20the%20Services"
-                  className="text-[#C9972B] font-semibold group-hover:text-[#0A1628] transition-colors"
-                >
-                  Get Started →
-                </a>
+                <div className="flex items-center gap-1 text-sm">
+                  <ClockIcon className={`w-4 h-4 ${service.popular ? "text-white/70" : "text-gray-400"}`} />
+                  <span className={service.popular ? "text-white/70" : "text-gray-400"}>
+                    {service.timeline}
+                  </span>
+                  {service.timelineNote && (
+                    <span className={`text-xs ${service.popular ? "text-gold" : "text-gold"}`}>
+                      ({service.timelineNote})
+                    </span>
+                  )}
+                </div>
               </div>
-            </motion.div>
+              
+              <div className={`mt-4 pt-4 border-t flex items-center justify-between ${
+                service.popular ? "border-white/20" : "border-gray-100"
+              }`}>
+                <span className={`text-sm font-medium ${
+                  service.popular ? "text-white" : "text-navy"
+                } group-hover:underline`}>
+                  Get started
+                </span>
+                <ArrowRightIcon className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${
+                  service.popular ? "text-white" : "text-navy"
+                }`} />
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>

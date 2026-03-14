@@ -242,16 +242,16 @@ export const websiteData = {
   testimonials: [
     {
       id: 1,
-      name: "Chioma Okafor",
-      company: "TechSavvy Solutions",
-      text: "LegalTech Solutions handled everything - from CAC registration to website design. Professional and efficient!",
+      name: "Baseerat Muftaudeen",
+      company: "Banaat Diagnostics and Medical Services Limited",
+      text: "JurisTech  handled everything - from CAC registration to website design. Professional and efficient!",
       rating: 5,
       service: "Web Design + CAC",
     },
     {
       id: 2,
-      name: "Emeka Adebayo",
-      company: "Afara Logistics",
+      name: "Jame Iniama",
+      company: "Flaxgold Developments Ltd",
       text: "Their team transformed our business. The website brings in 3x more leads than before.",
       rating: 5,
       service: "Full Package",
@@ -287,11 +287,11 @@ export const websiteData = {
     legal: [
       {
         q: "How long does CAC registration take?",
-        a: "Business Name: 3-5 days, LLC: 5-7 days, Incorporated Trustees: 7-10 days.",
+        a: "Business Name/Enterprise: 1-5 days, Limited Liability Company: 5-15 days, Incorporated Trustees: 7-20 days.",
       },
       {
         q: "What documents are required?",
-        a: "Valid ID, passport photo, utility bill for address verification.",
+        a: "Valid ID, passport photo.",
       },
     ],
     web: [
@@ -308,9 +308,9 @@ export const websiteData = {
 
   // Contact Info
   contact: {
-    phone: "+234 123 456 7890",
-    email: "info@legaltechsolutions.ng",
-    whatsapp: "+2341234567890",
-    address: "123 Business Street, Lagos, Nigeria",
+    phone: "+234 912 490 21",
+    email: "eemandigitalconcept@gmail.com",
+    whatsapp: "+23491249021",
+    address: "Suite 412, I.T Igbani Street, MKK Plaza, Jabi Abuja, Nigeria",
   },
 };

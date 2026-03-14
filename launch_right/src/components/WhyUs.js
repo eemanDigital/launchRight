@@ -1,66 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { 
+  MagnifyingGlassIcon, 
+  ShieldCheckIcon, 
+  ClockIcon, 
+  CurrencyDollarIcon, 
+  ChatBubbleLeftRightIcon, 
+  ArrowPathIcon, 
+  GlobeAltIcon, 
+  ClockIcon as ClockOutlineIcon 
+} from "@heroicons/react/24/outline";
 
 export default function WhyUs() {
   const features = [
     {
-      icon: "🔍",
-      title: "Free Name Search First",
-      description: "We check if your business name is available before you pay. If taken, we suggest alternatives — no extra charge.",
+      icon: MagnifyingGlassIcon,
+      title: "Free Name Search",
+      description: "We check availability before you pay. If taken, we suggest alternatives — free.",
     },
     {
-      icon: "🏛️",
-      title: "CAC-Accredited Filing",
-      description: "We file directly with CAC. Your application is correct — no rejections from errors. We handle the paperwork.",
+      icon: ShieldCheckIcon,
+      title: "CAC-Accredited",
+      description: "Direct filing with CAC. Your application is correct — no rejections from errors.",
     },
     {
-      icon: "⚡",
-      title: "24–48 Hour Business Name",
-      description: "Business Name registration approved in 24–48 hours. LTD and other types: CAC processing time applies.",
+      icon: ClockIcon,
+      title: "24-48 Hour Business Name",
+      description: "Business Name registered in 24-48 hours (guaranteed). LTD & IT: 4-15 days (subject to CAC).",
     },
     {
-      icon: "💰",
+      icon: CurrencyDollarIcon,
       title: "No Hidden Fees",
-      description: "The price you see is the price you pay. Includes all government levies and our service fee. Always.",
+      description: "The price you see is the price you pay. Always. No surprises.",
     },
     {
-      icon: "💬",
+      icon: ChatBubbleLeftRightIcon,
       title: "Direct WhatsApp Updates",
-      description: "We update you at every stage. No ghosting, no guessing. You always know exactly what's happening.",
+      description: "Real-time updates at every stage. No ghosting. You always know what's happening.",
     },
     {
-      icon: "🔄",
+      icon: ArrowPathIcon,
       title: "Money-Back Guarantee",
-      description: "If your chosen name cannot be registered, we refund you 100%. Zero risk. We're that confident.",
+      description: "If your name can't be registered, we refund you 100%. Zero risk.",
     },
     {
-      icon: "🌍",
+      icon: GlobeAltIcon,
       title: "Diaspora-Friendly",
-      description: "Register from anywhere in the world. UK, US, Canada, UAE — we've helped Nigerians abroad go legit.",
+      description: "Register from anywhere in the world. UK, US, Canada — we've helped Nigerians abroad.",
     },
     {
-      icon: "📋",
+      icon: ClockOutlineIcon,
       title: "Honest Timelines",
-      description: "We don't promise what CAC can't guarantee. Business Name = 24–48hrs. LTD = 3–5 days (estimated).",
+      description: "We don't promise what CAC can't guarantee. Business Name = 24-48hrs.",
     },
   ];
 
   return (
-    <section className="py-20 bg-[#F7F5F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-pad bg-surface">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-['Cormorant_Garamond'] font-bold text-[#0A1628] mb-4">
-            Why Choose JurisTech
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
+            Why choose JurisTech
           </h2>
-          <p className="text-[#6B7280] text-lg max-w-2xl mx-auto">
-            We believe in honesty and transparency. Here's what you get when you work with us.
+          <p className="text-gray-500 max-w-xl mx-auto">
+            We're committed to making business registration simple, fast, and reliable.
           </p>
         </motion.div>
 
@@ -70,13 +80,15 @@ export default function WhyUs() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow"
+              className="bg-white p-6 rounded-xl hover:shadow-md transition-shadow"
             >
-              <div className="text-2xl mb-3">{feature.icon}</div>
-              <h3 className="text-[#0A1628] text-base font-bold mb-2">{feature.title}</h3>
-              <p className="text-[#6B7280] text-sm">{feature.description}</p>
+              <div className="w-10 h-10 bg-navy/5 rounded-lg flex items-center justify-center mb-4">
+                <feature.icon className="w-5 h-5 text-navy" />
+              </div>
+              <h3 className="text-navy font-semibold mb-2">{feature.title}</h3>
+              <p className="text-gray-500 text-sm">{feature.description}</p>
             </motion.div>
           ))}
         </div>

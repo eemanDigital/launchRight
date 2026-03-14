@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { MagnifyingGlassIcon, DocumentTextIcon, CheckCircleIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 function Counter({ value, suffix = "" }) {
   const ref = useRef(null);
@@ -30,7 +31,7 @@ function Counter({ value, suffix = "" }) {
   }, [isInView, value]);
 
   return (
-    <span ref={ref} className="text-[#C9972B]">
+    <span ref={ref} className="text-navy">
       {displayValue}
       {suffix}
     </span>
@@ -40,38 +41,35 @@ function Counter({ value, suffix = "" }) {
 export default function Process() {
   const steps = [
     {
-      number: "1",
-      icon: "🔍",
-      title: "Free Name Search",
-      description:
-        "Tell us your preferred business name. We check availability for FREE — no commitment. If taken, we suggest alternatives until we find one that works.",
+      icon: MagnifyingGlassIcon,
+      title: "Check Availability",
+      description: "We check if your business name is available — free, with no commitment.",
+      step: "Step 1",
     },
     {
-      number: "2",
-      icon: "📝",
-      title: "We File Your Application",
-      description:
-        "We prepare and submit your application to CAC. For Business Name: approved in 24–48 hours. For LTD: typically 3–5 working days (CAC-dependent).",
+      icon: DocumentTextIcon,
+      title: "We File Application",
+      description: "We prepare and submit your application to CAC correctly the first time.",
+      step: "Step 2",
     },
     {
-      number: "3",
-      icon: "📧",
-      title: "Receive Your Certificate",
-      description:
-        "Your official CAC certificate arrives in your email. Ready to open a business bank account, sign contracts, and operate legally.",
+      icon: CheckCircleIcon,
+      title: "Receive Certificate",
+      description: "Get your official CAC certificate delivered to your email.",
+      step: "Step 3",
     },
   ];
 
   const stats = [
-    { value: "2000", suffix: "+", label: "Businesses Filed with CAC" },
-    { value: "24-48", suffix: " hrs", label: "Business Name Approval" },
-    { value: "98", suffix: "%", label: "First-Time Approval Rate" },
-    { value: "4.9", suffix: "★", label: "Average Client Rating" },
+    { value: "2000", suffix: "+", label: "Businesses Registered" },
+    { value: "24-48", suffix: " hrs", label: "Business Name (Guaranteed)" },
+    { value: "4-15", suffix: " days", label: "LTD & IT (Subject to CAC)" },
+    { value: "4.9", suffix: "★", label: "Client Rating" },
   ];
 
   return (
-    <section id="process" className="py-20 bg-white section-premium">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process" className="section-pad bg-surface">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,34 +77,37 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-['Cormorant_Garamond'] font-bold text-[#0A1628] mb-4">
-            How It Works
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
+            How it works
           </h2>
-          <p className="text-[#6B7280] text-lg max-w-2xl mx-auto">
-            CAC approves all registrations. We ensure your application is correct — no rejections from errors.
+<p className="text-gray-500 max-w-xl mx-auto">
+            We ensure your application is correct — no rejections from errors. Business Name: 24-48 hours. LTD & IT: 4-15 days (subject to CAC).
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 mb-20 relative">
           {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="relative text-center"
+              className="relative"
             >
-              <div className="relative inline-block mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#C9972B] to-[#E8B84B] rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  {step.icon}
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-gray-200 transition-colors">
+                <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center mb-6">
+                  <step.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#0A1628] rounded-full flex items-center justify-center text-white text-sm font-bold">
-                  {step.number}
-                </div>
+                <p className="text-gold text-sm font-medium mb-2">{step.step}</p>
+                <h3 className="text-navy text-xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-gray-500">{step.description}</p>
               </div>
-              <h3 className="text-[#0A1628] text-xl font-bold mb-2">{step.title}</h3>
-              <p className="text-[#6B7280]">{step.description}</p>
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                  <ArrowRightIcon className="w-6 h-6 text-gray-300" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -116,14 +117,14 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {stats.map((stat, index) => (
-            <div key={index} className="p-6 bg-[#F7F5F0] rounded-xl">
-              <div className="text-4xl md:text-5xl font-['Cormorant_Garamond'] font-bold mb-2">
+            <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-100">
+              <div className="text-3xl md:text-4xl font-semibold mb-2">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-[#6B7280]">{stat.label}</p>
+              <p className="text-gray-500 text-sm">{stat.label}</p>
             </div>
           ))}
         </motion.div>

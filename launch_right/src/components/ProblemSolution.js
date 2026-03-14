@@ -1,45 +1,59 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { XMarkIcon, CheckIcon } from "@heroicons/react/24/outline";
 
 export default function ProblemSolution() {
   const problems = [
-    "Long queues at crowded CAC offices",
-    "Confusing, ever-changing requirements",
-    "Fear of costly mistakes and rejections",
-    "Unreliable agents who disappear after payment",
-    "Weeks of waiting with zero updates",
-    "No idea what documents you actually need",
+    "Long queues at CAC offices",
+    "Confusing requirements",
+    "Costly rejections",
+    "Unreliable agents",
+    "Weeks of waiting",
   ];
 
   const solutions = [
-    "100% online — never visit a CAC office",
-    "Free name availability search before you pay",
-    "We suggest alternative names if yours is taken",
-    "Real-time WhatsApp updates throughout the process",
-    "Business Name approved in 24–48 hours (CAC-dependent)",
-    "Transparent pricing — what you see is what you pay",
+    "100% online process",
+    "Free name availability check",
+    "Direct WhatsApp updates",
+    "24-48 hrs (Business Name guaranteed)",
+    "4-15 days (LTD & IT - subject to CAC)",
+    "Transparent pricing",
   ];
 
   return (
-    <section className="py-20 bg-[#F7F5F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12">
+    <section className="section-pad bg-white">
+      <div className="container-wide">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
+            Why struggle with CAC registration?
+          </h2>
+          <p className="text-gray-500 max-w-xl mx-auto">
+            We've simplified the entire process. Here's how we compare.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-[#0A1628] rounded-2xl p-8 md:p-10 relative overflow-hidden"
+            className="bg-navy rounded-2xl p-8 lg:p-10"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-orange-500" />
-            <h3 className="text-white text-2xl md:text-3xl font-['Cormorant_Garamond'] font-bold mb-8">
-              Business Registration in Nigeria Shouldn't Be This Hard.
+            <h3 className="text-white text-xl font-semibold mb-8">
+              Traditional Registration
             </h3>
             <ul className="space-y-4">
               {problems.map((problem, index) => (
-                <li key={index} className="flex items-start gap-3 text-[#9CA3AF]">
-                  <span className="text-red-500 text-lg">✗</span>
+                <li key={index} className="flex items-start gap-3 text-white/60">
+                  <XMarkIcon className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                   <span>{problem}</span>
                 </li>
               ))}
@@ -47,20 +61,19 @@ export default function ProblemSolution() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 md:p-10 border-2 border-[#C9972B]/30 relative overflow-hidden"
+            className="bg-surface rounded-2xl p-8 lg:p-10 border border-gray-100"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C9972B] to-[#E8B84B]" />
-            <h3 className="text-[#0A1628] text-2xl md:text-3xl font-['Cormorant_Garamond'] font-bold mb-8">
-              There's a Better Way. Here's Our Promise.
+            <h3 className="text-navy text-xl font-semibold mb-8">
+              With JurisTech
             </h3>
             <ul className="space-y-4">
               {solutions.map((solution, index) => (
-                <li key={index} className="flex items-start gap-3 text-[#1A1A2E]">
-                  <span className="text-[#C9972B] text-lg">✓</span>
+                <li key={index} className="flex items-start gap-3 text-gray-700">
+                  <CheckIcon className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                   <span>{solution}</span>
                 </li>
               ))}
@@ -76,11 +89,10 @@ export default function ProblemSolution() {
           className="text-center mt-12"
         >
           <a
-            href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20register%20my%20business"
-            className="inline-flex items-center gap-2 bg-[#C9972B] text-[#0A1628] px-8 py-4 rounded-lg font-semibold hover:bg-[#E8B84B] transition-all"
+            href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20check%20if%20my%20business%20name%20is%20available"
+            className="btn-primary"
           >
-            Get Free Name Search → 
-            <span className="text-sm font-normal">(No commitment)</span>
+            Check Name Availability — Free
           </a>
         </motion.div>
       </div>
