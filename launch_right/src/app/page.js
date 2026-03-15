@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeBar from "@/components/MarqueeBar";
+import AdBanners from "@/components/AdBanners";
 import ProblemSolution from "@/components/ProblemSolution";
 import Requirements from "@/components/Requirements";
 import Services from "@/components/Services";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MarqueeBar />
+      {/* <AdBanners /> */}
       <Requirements />
       <ProblemSolution />
       <Services />
