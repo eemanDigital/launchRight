@@ -28,14 +28,14 @@ export default function FinalCTA() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20register%20my%20business"
+              href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="btn-gold text-base"
             >
               Start Registration
               <ArrowRightIcon className="w-4 h-4" />
             </a>
             <a
-              href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20have%20a%20question"
+              href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-all"
             >
               Chat With Us

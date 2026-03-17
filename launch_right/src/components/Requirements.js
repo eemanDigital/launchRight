@@ -123,7 +123,7 @@ export default function Requirements() {
           </div>
 
           <a
-            href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%27m%20not%20sure%20which%20registration%20type%20I%20need"
+            href="https://wa.me/message/KTFL2G2JM3JTP1"
             className="btn-primary inline-flex"
           >
             Not sure which one? Chat with us

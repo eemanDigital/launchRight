@@ -101,7 +101,7 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20register%20my%20business"
+                href="https://wa.me/message/KTFL2G2JM3JTP1"
                 className="btn-primary"
               >
                 Get Started
@@ -149,7 +149,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%20want%20to%20register%20my%20business"
+                href="https://wa.me/message/KTFL2G2JM3JTP1"
                 className="btn-gold text-lg"
               >
                 Get Started

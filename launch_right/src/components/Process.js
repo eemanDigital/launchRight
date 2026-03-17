@@ -1,39 +1,18 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { MagnifyingGlassIcon, DocumentTextIcon, CheckCircleIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
+
+import {
+  MagnifyingGlassIcon,
+  DocumentTextIcon,
+  CheckCircleIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
 
 function Counter({ value, suffix = "" }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = parseInt(value.replace(/\D/g, ''));
-      const duration = 2000;
-      const increment = end / (duration / 16);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setDisplayValue(end);
-          clearInterval(timer);
-        } else {
-          setDisplayValue(Math.floor(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }
-  }, [isInView, value]);
-
   return (
-    <span ref={ref} className="text-navy">
-      {displayValue}
-      {suffix}
+    <span className="text-navy">
+      {value} {suffix}
     </span>
   );
 }
@@ -43,13 +22,15 @@ export default function Process() {
     {
       icon: MagnifyingGlassIcon,
       title: "Check Availability",
-      description: "We check if your business name is available — free, with no commitment.",
+      description:
+        "We check if your business name is available — free, with no commitment.",
       step: "Step 1",
     },
     {
       icon: DocumentTextIcon,
       title: "We File Application",
-      description: "We prepare and submit your application to CAC correctly the first time.",
+      description:
+        "We prepare and submit your application to CAC correctly the first time.",
       step: "Step 2",
     },
     {
@@ -63,7 +44,11 @@ export default function Process() {
   const stats = [
     { value: "2000", suffix: "+", label: "Businesses Registered" },
     { value: "24-48", suffix: " hrs", label: "Business Name (Guaranteed)" },
-    { value: "4-15", suffix: " days", label: "LTD & IT (Subject to CAC)" },
+    {
+      value: "4-15",
+      suffix: " days",
+      label: "LTD & IT (Subject to CAC Approval)",
+    },
     { value: "4.9", suffix: "★", label: "Client Rating" },
   ];
 
@@ -75,13 +60,13 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
             How it works
           </h2>
-<p className="text-gray-500 max-w-xl mx-auto">
-            We ensure your application is correct — no rejections from errors. Business Name: 24-48 hours. LTD & IT: 4-15 days (subject to CAC).
+          <p className="text-gray-500 max-w-xl mx-auto">
+            We ensure your application is correct — no rejections from errors.
+            Business Name: 24-48 hours. LTD & IT: 4-15 days (subject to CAC).
           </p>
         </motion.div>
 
@@ -93,14 +78,17 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="relative"
-            >
+              className="relative">
               <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-gray-200 transition-colors">
                 <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center mb-6">
                   <step.icon className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-gold text-sm font-medium mb-2">{step.step}</p>
-                <h3 className="text-navy text-xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-gold text-sm font-medium mb-2">
+                  {step.step}
+                </p>
+                <h3 className="text-navy text-xl font-semibold mb-3">
+                  {step.title}
+                </h3>
                 <p className="text-gray-500">{step.description}</p>
               </div>
               {index < steps.length - 1 && (
@@ -117,10 +105,11 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
+          className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-100">
+            <div
+              key={index}
+              className="bg-white rounded-xl p-6 text-center border border-gray-100">
               <div className="text-3xl md:text-4xl font-semibold mb-2">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>

@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckIcon, ClockIcon, StarIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import {
+  CheckIcon,
+  ClockIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 
 export default function Pricing() {
@@ -114,18 +118,65 @@ export default function Pricing() {
     },
   ];
 
+  const regularPackages = [
+    {
+      name: "Regular BN Registration",
+      price: "₦35,000",
+      originalPrice: "₦40,000",
+      timeline: "3–5 working days",
+      features: [
+        "CAC Business Name Registration",
+        "Certificate of Registration",
+        "Status Report",
+        "Free Consultation",
+        "Annual Return Reminder (1 Year)",
+      ],
+      color: "emerald",
+    },
+    {
+      name: "Regular LTD Registration",
+      price: "₦55,000",
+      originalPrice: "₦70,000",
+      timeline: "7–10 working days",
+      features: [
+        "CAC Private Limited Company Registration",
+        "Certificate of Incorporation",
+        "MEMART",
+        "Status Report",
+        "Certification",
+        "Free Consultation",
+        "Annual Return Reminder (1 Year)",
+      ],
+      color: "blue",
+    },
+    {
+      name: "Regular IT/NGO/Club Registration",
+      price: "₦130,000",
+      originalPrice: "₦150,000",
+      timeline: "10–14 working days",
+      features: [
+        "CAC Incorporated Trustee Registration (IT)",
+        "Certificate of Incorporation",
+        "Constitution/Trust Deed",
+        "Status Report",
+        "Certification",
+        "Free Consultation",
+        "Annual Return Reminder (1 Year)",
+      ],
+      color: "purple",
+    },
+  ];
+
   const addons = [
     { name: "Extra website page", price: "₦15,000" },
     { name: "Additional custom contract", price: "₦20,000" },
     { name: "Power of Attorney", price: "₦18,000" },
-    { name: "Annual Returns filing (CAC)", price: "₦25,000" },
-    { name: "Business legal retainer", price: "₦40,000/mo" },
+    { name: "Annual Returns filing (CAC)", price: "₦5,000/Year" },
     { name: "Trademark search & advice", price: "₦30,000" },
-    { name: "Website maintenance", price: "₦15,000/mo" },
-    { name: "WhatsApp Business API setup", price: "₦35,000" },
+    { name: "Website maintenance", price: "₦15,000/month" },
   ];
 
-  const getColorClasses = (color, popular) => {
+  const getColorClasses = (color) => {
     const colors = {
       emerald: {
         bg: "bg-emerald-50",
@@ -169,14 +220,13 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-navy mb-4">
             Choose Your Package
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Professional CAC registration with websites, legal documents, and dedicated support. 
-            All packages include government filing fees.
+            Professional CAC registration with websites, legal documents, and
+            dedicated support. All packages include government filing fees.
           </p>
         </motion.div>
 
@@ -194,8 +244,7 @@ export default function Pricing() {
                   plan.popular
                     ? "bg-navy text-white shadow-2xl shadow-navy/30 ring-2 ring-gold scale-[1.02] z-10"
                     : `${colors.bg} border ${colors.border} shadow-lg`
-                }`}
-              >
+                }`}>
                 {plan.popular && (
                   <div className="absolute top-0 left-0 right-0 bg-gold text-navy py-2 text-center text-sm font-bold flex items-center justify-center gap-1">
                     <StarIconSolid className="w-4 h-4" /> Most Popular
@@ -203,25 +252,30 @@ export default function Pricing() {
                 )}
 
                 <div className={`p-6 ${plan.popular ? "pt-10" : ""}`}>
-                  <h3 className={`text-lg font-bold mb-1 ${plan.popular ? "text-white" : "text-navy"}`}>
+                  <h3
+                    className={`text-lg font-bold mb-1 ${plan.popular ? "text-white" : "text-navy"}`}>
                     {plan.name}
                   </h3>
-                  <p className={`text-xs mb-4 ${plan.popular ? "text-gray-300" : "text-gray-600"}`}>
+                  <p
+                    className={`text-xs mb-4 ${plan.popular ? "text-gray-300" : "text-gray-600"}`}>
                     {plan.subtitle}
                   </p>
 
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2">
-                      <span className={`text-3xl font-extrabold ${plan.popular ? "text-white" : "text-navy"}`}>
+                      <span
+                        className={`text-3xl font-extrabold ${plan.popular ? "text-white" : "text-navy"}`}>
                         {plan.price}
                       </span>
                     </div>
-                    <div className={`text-sm line-through ${plan.popular ? "text-gray-400" : "text-gray-500"}`}>
+                    <div
+                      className={`text-sm line-through ${plan.popular ? "text-gray-400" : "text-gray-500"}`}>
                       Total Value: {plan.value}
                     </div>
                   </div>
 
-                  <div className={`flex items-center gap-2 text-sm font-medium mb-4 ${plan.popular ? "text-gray-300" : colors.accent}`}>
+                  <div
+                    className={`flex items-center gap-2 text-sm font-medium mb-4 ${plan.popular ? "text-gray-300" : colors.accent}`}>
                     <ClockIcon className="w-4 h-4" />
                     <span>{plan.timeline}</span>
                   </div>
@@ -229,16 +283,23 @@ export default function Pricing() {
                   <ul className="space-y-2 mb-4">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2 text-xs">
-                        <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-gold" : colors.accent}`} />
-                        <span className={plan.popular ? "text-gray-200" : "text-gray-700"}>
+                        <CheckIcon
+                          className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-gold" : colors.accent}`}
+                        />
+                        <span
+                          className={
+                            plan.popular ? "text-gray-200" : "text-gray-700"
+                          }>
                           {feature}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className={`mt-auto pt-4 border-t ${plan.popular ? "border-white/20" : colors.border}`}>
-                    <p className={`text-xs italic ${plan.popular ? "text-gray-400" : "text-gray-500"}`}>
+                  <div
+                    className={`mt-auto pt-4 border-t ${plan.popular ? "border-white/20" : colors.border}`}>
+                    <p
+                      className={`text-xs italic ${plan.popular ? "text-gray-400" : "text-gray-500"}`}>
                       "{plan.highlight}"
                     </p>
                   </div>
@@ -246,13 +307,12 @@ export default function Pricing() {
 
                 <div className="p-4 pt-0">
                   <a
-                    href={`https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%27m%20interested%20in%20the%20${plan.cta}%20package`}
+                    href="https://wa.me/message/KTFL2G2JM3JTP1"
                     className={`block w-full text-center py-3 rounded-lg font-bold text-sm transition-all ${
                       plan.popular
                         ? "bg-gold text-navy hover:bg-yellow-400"
                         : `bg-navy text-white hover:bg-navy-light`
-                    }`}
-                  >
+                    }`}>
                     Get Started
                   </a>
                 </div>
@@ -265,8 +325,72 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-3xl p-8 border border-gray-200 shadow-xl"
-        >
+          className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-navy mb-2 flex items-center justify-center gap-2">
+              <SparklesIcon className="w-6 h-6 text-gold" />
+              Regular Registration Packages
+            </h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Streamlined registration with essential documents, status reports, and annual return reminders
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {regularPackages.map((pkg, index) => {
+              const colors = getColorClasses(pkg.color);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`relative rounded-2xl overflow-hidden ${colors.bg} border ${colors.border} shadow-lg`}>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${colors.badge} text-white`}>
+                        REGULAR
+                      </span>
+                      <span className="text-xs text-gray-500 flex items-center gap-1">
+                        <ClockIcon className="w-3 h-3" />
+                        {pkg.timeline}
+                      </span>
+                    </div>
+
+                    <h4 className="text-lg font-bold text-navy mb-2">{pkg.name}</h4>
+
+                    <div className="mb-4">
+                      <span className="text-2xl font-extrabold text-navy">{pkg.price}</span>
+                      <span className="text-sm text-gray-500 line-through ml-2">{pkg.originalPrice}</span>
+                    </div>
+
+                    <ul className="space-y-2 mb-4">
+                      {pkg.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs">
+                          <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${colors.accent}`} />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="https://wa.me/message/KTFL2G2JM3JTP1"
+                      className="block w-full text-center py-3 rounded-lg font-bold text-sm bg-navy text-white hover:bg-navy-light transition-colors">
+                      Get Started
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-3xl p-8 border border-gray-200 shadow-xl">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-navy mb-2 flex items-center justify-center gap-2">
               <SparklesIcon className="w-6 h-6 text-gold" />
@@ -281,8 +405,7 @@ export default function Pricing() {
             {addons.map((addon, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gold/50 transition-colors"
-              >
+                className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gold/50 transition-colors">
                 <span className="text-sm font-medium text-gray-700">
                   {addon.name}
                 </span>
@@ -298,15 +421,13 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
-        >
+          className="text-center mt-16">
           <p className="text-gray-600 text-lg mb-6">
             Not sure which package is right for you?
           </p>
           <a
-            href="https://wa.me/2348000000000?text=Hi%20JurisTech%2C%20I%27d%20like%20to%20discuss%20which%20package%20suits%20me%20best"
-            className="inline-flex items-center justify-center px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors"
-          >
+            href="https://wa.me/message/KTFL2G2JM3JTP1"
+            className="inline-flex items-center justify-center px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors">
             Chat With A Consultant
           </a>
         </motion.div>

@@ -12,7 +12,7 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { name: "WhatsApp", href: "https://wa.me/2348000000000" },
+    { name: "WhatsApp", href: "https://wa.me/message/KTFL2G2JM3JTP1" },
     { name: "Instagram", href: "https://instagram.com/juristech" },
     { name: "Twitter", href: "https://twitter.com/juristech" },
   ];
