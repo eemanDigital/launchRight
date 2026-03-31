@@ -42,7 +42,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-white/60 max-w-lg"
             >
-              We file directly with CAC. Business Name approved in 24-48 hours. LTD & IT: 4-15 days (subject to CAC). No hidden fees.
+              CAC Registration · Professional Websites · Legal Documents — All Done For You.
             </motion.p>
 
             <motion.div

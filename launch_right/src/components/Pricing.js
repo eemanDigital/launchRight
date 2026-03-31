@@ -18,16 +18,15 @@ export default function Pricing() {
       name: " STARTER PACK",
       subtitle: "For side hustlers, market traders, freelancers",
       price: "₦75,000",
-      value: "₦150,000",
+      itemizedValue: "BN Reg (₦35k) + Landing Page (₦45k) + Domain (₦15k) = ₦95,000",
       timeline: "5-8 working days",
       features: [
         "CAC Business Name Registration (BN)",
         "Certificate of Registration",
         "Status Report",
         "1-page landing page",
-        // "1 Basic Contract Template (your choice)",
         "30 days WhatsApp support post-registration",
-        "Custom .gn Domain",
+        "Custom .com.ng Domain",
       ],
       highlight: "stop operating in the shadows",
       cta: "JUST%20START",
@@ -37,7 +36,7 @@ export default function Pricing() {
       name: "THE ENTREPRENEUR",
       subtitle: "For entrepreneurs, product-based businesses, consultants",
       price: "₦135,000",
-      value: "₦210,000",
+      itemizedValue: "LTD (₦75k) + Website (₦120k) + Contracts (₦45k) = ₦240,000",
       timeline: "7–10 working days",
       features: [
         "CAC Private Limited Company (RC Number)",
@@ -52,12 +51,13 @@ export default function Pricing() {
       highlight: "open doors that a business name never can",
       cta: "THE%20ENTREPRENEUR",
       color: "blue",
+      popular: true,
     },
     {
       name: "BOSS MOVE",
       subtitle: "For growing SMEs, importers/exporters, real estate",
       price: "₦300,000",
-      value: "₦380,000",
+      itemizedValue: "Everything in Entrepreneur + E-commerce + Legal toolkit",
       timeline: "10–14 working days",
       features: [
         "CAC Private Limited Company (RC Number)",
@@ -65,7 +65,6 @@ export default function Pricing() {
         "5-page custom business website",
         "Paystack or Flutterwave payment integration",
         "WhatsApp chat button on website",
-
         "Shareholders Agreement",
         "2 Custom Contracts (your choice)",
         "1 Letter of Demand template",
@@ -76,20 +75,19 @@ export default function Pricing() {
       highlight: "the letter of demand has recovered millions",
       cta: "BOSS%20MOVE",
       color: "gold",
-      popular: true,
+      badge: "Complete Setup",
     },
     {
       name: "NGO / FOUNDATION",
       subtitle: "For churches, mosques, charities, foundations",
       price: "₦165,000",
-      value: "₦270,000",
+      itemizedValue: "IT Reg (₦130k) + Website (₦120k) + Constitution (₦30k) = ₦280,000",
       timeline: "10–20 working days",
       features: [
         "CAC Incorporated Trustee Registration (IT Number)",
         "Constitution / Trust Deed (CAC-compliant)",
         "Certificate of Incorporation of Trustees",
         "5-page website ",
-
         "60 days post-registration support",
       ],
       highlight: "dont miss funding because of paperwork",
@@ -100,7 +98,7 @@ export default function Pricing() {
       name: "FOREIGN INVESTOR / DIASPORA",
       subtitle: "For Nigerians abroad, foreign nationals, diaspora returnees",
       price: "₦280,000",
-      value: "₦450,000",
+      itemizedValue: "Company + Website + Immigration docs + Investment agreements",
       timeline: "10–20 working days",
       features: [
         "CAC Private Limited Company or LLC Registration",
@@ -137,8 +135,8 @@ export default function Pricing() {
     },
     {
       name: "Regular LTD Registration",
-      price: "₦55,000",
-      originalPrice: "₦70,000",
+      price: "₦74,999",
+      originalPrice: "₦90,000",
       timeline: "7–10 working days",
       features: [
         "CAC Private Limited Company Registration",
@@ -171,9 +169,9 @@ export default function Pricing() {
 
   const addons = [
     { name: "Extra website page", price: "₦15,000" },
-    { name: "Additional custom contract", price: "₦20,000" },
-    { name: "Power of Attorney", price: "₦18,000" },
-    { name: "Annual Returns filing (CAC)", price: "₦5,000/Year" },
+    { name: "Additional custom contract", price: "₦25,000" },
+    { name: "Power of Attorney", price: "₦25,000" },
+    { name: "Annual Returns filing (CAC)", price: "₦15,000/Year" },
     { name: "Trademark search & advice", price: "₦30,000" },
     { name: "Website maintenance", price: "₦15,000/month" },
   ];
@@ -362,35 +360,42 @@ export default function Pricing() {
                 viewport={{ once: true }}
                 className={`relative flex flex-col rounded-2xl overflow-hidden ${
                   plan.popular
-                    ? "bg-navy text-white shadow-2xl shadow-navy/30 ring-2 ring-gold scale-[1.02] z-10"
+                    ? "bg-navy text-white shadow-2xl shadow-navy/30 ring-2 ring-blue-500 scale-[1.02] z-10"
+                    : plan.badge
+                    ? `${colors.bg} border ${colors.border} shadow-lg ring-2 ring-gold`
                     : `${colors.bg} border ${colors.border} shadow-lg`
                 }`}>
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gold text-navy py-2 text-center text-sm font-bold flex items-center justify-center gap-1">
+                  <div className="absolute top-0 left-0 right-0 bg-blue-500 text-white py-2 text-center text-sm font-bold flex items-center justify-center gap-1">
                     <StarIconSolid className="w-4 h-4" /> Most Popular
                   </div>
                 )}
+                {plan.badge && !plan.popular && (
+                  <div className="absolute top-0 left-0 right-0 bg-gold text-navy py-2 text-center text-sm font-bold">
+                    {plan.badge}
+                  </div>
+                )}
 
-                <div className={`p-6 ${plan.popular ? "pt-10" : ""}`}>
+                <div className={`p-6 ${plan.popular || plan.badge ? "pt-10" : ""}`}>
                   <h3
-                    className={`text-lg font-bold mb-1 ${plan.popular ? "text-white" : "text-navy"}`}>
+                    className={`text-lg font-bold mb-1 ${plan.popular || plan.badge ? "text-white" : "text-navy"}`}>
                     {plan.name}
                   </h3>
                   <p
-                    className={`text-xs mb-4 ${plan.popular ? "text-gray-300" : "text-gray-600"}`}>
+                    className={`text-xs mb-4 ${plan.popular || plan.badge ? "text-gray-300" : "text-gray-600"}`}>
                     {plan.subtitle}
                   </p>
 
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2">
                       <span
-                        className={`text-3xl font-extrabold ${plan.popular ? "text-white" : "text-navy"}`}>
+                        className={`text-3xl font-extrabold ${plan.popular || plan.badge ? "text-white" : "text-navy"}`}>
                         {plan.price}
                       </span>
                     </div>
                     <div
-                      className={`text-sm line-through ${plan.popular ? "text-gray-400" : "text-gray-500"}`}>
-                      Total Value: {plan.value}
+                      className={`text-xs mt-1 ${plan.popular || plan.badge ? "text-gray-400" : "text-gray-500"}`}>
+                      {plan.itemizedValue}
                     </div>
                   </div>
 
@@ -404,11 +409,11 @@ export default function Pricing() {
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2 text-xs">
                         <CheckIcon
-                          className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-gold" : colors.accent}`}
+                          className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-blue-400" : colors.accent}`}
                         />
                         <span
                           className={
-                            plan.popular ? "text-gray-200" : "text-gray-700"
+                            plan.popular || plan.badge ? "text-gray-200" : "text-gray-700"
                           }>
                           {feature}
                         </span>
@@ -417,9 +422,9 @@ export default function Pricing() {
                   </ul>
 
                   <div
-                    className={`mt-auto pt-4 border-t ${plan.popular ? "border-white/20" : colors.border}`}>
+                    className={`mt-auto pt-4 border-t ${plan.popular || plan.badge ? "border-white/20" : colors.border}`}>
                     <p
-                      className={`text-xs italic ${plan.popular ? "text-gray-400" : "text-gray-500"}`}>
+                      className={`text-xs italic ${plan.popular || plan.badge ? "text-gray-400" : "text-gray-500"}`}>
                       "{plan.highlight}"
                     </p>
                   </div>
@@ -430,7 +435,7 @@ export default function Pricing() {
                     href="https://wa.me/message/KTFL2G2JM3JTP1"
                     className={`block w-full text-center py-3 rounded-lg font-bold text-sm transition-all ${
                       plan.popular
-                        ? "bg-gold text-navy hover:bg-yellow-400"
+                        ? "bg-blue-500 text-white hover:bg-blue-600"
                         : `bg-navy text-white hover:bg-navy-light`
                     }`}>
                     Get Started
@@ -633,6 +638,23 @@ export default function Pricing() {
                 </motion.div>
               );
             })}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8">
+          <div className="relative flex items-center gap-4">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+            <div className="bg-white px-6 py-3 rounded-full shadow-md border border-gray-100">
+              <p className="text-navy font-semibold text-sm flex items-center gap-2">
+                <SparklesIcon className="w-4 h-4 text-gold" />
+                Building something bigger? We also build custom software for Nigerian businesses.
+              </p>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
           </div>
         </motion.div>
 
