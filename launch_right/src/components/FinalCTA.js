@@ -20,10 +20,10 @@ export default function FinalCTA() {
           className="text-center"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
-            Ready to register your business?
+            Ready to launch your business?
           </h2>
           <p className="text-lg text-white/70 max-w-xl mx-auto mb-10">
-            Join 2,000+ Nigerian entrepreneurs who trusted JurisTech to make their business real.
+            Get CAC registration, a professional website, and legal documents — all from one team that understands your business.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -31,14 +31,14 @@ export default function FinalCTA() {
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="btn-gold text-base"
             >
-              Start Registration
+              Start Your Project
               <ArrowRightIcon className="w-4 h-4" />
             </a>
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-all"
             >
-              Chat With Us
+              Get a Quote
             </a>
           </div>
 

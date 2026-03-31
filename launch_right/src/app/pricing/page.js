@@ -11,64 +11,66 @@ import {
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 import FinalCTA from "@/components/FinalCTA";
 
-const plans = [
+export const plans = [
   {
-    name: " STARTER PACK",
-    subtitle: "For side hustlers, market traders, freelancers",
-    price: "₦75,000",
-    itemizedValue: "BN Reg (₦35k) + Landing Page (₦45k) + Domain (₦15k) = ₦95,000",
-    timeline: "5-8 working days",
+    name: "START SMART",
+    subtitle: "For side hustlers, freelancers, and new business owners",
+    price: "₦80,000",
+    timeline: "5–8 working days",
     features: [
       "CAC Business Name Registration (BN)",
       "Certificate of Registration",
       "Status Report",
-      "1-page landing page",
-      "30 days WhatsApp support post-registration",
-      "Custom .com.ng Domain",
+      "1-page professional landing page",
+      "Custom .com.ng domain name",
+      "WhatsApp chat integration",
+      "Mobile-responsive design",
+      "30 days post-setup support",
     ],
-    highlight: "stop operating in the shadows",
+    highlight: "Stop looking like an unregistered business",
     color: "emerald",
   },
   {
     name: "THE ENTREPRENEUR",
-    subtitle: "For entrepreneurs, product-based businesses, consultants",
+    subtitle: "For serious business owners ready to grow",
     price: "₦135,000",
-    itemizedValue: "LTD (₦75k) + Website (₦120k) + Contracts (₦45k) = ₦240,000",
-    timeline: "7–10 working days",
+    timeline: "7–15 working days",
     features: [
-      "CAC Private Limited Company (RC Number)",
+      "CAC Private Limited Company Registration (RC Number)",
       "Certificate of Incorporation + MEMART",
-      "3-page professional business website",
-      "Custom .ng domain name (1st year FREE)",
+      "Status Report",
+      "4-page professional business website",
+      "Custom domain + hosting (1 year included)",
       "Business email setup",
-      "Shareholders Agreement (lawyer-drafted)",
-      "1 Employment or Service Contract",
-      "60 days post-registration support",
+      "WhatsApp integration",
+      "Contact form + Google Map integration",
+      "Shareholders Agreement (lawyer-drafted template)",
+      "1 Business Contract (Employment or Service)",
+      "60 days post-setup support",
     ],
-    highlight: "open doors that a business name never can",
+    highlight: "Build a business people trust, not just recognize",
     color: "blue",
     popular: true,
   },
   {
     name: "BOSS MOVE",
-    subtitle: "For growing SMEs, importers/exporters, real estate",
-    price: "₦300,000",
-    itemizedValue: "Everything in Entrepreneur + E-commerce + Legal toolkit",
-    timeline: "10–14 working days",
+    subtitle: "For growing businesses and serious founders",
+    price: "₦₦300,000",
+    timeline: "10–17 working days",
     features: [
-      "CAC Private Limited Company (RC Number)",
-      "Certificate of Incorporation + MEMART + Status Report",
-      "5-page custom business website",
-      "Paystack or Flutterwave payment integration",
-      "WhatsApp chat button on website",
+      "Everything in Entrepreneur Package",
+      "6-page custom website (with blog or portfolio)",
+      "Payment integration (Paystack or Flutterwave)",
+      "Advanced website structure & layout",
+      "2 custom legal contracts (tailored to your business)",
       "Shareholders Agreement",
-      "2 Custom Contracts (your choice)",
-      "1 Letter of Demand template",
+      "Letter of Demand template",
       "FIRS TIN Registration",
-      "SCUML pre-compliance guidance",
-      "3 months dedicated support",
+      "Basic compliance guidance (SCUML where applicable)",
+      "Priority delivery",
+      "90 days dedicated support",
     ],
-    highlight: "the letter of demand has recovered millions",
+    highlight: "Set up your business like a serious company from day one",
     color: "gold",
     badge: "Complete Setup",
   },
@@ -77,46 +79,45 @@ const plans = [
 const specialPackages = [
   {
     name: "NGO / FOUNDATION",
-    subtitle: "For churches, mosques, charities, foundations",
+    subtitle: "For NGOs, Clubs, charities, and foundations",
     price: "₦165,000",
-    itemizedValue: "IT Reg (₦130k) + Website (₦120k) + Constitution (₦30k) = ₦280,000",
     timeline: "10–20 working days",
     features: [
       "CAC Incorporated Trustee Registration (IT Number)",
-      "Constitution / Trust Deed (CAC-compliant)",
       "Certificate of Incorporation of Trustees",
-      "5-page website",
+      "Constitution / Trust Deed (CAC-compliant)",
+      "Trustee structure guidance",
+      "Name reservation & approval",
       "60 days post-registration support",
     ],
-    highlight: "dont miss funding because of paperwork",
+    highlight: "Don’t miss funding opportunities because of paperwork",
     color: "purple",
   },
   {
     name: "FOREIGN INVESTOR / DIASPORA",
-    subtitle: "For Nigerians abroad, foreign nationals, diaspora returnees",
+    subtitle: "For Nigerians abroad and foreign investors",
     price: "₦280,000",
-    itemizedValue: "Company + Website + Immigration docs + Investment agreements",
     timeline: "10–20 working days",
     features: [
-      "CAC Private Limited Company or LLC Registration",
+      "CAC Company Registration (LTD)",
       "Certificate of Incorporation + MEMART",
       "5-page professional website",
-      "Corporate bank account guidance",
-      "Expatriate Quota / Immigration advice",
+      "Corporate structure advisory",
       "Shareholders Agreement",
-      "Investment Agreement or JV Agreement",
-      "Company Compliance Calendar",
+      "Investment / JV Agreement",
+      "Bank account setup guidance",
+      "Compliance roadmap (post-registration)",
       "3 months dedicated support",
       "All documents delivered digitally",
     ],
-    highlight: "protect your investment from day one",
+    highlight: "Protect your investment from day one",
     color: "slate",
   },
 ];
 
 const regularPackages = [
   {
-    name: "Regular BN Registration",
+    name: "Business Name Registration",
     price: "₦35,000",
     originalPrice: "₦40,000",
     timeline: "3–5 working days",
@@ -124,13 +125,13 @@ const regularPackages = [
       "CAC Business Name Registration",
       "Certificate of Registration",
       "Status Report",
-      "Free Consultation",
-      "Annual Return Reminder (1 Year)",
+      "Free consultation",
+      "Annual return reminder (1 year)",
     ],
     color: "emerald",
   },
   {
-    name: "Regular LTD Registration",
+    name: "Company Registration (LTD)",
     price: "₦74,999",
     originalPrice: "₦90,000",
     timeline: "7–10 working days",
@@ -139,25 +140,23 @@ const regularPackages = [
       "Certificate of Incorporation",
       "MEMART",
       "Status Report",
-      "Certification",
-      "Free Consultation",
-      "Annual Return Reminder (1 Year)",
+      "Free consultation",
+      "Annual return reminder (1 year)",
     ],
     color: "blue",
   },
   {
-    name: "Regular IT/NGO/Club Registration",
+    name: "NGO / Trustee Registration",
     price: "₦130,000",
     originalPrice: "₦150,000",
     timeline: "10–14 working days",
     features: [
-      "CAC Incorporated Trustee Registration (IT)",
+      "CAC Incorporated Trustee Registration",
       "Certificate of Incorporation",
-      "Constitution/Trust Deed",
+      "Constitution / Trust Deed",
       "Status Report",
-      "Certification",
-      "Free Consultation",
-      "Annual Return Reminder (1 Year)",
+      "Free consultation",
+      "Annual return reminder (1 year)",
     ],
     color: "purple",
   },
@@ -174,11 +173,36 @@ const addons = [
 
 const getColorClasses = (color) => {
   const colors = {
-    emerald: { bg: "bg-emerald-50", border: "border-emerald-200", accent: "text-emerald-600", badge: "bg-emerald-500" },
-    blue: { bg: "bg-blue-50", border: "border-blue-200", accent: "text-blue-600", badge: "bg-blue-600" },
-    gold: { bg: "bg-amber-50", border: "border-amber-200", accent: "text-amber-600", badge: "bg-gold" },
-    purple: { bg: "bg-purple-50", border: "border-purple-200", accent: "text-purple-600", badge: "bg-purple-600" },
-    slate: { bg: "bg-slate-50", border: "border-slate-200", accent: "text-slate-600", badge: "bg-slate-700" },
+    emerald: {
+      bg: "bg-emerald-50",
+      border: "border-emerald-200",
+      accent: "text-emerald-600",
+      badge: "bg-emerald-500",
+    },
+    blue: {
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      accent: "text-blue-600",
+      badge: "bg-blue-600",
+    },
+    gold: {
+      bg: "bg-amber-50",
+      border: "border-amber-200",
+      accent: "text-amber-600",
+      badge: "bg-gold",
+    },
+    purple: {
+      bg: "bg-purple-50",
+      border: "border-purple-200",
+      accent: "text-purple-600",
+      badge: "bg-purple-600",
+    },
+    slate: {
+      bg: "bg-slate-50",
+      border: "border-slate-200",
+      accent: "text-slate-600",
+      badge: "bg-slate-700",
+    },
   };
   return colors[color] || colors.blue;
 };
@@ -186,7 +210,7 @@ const getColorClasses = (color) => {
 function PackageCard({ plan, isPopular = false }) {
   const colors = getColorClasses(plan.color);
   const isHighlighted = plan.popular || plan.badge;
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -210,23 +234,28 @@ function PackageCard({ plan, isPopular = false }) {
       )}
 
       <div className={`p-6 ${isHighlighted ? "pt-10" : ""}`}>
-        <h3 className={`text-xl font-bold mb-1 ${isHighlighted ? "text-white" : "text-navy"}`}>
+        <h3
+          className={`text-xl font-bold mb-1 ${isHighlighted ? "text-white" : "text-navy"}`}>
           {plan.name}
         </h3>
-        <p className={`text-sm mb-4 ${isHighlighted ? "text-gray-300" : "text-gray-600"}`}>
+        <p
+          className={`text-sm mb-4 ${isHighlighted ? "text-gray-300" : "text-gray-600"}`}>
           {plan.subtitle}
         </p>
 
         <div className="mb-4">
-          <span className={`text-4xl font-extrabold ${isHighlighted ? "text-white" : "text-navy"}`}>
+          <span
+            className={`text-4xl font-extrabold ${isHighlighted ? "text-white" : "text-navy"}`}>
             {plan.price}
           </span>
         </div>
-        <div className={`text-xs mb-4 ${isHighlighted ? "text-gray-400" : "text-gray-500"}`}>
+        <div
+          className={`text-xs mb-4 ${isHighlighted ? "text-gray-400" : "text-gray-500"}`}>
           {plan.itemizedValue}
         </div>
 
-        <div className={`flex items-center gap-2 text-sm font-medium mb-4 ${isHighlighted ? "text-gray-300" : colors.accent}`}>
+        <div
+          className={`flex items-center gap-2 text-sm font-medium mb-4 ${isHighlighted ? "text-gray-300" : colors.accent}`}>
           <ClockIcon className="w-4 h-4" />
           <span>{plan.timeline}</span>
         </div>
@@ -234,14 +263,21 @@ function PackageCard({ plan, isPopular = false }) {
         <ul className="space-y-2 mb-6">
           {plan.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
-              <CheckIcon className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isHighlighted ? "text-blue-400" : colors.accent}`} />
-              <span className={isHighlighted ? "text-gray-200" : "text-gray-700"}>{feature}</span>
+              <CheckIcon
+                className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isHighlighted ? "text-blue-400" : colors.accent}`}
+              />
+              <span
+                className={isHighlighted ? "text-gray-200" : "text-gray-700"}>
+                {feature}
+              </span>
             </li>
           ))}
         </ul>
 
-        <div className={`mt-auto pt-4 border-t ${isHighlighted ? "border-white/20" : colors.border}`}>
-          <p className={`text-sm italic ${isHighlighted ? "text-gray-400" : "text-gray-500"}`}>
+        <div
+          className={`mt-auto pt-4 border-t ${isHighlighted ? "border-white/20" : colors.border}`}>
+          <p
+            className={`text-sm italic ${isHighlighted ? "text-gray-400" : "text-gray-500"}`}>
             "{plan.highlight}"
           </p>
         </div>
@@ -251,7 +287,9 @@ function PackageCard({ plan, isPopular = false }) {
         <a
           href="https://wa.me/message/KTFL2G2JM3JTP1"
           className={`block w-full text-center py-3 rounded-lg font-bold text-sm transition-all ${
-            isHighlighted ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-navy text-white hover:bg-navy-light"
+            isHighlighted
+              ? "bg-blue-500 text-white hover:bg-blue-600"
+              : "bg-navy text-white hover:bg-navy-light"
           }`}>
           Get Started
         </a>
@@ -263,10 +301,12 @@ function PackageCard({ plan, isPopular = false }) {
 function RegularPackageCard({ pkg }) {
   const colors = getColorClasses(pkg.color);
   return (
-    <div className={`rounded-2xl overflow-hidden ${colors.bg} border ${colors.border} shadow-lg`}>
+    <div
+      className={`rounded-2xl overflow-hidden ${colors.bg} border ${colors.border} shadow-lg`}>
       <div className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <span className={`text-xs font-bold px-3 py-1 rounded-full ${colors.badge} text-white`}>
+          <span
+            className={`text-xs font-bold px-3 py-1 rounded-full ${colors.badge} text-white`}>
             REGULAR
           </span>
           <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -279,13 +319,17 @@ function RegularPackageCard({ pkg }) {
 
         <div className="mb-4">
           <span className="text-2xl font-extrabold text-navy">{pkg.price}</span>
-          <span className="text-sm text-gray-500 line-through ml-2">{pkg.originalPrice}</span>
+          <span className="text-sm text-gray-500 line-through ml-2">
+            {pkg.originalPrice}
+          </span>
         </div>
 
         <ul className="space-y-2 mb-4">
           {pkg.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-xs">
-              <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${colors.accent}`} />
+              <CheckIcon
+                className={`w-4 h-4 flex-shrink-0 mt-0.5 ${colors.accent}`}
+              />
               <span className="text-gray-700">{feature}</span>
             </li>
           ))}
@@ -311,7 +355,8 @@ export default function PricingPage() {
             CAC Registration Packages
           </h1>
           <p className="text-white/60 text-center mt-4 max-w-2xl mx-auto">
-            Professional CAC registration with websites, legal documents, and dedicated support
+            Professional CAC registration with websites, legal documents, and
+            dedicated support
           </p>
         </div>
       </div>
@@ -324,9 +369,12 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">Premium Packages</h2>
+            <h2 className="text-3xl font-bold text-navy mb-4">
+              Premium Packages
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Complete registration packages with websites, legal documents, and ongoing support
+              Complete registration packages with websites, legal documents, and
+              ongoing support
             </p>
           </motion.div>
 
@@ -346,9 +394,12 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">Special Packages</h2>
+            <h2 className="text-3xl font-bold text-navy mb-4">
+              Special Packages
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Tailored registration for NGOs, foundations, and international clients
+              Tailored registration for NGOs, foundations, and international
+              clients
             </p>
           </motion.div>
 
@@ -373,7 +424,8 @@ export default function PricingPage() {
               Regular Registration
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Streamlined registration with essential documents, status reports, and annual return reminders
+              Streamlined registration with essential documents, status reports,
+              and annual return reminders
             </p>
           </motion.div>
 

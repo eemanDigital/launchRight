@@ -23,7 +23,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2"
             >
               <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-              <span className="text-white/80 text-sm font-medium">CAC-Accredited Agent</span>
+              <span className="text-white/80 text-sm font-medium">Lawyer · CAC Agent · Developer</span>
             </motion.div>
 
             <motion.h1
@@ -32,17 +32,17 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.1]"
             >
-              Register your business in{" "}
-              <span className="text-gradient-gold">48 hours</span>
+              Launch Your Business{" "}
+              <span className="text-gradient-gold">Legally & Digitally</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-white/60 max-w-lg"
+              className="text-lg text-white/60 max-w-xl"
             >
-              CAC Registration · Professional Websites · Legal Documents — All Done For You.
+              CAC Registration · Professional Websites · Legal Documents · Software — All under one roof.
             </motion.p>
 
             <motion.div
@@ -55,7 +55,7 @@ export default function Hero() {
                 href="https://wa.me/message/KTFL2G2JM3JTP1"
                 className="btn-gold text-base"
               >
-                Start Registration
+                Start Your Project
                 <ArrowRightIcon className="w-4 h-4" />
               </a>
               <a
@@ -74,15 +74,15 @@ export default function Hero() {
             >
               <div className="flex items-center gap-2 text-white/60">
                 <CheckIcon className="w-5 h-5 text-success" />
-                <span className="text-sm">Free name search</span>
+                <span className="text-sm">CAC Registration</span>
               </div>
               <div className="flex items-center gap-2 text-white/60">
                 <CheckIcon className="w-5 h-5 text-success" />
-                <span className="text-sm">Money-back guarantee</span>
+                <span className="text-sm">Website Development</span>
               </div>
               <div className="flex items-center gap-2 text-white/60">
                 <CheckIcon className="w-5 h-5 text-success" />
-                <span className="text-sm">2,000+ businesses registered</span>
+                <span className="text-sm">Legal Compliance</span>
               </div>
             </motion.div>
 

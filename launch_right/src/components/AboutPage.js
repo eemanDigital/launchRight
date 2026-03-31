@@ -226,15 +226,12 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="flex-shrink-0">
               <div className="relative">
-                <div className="w-80 h-80 rounded-3xl bg-gradient-to-br from-gold/30 to-gold/10 border border-gold/20 flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-8">
-                    <div className="w-40 h-40 mx-auto bg-white/10 rounded-2xl flex items-center justify-center mb-4">
-                      <ScaleIcon className="w-20 h-20 text-gold/60" />
-                    </div>
-                    <p className="text-gold/80 font-medium">
-                      Add Professional Photo
-                    </p>
-                  </div>
+                <div className="w-80 h-96 rounded-3xl overflow-hidden border-2 border-gold/30 shadow-2xl">
+                  <img
+                    src="../image/my-image.png"
+                    alt="Lukman Asinmi - Founder, JurisTech"
+                    className="w-full h-full object-cover object-[center_15%]"
+                  />
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-gold text-navy px-5 py-2.5 rounded-xl font-bold text-sm shadow-xl flex items-center gap-2">
                   <ShieldCheckIcon className="w-5 h-5" />

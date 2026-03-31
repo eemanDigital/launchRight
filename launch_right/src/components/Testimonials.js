@@ -45,8 +45,7 @@ export default function Testimonials() {
             What our clients say
           </h2>
           <p className="text-gray-500">
-            Don't take our word for it — here's what entrepreneurs say about
-            working with us.
+            Don't take our word for it — here's what entrepreneurs say about working with JurisTech.
           </p>
         </motion.div>
 

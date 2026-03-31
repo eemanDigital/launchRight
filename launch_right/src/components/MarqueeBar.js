@@ -2,12 +2,13 @@
 
 export default function MarqueeBar() {
   const stats = [
-    "2,000+ businesses registered",
-    "98% first-time approval rate",
-    "4.9/5 average rating",
-    "24-48 hour business name",
+    "2,000+ clients served",
+    "CAC Registration Experts",
+    "Website Development",
+    "Legal Compliance Support",
+    "Professional Legal Documents",
     "Trusted by entrepreneurs",
-    "CAC-accredited agents",
+    "Lawyer + Developer + CAC Agent",
   ];
 
   return (

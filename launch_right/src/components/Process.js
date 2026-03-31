@@ -21,34 +21,30 @@ export default function Process() {
   const steps = [
     {
       icon: MagnifyingGlassIcon,
-      title: "Check Availability",
+      title: "Tell Us Your Needs",
       description:
-        "We check if your business name is available — free, with no commitment.",
+        "Share your business goals — we'll recommend the right combination of registration, website, and legal documents.",
       step: "Step 1",
     },
     {
       icon: DocumentTextIcon,
-      title: "We File Application",
+      title: "We Handle Everything",
       description:
-        "We prepare and submit your application to CAC correctly the first time.",
+        "We file your CAC registration, build your website, and draft your legal documents — all coordinated by our team.",
       step: "Step 2",
     },
     {
       icon: CheckCircleIcon,
-      title: "Receive Certificate",
-      description: "Get your official CAC certificate delivered to your email.",
+      title: "Launch With Confidence",
+      description: "Get your certificate, website, and legal documents delivered. Ready to operate legally from day one.",
       step: "Step 3",
     },
   ];
 
   const stats = [
-    { value: "2000", suffix: "+", label: "Businesses Registered" },
-    { value: "24-48", suffix: " hrs", label: "Business Name (Guaranteed)" },
-    {
-      value: "4-15",
-      suffix: " days",
-      label: "LTD & IT (Subject to CAC Approval)",
-    },
+    { value: "2,000+", suffix: "", label: "Clients Served" },
+    { value: "5+", suffix: "", label: "Years Experience" },
+    { value: "24-48", suffix: "hrs", label: "Business Name (Guaranteed)" },
     { value: "4.9", suffix: "★", label: "Client Rating" },
   ];
 
@@ -62,11 +58,10 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
-            How it works
+            How we work together
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            We ensure your application is correct — no rejections from errors.
-            Business Name: 24-48 hours. LTD & IT: 4-15 days (subject to CAC).
+            From idea to launch, we handle registration, websites, and legal documents — all under one roof.
           </p>
         </motion.div>
 

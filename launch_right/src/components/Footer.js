@@ -5,10 +5,11 @@ import { CheckCircleIcon, MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons
 
 export default function Footer() {
   const quickLinks = [
-    { name: "How it works", href: "#process" },
-    { name: "Services", href: "#services" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "About", href: "/about" },
+    { name: "FAQ", href: "/#faq" },
   ];
 
   const socialLinks = [
@@ -31,7 +32,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-500 text-sm mb-4 max-w-md">
-              CAC-accredited business registration in Nigeria. Fast, simple, reliable.
+              Nigerian business infrastructure company — CAC registration, websites, legal documents, and software development.
             </p>
             <div className="space-y-2 text-sm text-gray-500">
               <p className="flex items-start gap-2">

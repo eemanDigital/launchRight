@@ -5,21 +5,21 @@ import { XMarkIcon, CheckIcon } from "@heroicons/react/24/outline";
 
 export default function ProblemSolution() {
   const problems = [
-    "Difficulty understanding which type of registration to choose",
-    "Confusing requirements",
-    "Costly rejections",
-    "Unreliable agents",
-    "Weeks of endless waiting",
+    "Trying to coordinate between a lawyer, CAC agent, and web developer separately",
+    "Confusing legal requirements and compliance obligations",
+    "Poor quality websites that don't convert customers",
+    "Legal documents that don't hold up when you need them",
+    "Unreliable agents who disappear after collecting payment",
   ];
 
   const solutions = [
-    "100% online process",
-    "Free instant name availability check",
-    "Direct WhatsApp updates",
-    "24-48 hrs (Business Name Registration guaranteed)",
-    "4-15 days (LTD & IT - subject to CAC Approval)",
-    "Transparent pricing",
-    "Free consultation",
+    "Everything under one roof — lawyer, CAC agent, and developer",
+    "Legally vetted documents reviewed by qualified lawyers",
+    "Professional websites built for Nigerian businesses",
+    "Full compliance support — CAC, FIRS, SCUML",
+    "24-48 hours for Business Name (guaranteed)",
+    "7-14 days for company registration",
+    "Ongoing support for your business growth",
   ];
 
   return (
@@ -32,10 +32,10 @@ export default function ProblemSolution() {
           viewport={{ once: true }}
           className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
-            Why struggle with CAC registration?
+            Stop juggling multiple service providers
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            We've simplified the entire process. Here's how we compare.
+            We combine legal expertise, CAC accreditation, and technology to handle everything — right the first time.
           </p>
         </motion.div>
 
@@ -47,7 +47,7 @@ export default function ProblemSolution() {
             viewport={{ once: true }}
             className="bg-navy rounded-2xl p-8 lg:p-10">
             <h3 className="text-white text-xl font-semibold mb-8">
-              Traditional Registration
+              The Old Way
             </h3>
             <ul className="space-y-4">
               {problems.map((problem, index) => (
@@ -92,7 +92,7 @@ export default function ProblemSolution() {
           <a
             href="https://wa.me/message/KTFL2G2JM3JTP1"
             className="btn-primary">
-            Check Name Availability — Free
+            Start Your Project — Chat With Us
           </a>
         </motion.div>
       </div>
