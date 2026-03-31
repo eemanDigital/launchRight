@@ -55,7 +55,7 @@ export const plans = [
   {
     name: "BOSS MOVE",
     subtitle: "For growing businesses and serious founders",
-    price: "₦₦300,000",
+    price: "₦300,000",
     timeline: "10–17 working days",
     features: [
       "Everything in Entrepreneur Package",
