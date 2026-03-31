@@ -8,6 +8,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import WhyUs from "@/components/WhyUs";
 import Testimonials from "@/components/Testimonials";
+import AboutJurisTech from "@/components/AboutJurisTech";
 import FounderSection from "@/components/FounderSection";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -27,6 +28,7 @@ export default function Home() {
       <Process />
       <WhyUs />
       <Testimonials />
+      <AboutJurisTech />
       <FounderSection />
       <Pricing />
       <FAQ />
