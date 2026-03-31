@@ -17,16 +17,20 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "How it works", href: "#process" },
-    { name: "Services", href: "#services" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Services", href: "/services" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "About", href: "/about" },
+    { name: "FAQ", href: "/#faq" },
   ];
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith('/')) {
+      window.location.href = href;
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -75,7 +79,7 @@ export default function Navbar() {
         <div className="container-wide">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <div className="flex items-center">
-              <a href="#" className="flex items-center gap-2">
+              <a href="/" className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
                   <CheckCircleIcon className="w-5 h-5 text-white" />
                 </div>
