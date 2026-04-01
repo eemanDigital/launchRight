@@ -1,4 +1,5 @@
 import "./globals.css";
+import FacebookPixel from "@/components/FacebookPixel";
 
 export const metadata = {
   title: "Register Your Business in Nigeria | JurisTech",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#0A1628" />
       </head>
       <body className="font-body">
+        <FacebookPixel />
         {children}
         <div className="fixed bottom-6 right-6 z-50">
           <a
