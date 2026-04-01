@@ -13,6 +13,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 import { plans } from "../app/pricing/page";
+import { event } from "@/lib/fpixel";
 
 export default function Pricing() {
   // const plans = [
@@ -244,7 +245,8 @@ export default function Pricing() {
                         : isDark
                           ? "bg-gold text-navy hover:bg-yellow-400"
                           : "bg-navy text-white hover:bg-navy-light"
-                    }`}>
+                    }`}
+                    onClick={() => event('SelectPlan', { plan_name: plan.name, price: plan.price })}>
                     Get Started
                   </a>
 
@@ -326,7 +328,8 @@ export default function Pricing() {
           </p>
           <a
             href="https://wa.me/message/KTFL2G2JM3JTP1"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors">
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors"
+            onClick={() => event('Contact', { content_name: 'Pricing Custom Quote', method: 'WhatsApp' })}>
             Chat With Us for a Tailored Quote
           </a>
         </motion.div>

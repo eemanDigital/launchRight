@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRightIcon, CheckIcon, ShieldCheckIcon, StarIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { event } from "@/lib/fpixel";
 
 export default function FinalCTA() {
   return (
@@ -30,6 +31,7 @@ export default function FinalCTA() {
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="btn-gold text-base"
+              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}
             >
               Start Your Project
               <ArrowRightIcon className="w-4 h-4" />
@@ -37,6 +39,7 @@ export default function FinalCTA() {
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-all"
+              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Get Quote' })}
             >
               Get a Quote
             </a>

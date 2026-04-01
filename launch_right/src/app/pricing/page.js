@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 import FinalCTA from "@/components/FinalCTA";
+import { event } from "@/lib/fpixel";
 
 export const plans = [
   {
@@ -211,6 +212,14 @@ function PackageCard({ plan, isPopular = false }) {
   const colors = getColorClasses(plan.color);
   const isHighlighted = plan.popular || plan.badge;
 
+  const handleGetStarted = () => {
+    event('SelectPlan', { 
+      plan_name: plan.name, 
+      price: plan.price,
+      package_type: 'premium'
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -290,7 +299,8 @@ function PackageCard({ plan, isPopular = false }) {
             isHighlighted
               ? "bg-blue-500 text-white hover:bg-blue-600"
               : "bg-navy text-white hover:bg-navy-light"
-          }`}>
+          }`}
+          onClick={handleGetStarted}>
           Get Started
         </a>
       </div>
@@ -300,6 +310,15 @@ function PackageCard({ plan, isPopular = false }) {
 
 function RegularPackageCard({ pkg }) {
   const colors = getColorClasses(pkg.color);
+
+  const handleGetStarted = () => {
+    event('SelectPlan', { 
+      plan_name: pkg.name, 
+      price: pkg.price,
+      package_type: 'regular'
+    });
+  };
+
   return (
     <div
       className={`rounded-2xl overflow-hidden ${colors.bg} border ${colors.border} shadow-lg`}>
@@ -337,7 +356,8 @@ function RegularPackageCard({ pkg }) {
 
         <a
           href="https://wa.me/message/KTFL2G2JM3JTP1"
-          className="block w-full text-center py-3 rounded-lg font-bold text-sm bg-navy text-white hover:bg-navy-light transition-colors">
+          className="block w-full text-center py-3 rounded-lg font-bold text-sm bg-navy text-white hover:bg-navy-light transition-colors"
+          onClick={handleGetStarted}>
           Get Started
         </a>
       </div>

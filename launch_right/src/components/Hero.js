@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRightIcon, CheckIcon, ShieldCheckIcon, ClockIcon, CurrencyDollarIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { event } from "@/lib/fpixel";
 
 export default function Hero() {
   return (
@@ -54,6 +55,7 @@ export default function Hero() {
               <a
                 href="https://wa.me/message/KTFL2G2JM3JTP1"
                 className="btn-gold text-base"
+                onClick={() => event('Contact', { content_name: 'Hero CTA', method: 'WhatsApp' })}
               >
                 Start Your Project
                 <ArrowRightIcon className="w-4 h-4" />
@@ -95,6 +97,7 @@ export default function Hero() {
               <a
                 href="tel:08067234189"
                 className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2 hover:bg-white/10 transition-colors"
+                onClick={() => event('Contact', { content_name: 'Phone Click', method: 'Phone' })}
               >
                 <PhoneIcon className="w-5 h-5 text-gold" />
                 <span className="text-white font-medium">08067234189</span>
