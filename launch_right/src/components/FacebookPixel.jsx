@@ -1,23 +1,36 @@
-'use client';
+"use client";
 
-import Script from 'next/script';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
-import { pageview } from '@/lib/fpixel';
+import Script from "next/script";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, Suspense } from "react";
+import * as fbq from "@/lib/fpixel";
 
 const FACEBOOK_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
-export default function FacebookPixel() {
+function FacebookPixelInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const url = pathname + searchParams.toString();
-    pageview(url);
+    if (!FACEBOOK_PIXEL_ID) return;
+
+    const queryString = searchParams.toString();
+    const url = pathname + (queryString ? `?${queryString}` : "");
+
+    fbq.pageview(url);
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+export default function FacebookPixel() {
+  if (!FACEBOOK_PIXEL_ID) {
+    return null;
+  }
+
   return (
-    <>
+    <Suspense fallback={null}>
+      <FacebookPixelInner />
       <Script
         id="facebook-pixel"
         strategy="afterInteractive"
@@ -40,11 +53,11 @@ export default function FacebookPixel() {
         <img
           height="1"
           width="1"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           src={`https://www.facebook.com/tr?id=${FACEBOOK_PIXEL_ID}&ev=PageView&noscript=1`}
           alt=""
         />
       </noscript>
-    </>
+    </Suspense>
   );
 }
