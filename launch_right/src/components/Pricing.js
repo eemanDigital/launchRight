@@ -12,7 +12,7 @@ import {
   SparklesIcon,
 } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
-import { plans } from "../app/pricing/page";
+import { pricingPlans as plans } from "@/data/pricingData";
 import { event } from "@/lib/fpixel";
 
 export default function Pricing() {

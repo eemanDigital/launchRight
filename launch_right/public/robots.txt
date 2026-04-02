@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://juristech.com.ng/sitemap.xml
+
+# Block common crawler issues
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+Disallow: /*.json$
