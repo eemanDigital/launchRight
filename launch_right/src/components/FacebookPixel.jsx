@@ -7,6 +7,7 @@ import * as fbq from "@/lib/fpixel";
 
 const FACEBOOK_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
+console.log(FACEBOOK_PIXEL_ID);
 function FacebookPixelInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
