@@ -1,6 +1,6 @@
 'use client';
 
-import { event } from "@/lib/fpixel";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export default function WhatsAppFloat() {
   return (
@@ -9,7 +9,7 @@ export default function WhatsAppFloat() {
         href="https://wa.me/message/KTFL2G2JM3JTP1"
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => event('Contact', { content_name: 'Floating WhatsApp', method: 'WhatsApp' })}
+        onClick={() => trackWhatsAppClick("Floating WhatsApp Button")}
         className="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20BD5A] transition-all flex items-center justify-center"
         aria-label="Chat on WhatsApp">
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

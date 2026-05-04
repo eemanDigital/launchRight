@@ -1,120 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ScaleIcon,
-  CheckBadgeIcon,
-  SparklesIcon,
-} from "@heroicons/react/24/outline";
-import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
 
 export default function FounderSection() {
   return (
-    <section
-      id="founder"
-      className="section-pad bg-navy relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-40 w-[400px] h-[400px] bg-gold/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container-wide relative">
+    <section className="py-16 lg:py-20 bg-white border-t border-gray-100/80">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="max-w-4xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="flex-shrink-0">
               <div className="relative">
-                <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 border-2 border-gold/30 flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-3">
-                      <ScaleIcon className="w-16 h-16 text-gold/50" />
-                    </div>
-                    <p className="text-gold/60 text-sm">Add Photo</p>
-                  </div>
-                </div>
-                <div className="absolute -bottom-3 -right-3 bg-gold text-navy px-4 py-2 rounded-lg font-bold text-sm shadow-lg">
-                  <CheckBadgeIcon className="w-4 h-4 inline mr-1" />
-                  CAC Accredited
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent rounded-full blur-xl scale-110" />
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-gold/10 shadow-xl">
+                  <img
+                    src="/image/my-image.png"
+                    alt="Lukman Asinmi, Founder of JurisTech"
+                    className="w-full h-full object-cover object-[center_15%]"
+                  />
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-4">
-                <StarIconSolid className="w-4 h-4 text-gold" />
-                <span className="text-gold text-sm font-medium">
-                  Meet Your Registration Expert
+            <div className="text-center md:text-left flex-1">
+              <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
+                The Founder
+              </p>
+              <h2 className="text-2xl lg:text-3xl font-bold text-navy mb-3 tracking-tight">
+                I'm Lukman Asinmi
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5 max-w-2xl">
+                I'm a practising Nigerian lawyer, CAC-accredited agent, and MERN stack developer. I built JurisTech because I got tired of watching businesses fail over preventable legal and technical mistakes. Everything we deliver, I personally stand behind.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-5">
+                <span className="inline-flex items-center gap-1.5 text-sm text-muted bg-surface px-3 py-1.5 rounded-full border border-gray-100">
+                  <ShieldCheckIcon className="w-4 h-4 text-gold" />
+                  NBA Member
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-sm text-muted bg-surface px-3 py-1.5 rounded-full border border-gray-100">
+                  <ShieldCheckIcon className="w-4 h-4 text-gold" />
+                  CAC-Accredited
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-sm text-muted bg-surface px-3 py-1.5 rounded-full border border-gray-100">
+                  <ShieldCheckIcon className="w-4 h-4 text-gold" />
+                  2,000+ clients
                 </span>
               </div>
-
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                Lukman Asinmi, Esq.
-              </h2>
-              <p className="text-gold font-medium mb-6">
-                Lawyer · CAC-Accredited Agent · Software Developer - Founder,
-                JurisTech
-              </p>
-
-              <div className="space-y-4 text-gray-300 leading-relaxed mb-8">
-                <p>
-                  I'm a Nigerian lawyer, Software Developer and CAC-accredited
-                  agent with hands-on experience in business registration,
-                  corporate compliance, and Software/Website Development. Every
-                  registration that goes through JurisTech is personally
-                  overseen by me — not outsourced, not delegated.
-                </p>
-                <p>
-                  I built JurisTech because I kept watching entrepreneurs get
-                  exploited by unreliable agents and overpriced lawyers. My NBA
-                  membership ensures every legal document we produce meets
-                  professional standards.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2">
-                  <p className="text-white/50 text-xs mb-1">NBA Member</p>
-                  <p className="text-white font-semibold text-sm">
-                    Nigerian Bar Association
-                  </p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2">
-                  <p className="text-white/50 text-xs mb-1">
-                    Businesses Registered
-                  </p>
-                  <p className="text-white font-semibold text-sm">
-                    2,000+ Successfully
-                  </p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2">
-                  <p className="text-white/50 text-xs mb-1">Experience</p>
-                  <p className="text-white font-semibold text-sm">
-                    5+ Years Practice
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href="https://wa.me/message/KTFL2G2JM3JTP1"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold text-navy font-bold rounded-xl hover:bg-yellow-400 transition-colors">
-                <SparklesIcon className="w-5 h-5" />
-                Chat Directly With Me
-              </a>
-            </motion.div>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-1 text-gold font-medium hover:gap-2 transition-all duration-200">
+                Read My Full Story <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

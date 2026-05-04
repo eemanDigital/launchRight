@@ -3,9 +3,12 @@ import Hero from "@/components/Hero";
 import MarqueeBar from "@/components/MarqueeBar";
 import ProblemSolution from "@/components/ProblemSolution";
 import Process from "@/components/Process";
+import WhoIsThisFor from "@/components/WhoIsThisFor";
+import ProductsSection from "@/components/ProductsSection";
 import Testimonials from "@/components/Testimonials";
+import BlogPreview from "@/components/BlogPreview";
+import FounderSection from "@/components/FounderSection";
 import Pricing from "@/components/Pricing";
-import ServiceLinks from "@/components/ServiceLinks";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -16,8 +19,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Register Your Business in Nigeria | JurisTech"
-        description="CAC business registration in 48 hours. Trusted by 2,000+ entrepreneurs. 100% online. Money-back guarantee."
+        title="Nigerian Legal-Tech Company — CAC, Websites & Software | JurisTech"
+        description="Built by a practising Nigerian lawyer who also codes. CAC registration, legal documents, websites, and SaaS products for Nigerian businesses."
         canonical="/"
         type="website"
         schema="organization"
@@ -25,13 +28,16 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MarqueeBar />
+      <WhoIsThisFor />
       <ProblemSolution />
       <Process />
+      <ProductsSection />
       <Testimonials />
+      <BlogPreview />
       <Pricing />
-      <ServiceLinks />
       <FAQ />
       <FAQSchema />
+      <FounderSection />
       <FinalCTA />
       <Footer />
     </main>

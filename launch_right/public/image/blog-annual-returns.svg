@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="600" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E3448"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#bg)"/>
+  <!-- Decorative -->
+  <circle cx="500" cy="80" r="100" fill="#10B981" opacity="0.06"/>
+  <circle cx="100" cy="230" r="80" fill="#C9972B" opacity="0.08"/>
+  <!-- Calendar -->
+  <rect x="220" y="50" width="160" height="140" rx="12" fill="#152238" stroke="#2A4A6B" stroke-width="1"/>
+  <rect x="220" y="50" width="160" height="35" rx="12" fill="#2A4A6B"/>
+  <rect x="220" y="65" width="160" height="20" fill="#2A4A6B"/>
+  <!-- Calendar rings -->
+  <rect x="245" y="42" width="6" height="20" rx="3" fill="#C9972B"/>
+  <rect x="345" y="42" width="6" height="20" rx="3" fill="#C9972B"/>
+  <!-- Month label -->
+  <rect x="280" y="58" width="40" height="10" rx="5" fill="#C9972B" opacity="0.4"/>
+  <!-- Calendar days grid -->
+  <g opacity="0.3">
+    <rect x="235" y="100" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="260" y="100" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="285" y="100" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="310" y="100" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="335" y="100" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="235" y="122" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="260" y="122" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="285" y="122" width="20" height="16" rx="3" fill="#C9972B" opacity="0.5"/>
+    <rect x="310" y="122" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="335" y="122" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="235" y="144" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="260" y="144" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="285" y="144" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="310" y="144" width="20" height="16" rx="3" fill="#2A4A6B"/>
+    <rect x="335" y="144" width="20" height="16" rx="3" fill="#2A4A6B"/>
+  </g>
+  <!-- Alert badge -->
+  <rect x="150" y="130" width="80" height="35" rx="17" fill="#152238" stroke="#EF4444" stroke-width="1"/>
+  <text x="162" y="152" font-family="sans-serif" font-size="10" fill="#EF4444" font-weight="bold">⚠ Due</text>
+  <!-- Info card -->
+  <rect x="380" y="210" width="100" height="50" rx="8" fill="#152238" stroke="#2A4A6B" stroke-width="0.5"/>
+  <text x="392" y="230" font-family="sans-serif" font-size="10" fill="#C9972B" font-weight="bold">Annual</text>
+  <text x="392" y="245" font-family="sans-serif" font-size="9" fill="#6B7280">Returns Filing</text>
+</svg>

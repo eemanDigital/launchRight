@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#152238"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C9972B"/>
+      <stop offset="100%" stop-color="#E8B84B"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bg)"/>
+  <!-- Document generator UI -->
+  <rect x="60" y="25" width="280" height="200" rx="12" fill="#1E3448" stroke="#2A4A6B" stroke-width="1"/>
+  <!-- Header -->
+  <rect x="60" y="25" width="280" height="45" rx="12" fill="#152238"/>
+  <rect x="60" y="50" width="280" height="20" fill="#152238"/>
+  <circle cx="85" cy="47" r="10" fill="#C9972B" opacity="0.3"/>
+  <text x="105" y="51" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold">Document Generator</text>
+  <rect x="270" y="40" width="55" height="14" rx="7" fill="#C9972B"/>
+  <text x="278" y="50" font-family="sans-serif" font-size="7" fill="#0A1628" font-weight="bold">LIVE</text>
+  <!-- Form area -->
+  <rect x="85" y="75" width="230" height="35" rx="6" fill="#0A1628"/>
+  <rect x="95" y="85" width="80" height="8" rx="4" fill="#2A4A6B"/>
+  <rect x="240" y="85" width="60" height="12" rx="6" fill="#2A4A6B"/>
+  <rect x="85" y="118" width="230" height="35" rx="6" fill="#0A1628"/>
+  <rect x="95" y="128" width="100" height="8" rx="4" fill="#2A4A6B"/>
+  <rect x="240" y="128" width="60" height="12" rx="6" fill="#2A4A6B"/>
+  <rect x="85" y="161" width="230" height="35" rx="6" fill="#0A1628"/>
+  <rect x="95" y="171" width="70" height="8" rx="4" fill="#2A4A6B"/>
+  <rect x="240" y="171" width="60" height="12" rx="6" fill="#2A4A6B"/>
+  <!-- Generate button -->
+  <rect x="150" y="205" width="100" height="15" rx="7" fill="url(#gold)"/>
+  <text x="168" y="215" font-family="sans-serif" font-size="7" fill="#0A1628" font-weight="bold">Generate →</text>
+  <!-- Decorative elements -->
+  <circle cx="30" cy="200" r="20" fill="#C9972B" opacity="0.08"/>
+  <circle cx="370" cy="80" r="30" fill="#059669" opacity="0.06"/>
+</svg>

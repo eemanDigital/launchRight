@@ -60,12 +60,13 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
-            Frequently asked questions
+          <span className="badge-gold badge mb-4 inline-flex">FAQ</span>
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy tracking-tight">
+            Frequently Asked Questions
           </h2>
         </motion.div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -73,17 +74,21 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="border-b border-gray-100"
+              className={`rounded-xl border transition-colors ${
+                openIndex === index
+                  ? "border-gold/20 bg-gold/[0.03]"
+                  : "border-gray-100 hover:border-gray-200"
+              }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-5 flex justify-between items-center text-left hover:opacity-70 transition-opacity"
+                className="w-full py-5 px-6 flex justify-between items-center text-left"
               >
-                <span className="font-medium text-navy pr-4">{faq.question}</span>
-                <ChevronDownIcon 
-                  className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`} 
+                <span className={`font-medium text-sm pr-4 ${openIndex === index ? "text-gold" : "text-navy"}`}>{faq.question}</span>
+                <ChevronDownIcon
+                  className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
+                    openIndex === index ? "rotate-180 text-gold" : "text-muted-light"
+                  }`}
                 />
               </button>
               <AnimatePresence>
@@ -95,7 +100,7 @@ export default function FAQ() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <div className="pb-5 text-gray-500 leading-relaxed">
+                    <div className="pb-5 px-6 text-muted text-sm leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

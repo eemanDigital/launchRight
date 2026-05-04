@@ -30,32 +30,38 @@ export default function ProblemSolution() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4">
-            Stop juggling multiple service providers
+          className="text-center mb-14">
+          <span className="badge badge-navy mb-4 inline-flex">THE PROBLEM & SOLUTION</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-4 tracking-tight">
+            Stop Juggling Multiple Providers
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
+          <p className="text-muted max-w-xl mx-auto text-lg">
             We combine legal expertise, CAC accreditation, and technology to handle everything — right the first time.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-navy rounded-2xl p-8 lg:p-10">
-            <h3 className="text-white text-xl font-semibold mb-8">
-              The Old Way
-            </h3>
+            className="card-dark p-8 lg:p-10">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                <XMarkIcon className="w-5 h-5 text-red-400" />
+              </div>
+              <h3 className="text-white text-xl font-semibold tracking-tight">
+                The Old Way
+              </h3>
+            </div>
             <ul className="space-y-4">
               {problems.map((problem, index) => (
                 <li
                   key={index}
-                  className="flex items-start gap-3 text-white/60">
-                  <XMarkIcon className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                  <span>{problem}</span>
+                  className="flex items-start gap-3 text-white/55">
+                  <XMarkIcon className="w-5 h-5 text-red-400/60 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm leading-relaxed">{problem}</span>
                 </li>
               ))}
             </ul>
@@ -66,17 +72,22 @@ export default function ProblemSolution() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-surface rounded-2xl p-8 lg:p-10 border border-gray-100">
-            <h3 className="text-navy text-xl font-semibold mb-8">
-              With JurisTech
-            </h3>
+            className="card-premium p-8 lg:p-10 bg-surface">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center">
+                <CheckIcon className="w-5 h-5 text-success" />
+              </div>
+              <h3 className="text-navy text-xl font-semibold tracking-tight">
+                With JurisTech
+              </h3>
+            </div>
             <ul className="space-y-4">
               {solutions.map((solution, index) => (
                 <li
                   key={index}
                   className="flex items-start gap-3 text-gray-700">
                   <CheckIcon className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                  <span>{solution}</span>
+                  <span className="text-sm leading-relaxed">{solution}</span>
                 </li>
               ))}
             </ul>

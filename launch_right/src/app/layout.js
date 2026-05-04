@@ -1,16 +1,20 @@
 import "./globals.css";
 import FacebookPixel from "@/components/FacebookPixel";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   metadataBase: new URL("https://juristech.com.ng"),
   title: {
-    default: "Register Your Business in Nigeria | JurisTech",
+    default: "Nigerian Legal-Tech Company — CAC, Websites & Software | JurisTech",
     template: "%s | JurisTech",
   },
   description:
-    "CAC business registration in 48 hours. Trusted by 2,000+ entrepreneurs. 100% online. Money-back guarantee.",
+    "Built by a practising Nigerian lawyer who also codes. CAC registration, legal documents, websites, and SaaS products for Nigerian businesses. 2,000+ clients served.",
   keywords: [
     "CAC registration Nigeria",
     "business registration Nigeria",
@@ -20,10 +24,12 @@ export const metadata = {
     "company registration Abuja",
     "website development Nigeria",
     "legal documents Nigeria",
-    "CAC registration cost",
-    "register business name Nigeria",
+    "legal tech Nigeria",
+    "lawyer developer Nigeria",
+    "Lukman Asinmi",
+    "JurisTech",
   ],
-  authors: [{ name: "JurisTech", url: "https://juristech.com.ng" }],
+  authors: [{ name: "Lukman Asinmi", url: "https://juristech.com.ng" }],
   creator: "JurisTech",
   publisher: "JurisTech",
   formatDetection: {
@@ -36,16 +42,16 @@ export const metadata = {
     locale: "en_NG",
     alternateLocale: "en_US",
     siteName: "JurisTech",
-    title: "Register Your Business in Nigeria | JurisTech",
+    title: "Nigerian Legal-Tech Company | JurisTech",
     description:
-      "CAC business registration in 48 hours. Trusted by 2,000+ entrepreneurs. 100% online. Money-back guarantee.",
+      "Built by a practising Nigerian lawyer who also codes. CAC registration, legal documents, websites, and SaaS products.",
     url: "https://juristech.com.ng",
     images: [
       {
         url: "/image/logo.png",
         width: 1200,
         height: 630,
-        alt: "JurisTech - Business Registration in Nigeria",
+        alt: "JurisTech - Nigerian Legal-Tech Company",
       },
     ],
   },
@@ -53,9 +59,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@juristech",
     creator: "@juristech",
-    title: "Register Your Business in Nigeria | JurisTech",
+    title: "Nigerian Legal-Tech Company | JurisTech",
     description:
-      "CAC business registration in 48 hours. Trusted by 2,000+ entrepreneurs.",
+      "Built by a practising Nigerian lawyer who also codes.",
     images: ["/image/logo.png"],
   },
   robots: {
@@ -86,14 +92,18 @@ export default function RootLayout({ children }) {
           type="website"
           schema="organization"
         />
+        <LocalBusinessSchema />
+        <OrganizationSchema />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#0B1F3A" />
       </head>
       <body className="font-body">
         <FacebookPixel />
+        <GoogleAnalytics />
         {children}
         <WhatsAppFloat />
+        <SpeedInsights />
       </body>
     </html>
   );

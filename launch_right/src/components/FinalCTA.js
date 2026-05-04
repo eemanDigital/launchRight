@@ -7,9 +7,12 @@ import { event } from "@/lib/fpixel";
 export default function FinalCTA() {
   return (
     <section className="section-pad bg-navy relative overflow-hidden">
+      <div className="absolute inset-0 hero-gradient-mesh" />
+
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 -left-40 w-[400px] h-[400px] bg-gold/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-40 w-[400px] h-[400px] bg-gold/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-gold/8 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-gold/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container-narrow relative">
@@ -20,17 +23,22 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
-            Ready to launch your business?
+          <span className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-8">
+            <StarIcon className="w-4 h-4 text-gold" />
+            <span className="text-white/70 text-sm font-medium">Trusted by 2,000+ entrepreneurs</span>
+          </span>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 tracking-tight">
+            Ready to Launch Your Business?
           </h2>
-          <p className="text-lg text-white/70 max-w-xl mx-auto mb-10">
+          <p className="text-lg text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
             Get CAC registration, a professional website, and legal documents — all from one team that understands your business.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="btn-gold text-base"
+              className="btn-gold text-base shadow-lg shadow-gold/20"
               onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}
             >
               Start Your Project
@@ -38,31 +46,31 @@ export default function FinalCTA() {
             </a>
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all"
               onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Get Quote' })}
             >
               Get a Quote
             </a>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-10">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-              <MapPinIcon className="w-6 h-6 text-gold mx-auto mb-2" />
-              <p className="text-white/80 text-sm">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</p>
+          <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
+              <MapPinIcon className="w-6 h-6 text-gold mx-auto mb-3" />
+              <p className="text-white/70 text-sm">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-              <PhoneIcon className="w-6 h-6 text-gold mx-auto mb-2" />
-              <a href="tel:08067234189" className="text-white/80 text-sm hover:text-white">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
+              <PhoneIcon className="w-6 h-6 text-gold mx-auto mb-3" />
+              <a href="tel:08067234189" className="text-white/70 text-sm hover:text-white transition-colors">
                 08067234189
               </a>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-              <ShieldCheckIcon className="w-6 h-6 text-gold mx-auto mb-2" />
-              <p className="text-white/80 text-sm">CAC-Accredited Agent</p>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
+              <ShieldCheckIcon className="w-6 h-6 text-gold mx-auto mb-3" />
+              <p className="text-white/70 text-sm">CAC-Accredited Agent</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-white/60 text-sm">
+          <div className="flex flex-wrap justify-center gap-6 text-white/50 text-sm">
             <span className="flex items-center gap-2">
               <CheckIcon className="w-4 h-4 text-success" />
               Money-back guarantee
@@ -78,6 +86,8 @@ export default function FinalCTA() {
           </div>
         </motion.div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );
 }

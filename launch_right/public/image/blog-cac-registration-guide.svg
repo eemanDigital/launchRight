@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="600" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#152238"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="500" cy="80" r="120" fill="#C9972B" opacity="0.08"/>
+  <circle cx="100" cy="250" r="80" fill="#059669" opacity="0.06"/>
+  <!-- Document icon -->
+  <rect x="220" y="60" width="160" height="180" rx="12" fill="#1E3448" stroke="#2A4A6B" stroke-width="1"/>
+  <rect x="240" y="90" width="120" height="8" rx="4" fill="#C9972B" opacity="0.6"/>
+  <rect x="240" y="110" width="100" height="6" rx="3" fill="#2A4A6B"/>
+  <rect x="240" y="125" width="90" height="6" rx="3" fill="#2A4A6B"/>
+  <rect x="240" y="140" width="110" height="6" rx="3" fill="#2A4A6B"/>
+  <rect x="240" y="160" width="80" height="6" rx="3" fill="#2A4A6B"/>
+  <rect x="240" y="175" width="95" height="6" rx="3" fill="#2A4A6B"/>
+  <!-- Seal -->
+  <circle cx="300" cy="210" r="18" fill="none" stroke="#C9972B" stroke-width="1.5"/>
+  <text x="286" y="214" font-family="sans-serif" font-size="9" fill="#C9972B" font-weight="bold">CAC</text>
+  <!-- Floating badges -->
+  <rect x="120" y="120" width="70" height="28" rx="14" fill="#152238" stroke="#2A4A6B" stroke-width="0.5"/>
+  <text x="132" y="138" font-family="sans-serif" font-size="9" fill="#10B981">✓ Verified</text>
+  <rect x="410" y="140" width="80" height="28" rx="14" fill="#152238" stroke="#2A4A6B" stroke-width="0.5"/>
+  <text x="422" y="158" font-family="sans-serif" font-size="9" fill="#E8B84B">📋 Guide</text>
+</svg>

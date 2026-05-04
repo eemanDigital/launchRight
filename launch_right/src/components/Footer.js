@@ -2,14 +2,30 @@
 
 import { motion } from "framer-motion";
 import { CheckCircleIcon, MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function Footer() {
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
-    { name: "FAQ", href: "/#faq" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const resourcesLinks = [
+    { name: "Blog", href: "/resources/blog" },
+    { name: "Free Downloads", href: "/resources#downloads" },
+    { name: "Document Generator", href: "/tools/document-generator" },
+  ];
+
+  const serviceLinks = [
+    { name: "CAC Registration", href: "/services#cac" },
+    { name: "Legal Documents", href: "/services#legal" },
+    { name: "Compliance", href: "/services#compliance" },
+    { name: "Website Dev", href: "/services#web" },
+    { name: "Custom Software", href: "/services#software" },
   ];
 
   const socialLinks = [
@@ -19,69 +35,100 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-surface-dark py-12 border-t border-gray-100">
-      <div className="container-wide">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-navy flex items-center justify-center">
+    <footer className="bg-surface-dark">
+      <div className="section-divider-gold" />
+      <div className="container-wide py-14 lg:py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2.5 mb-5">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-navy to-navy-light flex items-center justify-center shadow-sm">
                 <CheckCircleIcon className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-semibold text-navy">
+              <span className="text-xl font-semibold text-navy tracking-tight">
                 JurisTech
               </span>
             </div>
-            <p className="text-gray-500 text-sm mb-4 max-w-md">
-              Nigerian business infrastructure company — CAC registration, websites, legal documents, and software development.
+            <p className="text-muted text-sm mb-6 max-w-md leading-relaxed">
+              Nigerian legal-tech company — CAC registration, websites, legal documents, and software built by a practising lawyer who codes.
             </p>
-            <div className="space-y-2 text-sm text-gray-500">
-              <p className="flex items-start gap-2">
-                <MapPinIcon className="w-4 h-4 mt-0.5 text-gold" />
+            <div className="space-y-3 text-sm text-muted">
+              <p className="flex items-start gap-2.5">
+                <MapPinIcon className="w-4 h-4 mt-0.5 text-gold flex-shrink-0" />
                 Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja
               </p>
-              <p className="flex items-center gap-2">
-                <PhoneIcon className="w-4 h-4 text-gold" />
-                <a href="tel:08067234189" className="hover:text-navy">08067234189</a>
+              <p className="flex items-center gap-2.5">
+                <PhoneIcon className="w-4 h-4 text-gold flex-shrink-0" />
+                <a href="tel:08067234189" className="hover:text-navy transition-colors">08067234189</a>
               </p>
-              <p className="flex items-center gap-2">
-                <EnvelopeIcon className="w-4 h-4 text-gold" />
-                <a href="mailto:hello@juristech.com" className="hover:text-navy">hello@juristech.com</a>
+              <p className="flex items-center gap-2.5">
+                <EnvelopeIcon className="w-4 h-4 text-gold flex-shrink-0" />
+                <a href="mailto:hello@juristech.com" className="hover:text-navy transition-colors">hello@juristech.com</a>
               </p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-navy font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 className="text-navy font-semibold text-sm mb-4 tracking-wide uppercase">Quick Links</h4>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-navy transition-colors"
+                    className="text-sm text-muted hover:text-navy transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-navy font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2">
-              {socialLinks.map((link) => (
+            <h4 className="text-navy font-semibold text-sm mb-4 tracking-wide uppercase">Services</h4>
+            <ul className="space-y-2.5">
+              {serviceLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-500 hover:text-navy transition-colors"
+                    className="text-sm text-muted hover:text-navy transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div>
+            <h4 className="text-navy font-semibold text-sm mb-4 tracking-wide uppercase">Resources</h4>
+            <ul className="space-y-2.5">
+              {resourcesLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted hover:text-navy transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="pt-4 mt-4 border-t border-gray-100">
+              <h4 className="text-navy font-semibold text-sm mb-3 tracking-wide uppercase">Follow Us</h4>
+              <div className="space-y-2.5">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm text-muted hover:text-navy transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -90,9 +137,13 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="pt-8 border-t border-gray-200 text-center text-gray-400 text-sm"
+          className="pt-8 border-t border-gray-200/80 flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <p>© 2025 JurisTech. All rights reserved.</p>
+          <p className="text-muted-light text-sm">&copy; {new Date().getFullYear()} JurisTech. All rights reserved.</p>
+          <div className="flex items-center gap-1 text-muted-light text-xs">
+            <span className="w-2 h-2 bg-success rounded-full animate-pulse mr-1.5"></span>
+            All systems operational
+          </div>
         </motion.div>
       </div>
     </footer>
