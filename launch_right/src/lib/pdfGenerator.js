@@ -191,8 +191,8 @@ export async function generateTenancyAgreement(data) {
   y += 6;
   doc.setFontSize(8);
   doc.setTextColor(107, 114, 128);
-  doc.text(data.landlordName, 18, y);
-  doc.text(data.tenantName, 105, y);
+  doc.text(data.landlordName || "N/A", 18, y);
+  doc.text(data.tenantName || "N/A", 105, y);
 
   addFooter(doc, doc.internal.getNumberOfPages());
 
@@ -257,8 +257,8 @@ export async function generateServiceAgreement(data) {
   y += 6;
   doc.setFontSize(8);
   doc.setTextColor(107, 114, 128);
-  doc.text(data.providerName, 18, y);
-  doc.text(data.clientName, 105, y);
+  doc.text(data.providerName || "N/A", 18, y);
+  doc.text(data.clientName || "N/A", 105, y);
 
   addFooter(doc, doc.internal.getNumberOfPages());
 
@@ -317,8 +317,8 @@ export async function generateNDA(data) {
   y += 6;
   doc.setFontSize(8);
   doc.setTextColor(107, 114, 128);
-  doc.text(data.disclosingParty, 18, y);
-  doc.text(data.receivingParty, 105, y);
+  doc.text(data.disclosingParty || "N/A", 18, y);
+  doc.text(data.receivingParty || "N/A", 105, y);
 
   addFooter(doc, doc.internal.getNumberOfPages());
 
@@ -390,7 +390,7 @@ export async function generateEmploymentLetter(data) {
   y += 5;
   doc.setFontSize(8);
   doc.setTextColor(107, 114, 128);
-  doc.text(`For: ${data.companyName}`, 15, y);
+  doc.text(`For: ${data.companyName || "N/A"}`, 15, y);
 
   addFooter(doc, doc.internal.getNumberOfPages());
 
@@ -404,41 +404,43 @@ export async function generateLoanAgreement(data) {
 
   addHeader(doc, "LOAN AGREEMENT");
 
-  y = addField(doc, "Date:", new Date().toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
+  y = addField(doc, "Date:", safeDate(new Date()), y);
   y += 5;
 
   y = addSection(doc, "Parties", y);
-  y = addField(doc, "Lender:", data.lenderName, y);
-  y = addField(doc, "Address:", data.lenderAddress, y);
+  y = addField(doc, "Lender:", data.lenderName || "N/A", y);
+  y = addField(doc, "Address:", data.lenderAddress || "N/A", y);
   y += 3;
-  y = addField(doc, "Borrower:", data.borrowerName, y);
-  y = addField(doc, "Address:", data.borrowerAddress, y);
+  y = addField(doc, "Borrower:", data.borrowerName || "N/A", y);
+  y = addField(doc, "Address:", data.borrowerAddress || "N/A", y);
   y += 8;
 
   y = addSection(doc, "Loan Details", y);
-  y = addField(doc, "Loan Amount:", `₦${Number(data.loanAmount).toLocaleString()}`, y);
-  y = addField(doc, "Interest Rate:", data.interestRate ? `${data.interestRate}%` : "0% (Interest-free)", y);
-  y = addField(doc, "Repayment Due Date:", new Date(data.repaymentDate).toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
-  y = addField(doc, "Repayment Method:", data.repaymentMethod, y);
+  const loanAmt = safeNumber(data.loanAmount);
+  const interestRate = data.interestRate ? safeNumber(data.interestRate) : null;
+  const totalRepayment = interestRate
+    ? loanAmt + (loanAmt * interestRate / 100)
+    : loanAmt;
+
+  y = addField(doc, "Loan Amount:", `₦${loanAmt.toLocaleString()}`, y);
+  y = addField(doc, "Interest Rate:", interestRate ? `${interestRate}%` : "0% (Interest-free)", y);
+  y = addField(doc, "Repayment Due Date:", safeDate(data.repaymentDate), y);
+  y = addField(doc, "Repayment Method:", data.repaymentMethod || "N/A", y);
   if (data.purpose) {
     y = addField(doc, "Purpose:", data.purpose, y);
   }
   y += 8;
 
   y = addSection(doc, "Terms & Conditions", y);
-  const totalRepayment = data.interestRate
-    ? Number(data.loanAmount) + (Number(data.loanAmount) * Number(data.interestRate) / 100)
-    : Number(data.loanAmount);
-
   const clauses = [
-    { title: "Loan Amount", content: `The Lender agrees to lend to the Borrower the sum of ₦${Number(data.loanAmount).toLocaleString()} (the "Loan").` },
-    { title: "Interest", content: data.interestRate
-      ? `The Loan shall bear interest at the rate of ${data.interestRate}% per annum. The total amount repayable shall be ₦${Number(totalRepayment).toLocaleString()}.`
-      : "This Loan is interest-free. The Borrower shall repay only the principal sum of ₦" + Number(data.loanAmount).toLocaleString() + "." },
-    { title: "Repayment", content: `The Borrower agrees to repay the Loan (plus interest where applicable) by ${new Date(data.repaymentDate).toLocaleDateString("en-NG")} through ${data.repaymentMethod.toLowerCase()}.` },
+    { title: "Loan Amount", content: `The Lender agrees to lend to the Borrower the sum of ₦${loanAmt.toLocaleString()} (the "Loan").` },
+    { title: "Interest", content: interestRate
+      ? `The Loan shall bear interest at the rate of ${interestRate}% per annum. The total amount repayable shall be ₦${Number(totalRepayment).toLocaleString()}.`
+      : "This Loan is interest-free. The Borrower shall repay only the principal sum of ₦" + loanAmt.toLocaleString() + "." },
+    { title: "Repayment", content: `The Borrower agrees to repay the Loan (plus interest where applicable) by ${safeDate(data.repaymentDate)} through ${(data.repaymentMethod || "agreed method").toLowerCase()}.` },
     { title: "Default", content: "If the Borrower fails to repay the Loan by the due date, the Lender reserves the right to pursue legal action to recover the outstanding amount plus any reasonable costs incurred in the recovery process." },
     { title: "Prepayment", content: "The Borrower may repay the Loan in whole or in part before the due date without any penalty." },
-    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state} State. Any disputes shall be subject to the jurisdiction of the courts in ${data.state} State.` },
+    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state || "FCT"} State. Any disputes shall be subject to the jurisdiction of the courts in ${data.state || "FCT"} State.` },
   ];
 
   clauses.forEach((clause, i) => {
@@ -462,8 +464,8 @@ export async function generateLoanAgreement(data) {
   y += 6;
   doc.setFontSize(8);
   doc.setTextColor(107, 114, 128);
-  doc.text(data.lenderName, 18, y);
-  doc.text(data.borrowerName, 105, y);
+  doc.text(data.lenderName || "N/A", 18, y);
+  doc.text(data.borrowerName || "N/A", 105, y);
 
   y += 12;
   doc.text("Witness:", 18, y);
@@ -482,30 +484,32 @@ export async function generateDemandLetter(data) {
 
   addHeader(doc, "LETTER OF DEMAND");
 
-  y = addField(doc, "Date:", new Date().toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
+  y = addField(doc, "Date:", safeDate(new Date()), y);
   y += 8;
 
-  y = addField(doc, "To:", data.recipientName, y);
-  y = addField(doc, "Address:", data.recipientAddress, y);
+  y = addField(doc, "To:", data.recipientName || "N/A", y);
+  y = addField(doc, "Address:", data.recipientAddress || "N/A", y);
   y += 10;
 
-  y = addSection(doc, "RE: DEMAND FOR PAYMENT OF ₦" + Number(data.amountOwed).toLocaleString(), y);
+  const amountOwed = safeNumber(data.amountOwed);
+  y = addSection(doc, `RE: DEMAND FOR PAYMENT OF ₦${amountOwed.toLocaleString()}`, y);
   y += 5;
 
   doc.setFontSize(9);
   doc.setTextColor(55, 65, 81);
   doc.setFont("helvetica", "normal");
 
-  const bodyText = `Dear ${data.recipientName.split(" ")[0]},`;
+  const recipientFirstName = (data.recipientName || "there").split(" ")[0];
+  const bodyText = `Dear ${recipientFirstName},`;
   doc.text(bodyText, 15, y);
   y += 8;
 
-  const introText = `I write to formally demand the payment of ₦${Number(data.amountOwed).toLocaleString()} which you currently owe me. The outstanding amount relates to: ${data.debtDescription}`;
+  const introText = `I write to formally demand the payment of ₦${amountOwed.toLocaleString()} which you currently owe me. The outstanding amount relates to: ${data.debtDescription || "outstanding obligations"}`;
   const splitIntro = doc.splitTextToSize(introText, 175);
   doc.text(splitIntro, 15, y);
   y += splitIntro.length * 5 + 8;
 
-  const deadlineText = `You are hereby required to pay the full amount of ₦${Number(data.amountOwed).toLocaleString()} on or before ${new Date(data.dueDate).toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" })}. Payment should be made directly to me or to my designated account.`;
+  const deadlineText = `You are hereby required to pay the full amount of ₦${amountOwed.toLocaleString()} on or before ${safeDate(data.dueDate)}. Payment should be made directly to me or to my designated account.`;
   const splitDeadline = doc.splitTextToSize(deadlineText, 175);
   doc.text(splitDeadline, 15, y);
   y += splitDeadline.length * 5 + 10;
@@ -530,9 +534,9 @@ export async function generateDemandLetter(data) {
   y += 5;
   doc.setFontSize(8);
   doc.setTextColor(107, 114, 128);
-  doc.text(data.senderName, 15, y);
+  doc.text(data.senderName || "N/A", 15, y);
   y += 4;
-  doc.text(data.senderAddress, 15, y);
+  doc.text(data.senderAddress || "N/A", 15, y);
 
   addFooter(doc, doc.internal.getNumberOfPages());
 
