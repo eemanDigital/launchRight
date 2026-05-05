@@ -1,14 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeBar from "@/components/MarqueeBar";
+import WhoIsThisFor from "@/components/WhoIsThisFor";
 import ProblemSolution from "@/components/ProblemSolution";
 import Process from "@/components/Process";
-import WhoIsThisFor from "@/components/WhoIsThisFor";
+import FounderSection from "@/components/FounderSection";
 import ProductsSection from "@/components/ProductsSection";
 import Testimonials from "@/components/Testimonials";
-import BlogPreview from "@/components/BlogPreview";
-import FounderSection from "@/components/FounderSection";
 import Pricing from "@/components/Pricing";
+import BlogPreview from "@/components/BlogPreview";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -31,13 +31,13 @@ export default function Home() {
       <WhoIsThisFor />
       <ProblemSolution />
       <Process />
+      <FounderSection />
       <ProductsSection />
       <Testimonials />
-      <BlogPreview />
       <Pricing />
+      <BlogPreview />
       <FAQ />
       <FAQSchema />
-      <FounderSection />
       <FinalCTA />
       <Footer />
     </main>

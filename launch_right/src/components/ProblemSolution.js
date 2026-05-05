@@ -38,7 +38,7 @@ export default function ProblemSolution() {
           className="text-center mb-16">
           <span className="badge badge-navy mb-4 inline-flex">THE PROBLEM & SOLUTION</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            Stop Juggling Multiple Providers
+            One Team. Legal, Digital &amp; Technical.
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
             We combine legal expertise, CAC accreditation, and technology to handle everything — right the first time.

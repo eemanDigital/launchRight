@@ -59,7 +59,7 @@ export default function ProductsSection() {
           className="text-center mb-16">
           <span className="badge-gold badge mb-4 inline-flex">OUR PRODUCTS</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            We Build, Not Just Consult
+            Products We&apos;re Building
           </h2>
           <p className="text-muted max-w-xl mx-auto text-lg">
             JurisTech develops its own legal-tech products for Nigerian businesses and professionals.

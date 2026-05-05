@@ -271,7 +271,7 @@ p {
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
-  color: var(--color-white);
+  color: var(--color-navy);
   font-weight: 600;
   font-size: 0.9375rem;
   letter-spacing: -0.01em;

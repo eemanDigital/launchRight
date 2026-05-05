@@ -47,7 +47,7 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5">
               <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-              <span className="text-white/80 text-sm font-medium">Lawyer · CAC Agent · Developer</span>
+              <span className="text-white/80 text-sm font-medium">Built by a Lawyer Who Codes</span>
             </motion.div>
 
             <motion.h1

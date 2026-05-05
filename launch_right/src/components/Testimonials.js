@@ -12,7 +12,7 @@ export default function Testimonials() {
       role: "Groceries",
       stars: 5,
       quote:
-        "I had my business name registered in less than 24 hours. The process was so smooth I didn't have to leave my house.",
+        "I didn't think it was possible to register my business name in less than 24 hours without leaving my shop. JurisTech made it happen. Everything was handled on WhatsApp — the certificate came straight to my phone.",
       accent: "emerald",
     },
     {
@@ -21,7 +21,7 @@ export default function Testimonials() {
       role: "Tech Startup Founder",
       stars: 5,
       quote:
-        "JurisTech made company registration effortless. The team was responsive, knowledgeable, and transparent. Certificate in just 12 days.",
+        "We needed company registration, a shareholders agreement, and a website for our startup. Most agencies would send us to three different people. JurisTech handled everything in-house. Certificate in 12 days.",
       accent: "blue",
     },
     {
@@ -30,7 +30,7 @@ export default function Testimonials() {
       role: "E-commerce Entrepreneur",
       stars: 5,
       quote:
-        "I'd tried twice before with other agents and failed. JurisTech got it right on the first attempt. Transparent, fast, and professional.",
+        "I'd tried twice before with other agents and both times my application was rejected. JurisTech got it right on the first attempt — no extra charges, no excuses. They explained what went wrong and fixed it.",
       accent: "gold",
     },
   ];

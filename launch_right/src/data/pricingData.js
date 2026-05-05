@@ -16,7 +16,7 @@ export const pricingPlans = [
     ],
     highlight: "Stop looking like an unregistered business. Start operating professionally.",
     color: "emerald",
-    badge: "START SMART",
+    badge: null,
   },
   {
     name: "THE ENTREPRENEUR",

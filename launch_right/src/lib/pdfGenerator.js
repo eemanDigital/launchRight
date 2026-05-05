@@ -3,6 +3,21 @@ async function getJsPDF() {
   return jsPDF;
 }
 
+function safeNumber(val, fallback = 0) {
+  const num = Number(val);
+  return isNaN(num) ? fallback : num;
+}
+
+function safeDate(val) {
+  try {
+    const d = new Date(val);
+    if (isNaN(d.getTime())) return "N/A";
+    return d.toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" });
+  } catch {
+    return "N/A";
+  }
+}
+
 function addHeader(doc, title) {
   doc.setFillColor(10, 22, 40);
   doc.rect(0, 0, 210, 35, "F");
@@ -122,37 +137,37 @@ export async function generateTenancyAgreement(data) {
 
   addHeader(doc, "RESIDENTIAL TENANCY AGREEMENT");
 
-  y = addField(doc, "Date:", new Date().toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
+  y = addField(doc, "Date:", safeDate(new Date()), y);
   y += 5;
 
   y = addSection(doc, "Parties", y);
-  y = addField(doc, "Landlord:", data.landlordName, y);
-  y = addField(doc, "Address:", data.landlordAddress, y);
+  y = addField(doc, "Landlord:", data.landlordName || "N/A", y);
+  y = addField(doc, "Address:", data.landlordAddress || "N/A", y);
   y += 3;
-  y = addField(doc, "Tenant:", data.tenantName, y);
-  y = addField(doc, "Phone:", data.tenantPhone, y);
+  y = addField(doc, "Tenant:", data.tenantName || "N/A", y);
+  y = addField(doc, "Phone:", data.tenantPhone || "N/A", y);
   y += 8;
 
   y = addSection(doc, "Property Details", y);
-  y = addField(doc, "Property Address:", data.propertyAddress, y);
-  y = addField(doc, "Property Type:", data.propertyType, y);
+  y = addField(doc, "Property Address:", data.propertyAddress || "N/A", y);
+  y = addField(doc, "Property Type:", data.propertyType || "N/A", y);
   y += 8;
 
   y = addSection(doc, "Terms", y);
-  y = addField(doc, "Annual Rent:", `₦${Number(data.rentAmount).toLocaleString()}`, y);
-  y = addField(doc, "Tenancy Period:", `${new Date(data.startDate).toLocaleDateString("en-NG")} to ${new Date(data.endDate).toLocaleDateString("en-NG")}`, y);
+  y = addField(doc, "Annual Rent:", `₦${safeNumber(data.rentAmount).toLocaleString()}`, y);
+  y = addField(doc, "Tenancy Period:", `${safeDate(data.startDate)} to ${safeDate(data.endDate)}`, y);
   y += 8;
 
   y = addSection(doc, "Terms & Conditions", y);
   const clauses = [
-    { title: "Payment of Rent", content: `The Tenant shall pay the sum of ₦${Number(data.rentAmount).toLocaleString()} as annual rent for the property described above, payable in advance on the commencement date of this tenancy.` },
+    { title: "Payment of Rent", content: `The Tenant shall pay the sum of ₦${safeNumber(data.rentAmount).toLocaleString()} as annual rent for the property described above, payable in advance on the commencement date of this tenancy.` },
     { title: "Use of Property", content: "The property shall be used exclusively for residential purposes and shall not be used for any illegal or immoral purposes." },
     { title: "Maintenance", content: "The Tenant shall keep the interior of the property in good and tenantable condition, fair wear and tear excepted. The Landlord shall be responsible for structural repairs." },
     { title: "Alterations", content: "The Tenant shall not make any structural alterations or additions to the property without the prior written consent of the Landlord." },
     { title: "Subletting", content: "The Tenant shall not sublet, assign, or part with possession of the property or any part thereof without the written consent of the Landlord." },
     { title: "Utilities", content: "The Tenant shall be responsible for payment of all utility bills including electricity, water, and waste disposal during the tenancy period." },
     { title: "Notice to Quit", content: "Either party may terminate this agreement by giving the other party not less than three (3) months' written notice prior to the expiry date." },
-    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state} State. Any disputes arising shall be subject to the jurisdiction of courts in ${data.state} State.` },
+    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state || "FCT"} State. Any disputes arising shall be subject to the jurisdiction of courts in ${data.state || "FCT"} State.` },
   ];
 
   clauses.forEach((clause, i) => {
@@ -191,34 +206,34 @@ export async function generateServiceAgreement(data) {
 
   addHeader(doc, "SERVICE AGREEMENT");
 
-  y = addField(doc, "Date:", new Date().toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
+  y = addField(doc, "Date:", safeDate(new Date()), y);
   y += 5;
 
   y = addSection(doc, "Parties", y);
-  y = addField(doc, "Service Provider:", data.providerName, y);
-  y = addField(doc, "Address:", data.providerAddress, y);
+  y = addField(doc, "Service Provider:", data.providerName || "N/A", y);
+  y = addField(doc, "Address:", data.providerAddress || "N/A", y);
   y += 3;
-  y = addField(doc, "Client:", data.clientName, y);
-  y = addField(doc, "Address:", data.clientAddress, y);
+  y = addField(doc, "Client:", data.clientName || "N/A", y);
+  y = addField(doc, "Address:", data.clientAddress || "N/A", y);
   y += 8;
 
   y = addSection(doc, "Service Details", y);
-  y = addField(doc, "Description:", data.serviceDescription, y);
-  y = addField(doc, "Total Fee:", `₦${Number(data.feeAmount).toLocaleString()}`, y);
-  y = addField(doc, "Payment Terms:", data.paymentTerms, y);
-  y = addField(doc, "Period:", `${new Date(data.startDate).toLocaleDateString("en-NG")} to ${new Date(data.deliveryDate).toLocaleDateString("en-NG")}`, y);
+  y = addField(doc, "Description:", data.serviceDescription || "N/A", y);
+  y = addField(doc, "Total Fee:", `₦${safeNumber(data.feeAmount).toLocaleString()}`, y);
+  y = addField(doc, "Payment Terms:", data.paymentTerms || "N/A", y);
+  y = addField(doc, "Period:", `${safeDate(data.startDate)} to ${safeDate(data.deliveryDate)}`, y);
   y += 8;
 
   y = addSection(doc, "Terms & Conditions", y);
   const clauses = [
-    { title: "Scope of Services", content: `The Service Provider agrees to provide the services described as: "${data.serviceDescription}" to the Client in a professional and timely manner.` },
-    { title: "Compensation", content: `The Client agrees to pay the Service Provider the sum of ₦${Number(data.feeAmount).toLocaleString()} for the services rendered, according to the payment terms: ${data.paymentTerms}.` },
-    { title: "Timeline", content: `The Service Provider shall commence work on ${new Date(data.startDate).toLocaleDateString("en-NG")} and deliver the completed services on or before ${new Date(data.deliveryDate).toLocaleDateString("en-NG")}.` },
+    { title: "Scope of Services", content: `The Service Provider agrees to provide the services described as: "${data.serviceDescription || "N/A"}" to the Client in a professional and timely manner.` },
+    { title: "Compensation", content: `The Client agrees to pay the Service Provider the sum of ₦${safeNumber(data.feeAmount).toLocaleString()} for the services rendered, according to the payment terms: ${data.paymentTerms || "N/A"}.` },
+    { title: "Timeline", content: `The Service Provider shall commence work on ${safeDate(data.startDate)} and deliver the completed services on or before ${safeDate(data.deliveryDate)}.` },
     { title: "Confidentiality", content: "Both parties agree to keep confidential all proprietary information disclosed during the course of this agreement." },
     { title: "Intellectual Property", content: "Upon full payment, all intellectual property rights in the deliverables shall transfer to the Client. Until full payment, all rights remain with the Service Provider." },
     { title: "Termination", content: "Either party may terminate this agreement with fourteen (14) days' written notice. The Client shall pay for all work completed up to the date of termination." },
     { title: "Limitation of Liability", content: "The Service Provider's total liability under this agreement shall not exceed the total fee paid by the Client." },
-    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state} State. Any disputes shall be resolved through the courts of ${data.state} State.` },
+    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state || "FCT"} State. Any disputes shall be resolved through the courts of ${data.state || "FCT"} State.` },
   ];
 
   clauses.forEach((clause, i) => {
@@ -257,17 +272,17 @@ export async function generateNDA(data) {
 
   addHeader(doc, "NON-DISCLOSURE AGREEMENT");
 
-  y = addField(doc, "Date:", new Date().toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
+  y = addField(doc, "Date:", safeDate(new Date()), y);
   y += 5;
 
   y = addSection(doc, "Parties", y);
-  y = addField(doc, "Disclosing Party:", data.disclosingParty, y);
-  y = addField(doc, "Address:", data.disclosingAddress, y);
+  y = addField(doc, "Disclosing Party:", data.disclosingParty || "N/A", y);
+  y = addField(doc, "Address:", data.disclosingAddress || "N/A", y);
   y += 3;
-  y = addField(doc, "Receiving Party:", data.receivingParty, y);
-  y = addField(doc, "Address:", data.receivingAddress, y);
+  y = addField(doc, "Receiving Party:", data.receivingParty || "N/A", y);
+  y = addField(doc, "Address:", data.receivingAddress || "N/A", y);
   y += 3;
-  y = addField(doc, "Purpose:", data.purpose, y);
+  y = addField(doc, "Purpose:", data.purpose || "N/A", y);
   y += 8;
 
   y = addSection(doc, "Terms & Conditions", y);
@@ -275,10 +290,10 @@ export async function generateNDA(data) {
     { title: "Definition of Confidential Information", content: "Confidential Information includes all non-public information, whether in written, oral, electronic, or other form, disclosed by the Disclosing Party to the Receiving Party, including but not limited to business plans, financial information, technical data, trade secrets, client lists, and proprietary processes." },
     { title: "Obligations of Receiving Party", content: "The Receiving Party agrees to: (a) hold all Confidential Information in strict confidence; (b) not disclose such information to any third party without prior written consent; (c) use the information solely for the Purpose described above; and (d) take reasonable precautions to protect the confidentiality of the information." },
     { title: "Exclusions", content: "Confidential Information does not include information that: (a) is publicly known at the time of disclosure; (b) becomes publicly known through no fault of the Receiving Party; (c) was rightfully in the Receiving Party's possession before disclosure; or (d) is independently developed by the Receiving Party." },
-    { title: "Duration", content: `The obligations of confidentiality shall remain in effect for a period of ${data.duration} from the date of this agreement.` },
+    { title: "Duration", content: `The obligations of confidentiality shall remain in effect for a period of ${data.duration || "2 years"} from the date of this agreement.` },
     { title: "Return of Materials", content: "Upon written request by the Disclosing Party, the Receiving Party shall promptly return or destroy all Confidential Information and provide written certification of such destruction." },
     { title: "Remedies", content: "The Receiving Party acknowledges that unauthorized disclosure may cause irreparable harm. The Disclosing Party shall be entitled to seek injunctive relief in addition to any other remedies available at law." },
-    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state} State. Any disputes shall be subject to the exclusive jurisdiction of the courts in ${data.state} State.` },
+    { title: "Governing Law", content: `This agreement shall be governed by the laws of the Federal Republic of Nigeria, ${data.state || "FCT"} State. Any disputes shall be subject to the exclusive jurisdiction of the courts in ${data.state || "FCT"} State.` },
   ];
 
   clauses.forEach((clause, i) => {
@@ -317,18 +332,19 @@ export async function generateEmploymentLetter(data) {
 
   addHeader(doc, "EMPLOYMENT OFFER LETTER");
 
-  y = addField(doc, "Date:", new Date().toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
+  y = addField(doc, "Date:", safeDate(new Date()), y);
   y += 8;
 
-  y = addField(doc, "To:", data.employeeName, y);
-  y = addField(doc, "Address:", data.employeeAddress, y);
+  y = addField(doc, "To:", data.employeeName || "N/A", y);
+  y = addField(doc, "Address:", data.employeeAddress || "N/A", y);
   y += 10;
 
-  y = addField(doc, "Dear " + data.employeeName.split(" ")[0] + ",", "", y);
+  const empFirstName = (data.employeeName || "there").split(" ")[0];
+  y = addField(doc, "Dear " + empFirstName + ",", "", y);
   y += 10;
 
   y = addSection(doc, "Offer of Employment", y);
-  const introText = `We are pleased to offer you the position of ${data.position} in the ${data.department} department at ${data.companyName}. This offer is subject to the terms and conditions outlined below.`;
+  const introText = `We are pleased to offer you the position of ${data.position || "N/A"} in the ${data.department || "N/A"} department at ${data.companyName || "N/A"}. This offer is subject to the terms and conditions outlined below.`;
   doc.setFontSize(9);
   doc.setTextColor(55, 65, 81);
   doc.setFont("helvetica", "normal");
@@ -337,21 +353,21 @@ export async function generateEmploymentLetter(data) {
   y += splitIntro.length * 5 + 8;
 
   y = addSection(doc, "Employment Details", y);
-  y = addField(doc, "Position:", data.position, y);
-  y = addField(doc, "Department:", data.department, y);
-  y = addField(doc, "Annual Salary:", `₦${Number(data.salary).toLocaleString()}`, y);
-  y = addField(doc, "Start Date:", new Date(data.startDate).toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" }), y);
-  y = addField(doc, "Probation Period:", `${data.probationMonths} months`, y);
+  y = addField(doc, "Position:", data.position || "N/A", y);
+  y = addField(doc, "Department:", data.department || "N/A", y);
+  y = addField(doc, "Annual Salary:", `₦${safeNumber(data.salary).toLocaleString()}`, y);
+  y = addField(doc, "Start Date:", safeDate(data.startDate), y);
+  y = addField(doc, "Probation Period:", `${safeNumber(data.probationMonths, 3)} months`, y);
   y += 8;
 
   y = addSection(doc, "Terms & Conditions", y);
   const clauses = [
-    { title: "Probation", content: `Your employment will be subject to a probationary period of ${data.probationMonths} months from your start date. During this period, either party may terminate the employment with one (1) week's notice.` },
+    { title: "Probation", content: `Your employment will be subject to a probationary period of ${safeNumber(data.probationMonths, 3)} months from your start date. During this period, either party may terminate the employment with one (1) week's notice.` },
     { title: "Working Hours", content: "Your normal working hours shall be 8:00 AM to 5:00 PM, Monday to Friday, with a one-hour lunch break. Additional hours may be required as business demands." },
     { title: "Leave Entitlement", content: "You are entitled to twenty (20) working days of paid annual leave per calendar year, accrued pro-rata." },
     { title: "Confidentiality", content: "You shall not disclose any confidential information relating to the company's business, clients, or operations to any third party during or after your employment." },
     { title: "Termination", content: "After probation, either party may terminate this employment by giving one (1) month's written notice or payment of one month's salary in lieu of notice." },
-    { title: "Governing Law", content: `This employment shall be governed by the Nigerian Labour Act and the laws of the Federal Republic of Nigeria, ${data.state} State.` },
+    { title: "Governing Law", content: `This employment shall be governed by the Nigerian Labour Act and the laws of the Federal Republic of Nigeria, ${data.state || "FCT"} State.` },
   ];
 
   clauses.forEach((clause, i) => {

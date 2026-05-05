@@ -22,56 +22,25 @@ export default function Pricing() {
       name: "NGO & Foundation",
       desc: "Churches, charities, non-profits",
       link: "/pricing",
-      color: "purple",
     },
     {
       icon: GlobeAltIcon,
       name: "Website Development",
       desc: "Landing pages to e-commerce",
       link: "/website",
-      color: "blue",
     },
     {
       icon: ComputerDesktopIcon,
       name: "Software & Apps",
       desc: "POS, Mobile Apps, Custom",
       link: "/software",
-      color: "emerald",
     },
   ];
 
-  const getColorClasses = (color) => {
-    const colors = {
-      emerald: {
-        bg: "bg-emerald-50",
-        border: "border-emerald-200",
-        accent: "text-emerald-600",
-        badge: "bg-emerald-500",
-        iconBg: "bg-gradient-to-br from-emerald-500 to-emerald-600",
-      },
-      blue: {
-        bg: "bg-blue-50",
-        border: "border-blue-200",
-        accent: "text-blue-600",
-        badge: "bg-blue-600",
-        iconBg: "bg-gradient-to-br from-blue-500 to-blue-600",
-      },
-      slate: {
-        bg: "bg-slate-800",
-        border: "border-slate-700",
-        accent: "text-slate-300",
-        badge: "bg-gold",
-        iconBg: "bg-gradient-to-br from-slate-700 to-slate-800",
-      },
-      purple: {
-        bg: "bg-purple-50",
-        border: "border-purple-200",
-        accent: "text-purple-600",
-        badge: "bg-purple-500",
-        iconBg: "bg-gradient-to-br from-purple-500 to-purple-600",
-      },
-    };
-    return colors[color] || colors.blue;
+  const getCTAText = (plan) => {
+    if (plan.popular) return "Get Started";
+    if (plan.badge === "PREMIUM") return "Go Premium";
+    return "Get Started";
   };
 
   return (
@@ -89,7 +58,7 @@ export default function Pricing() {
           className="text-center mb-16">
           <span className="badge-gold badge mb-4 inline-flex">PRICING</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            Everything You Need to Launch
+            Transparent Pricing, Real Results
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
             CAC registration, professional websites, and legal documents — all from one team. No hidden fees.
@@ -98,7 +67,6 @@ export default function Pricing() {
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16 max-w-5xl mx-auto items-start">
           {plans.map((plan, index) => {
-            const colors = getColorClasses(plan.color);
             const isHighlighted = plan.popular;
             const isDark = plan.badge === "PREMIUM" && !plan.popular;
 
@@ -141,12 +109,15 @@ export default function Pricing() {
                   )}
 
                   <div className="my-6">
-                    <span className={`text-4xl font-extrabold tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
+                    <span className={`text-sm ${isHighlighted || isDark ? "text-gray-400" : "text-muted-light"}`}>
+                      From
+                    </span>
+                    <span className={`text-4xl font-extrabold tracking-tight ml-1.5 ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
                       {plan.price}
                     </span>
                   </div>
 
-                  <div className={`flex items-center gap-2 text-sm font-medium mb-6 ${isHighlighted || isDark ? "text-gray-400" : colors.accent}`}>
+                  <div className={`flex items-center gap-2 text-sm font-medium mb-6 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
                     <ClockIcon className="w-4 h-4" />
                     <span>{plan.timeline}</span>
                   </div>
@@ -154,7 +125,7 @@ export default function Pricing() {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm">
-                        <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : colors.accent}`} />
+                        <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : "text-success"}`} />
                         <span className={isHighlighted || isDark ? "text-gray-300" : "text-gray-600"}>
                           {feature}
                         </span>
@@ -172,7 +143,7 @@ export default function Pricing() {
                           : "bg-navy text-white hover:bg-navy-light"
                     }`}
                     onClick={() => event('SelectPlan', { plan_name: plan.name, price: plan.price })}>
-                    Get Started
+                    {getCTAText(plan)}
                   </a>
 
                   <p className={`text-xs italic text-center mt-4 ${isHighlighted || isDark ? "text-gray-500" : "text-muted"}`}>
@@ -193,10 +164,10 @@ export default function Pricing() {
           <div className="bg-gradient-to-r from-gold/8 via-gold/4 to-gold/8 rounded-2xl p-6 text-center border border-gold/15">
             <div className="flex items-center justify-center gap-2 mb-2">
               <SparklesIcon className="w-5 h-5 text-gold" />
-              <span className="font-semibold text-navy">Limited Availability</span>
+              <span className="font-semibold text-navy">Personal Attention, Every Time</span>
             </div>
             <p className="text-muted text-sm">
-              We only take on a limited number of clients weekly to ensure quality delivery. Secure your spot today.
+              We limit client intake weekly to ensure quality delivery and dedicated support for your project.
             </p>
           </div>
         </motion.div>
@@ -206,34 +177,29 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10">
-          <h3 className="text-2xl font-bold text-navy mb-3 tracking-tight">
-            Need More Options?
+          className="text-center mb-8">
+          <h3 className="text-xl font-bold text-navy mb-2 tracking-tight">
+            Also Available
           </h3>
-          <p className="text-muted">Explore our full range of services</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {moreServices.map((service, index) => {
-            const colors = getColorClasses(service.color);
-            return (
-              <Link
-                key={index}
-                href={service.link}
-                className="group card-premium bg-white p-6">
-                <div className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm`}>
-                  <service.icon className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-lg font-bold text-navy mb-1 tracking-tight">
+        <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          {moreServices.map((service, index) => (
+            <Link
+              key={index}
+              href={service.link}
+              className="group flex items-center gap-4 p-5 rounded-xl border border-gray-100 bg-white hover:border-gold/20 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-navy/5 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+                <service.icon className="w-5 h-5 text-navy/60 group-hover:text-gold transition-colors" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-navy tracking-tight">
                   {service.name}
                 </h4>
-                <p className="text-muted text-sm mb-3">{service.desc}</p>
-                <div className="flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all duration-200">
-                  View pricing <ArrowRightIcon className="w-4 h-4" />
-                </div>
-              </Link>
-            );
-          })}
+                <p className="text-muted text-xs">{service.desc}</p>
+              </div>
+            </Link>
+          ))}
         </div>
 
         <motion.div
@@ -250,6 +216,7 @@ export default function Pricing() {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors shadow-lg shadow-navy/10"
             onClick={() => event('Contact', { content_name: 'Pricing Custom Quote', method: 'WhatsApp' })}>
             Chat With Us for a Tailored Quote
+            <ArrowRightIcon className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
