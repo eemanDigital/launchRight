@@ -1,22 +1,24 @@
 "use client";
 
 export default function MarqueeBar() {
-  const stats = [
-    "2,000+ clients served",
-    "CAC Registration Experts",
-    "Website Development",
-    "Legal Compliance Support",
-    "Professional Legal Documents",
-    "Trusted by entrepreneurs",
-    "Lawyer + Developer + CAC Agent",
+  const items = [
+    "2,000+ Businesses Registered",
+    "CAC Accredited Agent",
+    "Legal Compliance Experts",
+    "Professional Websites",
+    "Custom Software Solutions",
+    "Document Generation",
+    "Trusted Across Nigeria",
   ];
 
   return (
-    <div className="bg-surface-dark py-5 overflow-hidden border-b border-gray-100/80">
-      <div className="animate-marquee flex whitespace-nowrap">
-        {[...stats, ...stats, ...stats].map((item, index) => (
-          <span key={index} className="text-muted mx-10 text-sm font-medium flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0" />
+    <div className="relative bg-navy-deep border-y border-white/5 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-transparent to-navy-deep z-10 pointer-events-none" />
+      
+      <div className="py-4 animate-marquee flex whitespace-nowrap">
+        {[...items, ...items, ...items].map((item, index) => (
+          <span key={index} className="text-white/40 mx-8 text-sm font-medium flex items-center gap-3">
+            <span className="w-1 h-1 bg-gold/60 rounded-full flex-shrink-0" />
             {item}
           </span>
         ))}

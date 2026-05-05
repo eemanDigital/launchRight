@@ -1,16 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRightIcon, CheckIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, CheckCircleIcon, PlayIcon } from "@heroicons/react/24/outline";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import Link from "next/link";
 
 export default function Hero() {
+  const services = [
+    { label: "CAC Registration", verified: true },
+    { label: "Website Development", verified: true },
+    { label: "Legal Documents", verified: true },
+    { label: "Software & SaaS", verified: true },
+  ];
+
   const stats = [
     { value: "2,000+", label: "Businesses Registered" },
     { value: "5+", label: "Years Experience" },
     { value: "24-48h", label: "Business Name Approval" },
-    { value: "4.9★", label: "Client Rating" },
+    { value: "4.9", label: "Client Rating", suffix: "★" },
   ];
 
   return (
@@ -18,21 +25,27 @@ export default function Hero() {
       <div className="absolute inset-0 hero-gradient-mesh" />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 -left-40 w-[500px] h-[500px] bg-green/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-green/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-navy-deep/50" />
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="w-full h-full" style={{
+          backgroundImage: `linear-gradient(rgba(201,151,43,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,151,43,0.3) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
+      </div>
 
-      <div className="relative container-wide pt-36 pb-20 lg:pt-44 lg:pb-28">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="space-y-8">
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-deep to-transparent" />
+
+      <div className="relative container-ultra pt-28 pb-16 lg:pt-36 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="space-y-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
+              className="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5">
               <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
               <span className="text-white/80 text-sm font-medium">Lawyer · CAC Agent · Developer</span>
             </motion.div>
@@ -41,31 +54,25 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white leading-[1.08] tracking-tight">
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-semibold text-white leading-[1.08] tracking-tight">
               Launch Your Business{" "}
-              <span className="text-gradient-gold">Legally & Digitally</span>
+              <span className="text-gradient-gold">Legally &amp; Digitally</span>
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-lg text-white/60 max-w-xl leading-relaxed">
-              Built by a practising Nigerian lawyer who also codes.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base text-white/45 max-w-lg">
-              CAC Registration · Professional Websites · Legal Documents · Software — All under one roof.
-            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="space-y-4">
+              <p className="text-lg text-white/60 max-w-xl leading-relaxed">
+                Built by a practising Nigerian lawyer who also codes. We handle the legal, digital, and technical so you can focus on building.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
               className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://wa.me/message/KTFL2G2JM3JTP1"
@@ -76,7 +83,8 @@ export default function Hero() {
               </a>
               <Link
                 href="/tools/document-generator"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all">
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all">
+                <PlayIcon className="w-4 h-4" />
                 Explore Our Tools
               </Link>
             </motion.div>
@@ -84,49 +92,45 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-6 pt-2">
-              <div className="flex items-center gap-2 text-white/60">
-                <CheckIcon className="w-5 h-5 text-success" />
-                <span className="text-sm">CAC Registration</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/60">
-                <CheckIcon className="w-5 h-5 text-success" />
-                <span className="text-sm">Website Development</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/60">
-                <CheckIcon className="w-5 h-5 text-success" />
-                <span className="text-sm">Legal Compliance</span>
-              </div>
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="grid grid-cols-2 gap-x-8 gap-y-3">
+              {services.map((service, i) => (
+                <div key={i} className="flex items-center gap-3 text-white/50">
+                  <CheckCircleIcon className="w-5 h-5 text-gold/70 flex-shrink-0" />
+                  <span className="text-sm font-medium">{service.label}</span>
+                </div>
+              ))}
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="flex items-center gap-8 pt-2 border-t border-white/8">
               {stats.map((stat, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/8 rounded-lg px-4 py-3 hover:border-white/15 transition-colors">
-                  <p className="text-white text-xl font-bold tracking-tight">{stat.value}</p>
-                  <p className="text-white/45 text-xs mt-0.5">{stat.label}</p>
+                <div key={i} className="flex flex-col">
+                  <p className="text-white text-2xl font-bold tracking-tight">
+                    {stat.value}{stat.suffix || ""}
+                  </p>
+                  <p className="text-white/40 text-xs mt-1">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/15 to-transparent blur-3xl rounded-full scale-110" />
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="relative hidden lg:flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-green/5 blur-3xl rounded-full scale-110" />
+            <div className="relative w-full max-w-lg">
               <img
                 src="/image/hero-illustration.svg"
-                alt="JurisTech dashboard showing CAC registration stats and client wins"
-                className="w-full h-auto"
+                alt="JurisTech services hub connecting legal, digital, and technical solutions"
+                className="w-full h-auto drop-shadow-2xl"
+                loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
