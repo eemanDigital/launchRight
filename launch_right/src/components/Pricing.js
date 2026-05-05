@@ -75,23 +75,24 @@ export default function Pricing() {
   };
 
   return (
-    <section
-      id="pricing"
-      className="section-pad mesh-gradient-bg">
-      <div className="container-wide mx-auto">
+    <section id="pricing" className="section-pad mesh-gradient-bg relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-gold/4 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container-wide mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14">
+          className="text-center mb-16">
           <span className="badge-gold badge mb-4 inline-flex">PRICING</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-2 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
             Everything You Need to Launch
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            CAC registration, professional websites, and legal documents — all
-            from one team. No hidden fees.
+            CAC registration, professional websites, and legal documents — all from one team. No hidden fees.
           </p>
         </motion.div>
 
@@ -126,32 +127,26 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <div
-                  className={`p-8 ${isHighlighted || plan.badge ? "pt-8" : ""}`}>
-                  <p
-                    className={`text-sm font-medium mb-1 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
+                <div className={`p-8 ${isHighlighted || plan.badge ? "pt-8" : ""}`}>
+                  <p className={`text-sm font-medium mb-1 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
                     {plan.subtitle}
                   </p>
-                  <h3
-                    className={`text-lg font-bold mb-1 tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
+                  <h3 className={`text-lg font-bold mb-1 tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
                     {plan.name}
                   </h3>
                   {plan.tagline && (
-                    <p
-                      className={`text-sm font-medium mb-5 ${isHighlighted || isDark ? "text-gold" : "text-gold"}`}>
+                    <p className={`text-sm font-medium mb-5 ${isHighlighted || isDark ? "text-gold" : "text-gold"}`}>
                       {plan.tagline}
                     </p>
                   )}
 
                   <div className="my-6">
-                    <span
-                      className={`text-4xl font-extrabold tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
+                    <span className={`text-4xl font-extrabold tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
                       {plan.price}
                     </span>
                   </div>
 
-                  <div
-                    className={`flex items-center gap-2 text-sm font-medium mb-6 ${isHighlighted || isDark ? "text-gray-400" : colors.accent}`}>
+                  <div className={`flex items-center gap-2 text-sm font-medium mb-6 ${isHighlighted || isDark ? "text-gray-400" : colors.accent}`}>
                     <ClockIcon className="w-4 h-4" />
                     <span>{plan.timeline}</span>
                   </div>
@@ -159,15 +154,8 @@ export default function Pricing() {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm">
-                        <CheckIcon
-                          className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : colors.accent}`}
-                        />
-                        <span
-                          className={
-                            isHighlighted || isDark
-                              ? "text-gray-300"
-                              : "text-gray-600"
-                          }>
+                        <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : colors.accent}`} />
+                        <span className={isHighlighted || isDark ? "text-gray-300" : "text-gray-600"}>
                           {feature}
                         </span>
                       </li>
@@ -187,8 +175,7 @@ export default function Pricing() {
                     Get Started
                   </a>
 
-                  <p
-                    className={`text-xs italic text-center mt-4 ${isHighlighted || isDark ? "text-gray-500" : "text-muted"}`}>
+                  <p className={`text-xs italic text-center mt-4 ${isHighlighted || isDark ? "text-gray-500" : "text-muted"}`}>
                     "{plan.highlight}"
                   </p>
                 </div>
@@ -206,13 +193,10 @@ export default function Pricing() {
           <div className="bg-gradient-to-r from-gold/8 via-gold/4 to-gold/8 rounded-2xl p-6 text-center border border-gold/15">
             <div className="flex items-center justify-center gap-2 mb-2">
               <SparklesIcon className="w-5 h-5 text-gold" />
-              <span className="font-semibold text-navy">
-                Limited Availability
-              </span>
+              <span className="font-semibold text-navy">Limited Availability</span>
             </div>
             <p className="text-muted text-sm">
-              We only take on a limited number of clients weekly to ensure
-              quality delivery. Secure your spot today.
+              We only take on a limited number of clients weekly to ensure quality delivery. Secure your spot today.
             </p>
           </div>
         </motion.div>
@@ -237,8 +221,7 @@ export default function Pricing() {
                 key={index}
                 href={service.link}
                 className="group card-premium bg-white p-6">
-                <div
-                  className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm`}>
+                <div className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm`}>
                   <service.icon className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="text-lg font-bold text-navy mb-1 tracking-tight">
@@ -260,8 +243,7 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mt-16">
           <p className="text-muted mb-4">
-            Need NGO registration, Foreign Investor packages, or custom
-            services?
+            Need NGO registration, Foreign Investor packages, or custom services?
           </p>
           <a
             href="https://wa.me/message/KTFL2G2JM3JTP1"

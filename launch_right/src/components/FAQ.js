@@ -51,15 +51,18 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="section-pad bg-white">
-      <div className="container-narrow">
+    <section id="faq" className="section-pad bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-gradient-to-l from-gold/3 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+          className="text-center mb-12">
           <span className="badge-gold badge mb-4 inline-flex">FAQ</span>
           <h2 className="text-3xl md:text-4xl font-semibold text-navy tracking-tight">
             Frequently Asked Questions
@@ -78,12 +81,10 @@ export default function FAQ() {
                 openIndex === index
                   ? "border-gold/20 bg-gold/[0.03]"
                   : "border-gray-100 hover:border-gray-200"
-              }`}
-            >
+              }`}>
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-5 px-6 flex justify-between items-center text-left"
-              >
+                className="w-full py-5 px-6 flex justify-between items-center text-left">
                 <span className={`font-medium text-sm pr-4 ${openIndex === index ? "text-gold" : "text-navy"}`}>{faq.question}</span>
                 <ChevronDownIcon
                   className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
@@ -98,8 +99,7 @@ export default function FAQ() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="overflow-hidden"
-                  >
+                    className="overflow-hidden">
                     <div className="pb-5 px-6 text-muted text-sm leading-relaxed">
                       {faq.answer}
                     </div>

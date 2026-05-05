@@ -15,15 +15,21 @@ export default function FinalCTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green/5 rounded-full blur-3xl" />
       </div>
 
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="w-full h-full" style={{
+          backgroundImage: `linear-gradient(rgba(201,151,43,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,151,43,0.3) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
+      </div>
+
       <div className="container-narrow relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center"
-        >
-          <span className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-8">
+          className="text-center">
+          <span className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-8">
             <StarIcon className="w-4 h-4 text-gold" />
             <span className="text-white/70 text-sm font-medium">Trusted by 2,000+ entrepreneurs</span>
           </span>
@@ -39,21 +45,19 @@ export default function FinalCTA() {
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="btn-gold text-base shadow-lg shadow-gold/20"
-              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}
-            >
+              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}>
               Start Your Project
               <ArrowRightIcon className="w-4 h-4" />
             </a>
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all"
-              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Get Quote' })}
-            >
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all"
+              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Get Quote' })}>
               Get a Quote
             </a>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
+          <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
               <MapPinIcon className="w-6 h-6 text-gold mx-auto mb-3" />
               <p className="text-white/70 text-sm">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</p>
@@ -70,7 +74,7 @@ export default function FinalCTA() {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-white/50 text-sm">
+          <div className="flex flex-wrap justify-center gap-8 text-white/50 text-sm">
             <span className="flex items-center gap-2">
               <CheckIcon className="w-4 h-4 text-success" />
               Money-back guarantee

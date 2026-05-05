@@ -1,32 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#065F46"/>
-      <stop offset="100%" stop-color="#047857"/>
+    <linearGradient id="emeraldBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#D1FAE5"/>
     </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
   </defs>
-  <rect width="400" height="250" fill="url(#bg)"/>
-  <!-- WhatsApp chat UI mockup -->
-  <rect x="80" y="30" width="240" height="190" rx="16" fill="#075E54"/>
-  <rect x="90" y="70" width="220" height="140" rx="4" fill="#ECE5DD"/>
-  <!-- Chat header -->
-  <rect x="80" y="30" width="240" height="50" rx="16" fill="#075E54"/>
-  <rect x="80" y="55" width="240" height="25" fill="#075E54"/>
-  <circle cx="110" cy="55" r="14" fill="#128C7E"/>
-  <rect x="135" y="45" width="100" height="10" rx="5" fill="#FFFFFF" opacity="0.9"/>
-  <rect x="135" y="58" width="60" height="6" rx="3" fill="#FFFFFF" opacity="0.5"/>
-  <!-- Chat bubbles -->
-  <rect x="180" y="85" width="120" height="30" rx="8" fill="#DCF8C6"/>
-  <rect x="190" y="92" width="80" height="6" rx="3" fill="#075E54" opacity="0.6"/>
-  <rect x="190" y="102" width="50" height="6" rx="3" fill="#075E54" opacity="0.4"/>
-  <!-- Product items in chat -->
-  <rect x="100" y="130" width="130" height="60" rx="8" fill="#FFFFFF"/>
-  <rect x="105" y="135" width="50" height="40" rx="4" fill="#E5E7EB"/>
-  <circle cx="130" cy="155" r="10" fill="#10B981" opacity="0.3"/>
-  <rect x="165" y="140" width="55" height="6" rx="3" fill="#1F2937"/>
-  <rect x="165" y="150" width="40" height="5" rx="2" fill="#059669"/>
-  <rect x="165" y="160" width="50" height="12" rx="6" fill="#059669"/>
-  <rect x="170" y="164" width="40" height="4" rx="2" fill="#FFFFFF"/>
-  <!-- Second product -->
-  <rect x="100" y="195" width="130" height="10" rx="4" fill="#FFFFFF" opacity="0.3"/>
+
+  <!-- Background -->
+  <rect width="400" height="280" rx="16" fill="url(#emeraldBg)"/>
+
+  <!-- Phone mockup -->
+  <g filter="url(#softShadow)">
+    <rect x="260" y="30" width="110" height="200" rx="20" fill="#075E54"/>
+    <rect x="268" y="50" width="94" height="160" rx="4" fill="#ECE5DD"/>
+    <!-- WhatsApp header -->
+    <rect x="268" y="50" width="94" height="28" rx="4" fill="#075E54"/>
+    <circle cx="285" cy="64" r="8" fill="#128C7E"/>
+    <rect x="298" y="58" width="45" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+    <rect x="298" y="67" width="30" height="4" rx="2" fill="#FFFFFF" opacity="0.5"/>
+    <!-- Chat bubbles -->
+    <rect x="275" y="90" width="80" height="22" rx="6" fill="#DCF8C6"/>
+    <rect x="280" y="96" width="50" height="4" rx="2" fill="#075E54" opacity="0.5"/>
+    <rect x="280" y="103" width="35" height="4" rx="2" fill="#075E54" opacity="0.3"/>
+    <!-- Product card in chat -->
+    <rect x="275" y="118" width="80" height="50" rx="6" fill="#FFFFFF"/>
+    <rect x="280" y="123" width="30" height="25" rx="3" fill="#D1FAE5"/>
+    <circle cx="295" cy="135" r="8" fill="#10B981" opacity="0.3"/>
+    <rect x="315" y="128" width="35" height="5" rx="2" fill="#1F2937"/>
+    <rect x="315" y="136" width="25" height="4" rx="2" fill="#059669"/>
+    <rect x="315" y="146" width="35" height="12" rx="6" fill="#059669"/>
+    <rect x="323" y="150" width="19" height="4" rx="2" fill="#FFFFFF"/>
+    <!-- Another bubble -->
+    <rect x="275" y="175" width="80" height="22" rx="6" fill="#DCF8C6"/>
+    <rect x="280" y="181" width="55" height="4" rx="2" fill="#075E54" opacity="0.5"/>
+    <rect x="280" y="188" width="40" height="4" rx="2" fill="#075E54" opacity="0.3"/>
+  </g>
+
+  <!-- Floating elements -->
+  <g filter="url(#softShadow)">
+    <rect x="30" y="60" width="120" height="40" rx="10" fill="#FFFFFF"/>
+    <circle cx="50" cy="80" r="10" fill="url(#emeraldGrad)" opacity="0.2"/>
+    <path d="M47 80 L50 83 L54 77" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="65" y="74" width="60" height="5" rx="2" fill="#1F2937"/>
+    <rect x="65" y="83" width="40" height="4" rx="2" fill="#6B7280"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="50" y="140" width="100" height="35" rx="8" fill="#FFFFFF"/>
+    <rect x="60" y="150" width="50" height="4" rx="2" fill="#059669"/>
+    <rect x="60" y="158" width="75" height="4" rx="2" fill="#6B7280"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="40" y="200" width="130" height="40" rx="10" fill="#FFFFFF"/>
+    <text x="60" y="220" font-family="system-ui, sans-serif" font-size="10" fill="#059669" font-weight="600">WhatsApp Storefront</text>
+    <text x="60" y="232" font-family="system-ui, sans-serif" font-size="7" fill="#6B7280">No website needed</text>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="35" cy="35" r="2" fill="#10B981" opacity="0.3"/>
+  <circle cx="200" cy="250" r="2" fill="#059669" opacity="0.3"/>
+  <circle cx="180" cy="50" r="1.5" fill="#10B981" opacity="0.2"/>
 </svg>

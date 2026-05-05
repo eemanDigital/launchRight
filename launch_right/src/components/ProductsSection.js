@@ -45,16 +45,20 @@ const products = [
 
 export default function ProductsSection() {
   return (
-    <section className="section-pad bg-white">
-      <div className="container-wide">
+    <section className="section-pad bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-gold/3 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14">
+          className="text-center mb-16">
           <span className="badge-gold badge mb-4 inline-flex">OUR PRODUCTS</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mt-2 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
             We Build, Not Just Consult
           </h2>
           <p className="text-muted max-w-xl mx-auto text-lg">
@@ -62,49 +66,46 @@ export default function ProductsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
           {products.map((product, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}>
-              <div className="card-premium bg-surface h-full flex flex-col group overflow-hidden">
-                <div className="h-40 overflow-hidden relative">
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="group">
+              <Link href={product.link} className="block">
+                <div className="relative mb-6 rounded-2xl overflow-hidden bg-surface aspect-[4/3]">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
-                  <div className="absolute top-3 right-3">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${product.statusColor} backdrop-blur-sm`}>
+                  <div className="absolute top-4 right-4">
+                    <span className={`px-3 py-1.5 rounded-full text-xs font-semibold border ${product.statusColor} backdrop-blur-sm`}>
                       {product.status}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-8 pt-4 flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-4 -mt-2">
-                    <div className={`w-10 h-10 bg-gradient-to-br ${product.color} rounded-lg flex items-center justify-center shadow-sm`}>
-                      <product.icon className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-navy tracking-tight">{product.name}</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-9 h-9 bg-gradient-to-br ${product.color} rounded-lg flex items-center justify-center shadow-sm`}>
+                    <product.icon className="w-5 h-5 text-white" />
                   </div>
-
-                  <p className="text-gold text-sm font-medium mb-3">{product.tagline}</p>
-                  <p className="text-muted text-sm leading-relaxed flex-1 mb-6">
-                    {product.description}
-                  </p>
-
-                  <Link
-                    href={product.link}
-                    className="flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all duration-200">
-                    {product.cta} <ArrowRightIcon className="w-4 h-4" />
-                  </Link>
+                  <h3 className="text-lg font-bold text-navy tracking-tight">{product.name}</h3>
                 </div>
-              </div>
+
+                <p className="text-gold text-sm font-medium mb-2">{product.tagline}</p>
+                <p className="text-muted text-sm leading-relaxed mb-4">
+                  {product.description}
+                </p>
+
+                <div className="flex items-center gap-2 text-navy/60 text-sm font-medium group-hover:text-gold transition-colors duration-300">
+                  {product.cta}
+                  <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

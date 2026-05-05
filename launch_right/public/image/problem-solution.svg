@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 380">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#DC2626" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- LEFT SIDE: The Old Way - Chaos visualization -->
+  <g>
+    <!-- Background area -->
+    <rect x="20" y="20" width="220" height="340" rx="16" fill="#0A1628" opacity="0.03" stroke="#EF4444" stroke-width="1" stroke-dasharray="4,4"/>
+    
+    <!-- Scattered disconnected icons representing chaos -->
+    <!-- Lawyer icon (top-left) -->
+    <g filter="url(#shadow)" transform="translate(50, 50)">
+      <rect width="60" height="45" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+      <path d="M20 30 L30 15 L40 30" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+      <line x1="30" y1="15" x2="30" y2="38" stroke="#EF4444" stroke-width="2"/>
+    </g>
+    
+    <!-- CAC icon (top-right) -->
+    <g filter="url(#shadow)" transform="translate(140, 40)">
+      <rect width="60" height="45" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+      <rect x="18" y="10" width="24" height="25" rx="2" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+      <line x1="22" y1="18" x2="38" y2="18" stroke="#EF4444" stroke-width="1"/>
+      <line x1="22" y1="24" x2="34" y2="24" stroke="#EF4444" stroke-width="1"/>
+    </g>
+    
+    <!-- Developer icon (middle-left) -->
+    <g filter="url(#shadow)" transform="translate(40, 130)">
+      <rect width="60" height="45" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+      <path d="M22 20 L17 25 L22 30 M38 20 L43 25 L38 30 M30 18 L28 32" fill="none" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Question mark (middle-right) -->
+    <g filter="url(#shadow)" transform="translate(135, 125)">
+      <circle cx="30" cy="22" r="22" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+      <text x="30" y="30" font-family="system-ui, sans-serif" font-size="24" fill="#EF4444" font-weight="700" text-anchor="middle">?</text>
+    </g>
+    
+    <!-- Broken connections -->
+    <line x1="110" y1="72" x2="140" y2="62" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+    <line x1="70" y1="95" x2="70" y2="130" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+    
+    <!-- X marks -->
+    <g transform="translate(100, 220)">
+      <circle cx="15" cy="15" r="15" fill="#EF4444" opacity="0.1"/>
+      <path d="M8 8 L22 22 M22 8 L8 22" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(140, 215)">
+      <circle cx="15" cy="15" r="15" fill="#EF4444" opacity="0.1"/>
+      <path d="M8 8 L22 22 M22 8 L8 22" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(120, 260)">
+      <circle cx="15" cy="15" r="15" fill="#EF4444" opacity="0.1"/>
+      <path d="M8 8 L22 22 M22 8 L8 22" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <text x="130" y="340" font-family="system-ui, sans-serif" font-size="11" fill="#EF4444" font-weight="600" text-anchor="middle" opacity="0.7">FRAGMENTED · SLOW · RISKY</text>
+  </g>
+
+  <!-- CENTER ARROW: Transformation -->
+  <g transform="translate(240, 170)">
+    <path d="M0 20 L20 0 L20 15 L40 15 L40 25 L20 25 L20 40Z" fill="url(#greenGrad)" opacity="0.3"/>
+  </g>
+
+  <!-- RIGHT SIDE: With JurisTech - Unified hub -->
+  <g>
+    <!-- Background area -->
+    <rect x="260" y="20" width="220" height="340" rx="16" fill="#FAFAF9" stroke="#10B981" stroke-width="1.5"/>
+    
+    <!-- Central unified circle -->
+    <g transform="translate(340, 140)">
+      <circle cx="30" cy="30" r="35" fill="#10B981" opacity="0.08" stroke="#10B981" stroke-width="2"/>
+      <circle cx="30" cy="30" r="22" fill="#10B981" opacity="0.15"/>
+      <text x="30" y="35" font-family="system-ui, sans-serif" font-size="14" fill="#059669" font-weight="700" text-anchor="middle">JT</text>
+      
+      <!-- Connection lines to services -->
+      <line x1="30" y1="-5" x2="30" y2="-35" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+      <line x1="55" y1="15" x2="85" y2="-10" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+      <line x1="60" y1="45" x2="90" y2="65" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+      <line x1="30" y1="65" x2="30" y2="95" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+      <line x1="0" y1="45" x2="-30" y2="65" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+      <line x1="-5" y1="15" x2="-35" y2="-10" stroke="#10B981" stroke-width="1.5" opacity="0.5"/>
+      
+      <!-- Service nodes -->
+      <circle cx="30" cy="-40" r="12" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1"/>
+      <text x="30" y="-37" font-family="system-ui, sans-serif" font-size="7" fill="#059669" text-anchor="middle">CAC</text>
+      
+      <circle cx="90" cy="-15" r="12" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1"/>
+      <text x="90" y="-12" font-family="system-ui, sans-serif" font-size="7" fill="#059669" text-anchor="middle">WEB</text>
+      
+      <circle cx="95" cy="68" r="12" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1"/>
+      <text x="95" y="71" font-family="system-ui, sans-serif" font-size="7" fill="#059669" text-anchor="middle">DOCS</text>
+      
+      <circle cx="30" cy="100" r="12" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1"/>
+      <text x="30" y="103" font-family="system-ui, sans-serif" font-size="7" fill="#059669" text-anchor="middle">LEGAL</text>
+      
+      <circle cx="-35" cy="68" r="12" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1"/>
+      <text x="-35" y="71" font-family="system-ui, sans-serif" font-size="7" fill="#059669" text-anchor="middle">SOFT</text>
+      
+      <circle cx="-40" cy="-15" r="12" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1"/>
+      <text x="-40" y="-12" font-family="system-ui, sans-serif" font-size="7" fill="#059669" text-anchor="middle">COMP</text>
+    </g>
+    
+    <!-- Check marks at bottom -->
+    <g transform="translate(290, 270)">
+      <path d="M5 12 L10 17 L20 5" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="8" fill="#6B7280">One team</text>
+    </g>
+    <g transform="translate(360, 270)">
+      <path d="M5 12 L10 17 L20 5" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="8" fill="#6B7280">Guaranteed</text>
+    </g>
+    <g transform="translate(290, 300)">
+      <path d="M5 12 L10 17 L20 5" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="8" fill="#6B7280">24-48hrs</text>
+    </g>
+    <g transform="translate(360, 300)">
+      <path d="M5 12 L10 17 L20 5" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="8" fill="#6B7280">Support</text>
+    </g>
+    
+    <text x="370" y="340" font-family="system-ui, sans-serif" font-size="11" fill="#059669" font-weight="600" text-anchor="middle" opacity="0.7">UNIFIED · FAST · RELIABLE</text>
+  </g>
+</svg>

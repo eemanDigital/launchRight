@@ -2,45 +2,15 @@
 
 import { motion } from "framer-motion";
 
-import {
-  MagnifyingGlassIcon,
-  DocumentTextIcon,
-  CheckCircleIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/24/outline";
-
 function Counter({ value, suffix = "" }) {
   return (
     <span className="text-navy">
-      {value} {suffix}
+      {value}{suffix}
     </span>
   );
 }
 
 export default function Process() {
-  const steps = [
-    {
-      icon: MagnifyingGlassIcon,
-      title: "Tell Us Your Needs",
-      description:
-        "Share your business goals — we'll recommend the right combination of registration, website, and legal documents.",
-      step: "01",
-    },
-    {
-      icon: DocumentTextIcon,
-      title: "We Handle Everything",
-      description:
-        "We file your CAC registration, build your website, and draft your legal documents — all coordinated by our team.",
-      step: "02",
-    },
-    {
-      icon: CheckCircleIcon,
-      title: "Launch With Confidence",
-      description: "Get your certificate, website, and legal documents delivered. Ready to operate legally from day one.",
-      step: "03",
-    },
-  ];
-
   const stats = [
     { value: "2,000+", suffix: "", label: "Clients Served" },
     { value: "5+", suffix: "", label: "Years Experience" },
@@ -49,16 +19,20 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="section-pad bg-surface">
-      <div className="container-wide">
+    <section id="process" className="section-pad bg-surface relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-gold/3 via-transparent to-green/3 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16">
+          className="text-center mb-12">
           <span className="badge-gold badge mb-4 inline-flex">HOW WE WORK</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
             From Idea to Launch
           </h2>
           <p className="text-muted max-w-xl mx-auto text-lg">
@@ -66,36 +40,18 @@ export default function Process() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-20 relative max-w-5xl mx-auto">
-          <div className="hidden md:block absolute top-16 left-1/3 right-1/3 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="relative">
-              <div className="card-premium p-8 bg-white">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-navy to-navy-light rounded-xl flex items-center justify-center">
-                    <step.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-gold/40 text-4xl font-bold tracking-tighter">{step.step}</span>
-                </div>
-                <h3 className="text-navy text-xl font-semibold mb-3 tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">{step.description}</p>
-              </div>
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                  <ArrowRightIcon className="w-5 h-5 text-gold/30" />
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-16">
+          <img
+            src="/image/process-diagram.svg"
+            alt="Three-step process: Consult, Execute, Launch"
+            className="w-full h-auto"
+          />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -106,7 +62,7 @@ export default function Process() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="card-premium bg-white p-6 lg:p-8 text-center">
+              className="bg-white rounded-2xl p-6 lg:p-8 text-center border border-gray-100/80 hover:border-gold/20 transition-colors">
               <div className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>

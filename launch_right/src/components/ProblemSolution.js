@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { XMarkIcon, CheckIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon, CheckIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function ProblemSolution() {
   const problems = [
-    "Trying to coordinate between a lawyer, CAC agent, and web developer separately",
+    "Coordinating between a lawyer, CAC agent, and web developer separately",
     "Confusing legal requirements and compliance obligations",
     "Poor quality websites that don't convert customers",
-    "Legal documents that don't hold up when you need them",
-    "Unreliable agents who disappear after collecting payment",
+    "Legal documents that don't hold up when needed",
+    "Unreliable agents who disappear after payment",
   ];
 
   const solutions = [
@@ -23,26 +23,31 @@ export default function ProblemSolution() {
   ];
 
   return (
-    <section className="section-pad bg-white">
-      <div className="container-wide">
+    <section className="section-pad bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-gold/3 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-green/3 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14">
+          className="text-center mb-16">
           <span className="badge badge-navy mb-4 inline-flex">THE PROBLEM & SOLUTION</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
             Stop Juggling Multiple Providers
           </h2>
-          <p className="text-muted max-w-xl mx-auto text-lg">
+          <p className="text-muted max-w-2xl mx-auto text-lg">
             We combine legal expertise, CAC accreditation, and technology to handle everything — right the first time.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_300px_1fr] gap-8 lg:gap-0 items-center max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -51,15 +56,13 @@ export default function ProblemSolution() {
               <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
                 <XMarkIcon className="w-5 h-5 text-red-400" />
               </div>
-              <h3 className="text-white text-xl font-semibold tracking-tight">
+              <h3 className="text-white text-lg font-semibold tracking-tight">
                 The Old Way
               </h3>
             </div>
             <ul className="space-y-4">
               {problems.map((problem, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-white/55">
+                <li key={index} className="flex items-start gap-3 text-white/55">
                   <XMarkIcon className="w-5 h-5 text-red-400/60 flex-shrink-0 mt-0.5" />
                   <span className="text-sm leading-relaxed">{problem}</span>
                 </li>
@@ -67,8 +70,16 @@ export default function ProblemSolution() {
             </ul>
           </motion.div>
 
+          <div className="hidden lg:flex justify-center items-center py-8">
+            <img
+              src="/image/problem-solution.svg"
+              alt="From fragmented providers to unified JurisTech platform"
+              className="w-full h-auto max-w-[280px]"
+            />
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -77,15 +88,13 @@ export default function ProblemSolution() {
               <div className="w-10 h-10 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center">
                 <CheckIcon className="w-5 h-5 text-success" />
               </div>
-              <h3 className="text-navy text-xl font-semibold tracking-tight">
+              <h3 className="text-navy text-lg font-semibold tracking-tight">
                 With JurisTech
               </h3>
             </div>
             <ul className="space-y-4">
               {solutions.map((solution, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-gray-700">
+                <li key={index} className="flex items-start gap-3 text-gray-700">
                   <CheckIcon className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                   <span className="text-sm leading-relaxed">{solution}</span>
                 </li>
@@ -99,11 +108,12 @@ export default function ProblemSolution() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-12">
+          className="text-center mt-14">
           <a
             href="https://wa.me/message/KTFL2G2JM3JTP1"
             className="btn-primary">
             Start Your Project — Chat With Us
+            <ArrowRightIcon className="w-4 h-4" />
           </a>
         </motion.div>
       </div>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9972B"/>
+      <stop offset="100%" stop-color="#E8B84B"/>
+    </linearGradient>
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#152238"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="200" fill="#FAFAF9" rx="16"/>
+
+  <!-- Connecting path line -->
+  <path d="M150 100 C220 60, 280 60, 350 100 C420 140, 480 140, 550 100 C620 60, 680 60, 750 100" 
+        stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.3"/>
+
+  <!-- Dots along the path -->
+  <circle cx="250" cy="78" r="4" fill="#C9972B" opacity="0.5"/>
+  <circle cx="450" cy="122" r="4" fill="#C9972B" opacity="0.5"/>
+  <circle cx="650" cy="78" r="4" fill="#C9972B" opacity="0.5"/>
+
+  <!-- STEP 1 -->
+  <g filter="url(#softShadow)">
+    <circle cx="150" cy="95" r="45" fill="url(#navyGrad)" stroke="#C9972B" stroke-width="2"/>
+    <circle cx="145" cy="90" r="10" fill="none" stroke="#C9972B" stroke-width="2"/>
+    <line x1="152" y1="97" x2="162" y2="107" stroke="#C9972B" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="145" cy="90" r="3" fill="#C9972B" opacity="0.3"/>
+  </g>
+  <circle cx="150" cy="30" r="12" fill="#C9972B" opacity="0.15"/>
+  <text x="150" y="34" font-family="system-ui, sans-serif" font-size="10" fill="#C9972B" font-weight="700" text-anchor="middle">01</text>
+  <text x="150" y="162" font-family="system-ui, sans-serif" font-size="13" fill="#0A1628" font-weight="600" text-anchor="middle">Tell Us Your Needs</text>
+  <text x="150" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">We listen and recommend</text>
+
+  <!-- STEP 2 -->
+  <g filter="url(#softShadow)">
+    <circle cx="450" cy="95" r="45" fill="url(#navyGrad)" stroke="#C9972B" stroke-width="2"/>
+    <rect x="438" y="77" width="24" height="30" rx="3" fill="none" stroke="#C9972B" stroke-width="1.5"/>
+    <line x1="444" y1="87" x2="456" y2="87" stroke="#C9972B" stroke-width="1.5"/>
+    <line x1="444" y1="93" x2="454" y2="93" stroke="#C9972B" stroke-width="1"/>
+    <line x1="444" y1="99" x2="452" y2="99" stroke="#C9972B" stroke-width="1"/>
+    <circle cx="462" cy="80" r="5" fill="none" stroke="#E8B84B" stroke-width="1" opacity="0.5"/>
+  </g>
+  <circle cx="450" cy="30" r="12" fill="#C9972B" opacity="0.15"/>
+  <text x="450" y="34" font-family="system-ui, sans-serif" font-size="10" fill="#C9972B" font-weight="700" text-anchor="middle">02</text>
+  <text x="450" y="162" font-family="system-ui, sans-serif" font-size="13" fill="#0A1628" font-weight="600" text-anchor="middle">We Handle Everything</text>
+  <text x="450" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">CAC, website and legal docs</text>
+
+  <!-- STEP 3 -->
+  <g filter="url(#softShadow)">
+    <circle cx="750" cy="95" r="45" fill="url(#navyGrad)" stroke="#C9972B" stroke-width="2"/>
+    <path d="M750 73 C750 73 742 85 742 95 L742 103 C742 105 745 107 750 107 C755 107 758 105 758 103 L758 95 C758 85 750 73 750 73Z" fill="#C9972B"/>
+    <path d="M742 103 L738 110 L742 107Z" fill="#E8B84B"/>
+    <path d="M758 103 L762 110 L758 107Z" fill="#E8B84B"/>
+    <circle cx="750" cy="90" r="3" fill="#152238"/>
+  </g>
+  <circle cx="750" cy="30" r="12" fill="#C9972B" opacity="0.15"/>
+  <text x="750" y="34" font-family="system-ui, sans-serif" font-size="10" fill="#C9972B" font-weight="700" text-anchor="middle">03</text>
+  <text x="750" y="162" font-family="system-ui, sans-serif" font-size="13" fill="#0A1628" font-weight="600" text-anchor="middle">Launch With Confidence</text>
+  <text x="750" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">Ready from day one</text>
+
+  <!-- Decorative dots -->
+  <circle cx="50" cy="30" r="2" fill="#C9972B" opacity="0.2"/>
+  <circle cx="850" cy="25" r="2" fill="#C9972B" opacity="0.2"/>
+  <circle cx="300" cy="155" r="1.5" fill="#C9972B" opacity="0.15"/>
+  <circle cx="600" cy="150" r="1.5" fill="#C9972B" opacity="0.15"/>
+</svg>
