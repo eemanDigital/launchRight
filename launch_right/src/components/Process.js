@@ -1,6 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  MagnifyingGlassIcon,
+  DocumentTextIcon,
+  RocketLaunchIcon,
+} from "@heroicons/react/24/outline";
 
 function Counter({ value, suffix = "" }) {
   return (
@@ -9,6 +14,30 @@ function Counter({ value, suffix = "" }) {
     </span>
   );
 }
+
+const steps = [
+  {
+    step: "01",
+    icon: MagnifyingGlassIcon,
+    title: "Tell Us Your Needs",
+    desc: "We listen and recommend the best path for your business goals.",
+    pills: ["Free Consultation", "Name Search"],
+  },
+  {
+    step: "02",
+    icon: DocumentTextIcon,
+    title: "We Handle Everything",
+    desc: "CAC registration, website development, and legal documents — all in parallel.",
+    pills: ["CAC Filing", "Web Design", "Legal Docs"],
+  },
+  {
+    step: "03",
+    icon: RocketLaunchIcon,
+    title: "Launch With Confidence",
+    desc: "Your business is legally registered, digitally present, and ready from day one.",
+    pills: ["Certificate", "Website", "Ongoing Support"],
+  },
+];
 
 export default function Process() {
   const stats = [
@@ -40,19 +69,51 @@ export default function Process() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto mb-16">
-          <img
-            src="/image/process-diagram.svg"
-            alt="Three-step process: Consult, Execute, Launch"
-            className="w-full h-auto"
-            loading="lazy"
-          />
-        </motion.div>
+        <div className="max-w-2xl mx-auto mb-16 space-y-6">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="relative">
+
+              {index < steps.length - 1 && (
+                <div className="absolute left-7 top-16 bottom-0 w-px bg-gradient-to-b from-gold/30 via-gold/50 to-gold/30 hidden md:block" />
+              )}
+
+              <div className="flex gap-4 md:gap-6">
+                <div className="relative flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center border-2 border-gold/30 shadow-lg">
+                    <step.icon className="w-6 h-6 text-gold" />
+                  </div>
+                  <span className="absolute -top-2 -left-2 w-7 h-7 rounded-full bg-gold/15 text-gold text-[10px] font-bold flex items-center justify-center">
+                    {step.step}
+                  </span>
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg md:text-xl font-bold text-navy mb-1">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted text-sm md:text-base mb-3">
+                    {step.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {step.pills.map((pill) => (
+                      <span
+                        key={pill}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-gold/8 border border-gold/15 text-gold">
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
