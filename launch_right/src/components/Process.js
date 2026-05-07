@@ -50,6 +50,7 @@ export default function Process() {
             src="/image/process-diagram.svg"
             alt="Three-step process: Consult, Execute, Launch"
             className="w-full h-auto"
+            loading="lazy"
           />
         </motion.div>
 

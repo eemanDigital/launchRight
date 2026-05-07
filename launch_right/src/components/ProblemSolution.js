@@ -81,6 +81,7 @@ export default function ProblemSolution() {
               src="/image/problem-solution.svg"
               alt="From fragmented providers to unified JurisTech platform"
               className="w-full h-auto max-w-[280px]"
+              loading="lazy"
             />
           </motion.div>
 

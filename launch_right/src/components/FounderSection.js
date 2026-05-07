@@ -32,6 +32,7 @@ export default function FounderSection() {
                     src="/image/my-image.png"
                     alt="Lukman Asinmi, Founder of JurisTech"
                     className="w-full h-full object-cover object-[center_15%]"
+                    loading="lazy"
                   />
                 </div>
               </div>

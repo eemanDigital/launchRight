@@ -2,32 +2,27 @@ import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 
 export const metadata = {
-  title: "Our Services - CAC Registration, Websites, Legal Documents & Software",
+  title: "Our Services — CAC Registration, Websites, Legal Documents & Software",
   description:
-    "Explore all JurisTech services: CAC business registration, professional websites, legal documents, compliance support, and custom software.",
+    "Explore all JurisTech services: CAC business registration in 24-48hrs, professional websites, Nigeria-compliant legal documents, compliance support, and custom software development.",
   openGraph: {
-    title: "Our Services | JurisTech",
+    title: "Our Services — CAC Registration, Websites & Legal Documents",
     description:
-      "CAC registration, websites, legal documents, and software development - all under one roof.",
+      "CAC registration, professional websites, legal documents, and software development — all from one Nigerian legal-tech company.",
     url: "https://juristech.com.ng/services",
+    type: "website",
   },
 };
 
 export default function ServicesPage() {
   return (
     <main className="min-h-screen">
-      <SEO
-        title={metadata.title}
-        description={metadata.description}
-        canonical="/services"
-        type="website"
-        schema="localbusiness"
-      />
+      <ServiceSchema />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

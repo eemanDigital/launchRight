@@ -65,6 +65,7 @@ export default function AboutPage() {
                     src="/image/my-image.png"
                     alt="Lukman Asinmi - Founder of JurisTech"
                     className="w-full h-full object-cover object-[center_15%]"
+                    loading="lazy"
                   />
                 </div>
                 <div className="absolute -bottom-3 -right-3 bg-gold text-navy px-4 py-2 rounded-xl font-bold text-xs shadow-xl flex items-center gap-1.5">

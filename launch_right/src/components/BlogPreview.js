@@ -55,6 +55,7 @@ export default function BlogPreview() {
                   src={featured.cover}
                   alt={featured.title}
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                  loading="lazy"
                   onError={(e) => {
                     e.target.src = featured.coverFallback || "/image/blog-cac-registration-guide.svg";
                   }}
@@ -107,6 +108,7 @@ export default function BlogPreview() {
                       src={post.cover}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.src = post.coverFallback || "/image/blog-cac-registration-guide.svg";
                       }}

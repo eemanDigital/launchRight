@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import ArticleSchema from "@/components/ArticleSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -22,6 +24,17 @@ export async function generateMetadata({ params }) {
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: ["https://juristech.com.ng/about"],
+      url: `https://juristech.com.ng/resources/blog/${post.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
+    alternates: {
+      canonical: `https://juristech.com.ng/resources/blog/${post.slug}`,
     },
   };
 }
@@ -35,6 +48,7 @@ export default async function BlogPost({ params }) {
   }
 
   const postIndex = blogPosts.findIndex((p) => p.slug === slug);
+  const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
   const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
 
   const renderContent = (content) => {
@@ -106,6 +120,15 @@ export default async function BlogPost({ params }) {
 
   return (
     <main className="min-h-screen bg-surface">
+      <ArticleSchema post={post} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Resources", url: "/resources" },
+          { name: "Blog", url: "/resources/blog" },
+          { name: post.title, url: `/resources/blog/${post.slug}` },
+        ]}
+      />
       <Navbar />
 
       <div className="pt-24 pb-8 bg-navy">
@@ -143,26 +166,39 @@ export default async function BlogPost({ params }) {
           {renderContent(post.content)}
         </article>
 
-        {nextPost && (
-          <div className="max-w-3xl mx-auto mt-12">
-            <Link
-              href={`/resources/blog/${nextPost.slug}`}
-              className="block bg-white rounded-2xl p-6 border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all group">
-              <p className="text-xs text-gray-400 mb-2">Next Article</p>
-              <h3 className="text-lg font-bold text-navy group-hover:text-gold transition-colors">
-                {nextPost.title}
-              </h3>
-              <p className="text-sm text-gray-500 mt-1">{nextPost.excerpt}</p>
-            </Link>
+        {(prevPost || nextPost) && (
+          <div className="max-w-3xl mx-auto mt-12 grid md:grid-cols-2 gap-4">
+            {prevPost && (
+              <Link
+                href={`/resources/blog/${prevPost.slug}`}
+                className="block bg-white rounded-2xl p-6 border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all group">
+                <p className="text-xs text-gray-400 mb-2">Previous Article</p>
+                <h3 className="text-lg font-bold text-navy group-hover:text-gold transition-colors">
+                  {prevPost.title}
+                </h3>
+                <p className="text-sm text-gray-500 mt-1 line-clamp-1">{prevPost.excerpt}</p>
+              </Link>
+            )}
+            {nextPost && (
+              <Link
+                href={`/resources/blog/${nextPost.slug}`}
+                className="block bg-white rounded-2xl p-6 border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all group">
+                <p className="text-xs text-gray-400 mb-2">Next Article</p>
+                <h3 className="text-lg font-bold text-navy group-hover:text-gold transition-colors">
+                  {nextPost.title}
+                </h3>
+                <p className="text-sm text-gray-500 mt-1 line-clamp-1">{nextPost.excerpt}</p>
+              </Link>
+            )}
           </div>
         )}
       </div>
 
       <div className="bg-navy py-12">
         <div className="container-wide text-center">
-          <h3 className="text-xl font-bold text-white mb-3">
+          <h2 className="text-xl font-bold text-white mb-3">
             Need Help With Your Business Registration?
-          </h3>
+          </h2>
           <p className="text-white/60 mb-6 max-w-lg mx-auto">
             We handle CAC registration, legal documents, and website development — all under one roof.
           </p>

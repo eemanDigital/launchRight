@@ -88,6 +88,7 @@ export default function ProductsSection() {
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1.5 rounded-full text-xs font-semibold border ${product.statusColor} backdrop-blur-sm`}>

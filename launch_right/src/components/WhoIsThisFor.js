@@ -74,6 +74,7 @@ export default function WhoIsThisFor() {
                           src={audience.image}
                           alt={audience.title}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                       </div>
                     </div>

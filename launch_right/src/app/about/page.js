@@ -1,31 +1,24 @@
 import Navbar from "@/components/Navbar";
 import AboutPage from "@/components/AboutPage";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 export const metadata = {
-  title: "About JurisTech - Lawyer, CAC Agent & Software Developer",
+  title: "About JurisTech — Lawyer, CAC Agent & Software Developer",
   description:
-    "Learn about JurisTech - a Nigerian business infrastructure company combining legal expertise, CAC accreditation, and technology.",
+    "Learn about JurisTech — a Nigerian legal-tech company combining legal expertise, CAC accreditation, and technology. Founded by Lukman Asinmi, a practising lawyer and MERN developer.",
   openGraph: {
-    title: "About JurisTech | JurisTech",
+    title: "About JurisTech — Lawyer, CAC Agent & Software Developer",
     description:
-      "Nigerian business infrastructure company - Lawyer, CAC Agent & Software Developer",
+      "Nigerian legal-tech company founded by a practising lawyer who codes. CAC-accredited agent, MERN stack developer.",
     url: "https://juristech.com.ng/about",
+    type: "website",
   },
 };
 
 export default function About() {
   return (
     <>
-      <SEO
-        title={metadata.title}
-        description={metadata.description}
-        canonical="/about"
-        type="website"
-        schema="organization"
-      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

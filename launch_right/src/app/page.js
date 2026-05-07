@@ -12,19 +12,17 @@ import BlogPreview from "@/components/BlogPreview";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
 import FAQSchema from "@/components/FAQSchema";
+
+export const metadata = {
+  title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+  description:
+    "Nigeria's legal-tech company built by a practising lawyer who codes. CAC business registration in 24-48hrs, professional websites, legal documents, and custom software. 2,000+ clients served.",
+};
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <SEO
-        title="Nigerian Legal-Tech Company — CAC, Websites & Software | JurisTech"
-        description="Built by a practising Nigerian lawyer who also codes. CAC registration, legal documents, websites, and SaaS products for Nigerian businesses."
-        canonical="/"
-        type="website"
-        schema="organization"
-      />
       <Navbar />
       <Hero />
       <MarqueeBar />
