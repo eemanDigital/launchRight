@@ -60,14 +60,18 @@ export default function Process() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-2xl p-6 lg:p-8 text-center border border-gray-100/80 hover:border-gold/20 transition-colors">
-              <div className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight">
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 lg:p-8 text-center border border-gray-100/80 hover:border-gold/20 transition-colors group">
+              <div className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight group-hover:text-gold transition-colors">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-muted text-sm">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

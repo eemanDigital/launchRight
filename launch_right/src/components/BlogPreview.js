@@ -18,17 +18,27 @@ export default function BlogPreview() {
 
       <div className="relative container-wide">
         <div className="flex items-end justify-between mb-12">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}>
             <span className="badge-gold badge mb-3 inline-flex">FROM THE BLOG</span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy tracking-tight">
               Insights &amp; Guides
             </h2>
-          </div>
-          <Link
-            href="/resources/blog"
-            className="hidden md:flex items-center gap-1.5 text-gold font-medium hover:gap-2.5 transition-all duration-200">
-            View all <ArrowRightIcon className="w-4 h-4" />
-          </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 15 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}>
+            <Link
+              href="/resources/blog"
+              className="hidden md:flex items-center gap-1.5 text-gold font-medium hover:gap-2.5 transition-all duration-200">
+              View all <ArrowRightIcon className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
 
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-12 max-w-6xl mx-auto">

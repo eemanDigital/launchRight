@@ -72,8 +72,9 @@ export default function Testimonials() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}>
-                <div className={`relative ${accent.bg} ${accent.border} border rounded-2xl p-8 h-full flex flex-col`}>
+                viewport={{ once: true }}
+                className="group">
+                <div className={`relative ${accent.bg} ${accent.border} border rounded-2xl p-8 h-full flex flex-col hover:shadow-lg transition-all duration-300`}>
                   <ChatBubbleBottomCenterTextIcon className={`w-8 h-8 ${accent.text} opacity-20 mb-4`} />
 
                   <div className="flex gap-0.5 mb-5">

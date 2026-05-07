@@ -45,7 +45,7 @@ export default function ProblemSolution() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_300px_1fr] gap-8 lg:gap-0 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 items-center max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -70,13 +70,19 @@ export default function ProblemSolution() {
             </ul>
           </motion.div>
 
-          <div className="hidden lg:flex justify-center items-center py-8">
+          {/* Center infographic */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="hidden lg:flex justify-center items-center py-8">
             <img
               src="/image/problem-solution.svg"
               alt="From fragmented providers to unified JurisTech platform"
               className="w-full h-auto max-w-[280px]"
             />
-          </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}

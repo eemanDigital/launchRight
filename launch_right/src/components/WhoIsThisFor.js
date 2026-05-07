@@ -69,7 +69,7 @@ export default function WhoIsThisFor() {
 
                   <div className="flex items-start gap-5 mb-6">
                     <div className="relative flex-shrink-0">
-                      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-surface-dark">
+                      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-surface-dark group-hover:scale-105 transition-transform duration-300">
                         <img
                           src={audience.image}
                           alt={audience.title}

@@ -6,7 +6,7 @@ import { ArrowRightIcon, ShieldCheckIcon, AcademicCapIcon, CodeBracketIcon } fro
 
 export default function FounderSection() {
   return (
-    <section className="py-16 lg:py-20 bg-white border-t border-gray-100/80 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-white border-t border-gray-100/80 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-gold/4 to-transparent rounded-full blur-3xl" />
       </div>
@@ -19,7 +19,12 @@ export default function FounderSection() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14">
-            <div className="flex-shrink-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex-shrink-0">
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-gold/10 to-transparent rounded-full blur-2xl" />
                 <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden ring-4 ring-gold/10 shadow-xl">
@@ -30,9 +35,14 @@ export default function FounderSection() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="text-center md:text-left flex-1">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="text-center md:text-left flex-1">
               <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
                 Meet the Founder
               </p>
@@ -61,7 +71,7 @@ export default function FounderSection() {
                 className="inline-flex items-center gap-2 text-gold font-medium hover:gap-3 transition-all duration-200">
                 Read My Full Story <ArrowRightIcon className="w-4 h-4" />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -123,7 +123,30 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative hidden lg:flex items-center justify-center">
+            {/* Background glow behind illustration */}
             <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-green/5 blur-3xl rounded-full scale-110" />
+            
+            {/* Floating accent badges */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-8 right-0 z-10">
+              <div className="bg-navy/80 backdrop-blur-sm border border-gold/20 rounded-xl px-4 py-2.5 shadow-lg">
+                <p className="text-gold text-lg font-bold">24-48h</p>
+                <p className="text-white/50 text-[10px] uppercase tracking-wider">Approval</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-20 left-0 z-10">
+              <div className="bg-navy/80 backdrop-blur-sm border border-green/20 rounded-xl px-4 py-2.5 shadow-lg">
+                <p className="text-green text-lg font-bold">2,000+</p>
+                <p className="text-white/50 text-[10px] uppercase tracking-wider">Launched</p>
+              </div>
+            </motion.div>
+
             <div className="relative w-full max-w-lg">
               <img
                 src="/image/hero-illustration.svg"

@@ -97,7 +97,9 @@ export default function AboutPage() {
                 Lawyer. CAC Agent. Developer. Founder of JurisTech.
               </p>
               <p className="text-white/70 text-lg leading-relaxed max-w-xl">
-                I built JurisTech at the intersection of law, compliance, and technology — because Nigerian businesses deserve all three from someone who actually understands them.
+                I built JurisTech at the intersection of law, compliance, and
+                technology — because Nigerian businesses deserve all three from
+                someone who actually understands them.
               </p>
             </motion.div>
           </div>
@@ -125,7 +127,11 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}>
-                Early in my legal practice, I kept watching the same pattern play out. Entrepreneurs would come to my office needing legal documents — contracts, agreements, compliance filings. The documents themselves were straightforward. But the real problem wasn't legal; it was structural.
+                Early in my legal practice, I kept watching the same pattern
+                play out. Entrepreneurs would come to my office needing legal
+                documents — contracts, agreements, compliance filings. The
+                documents themselves were straightforward. But the real problem
+                wasn't legal; it was structural.
               </motion.p>
 
               <motion.p
@@ -133,7 +139,11 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}>
-                These entrepreneurs needed three things simultaneously: legal documents and compliance support, CAC registration and regulatory filings, and a professional website and digital presence. And the people struggling the most were the ones who could least afford to hire three different professionals.
+                These entrepreneurs needed three things simultaneously: legal
+                documents and compliance support, CAC registration and
+                regulatory filings, and a professional website and digital
+                presence. And the people struggling the most were the ones who
+                could least afford to hire three different professionals.
               </motion.p>
 
               <motion.p
@@ -141,7 +151,12 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}>
-                I became a CAC-accredited agent so I could handle registration filings directly. Then I taught myself to code — JavaScript, React, Node.js, the full MERN stack — because the problems I saw in my legal practice couldn't be solved with documents alone. The bottlenecks were technological. The inefficiencies were systemic.
+                I became a CAC-accredited agent so I could handle registration
+                filings directly. Then I taught myself to code — JavaScript,
+                React, Node.js, the full MERN stack — because the problems I saw
+                in my legal practice couldn't be solved with documents alone.
+                The bottlenecks were technological. The inefficiencies were
+                systemic.
               </motion.p>
 
               <motion.p
@@ -149,7 +164,13 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}>
-                JurisTech is the answer. It's a legal-tech company that combines legal practice, CAC accreditation, and software development under one roof. I'm not outsourcing any of these disciplines. I personally oversee and execute across all three. Every registration, every website, every document that leaves JurisTech meets a standard I am personally willing to put my name on.
+                JurisTech is the answer. It's a legal-tech company that combines
+                legal practice, CAC accreditation, and software development
+                under one roof. I'm not outsourcing any of these disciplines. I
+                personally oversee and execute across all three. Every
+                registration, every website, every document that leaves
+                JurisTech meets a standard I am personally willing to put my
+                name on.
               </motion.p>
             </div>
           </div>
@@ -186,7 +207,9 @@ export default function AboutPage() {
         <div className="container-wide">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-navy">What I'm Building</h2>
-            <p className="text-gray-500 mt-2">Products and platforms currently in development or live</p>
+            <p className="text-gray-500 mt-2">
+              Products and platforms currently in development or live
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -200,7 +223,8 @@ export default function AboutPage() {
                 className="bg-surface rounded-2xl p-6 border border-gray-100">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-navy">{build.name}</h3>
-                  <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${build.statusColor}`}>
+                  <span
+                    className={`px-2.5 py-1 rounded-full text-xs font-semibold ${build.statusColor}`}>
                     {build.status}
                   </span>
                 </div>
@@ -214,14 +238,19 @@ export default function AboutPage() {
       {/* Personal Note */}
       <section className="py-20 bg-navy">
         <div className="container-narrow text-center">
-          <h2 className="text-2xl font-bold text-white mb-6">A Personal Note</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            A Personal Note
+          </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-8">
-            If you're wondering whether to trust JurisTech with your business registration or legal documents — you're trusting me directly. My name is on every document we produce. My accreditation number is on every CAC filing. My code powers every system we build. That's a level of personal accountability most service providers can't offer, and it's a commitment I take seriously.
+            If you're wondering whether to trust JurisTech with your business
+            registration or legal documents — you're trusting me directly. My
+            name is on every document we produce. My accreditation number is on
+            every CAC filing. My code powers every system we build. That's a
+            level of personal accountability most service providers can't offer,
+            and it's a commitment I take seriously.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="btn-gold">
+            <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gold">
               Work With Me <ArrowRightIcon className="w-4 h-4" />
             </a>
             <Link
@@ -237,18 +266,41 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container-wide">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">What JurisTech Offers</h2>
+            <h2 className="text-3xl font-bold text-navy mb-4">
+              What JurisTech Offers
+            </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              Everything you need to launch, operate, and grow your business — legally and digitally.
+              Everything you need to launch, operate, and grow your business —
+              legally and digitally.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              { icon: BuildingOfficeIcon, name: "CAC Registration", desc: "Business Name, LTD, NGO", link: "/services" },
-              { icon: ScaleIcon, name: "Legal Documents", desc: "Contracts, Agreements, Compliance", link: "/services" },
-              { icon: CodeBracketIcon, name: "Website Development", desc: "Landing pages to e-commerce", link: "/services" },
-              { icon: ComputerDesktopIcon, name: "Custom Software", desc: "SaaS, Mobile, POS systems", link: "/services" },
+              {
+                icon: BuildingOfficeIcon,
+                name: "CAC Registration",
+                desc: "Business Name, LTD, NGO",
+                link: "/services",
+              },
+              {
+                icon: ScaleIcon,
+                name: "Legal Documents",
+                desc: "Contracts, Agreements, Compliance",
+                link: "/services",
+              },
+              {
+                icon: CodeBracketIcon,
+                name: "Website Development",
+                desc: "Landing pages to e-commerce",
+                link: "/services",
+              },
+              {
+                icon: ComputerDesktopIcon,
+                name: "Custom Software",
+                desc: "SaaS, Mobile, POS systems",
+                link: "/services",
+              },
             ].map((service, index) => (
               <motion.div
                 key={index}
@@ -262,7 +314,9 @@ export default function AboutPage() {
                   <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
                     <service.icon className="w-6 h-6 text-gold" />
                   </div>
-                  <h3 className="text-lg font-bold text-navy mb-1">{service.name}</h3>
+                  <h3 className="text-lg font-bold text-navy mb-1">
+                    {service.name}
+                  </h3>
                   <p className="text-gray-500 text-sm mb-3">{service.desc}</p>
                   <div className="flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all">
                     Learn more <ArrowRightIcon className="w-4 h-4" />
@@ -274,7 +328,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

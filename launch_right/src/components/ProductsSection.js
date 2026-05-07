@@ -16,6 +16,8 @@ const products = [
     link: "/products",
     color: "from-emerald-500 to-emerald-600",
     image: "/image/product-vendpadi.svg",
+    metrics: "WhatsApp-first",
+    metricsIcon: "💬",
   },
   {
     icon: ScaleIcon,
@@ -28,6 +30,8 @@ const products = [
     link: "/products",
     color: "from-blue-500 to-blue-600",
     image: "/image/product-casemaster.svg",
+    metrics: "Built by lawyers",
+    metricsIcon: "⚖️",
   },
   {
     icon: DocumentTextIcon,
@@ -40,6 +44,8 @@ const products = [
     link: "/tools/document-generator",
     color: "from-gold to-gold-light",
     image: "/image/product-docgen.svg",
+    metrics: "6 templates",
+    metricsIcon: "📄",
   },
 ];
 
@@ -76,15 +82,21 @@ export default function ProductsSection() {
               viewport={{ once: true }}
               className="group">
               <Link href={product.link} className="block">
-                <div className="relative mb-6 rounded-2xl overflow-hidden bg-surface aspect-[4/3]">
+                {/* Product image / mockup area */}
+                <div className="relative mb-6 rounded-2xl overflow-hidden bg-surface aspect-[4/3] border border-gray-100">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1.5 rounded-full text-xs font-semibold border ${product.statusColor} backdrop-blur-sm`}>
                       {product.status}
+                    </span>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-navy border border-gray-100">
+                      {product.metricsIcon} {product.metrics}
                     </span>
                   </div>
                 </div>

@@ -29,10 +29,15 @@ export default function FinalCTA() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center">
-          <span className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-8">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-8">
             <StarIcon className="w-4 h-4 text-gold" />
             <span className="text-white/70 text-sm font-medium">Trusted by 2,000+ entrepreneurs</span>
-          </span>
+          </motion.span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 tracking-tight">
             Ready to Launch Your Business?
@@ -42,13 +47,15 @@ export default function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="btn-gold text-base shadow-lg shadow-gold/20"
               onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}>
               Start Your Project
               <ArrowRightIcon className="w-4 h-4" />
-            </a>
+            </motion.a>
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all"
@@ -58,20 +65,35 @@ export default function FinalCTA() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
               <MapPinIcon className="w-6 h-6 text-gold mx-auto mb-3" />
               <p className="text-white/70 text-sm">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
               <PhoneIcon className="w-6 h-6 text-gold mx-auto mb-3" />
               <a href="tel:08067234189" className="text-white/70 text-sm hover:text-white transition-colors">
                 08067234189
               </a>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
               <ShieldCheckIcon className="w-6 h-6 text-gold mx-auto mb-3" />
               <p className="text-white/70 text-sm">CAC-Accredited Agent</p>
-            </div>
+            </motion.div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 text-white/50 text-sm">

@@ -185,20 +185,26 @@ export default function Pricing() {
 
         <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {moreServices.map((service, index) => (
-            <Link
+            <motion.div
               key={index}
-              href={service.link}
-              className="group flex items-center gap-4 p-5 rounded-xl border border-gray-100 bg-white hover:border-gold/20 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-navy/5 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
-                <service.icon className="w-5 h-5 text-navy/60 group-hover:text-gold transition-colors" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-navy tracking-tight">
-                  {service.name}
-                </h4>
-                <p className="text-muted text-xs">{service.desc}</p>
-              </div>
-            </Link>
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}>
+              <Link
+                href={service.link}
+                className="group flex items-center gap-4 p-5 rounded-xl border border-gray-100 bg-white hover:border-gold/20 hover:shadow-md transition-all">
+                <div className="w-10 h-10 rounded-lg bg-navy/5 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+                  <service.icon className="w-5 h-5 text-navy/60 group-hover:text-gold transition-colors" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-navy tracking-tight">
+                    {service.name}
+                  </h4>
+                  <p className="text-muted text-xs">{service.desc}</p>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
 

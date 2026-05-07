@@ -18,7 +18,7 @@ export default function MarqueeBar() {
       <div className="py-4 animate-marquee flex whitespace-nowrap">
         {[...items, ...items, ...items].map((item, index) => (
           <span key={index} className="text-white/40 mx-8 text-sm font-medium flex items-center gap-3">
-            <span className="w-1 h-1 bg-gold/60 rounded-full flex-shrink-0" />
+            <span className="w-1.5 h-1.5 bg-gold/60 rounded-full flex-shrink-0" />
             {item}
           </span>
         ))}
