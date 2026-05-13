@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRightIcon, CheckCircleIcon, PlayIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  CheckCircleIcon,
+  PlayIcon,
+} from "@heroicons/react/24/outline";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import Link from "next/link";
 
@@ -30,10 +34,13 @@ export default function Hero() {
       </div>
 
       <div className="absolute inset-0 opacity-[0.03]">
-        <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(rgba(201,151,43,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,151,43,0.3) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `linear-gradient(rgba(201,151,43,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,151,43,0.3) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
+        />
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-deep to-transparent" />
@@ -47,7 +54,9 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5">
               <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-              <span className="text-white/80 text-sm font-medium">Built by a Lawyer Who Codes</span>
+              <span className="text-white/80 text-sm font-medium">
+                Built by a Lawyer Who Codes
+              </span>
             </motion.div>
 
             <motion.h1
@@ -56,7 +65,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[1.05] tracking-tight">
               Launch Your Business{" "}
-              <span className="text-gradient-gold block">Legally &amp; Digitally</span>
+              <span className="text-gradient-gold block">
+                Legally &amp; Digitally
+              </span>
             </motion.h1>
 
             <motion.div
@@ -65,7 +76,8 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="space-y-4">
               <p className="text-lg text-white/60 max-w-xl leading-relaxed">
-                Built by a practising Nigerian lawyer who also codes. We handle the legal, digital, and technical so you can focus on building.
+                Built by a practising Nigerian lawyer who also codes. We handle
+                the legal, digital, and technical so you can focus on building.
               </p>
             </motion.div>
 
@@ -77,7 +89,9 @@ export default function Hero() {
               <a
                 href="https://wa.me/message/KTFL2G2JM3JTP1"
                 className="btn-gold text-base shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
-                onClick={() => trackWhatsAppClick("Hero CTA - Register My Business")}>
+                onClick={() =>
+                  trackWhatsAppClick("Hero CTA - Register My Business")
+                }>
                 Register My Business
                 <ArrowRightIcon className="w-4 h-4" />
               </a>
@@ -108,16 +122,19 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.45 }}
               className="flex items-center gap-8 pt-4 border-t border-white/8">
               {stats.map((stat, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.55 + i * 0.1 }}
                   className="flex flex-col">
                   <p className="text-white text-2xl font-bold tracking-tight font-display">
-                    {stat.value}{stat.suffix || ""}
+                    {stat.value}
+                    {stat.suffix || ""}
                   </p>
-                  <p className="text-white/40 text-xs mt-1.5 uppercase tracking-widest">{stat.label}</p>
+                  <p className="text-white/40 text-xs mt-1.5 uppercase tracking-widest">
+                    {stat.label}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>
@@ -130,7 +147,7 @@ export default function Hero() {
             className="relative hidden lg:flex items-center justify-center">
             {/* Background glow behind illustration */}
             <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-green/5 blur-3xl rounded-full scale-110" />
-            
+
             {/* Floating accent badges */}
             <motion.div
               animate={{ y: [0, -8, 0] }}
@@ -138,17 +155,26 @@ export default function Hero() {
               className="absolute top-8 right-0 z-10">
               <div className="bg-navy/80 backdrop-blur-sm border border-gold/20 rounded-xl px-4 py-2.5 shadow-lg">
                 <p className="text-gold text-lg font-bold">24-48h</p>
-                <p className="text-white/50 text-[10px] uppercase tracking-wider">Approval</p>
+                <p className="text-white/50 text-[10px] uppercase tracking-wider">
+                  Approval
+                </p>
               </div>
             </motion.div>
 
             <motion.div
               animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
               className="absolute bottom-20 left-0 z-10">
               <div className="bg-navy/80 backdrop-blur-sm border border-green/20 rounded-xl px-4 py-2.5 shadow-lg">
                 <p className="text-green text-lg font-bold">2,000+</p>
-                <p className="text-white/50 text-[10px] uppercase tracking-wider">Launched</p>
+                <p className="text-white/50 text-[10px] uppercase tracking-wider">
+                  Launched
+                </p>
               </div>
             </motion.div>
 

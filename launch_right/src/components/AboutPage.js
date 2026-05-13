@@ -189,7 +189,9 @@ export default function AboutPage() {
               className="badge badge-gold mb-4 inline-block">
               CREDENTIALS
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3">Qualifications</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3">
+              Qualifications
+            </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {credentials.map((cred, index) => (
@@ -203,7 +205,9 @@ export default function AboutPage() {
                 <div className="w-12 h-12 bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <cred.icon className="w-6 h-6 text-gold" />
                 </div>
-                <p className="text-sm font-semibold text-navy leading-snug">{cred.text}</p>
+                <p className="text-sm font-semibold text-navy leading-snug">
+                  {cred.text}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -221,7 +225,9 @@ export default function AboutPage() {
               className="badge badge-gold mb-4 inline-block">
               CURRENT PROJECTS
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-5">What I'm Building</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-5">
+              What I'm Building
+            </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               Products and platforms currently in development or live
             </p>
@@ -243,7 +249,9 @@ export default function AboutPage() {
                     {build.status}
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{build.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {build.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -285,7 +293,9 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gold text-base">
+            <a
+              href="https://wa.me/message/KTFL2G2JM3JTP1"
+              className="btn-gold text-base">
               Work With Me <ArrowRightIcon className="w-4 h-4" />
             </a>
             <Link
@@ -359,7 +369,9 @@ export default function AboutPage() {
                   <h3 className="text-lg font-bold text-navy mb-2">
                     {service.name}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    {service.desc}
+                  </p>
                   <div className="flex items-center gap-1.5 text-gold text-sm font-semibold group-hover:gap-2.5 transition-all duration-300">
                     Learn more <ArrowRightIcon className="w-4 h-4" />
                   </div>
