@@ -110,6 +110,18 @@ export default function RootLayout({ children }) {
         <meta name="geo.placename" content="Abuja" />
         <meta name="geo.position" content="9.0579;7.4951" />
         <meta name="ICBM" content="9.0579, 7.4951" />
+        <link
+          rel="preload"
+          as="image"
+          href="/image/hero-illustration.svg"
+          type="image/svg+xml"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/image/og-image.png"
+          type="image/png"
+        />
       </head>
       <body className="font-body">
         <FacebookPixel />

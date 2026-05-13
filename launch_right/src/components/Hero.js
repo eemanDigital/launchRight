@@ -183,6 +183,8 @@ export default function Hero() {
                 src="/image/hero-illustration.svg"
                 alt="JurisTech services hub connecting legal, digital, and technical solutions"
                 className="w-full h-auto drop-shadow-2xl"
+                width={400}
+                height={400}
                 loading="eager"
               />
             </div>

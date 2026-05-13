@@ -1,18 +1,42 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeBar from "@/components/MarqueeBar";
-import WhoIsThisFor from "@/components/WhoIsThisFor";
-import ProblemSolution from "@/components/ProblemSolution";
-import Process from "@/components/Process";
-import FounderSection from "@/components/FounderSection";
-import ProductsSection from "@/components/ProductsSection";
-import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing";
-import BlogPreview from "@/components/BlogPreview";
-import FAQ from "@/components/FAQ";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
 import FAQSchema from "@/components/FAQSchema";
+
+const WhoIsThisFor = dynamic(() => import("@/components/WhoIsThisFor"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const ProblemSolution = dynamic(() => import("@/components/ProblemSolution"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const Process = dynamic(() => import("@/components/Process"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const FounderSection = dynamic(() => import("@/components/FounderSection"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const ProductsSection = dynamic(() => import("@/components/ProductsSection"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const Pricing = dynamic(() => import("@/components/Pricing"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const BlogPreview = dynamic(() => import("@/components/BlogPreview"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const FAQ = dynamic(() => import("@/components/FAQ"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const FinalCTA = dynamic(() => import("@/components/FinalCTA"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
+const Footer = dynamic(() => import("@/components/Footer"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
 
 export const metadata = {
   title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
