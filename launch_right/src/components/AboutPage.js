@@ -91,7 +91,7 @@ export default function AboutPage() {
                 </span>
               </motion.div>
 
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-5 leading-tight">
                 Lukman Asinmi
               </h1>
               <p className="text-gold text-lg md:text-xl mb-4">
@@ -118,7 +118,7 @@ export default function AboutPage() {
               className="text-gold font-semibold text-sm uppercase tracking-wider">
               My Story
             </motion.span>
-            <h2 className="text-3xl font-bold text-navy mt-3 mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-10">
               How JurisTech Came to Be
             </h2>
 
@@ -181,22 +181,29 @@ export default function AboutPage() {
       {/* Credentials */}
       <section className="py-16 bg-surface">
         <div className="container-wide">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-navy">Credentials</h2>
+          <div className="text-center mb-12">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="badge badge-gold mb-4 inline-block">
+              CREDENTIALS
+            </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3">Qualifications</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {credentials.map((cred, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 text-center border border-gray-100">
-                <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <cred.icon className="w-5 h-5 text-gold" />
+                className="card-accent p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <cred.icon className="w-6 h-6 text-gold" />
                 </div>
-                <p className="text-sm font-medium text-navy">{cred.text}</p>
+                <p className="text-sm font-semibold text-navy leading-snug">{cred.text}</p>
               </motion.div>
             ))}
           </div>
@@ -204,11 +211,18 @@ export default function AboutPage() {
       </section>
 
       {/* Current Builds */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="container-wide">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-navy">What I'm Building</h2>
-            <p className="text-gray-500 mt-2">
+          <div className="text-center mb-16">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="badge badge-gold mb-4 inline-block">
+              CURRENT PROJECTS
+            </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-5">What I'm Building</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               Products and platforms currently in development or live
             </p>
           </div>
@@ -217,19 +231,19 @@ export default function AboutPage() {
             {currentBuilds.map((build, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-surface rounded-2xl p-6 border border-gray-100">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-navy">{build.name}</h3>
+                className="card-premium p-8">
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="font-bold text-navy text-lg">{build.name}</h3>
                   <span
                     className={`px-2.5 py-1 rounded-full text-xs font-semibold ${build.statusColor}`}>
                     {build.status}
                   </span>
                 </div>
-                <p className="text-sm text-gray-500">{build.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{build.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -237,40 +251,67 @@ export default function AboutPage() {
       </section>
 
       {/* Personal Note */}
-      <section className="py-20 bg-navy">
-        <div className="container-narrow text-center">
-          <h2 className="text-2xl font-bold text-white mb-6">
-            A Personal Note
+      <section className="relative py-24 bg-gradient-to-br from-navy via-navy to-navy-light overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-20 w-96 h-96 bg-gold rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-green rounded-full blur-3xl" />
+        </div>
+        <div className="container-narrow text-center relative">
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="badge badge-gold mb-4 inline-block">
+            A PERSONAL NOTE
+          </motion.span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-8 leading-tight">
+            You're Trusting Me Directly
           </h2>
-          <p className="text-white/70 text-lg leading-relaxed mb-8">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-white/75 text-lg leading-relaxed mb-10 font-light">
             If you're wondering whether to trust JurisTech with your business
             registration or legal documents — you're trusting me directly. My
             name is on every document we produce. My accreditation number is on
             every CAC filing. My code powers every system we build. That's a
-            level of personal accountability most service providers can't offer,
-            and it's a commitment I take seriously.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gold">
+            level of personal accountability most service providers can't offer.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gold text-base">
               Work With Me <ArrowRightIcon className="w-4 h-4" />
             </a>
             <Link
               href="/tools/document-generator"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-colors">
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300">
               Try Our Free Tools
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">
+          <div className="text-center mb-16">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="badge badge-gold mb-4 inline-block">
+              SERVICES
+            </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-5">
               What JurisTech Offers
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               Everything you need to launch, operate, and grow your business —
               legally and digitally.
             </p>
@@ -305,21 +346,21 @@ export default function AboutPage() {
             ].map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}>
                 <Link
                   href={service.link}
-                  className="block bg-surface rounded-2xl p-6 border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all group">
-                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-gold" />
+                  className="block card-premium p-8 group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mb-5 group-hover:from-gold/30 group-hover:to-gold/15 transition-all duration-300">
+                    <service.icon className="w-7 h-7 text-gold" />
                   </div>
-                  <h3 className="text-lg font-bold text-navy mb-1">
+                  <h3 className="text-lg font-bold text-navy mb-2">
                     {service.name}
                   </h3>
-                  <p className="text-gray-500 text-sm mb-3">{service.desc}</p>
-                  <div className="flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
+                  <div className="flex items-center gap-1.5 text-gold text-sm font-semibold group-hover:gap-2.5 transition-all duration-300">
                     Learn more <ArrowRightIcon className="w-4 h-4" />
                   </div>
                 </Link>

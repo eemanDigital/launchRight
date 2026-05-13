@@ -54,9 +54,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-semibold text-white leading-[1.08] tracking-tight">
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[1.05] tracking-tight">
               Launch Your Business{" "}
-              <span className="text-gradient-gold">Legally &amp; Digitally</span>
+              <span className="text-gradient-gold block">Legally &amp; Digitally</span>
             </motion.h1>
 
             <motion.div
@@ -76,14 +76,14 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://wa.me/message/KTFL2G2JM3JTP1"
-                className="btn-gold text-base shadow-lg shadow-gold/20"
+                className="btn-gold text-base shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
                 onClick={() => trackWhatsAppClick("Hero CTA - Register My Business")}>
                 Register My Business
                 <ArrowRightIcon className="w-4 h-4" />
               </a>
               <Link
                 href="/tools/document-generator"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all">
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-lg hover:shadow-white/5">
                 <PlayIcon className="w-4 h-4" />
                 Explore Our Tools
               </Link>
@@ -106,14 +106,19 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
-              className="flex items-center gap-8 pt-2 border-t border-white/8">
+              className="flex items-center gap-8 pt-4 border-t border-white/8">
               {stats.map((stat, i) => (
-                <div key={i} className="flex flex-col">
-                  <p className="text-white text-2xl font-bold tracking-tight">
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.55 + i * 0.1 }}
+                  className="flex flex-col">
+                  <p className="text-white text-2xl font-bold tracking-tight font-display">
                     {stat.value}{stat.suffix || ""}
                   </p>
-                  <p className="text-white/40 text-xs mt-1">{stat.label}</p>
-                </div>
+                  <p className="text-white/40 text-xs mt-1.5 uppercase tracking-widest">{stat.label}</p>
+                </motion.div>
               ))}
             </motion.div>
           </div>
