@@ -53,12 +53,12 @@ export default function AboutPage() {
         </div>
 
         <div className="container-wide relative">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 min-w-0">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex-shrink-0">
+              className="flex-shrink-0 min-w-0">
               <div className="relative">
                 <div className="w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden border-2 border-gold/30 shadow-2xl">
                   <img
@@ -79,7 +79,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex-1 text-center lg:text-left">
+              className="flex-1 text-center lg:text-left min-w-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}

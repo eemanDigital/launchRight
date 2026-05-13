@@ -32,7 +32,11 @@ export default function SEO({
 
       {title && <meta name="twitter:title" content={title} />}
       {description && <meta name="twitter:description" content={description} />}
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={fullImageUrl} />
+      {image && <meta name="twitter:image:alt" content={title || "JurisTech"} />}
+      <meta name="robots" content="index, follow" />
+      <meta name="theme-color" content="#0A1628" />
     </>
   );
 }

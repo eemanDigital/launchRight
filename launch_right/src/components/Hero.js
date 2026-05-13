@@ -45,9 +45,9 @@ export default function Hero() {
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-deep to-transparent" />
 
-      <div className="relative container-ultra pt-28 pb-16 lg:pt-36 lg:pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div className="space-y-10">
+      <div className="relative container-ultra pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center min-w-0">
+          <div className="space-y-10 min-w-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[1.05] tracking-tight">
+              className="max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[1.05] tracking-tight break-words">
               Launch Your Business{" "}
               <span className="text-gradient-gold block">
                 Legally &amp; Digitally
@@ -107,7 +107,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="grid grid-cols-2 gap-x-8 gap-y-3">
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
               {services.map((service, i) => (
                 <div key={i} className="flex items-center gap-3 text-white/50">
                   <CheckCircleIcon className="w-5 h-5 text-gold/70 flex-shrink-0" />
@@ -120,14 +120,14 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
-              className="flex items-center gap-8 pt-4 border-t border-white/8">
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/8">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.55 + i * 0.1 }}
-                  className="flex flex-col">
+                  className="flex flex-col min-w-0">
                   <p className="text-white text-2xl font-bold tracking-tight font-display">
                     {stat.value}
                     {stat.suffix || ""}
