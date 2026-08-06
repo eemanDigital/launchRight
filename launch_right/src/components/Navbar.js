@@ -43,9 +43,24 @@ export default function Navbar() {
 
   const dropdownItems = {
     resources: [
-      { name: "Blog", href: "/resources/blog", icon: DocumentTextIcon, desc: "Legal tips & business guides" },
-      { name: "Free Downloads", href: "/resources#downloads", icon: ArrowDownTrayIcon, desc: "Checklists & templates" },
-      { name: "Document Generator", href: "/tools/document-generator", icon: ScaleIcon, desc: "Generate legal docs free" },
+      {
+        name: "Blog",
+        href: "/resources/blog",
+        icon: DocumentTextIcon,
+        desc: "Legal tips & business guides",
+      },
+      {
+        name: "Free Downloads",
+        href: "/resources#downloads",
+        icon: ArrowDownTrayIcon,
+        desc: "Checklists & templates",
+      },
+      {
+        name: "Document Generator",
+        href: "/tools/document-generator",
+        icon: ScaleIcon,
+        desc: "Generate legal docs free",
+      },
     ],
   };
 
@@ -90,7 +105,9 @@ export default function Navbar() {
                 </a>
                 <div className="flex items-center gap-2">
                   <MapPinIcon className="w-4 h-4 text-gold flex-shrink-0" />
-                  <span className="truncate">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</span>
+                  <span className="truncate">
+                    Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja
+                  </span>
                 </div>
               </div>
               <div className="flex items-center gap-4 md:hidden">
@@ -123,14 +140,14 @@ export default function Navbar() {
                 className="flex items-center group"
                 aria-label="JurisTech — home">
                 <div
-                  className={`flex items-center rounded-xl h-10 lg:h-11 px-3 transition-all duration-300 group-hover:scale-105 ${
+                  className={`flex items-center rounded-xl h-13 lg:h-14 px-3.5 transition-all duration-300 group-hover:scale-105 ${
                     isDark ? "bg-white shadow-sm" : ""
                   }`}>
                   <img
                     src="/image/juristech-logo.png"
                     alt="JurisTech"
                     draggable={false}
-                    className="h-8 lg:h-9 w-auto select-none"
+                    className="h-10 lg:h-12 w-auto select-none"
                   />
                 </div>
               </Link>
@@ -182,14 +199,16 @@ export default function Navbar() {
                             href={item.href}
                             className="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-dark transition-colors group"
                             onClick={() => setActiveDropdown(null)}>
-                          <span className="w-9 h-9 rounded-lg bg-surface-dark flex items-center justify-center flex-shrink-0">
-                            <item.icon className="w-5 h-5 text-gold" />
-                          </span>
+                            <span className="w-9 h-9 rounded-lg bg-surface-dark flex items-center justify-center flex-shrink-0">
+                              <item.icon className="w-5 h-5 text-gold" />
+                            </span>
                             <div>
                               <p className="text-sm font-medium text-navy group-hover:text-gold transition-colors">
                                 {item.name}
                               </p>
-                              <p className="text-xs text-muted mt-0.5">{item.desc}</p>
+                              <p className="text-xs text-muted mt-0.5">
+                                {item.desc}
+                              </p>
                             </div>
                           </Link>
                         ))}
@@ -198,9 +217,7 @@ export default function Navbar() {
                   </AnimatePresence>
                 </div>
 
-                <Link
-                  href="/about"
-                  className={linkBaseClasses("/about")}>
+                <Link href="/about" className={linkBaseClasses("/about")}>
                   About
                   {underline(pathname === "/about")}
                 </Link>
@@ -210,7 +227,9 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   className={`text-sm font-medium transition-colors duration-200 ${
-                    isDark ? "text-white/75 hover:text-white" : "text-gray-600 hover:text-navy"
+                    isDark
+                      ? "text-white/75 hover:text-white"
+                      : "text-gray-600 hover:text-navy"
                   }`}>
                   Contact
                 </Link>
@@ -260,7 +279,9 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block py-3 text-lg font-medium transition-colors ${
-                        pathname === link.href ? "text-gold" : "text-white/80 hover:text-white"
+                        pathname === link.href
+                          ? "text-gold"
+                          : "text-white/80 hover:text-white"
                       }`}>
                       {link.name}
                     </Link>
@@ -272,7 +293,9 @@ export default function Navbar() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.35 }}
                   className="pt-6 mt-4 border-t border-white/10">
-                  <p className="text-white/40 text-xs uppercase tracking-wider font-medium mb-3">Resources</p>
+                  <p className="text-white/40 text-xs uppercase tracking-wider font-medium mb-3">
+                    Resources
+                  </p>
                   <div className="space-y-1">
                     {dropdownItems.resources.map((item) => (
                       <Link
