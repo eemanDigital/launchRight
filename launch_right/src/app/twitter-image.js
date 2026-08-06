@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import logo from "../../public/image/juristech-logo.png";
 
 export const runtime = "edge";
 
@@ -26,33 +27,13 @@ export default function Image() {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: 16,
-          marginBottom: 40,
+          background: "#FFFFFF",
+          borderRadius: 18,
+          padding: "12px 22px",
+          marginBottom: 44,
+          boxShadow: "0 8px 30px rgba(0,0,0,0.35)",
         }}>
-        <div
-          style={{
-            width: 56,
-            height: 56,
-            borderRadius: 12,
-            background: "linear-gradient(135deg, #0052FF, #1D4ED8)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 28,
-            color: "white",
-            fontWeight: "bold",
-          }}>
-          J
-        </div>
-        <span
-          style={{
-            fontSize: 32,
-            fontWeight: 700,
-            color: "#FFFFFF",
-            letterSpacing: "-0.02em",
-          }}>
-          JurisTech
-        </span>
+        <img src={logo} alt="JurisTech" width={220} height={170} />
       </div>
 
       <div

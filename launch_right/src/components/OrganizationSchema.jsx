@@ -7,9 +7,9 @@ export default function OrganizationSchema() {
     url: "https://juristech.com.ng",
     logo: {
       "@type": "ImageObject",
-      url: "https://juristech.com.ng/image/logo.png",
-      width: 200,
-      height: 200,
+      url: "https://juristech.com.ng/image/juristech-logo.png",
+      width: 1764,
+      height: 1360,
     },
     description:
       "Nigerian business infrastructure company offering CAC registration, professional websites, legal documents, and custom software development.",

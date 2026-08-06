@@ -67,21 +67,12 @@ export const metadata = {
     siteName: "JurisTech",
     type: "website",
     locale: "en_NG",
-    images: [
-      {
-        url: "/image/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
       "Nigeria's full-service digital studio. Custom software, professional websites, and business incorporation — led by a lawyer who codes.",
-    images: ["/image/og-image.png"],
   },
   robots: {
     index: true,

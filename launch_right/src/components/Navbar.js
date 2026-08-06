@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Bars3Icon,
   XMarkIcon,
-  CheckCircleIcon,
   MapPinIcon,
   PhoneIcon,
   ChevronDownIcon,
@@ -119,14 +118,21 @@ export default function Navbar() {
           }`}>
           <div className="container-wide">
             <div className="flex items-center justify-between h-16 lg:h-18">
-              <Link href="/" className="flex items-center gap-2.5 group">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-gold to-gold-light flex items-center justify-center shadow-sm group-hover:shadow-gold/40 group-hover:scale-105 transition-all duration-300">
-                  <CheckCircleIcon className="w-5 h-5 text-white" />
+              <Link
+                href="/"
+                className="flex items-center group"
+                aria-label="JurisTech — home">
+                <div
+                  className={`flex items-center rounded-xl h-10 lg:h-11 px-3 transition-all duration-300 group-hover:scale-105 ${
+                    isDark ? "bg-white shadow-sm" : ""
+                  }`}>
+                  <img
+                    src="/image/juristech-logo.png"
+                    alt="JurisTech"
+                    draggable={false}
+                    className="h-8 lg:h-9 w-auto select-none"
+                  />
                 </div>
-                <span
-                  className={`text-xl font-semibold tracking-tight transition-colors ${isDark ? "text-white" : "text-navy"}`}>
-                  JurisTech
-                </span>
               </Link>
 
               <div className="hidden lg:flex items-center gap-8">

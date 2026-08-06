@@ -11,7 +11,7 @@ export default function SEO({
     ? image.startsWith("http")
       ? image
       : `${siteUrl}${image}`
-    : `${siteUrl}/image/og-image.png`;
+    : `${siteUrl}/opengraph-image`;
 
   return (
     <>

@@ -4,7 +4,7 @@ export default function LocalBusinessSchema() {
     "@type": "ProfessionalService",
     "@id": "https://juristech.com.ng/#business",
     name: "JurisTech",
-    image: "https://juristech.com.ng/image/logo.png",
+    image: "https://juristech.com.ng/image/juristech-logo.png",
     url: "https://juristech.com.ng",
     telephone: "+234-806-723-4189",
     email: "hello@juristech.com.ng",

@@ -50,15 +50,6 @@ export const metadata = {
     description:
       "Nigeria's full-service digital studio built by a practising lawyer who codes. Custom software, professional websites, and CAC business incorporation.",
     url: SITE_URL,
-    images: [
-      {
-        url: "/image/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
-        type: "image/png",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -67,7 +58,6 @@ export const metadata = {
     title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
       "Nigeria's full-service digital studio. Custom software, professional websites, and business incorporation — led by a lawyer who codes.",
-    images: ["/image/og-image.png"],
   },
   robots: {
     index: true,
@@ -104,7 +94,7 @@ export default function RootLayout({ children }) {
         <OrganizationSchema />
         <WebsiteSchema />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/image/logo.png" />
+        <link rel="apple-touch-icon" href="/image/icon-180.png" />
         <link rel="manifest" href="/browserconfig.xml" />
         <meta name="geo.region" content="NG-FC" />
         <meta name="geo.placename" content="Abuja" />
@@ -116,12 +106,7 @@ export default function RootLayout({ children }) {
           href="/image/hero-illustration.svg"
           type="image/svg+xml"
         />
-        <link
-          rel="preload"
-          as="image"
-          href="/image/og-image.png"
-          type="image/png"
-        />
+
       </head>
       <body className="font-body">
         <FacebookPixel />

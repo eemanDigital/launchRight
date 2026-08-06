@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircleIcon, MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 export default function Footer() {
@@ -40,13 +40,12 @@ export default function Footer() {
       <div className="container-wide py-14 lg:py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-navy to-navy-light flex items-center justify-center shadow-sm">
-                <CheckCircleIcon className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-semibold text-navy tracking-tight">
-                JurisTech
-              </span>
+            <div className="mb-5">
+              <img
+                src="/image/juristech-logo.png"
+                alt="JurisTech"
+                className="h-9 lg:h-10 w-auto"
+              />
             </div>
             <p className="text-muted text-sm mb-6 max-w-md leading-relaxed">
               We build custom software, professional websites, and handle business incorporation — a full-service Nigerian studio led by a practising lawyer who codes.

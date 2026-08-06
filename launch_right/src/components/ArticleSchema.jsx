@@ -15,7 +15,7 @@ export default function ArticleSchema({ post }) {
       url: "https://juristech.com.ng",
       logo: {
         "@type": "ImageObject",
-        url: "https://juristech.com.ng/image/logo.png",
+        url: "https://juristech.com.ng/image/juristech-logo.png",
       },
     },
     datePublished: post.date,
@@ -26,7 +26,7 @@ export default function ArticleSchema({ post }) {
     },
     image: post.cover
       ? `https://juristech.com.ng${post.cover}`
-      : "https://juristech.com.ng/image/og-image.png",
+      : "https://juristech.com.ng/opengraph-image",
     keywords: [post.category, "Nigeria", "CAC", "business registration", "legal"],
     articleSection: post.category,
     wordCount: post.content.split(/\s+/).length,
