@@ -29,7 +29,7 @@ const products = [
       "Built for the Nigerian market",
     ],
     status: "Beta — Coming Soon",
-    statusColor: "bg-amber-100 text-amber-700",
+    statusColor: "bg-blue-100 text-blue-700",
     cta: "Join Waitlist",
     ctaType: "email",
     icon: ChatBubbleLeftRightIcon,

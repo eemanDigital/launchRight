@@ -278,7 +278,7 @@ export const websiteData = {
     {
       id: "business",
       name: "Business",
-      color: "bg-purple-100 text-purple-800",
+      color: "bg-blue-100 text-blue-800",
     },
   ],
 

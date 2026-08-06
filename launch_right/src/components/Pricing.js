@@ -85,12 +85,12 @@ export default function Pricing() {
                       : "bg-white border border-gray-100 shadow-lg"
                 }`}>
                 {isHighlighted && (
-                  <div className="bg-gradient-to-r from-gold to-gold-light text-navy py-2.5 text-center text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5">
+                  <div className="bg-gradient-to-r from-gold to-gold-light text-white py-2.5 text-center text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5">
                     <StarIconSolid className="w-3.5 h-3.5" /> Most Popular
                   </div>
                 )}
                 {!isHighlighted && plan.badge && (
-                  <div className="bg-gold text-navy py-2.5 text-center text-xs font-bold uppercase tracking-wider">
+                  <div className="bg-gold text-white py-2.5 text-center text-xs font-bold uppercase tracking-wider">
                     {plan.badge}
                   </div>
                 )}
@@ -137,9 +137,9 @@ export default function Pricing() {
                     href="https://wa.me/message/KTFL2G2JM3JTP1"
                     className={`block w-full text-center py-3.5 rounded-xl font-bold text-sm transition-all ${
                       isHighlighted
-                        ? "bg-gradient-to-r from-gold to-gold-light text-navy hover:shadow-gold hover:shadow-lg"
+                        ? "bg-gradient-to-r from-gold to-gold-light text-white hover:shadow-gold hover:shadow-lg"
                         : isDark
-                          ? "bg-gold text-navy hover:bg-gold-light"
+                          ? "bg-gold text-white hover:bg-gold-light"
                           : "bg-navy text-white hover:bg-navy-light"
                     }`}
                     onClick={() => event('SelectPlan', { plan_name: plan.name, price: plan.price })}>

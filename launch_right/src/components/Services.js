@@ -41,7 +41,7 @@ const serviceCategories = [
     icon: ShieldCheckIcon,
     title: "Compliance Services",
     description: "Stay on top of your regulatory obligations — FIRS, SCUML, annual returns, and more.",
-    color: "bg-purple-500",
+    color: "bg-blue-500",
     items: ["FIRS TIN Registration", "SCUML Registration", "Annual Returns Filing", "CAC Post-Registration Compliance", "Compliance Advisory"],
     link: "/contact",
   },

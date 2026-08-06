@@ -32,7 +32,7 @@ const currentBuilds = [
     name: "VendPadi",
     desc: "WhatsApp storefront for Nigerian merchants",
     status: "Beta",
-    statusColor: "bg-amber-100 text-amber-700",
+    statusColor: "bg-blue-100 text-blue-700",
   },
   {
     name: "case-master-app",
@@ -68,7 +68,7 @@ export default function AboutPage() {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute -bottom-3 -right-3 bg-gold text-navy px-4 py-2 rounded-xl font-bold text-xs shadow-xl flex items-center gap-1.5">
+                <div className="absolute -bottom-3 -right-3 bg-gold text-white px-4 py-2 rounded-xl font-bold text-xs shadow-xl flex items-center gap-1.5">
                   <ShieldCheckIcon className="w-4 h-4" />
                   CAC Accredited
                 </div>

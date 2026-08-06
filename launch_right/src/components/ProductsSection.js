@@ -11,7 +11,7 @@ const products = [
     tagline: "The WhatsApp storefront for Nigerian merchants",
     description: "Create a product catalogue and receive orders through WhatsApp — no website required.",
     status: "Beta — Coming Soon",
-    statusColor: "bg-amber-100 text-amber-700 border-amber-200",
+    statusColor: "bg-blue-100 text-blue-700 border-blue-200",
     cta: "Learn More",
     link: "/products",
     color: "from-emerald-500 to-emerald-600",

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280">
   <defs>
     <linearGradient id="goldBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FEF9E7"/>
-      <stop offset="100%" stop-color="#FEF3C7"/>
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
     </linearGradient>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#C9972B"/>
-      <stop offset="100%" stop-color="#E8B84B"/>
+      <stop offset="0%" stop-color="#0052FF"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
     </linearGradient>
     <filter id="softShadow">
       <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
@@ -18,51 +18,51 @@
 
   <!-- Document generator interface -->
   <g filter="url(#softShadow)">
-    <rect x="50" y="25" width="300" height="230" rx="14" fill="#FFFFFF" stroke="#FDE68A" stroke-width="1"/>
+    <rect x="50" y="25" width="300" height="230" rx="14" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1"/>
     <!-- Header -->
-    <rect x="50" y="25" width="300" height="45" rx="14" fill="#FAFAF9"/>
-    <rect x="50" y="55" width="300" height="15" fill="#FAFAF9"/>
+    <rect x="50" y="25" width="300" height="45" rx="14" fill="#F8FAFC"/>
+    <rect x="50" y="55" width="300" height="15" fill="#F8FAFC"/>
     <circle cx="75" cy="47" r="10" fill="url(#goldGrad)" opacity="0.3"/>
-    <path d="M72 47 L74 50 L79 44" fill="none" stroke="#C9972B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="92" y="40" width="90" height="8" rx="4" fill="#1F2937"/>
-    <rect x="92" y="51" width="50" height="4" rx="2" fill="#6B7280"/>
+    <path d="M72 47 L74 50 L79 44" fill="none" stroke="#0052FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="92" y="40" width="90" height="8" rx="4" fill="#1E293B"/>
+    <rect x="92" y="51" width="50" height="4" rx="2" fill="#64748B"/>
     <!-- Live badge -->
     <rect x="290" y="38" width="45" height="18" rx="9" fill="url(#goldGrad)"/>
-    <text x="312" y="50" font-family="system-ui, sans-serif" font-size="8" fill="#0A1628" font-weight="600" text-anchor="middle">LIVE</text>
+    <text x="312" y="50" font-family="system-ui, sans-serif" font-size="8" fill="#0A1128" font-weight="600" text-anchor="middle">LIVE</text>
     
     <!-- Form fields -->
-    <rect x="75" y="80" width="250" height="38" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
-    <rect x="88" y="90" width="80" height="6" rx="3" fill="#9CA3AF"/>
-    <rect x="255" y="88" width="55" height="22" rx="6" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="0.5"/>
-    <rect x="263" y="96" width="39" height="4" rx="2" fill="#6B7280"/>
+    <rect x="75" y="80" width="250" height="38" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="88" y="90" width="80" height="6" rx="3" fill="#94A3B8"/>
+    <rect x="255" y="88" width="55" height="22" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.5"/>
+    <rect x="263" y="96" width="39" height="4" rx="2" fill="#64748B"/>
     
-    <rect x="75" y="125" width="250" height="38" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
-    <rect x="88" y="135" width="100" height="6" rx="3" fill="#9CA3AF"/>
-    <rect x="255" y="133" width="55" height="22" rx="6" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="0.5"/>
-    <rect x="263" y="141" width="39" height="4" rx="2" fill="#6B7280"/>
+    <rect x="75" y="125" width="250" height="38" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="88" y="135" width="100" height="6" rx="3" fill="#94A3B8"/>
+    <rect x="255" y="133" width="55" height="22" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.5"/>
+    <rect x="263" y="141" width="39" height="4" rx="2" fill="#64748B"/>
     
-    <rect x="75" y="170" width="250" height="38" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
-    <rect x="88" y="180" width="70" height="6" rx="3" fill="#9CA3AF"/>
-    <rect x="255" y="178" width="55" height="22" rx="6" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="0.5"/>
-    <rect x="263" y="186" width="39" height="4" rx="2" fill="#6B7280"/>
+    <rect x="75" y="170" width="250" height="38" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="88" y="180" width="70" height="6" rx="3" fill="#94A3B8"/>
+    <rect x="255" y="178" width="55" height="22" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.5"/>
+    <rect x="263" y="186" width="39" height="4" rx="2" fill="#64748B"/>
     
     <!-- Generate button -->
     <rect x="140" y="222" width="120" height="22" rx="11" fill="url(#goldGrad)"/>
-    <text x="200" y="236" font-family="system-ui, sans-serif" font-size="9" fill="#0A1628" font-weight="600" text-anchor="middle">Generate Document →</text>
+    <text x="200" y="236" font-family="system-ui, sans-serif" font-size="9" fill="#0A1128" font-weight="600" text-anchor="middle">Generate Document →</text>
   </g>
 
   <!-- Floating document preview -->
   <g filter="url(#softShadow)" transform="translate(15, 100)">
-    <rect width="45" height="60" rx="4" fill="#FFFFFF" stroke="#FDE68A" stroke-width="0.5"/>
-    <rect x="8" y="10" width="29" height="3" rx="1" fill="#E5E7EB"/>
-    <rect x="8" y="18" width="29" height="3" rx="1" fill="#E5E7EB"/>
-    <rect x="8" y="26" width="20" height="3" rx="1" fill="#E5E7EB"/>
-    <rect x="8" y="34" width="25" height="3" rx="1" fill="#C9972B" opacity="0.3"/>
-    <rect x="8" y="42" width="29" height="3" rx="1" fill="#E5E7EB"/>
-    <circle cx="22" cy="52" r="4" fill="#C9972B" opacity="0.2"/>
+    <rect width="45" height="60" rx="4" fill="#FFFFFF" stroke="#93C5FD" stroke-width="0.5"/>
+    <rect x="8" y="10" width="29" height="3" rx="1" fill="#E2E8F0"/>
+    <rect x="8" y="18" width="29" height="3" rx="1" fill="#E2E8F0"/>
+    <rect x="8" y="26" width="20" height="3" rx="1" fill="#E2E8F0"/>
+    <rect x="8" y="34" width="25" height="3" rx="1" fill="#0052FF" opacity="0.3"/>
+    <rect x="8" y="42" width="29" height="3" rx="1" fill="#E2E8F0"/>
+    <circle cx="22" cy="52" r="4" fill="#0052FF" opacity="0.2"/>
   </g>
 
   <!-- Decorative elements -->
-  <circle cx="380" cy="40" r="2" fill="#C9972B" opacity="0.3"/>
-  <circle cx="30" cy="250" r="2" fill="#E8B84B" opacity="0.3"/>
+  <circle cx="380" cy="40" r="2" fill="#0052FF" opacity="0.3"/>
+  <circle cx="30" cy="250" r="2" fill="#1D4ED8" opacity="0.3"/>
 </svg>

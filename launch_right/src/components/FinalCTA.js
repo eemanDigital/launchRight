@@ -17,7 +17,7 @@ export default function FinalCTA() {
 
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(rgba(201,151,43,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,151,43,0.3) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(0,82,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,82,255,0.3) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }} />
       </div>

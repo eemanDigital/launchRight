@@ -10,8 +10,8 @@ const serviceLinks = [
     name: "NGO & Foundation Registration",
     desc: "Churches, charities, non-profits",
     href: "/pricing",
-    color: "bg-purple-100",
-    iconColor: "text-purple-600"
+    color: "bg-blue-100",
+    iconColor: "text-blue-600"
   },
   {
     icon: GlobeAltIcon,

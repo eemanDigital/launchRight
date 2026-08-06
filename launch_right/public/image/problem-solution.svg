@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
   <defs>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#C9972B"/>
-      <stop offset="100%" stop-color="#E8B84B"/>
+      <stop offset="0%" stop-color="#0052FF"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
     </linearGradient>
     <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#059669"/>
@@ -10,7 +10,7 @@
     </linearGradient>
     <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#EF4444" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#C9972B" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#0052FF" stop-opacity="0.5"/>
       <stop offset="100%" stop-color="#10B981" stop-opacity="0.6"/>
     </linearGradient>
     <filter id="shadow">
@@ -97,17 +97,17 @@
     <g transform="translate(30, 275)">
       <circle cx="10" cy="10" r="12" fill="#FEE2E2"/>
       <path d="M5 5 L15 15 M15 5 L5 15" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="7" fill="#6B7280">Multiple payments</text>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="7" fill="#64748B">Multiple payments</text>
     </g>
     <g transform="translate(30, 305)">
       <circle cx="10" cy="10" r="12" fill="#FEE2E2"/>
       <path d="M5 5 L15 15 M15 5 L5 15" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="7" fill="#6B7280">No accountability</text>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="7" fill="#64748B">No accountability</text>
     </g>
     <g transform="translate(30, 335)">
       <circle cx="10" cy="10" r="12" fill="#FEE2E2"/>
       <path d="M5 5 L15 15 M15 5 L5 15" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="7" fill="#6B7280">Weeks of delays</text>
+      <text x="30" y="14" font-family="system-ui, sans-serif" font-size="7" fill="#64748B">Weeks of delays</text>
     </g>
 
     <!-- Bottom label -->
@@ -118,7 +118,7 @@
   <g transform="translate(235, 185)">
     <rect x="-5" y="-8" width="35" height="16" rx="4" fill="url(#arrowGrad)"/>
     <path d="M28 0 L22 -5 L22 5Z" fill="url(#arrowGrad)"/>
-    <text x="13" y="22" font-family="system-ui, sans-serif" font-size="7" fill="#C9972B" text-anchor="middle" font-weight="600">TRANSFORM</text>
+    <text x="13" y="22" font-family="system-ui, sans-serif" font-size="7" fill="#0052FF" text-anchor="middle" font-weight="600">TRANSFORM</text>
   </g>
 
   <!-- RIGHT: JurisTech / Unified -->
@@ -135,7 +135,7 @@
     <circle cx="385" cy="150" r="38" fill="#D1FAE5" stroke="#10B981" stroke-width="2" filter="url(#glow)"/>
     <circle cx="385" cy="150" r="24" fill="#A7F3D0"/>
     <text x="385" y="148" font-family="system-ui, sans-serif" font-size="14" fill="#059669" font-weight="700" text-anchor="middle">JT</text>
-    <text x="385" y="162" font-family="system-ui, sans-serif" font-size="6" fill="#374151" text-anchor="middle" letter-spacing="1">ONE TEAM</text>
+    <text x="385" y="162" font-family="system-ui, sans-serif" font-size="6" fill="#475569" text-anchor="middle" letter-spacing="1">ONE TEAM</text>
 
     <!-- Connection lines from center to service nodes -->
     <line x1="385" y1="112" x2="385" y2="78" stroke="#10B981" stroke-width="1.2" opacity="0.4"/>
@@ -184,22 +184,22 @@
     <g transform="translate(305, 275)">
       <circle cx="8" cy="8" r="10" fill="#D1FAE5"/>
       <path d="M4 8 L7 11 L12 5" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#374151" font-weight="500">One team, one price</text>
+      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#475569" font-weight="500">One team, one price</text>
     </g>
     <g transform="translate(305, 300)">
       <circle cx="8" cy="8" r="10" fill="#D1FAE5"/>
       <path d="M4 8 L7 11 L12 5" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#374151" font-weight="500">24-48h guaranteed</text>
+      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#475569" font-weight="500">24-48h guaranteed</text>
     </g>
     <g transform="translate(305, 325)">
       <circle cx="8" cy="8" r="10" fill="#D1FAE5"/>
       <path d="M4 8 L7 11 L12 5" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#374151" font-weight="500">Full accountability</text>
+      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#475569" font-weight="500">Full accountability</text>
     </g>
     <g transform="translate(305, 350)">
       <circle cx="8" cy="8" r="10" fill="#D1FAE5"/>
       <path d="M4 8 L7 11 L12 5" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#374151" font-weight="500">Lawyer-reviewed</text>
+      <text x="25" y="12" font-family="system-ui, sans-serif" font-size="8" fill="#475569" font-weight="500">Lawyer-reviewed</text>
     </g>
 
     <!-- Bottom label -->

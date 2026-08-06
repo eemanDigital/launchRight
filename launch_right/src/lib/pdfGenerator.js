@@ -19,10 +19,10 @@ function safeDate(val) {
 }
 
 function addHeader(doc, title) {
-  doc.setFillColor(10, 22, 40);
+  doc.setFillColor(10, 17, 40);
   doc.rect(0, 0, 210, 35, "F");
 
-  doc.setTextColor(201, 151, 43);
+  doc.setTextColor(0, 82, 255);
   doc.setFontSize(18);
   doc.setFont("helvetica", "bold");
   doc.text("JurisTech", 15, 18);
@@ -32,12 +32,12 @@ function addHeader(doc, title) {
   doc.setFont("helvetica", "normal");
   doc.text("juristech.com.ng | 08067234189 | Suite 412, MKK Plaza, Jabi Abuja", 15, 27);
 
-  doc.setTextColor(10, 22, 40);
+  doc.setTextColor(10, 17, 40);
   doc.setFontSize(16);
   doc.setFont("helvetica", "bold");
   doc.text(title, 15, 52);
 
-  doc.setDrawColor(201, 151, 43);
+  doc.setDrawColor(0, 82, 255);
   doc.setLineWidth(0.8);
   doc.line(15, 56, 195, 56);
 }
@@ -45,7 +45,7 @@ function addHeader(doc, title) {
 function addFooter(doc, pageCount) {
   const pageHeight = doc.internal.pageSize.height;
 
-  doc.setDrawColor(201, 151, 43);
+  doc.setDrawColor(0, 82, 255);
   doc.setLineWidth(0.5);
   doc.line(15, pageHeight - 25, 195, pageHeight - 25);
 
@@ -93,11 +93,11 @@ function addFieldRow(doc, label1, value1, label2, value2, y) {
 }
 
 function addSection(doc, sectionTitle, y) {
-  doc.setFillColor(245, 245, 244);
+  doc.setFillColor(248, 250, 252);
   doc.rect(15, y - 5, 180, 8, "F");
 
   doc.setFontSize(11);
-  doc.setTextColor(10, 22, 40);
+  doc.setTextColor(10, 17, 40);
   doc.setFont("helvetica", "bold");
   doc.text(sectionTitle, 18, y);
 
@@ -108,7 +108,7 @@ function addClause(doc, number, title, content, y) {
   const maxWidth = 175;
 
   doc.setFontSize(10);
-  doc.setTextColor(10, 22, 40);
+  doc.setTextColor(10, 17, 40);
   doc.setFont("helvetica", "bold");
   doc.text(`${number}. ${title}`, 18, y);
 

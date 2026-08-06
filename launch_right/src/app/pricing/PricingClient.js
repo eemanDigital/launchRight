@@ -25,16 +25,16 @@ const getColorClasses = (color) => {
       badge: "bg-blue-600",
     },
     gold: {
-      bg: "bg-amber-50",
-      border: "border-amber-200",
-      accent: "text-amber-600",
-      badge: "bg-gold",
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      accent: "text-blue-600",
+      badge: "bg-blue-600",
     },
     purple: {
-      bg: "bg-purple-50",
-      border: "border-purple-200",
-      accent: "text-purple-600",
-      badge: "bg-purple-600",
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      accent: "text-blue-600",
+      badge: "bg-blue-600",
     },
     slate: {
       bg: "bg-slate-50",
@@ -70,7 +70,7 @@ function PackageCard({ plan }) {
         </div>
       )}
       {!isHighlighted && plan.badge && (
-        <div className="absolute top-0 left-0 right-0 bg-gold text-navy py-2 text-center text-sm font-bold">
+        <div className="absolute top-0 left-0 right-0 bg-gold text-white py-2 text-center text-sm font-bold">
           {plan.badge}
         </div>
       )}
@@ -118,7 +118,7 @@ function PackageCard({ plan }) {
             isHighlighted && plan.popular
               ? "bg-blue-500 text-white hover:bg-blue-600"
               : isDark
-                ? "bg-gold text-navy hover:bg-yellow-400"
+                ? "bg-gold text-white hover:bg-gold-light"
                 : "bg-navy text-white hover:bg-navy-light"
           }`}>
           Get Started

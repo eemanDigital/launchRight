@@ -61,12 +61,12 @@ function SoftwarePackageCard({ pkg }) {
       viewport={{ once: true }}
       className={`relative flex flex-col rounded-2xl overflow-hidden ${
         isHighlighted
-          ? "bg-navy text-white shadow-2xl ring-2 ring-purple-500"
+          ? "bg-navy text-white shadow-2xl ring-2 ring-blue-500"
           : `${colors.bg} border ${colors.border} shadow-lg`
       }`}
     >
       {pkg.popular && (
-        <div className="absolute top-0 left-0 right-0 bg-purple-500 text-white py-2 text-center text-sm font-bold">
+        <div className="absolute top-0 left-0 right-0 bg-blue-500 text-white py-2 text-center text-sm font-bold">
           Best Value
         </div>
       )}
@@ -74,7 +74,7 @@ function SoftwarePackageCard({ pkg }) {
       <div className={`p-6 ${isHighlighted ? "pt-10" : ""}`}>
         <div className="flex items-center gap-2 mb-3">
           <CodeBracketIcon
-            className={`w-5 h-5 ${isHighlighted ? "text-purple-400" : colors.accent}`}
+            className={`w-5 h-5 ${isHighlighted ? "text-blue-400" : colors.accent}`}
           />
           <span
             className={`text-xs font-medium ${isHighlighted ? "text-gray-300" : "text-gray-500"}`}
@@ -113,7 +113,7 @@ function SoftwarePackageCard({ pkg }) {
           {pkg.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-xs">
               <CheckIcon
-                className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted ? "text-purple-400" : colors.accent}`}
+                className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted ? "text-blue-400" : colors.accent}`}
               />
               <span className={isHighlighted ? "text-gray-200" : "text-gray-700"}>
                 {feature}
@@ -126,7 +126,7 @@ function SoftwarePackageCard({ pkg }) {
           href="https://wa.me/message/KTFL2G2JM3JTP1"
           className={`block w-full text-center py-3 rounded-lg font-bold text-sm transition-all ${
             isHighlighted
-              ? "bg-purple-500 text-white hover:bg-purple-600"
+              ? "bg-blue-500 text-white hover:bg-blue-600"
               : "bg-navy text-white hover:bg-navy-light"
           }`}
         >
@@ -188,8 +188,8 @@ export default function SoftwarePage() {
                 key={index}
                 className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center"
               >
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-6 h-6 text-purple-600" />
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="w-6 h-6 text-blue-600" />
                 </div>
                 <h3 className="font-bold text-navy mb-2">{feature.title}</h3>
                 <p className="text-gray-500 text-sm">{feature.desc}</p>

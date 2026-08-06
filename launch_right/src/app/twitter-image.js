@@ -18,7 +18,7 @@ export default function Image() {
           alignItems: "flex-start",
           justifyContent: "center",
           padding: 80,
-          background: "linear-gradient(135deg, #0A1628 0%, #0F2137 50%, #0A1628 100%)",
+          background: "linear-gradient(135deg, #0A1128 0%, #0D1B2A 50%, #0A1128 100%)",
           fontFamily: "system-ui, sans-serif",
         }}
       >
@@ -35,7 +35,7 @@ export default function Image() {
               width: 56,
               height: 56,
               borderRadius: 12,
-              background: "linear-gradient(135deg, #C9972B, #E8B84B)",
+              background: "linear-gradient(135deg, #0052FF, #1D4ED8)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -95,15 +95,15 @@ export default function Image() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 20, color: "#C9972B", fontWeight: 700 }}>24-48hrs</span>
+            <span style={{ fontSize: 20, color: "#0052FF", fontWeight: 700 }}>24-48hrs</span>
             <span style={{ fontSize: 14, color: "rgba(255, 255, 255, 0.5)" }}>CAC Approval</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 20, color: "#C9972B", fontWeight: 700 }}>2,000+</span>
+            <span style={{ fontSize: 20, color: "#0052FF", fontWeight: 700 }}>2,000+</span>
             <span style={{ fontSize: 14, color: "rgba(255, 255, 255, 0.5)" }}>Clients Served</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 20, color: "#C9972B", fontWeight: 700 }}>4.9/5</span>
+            <span style={{ fontSize: 20, color: "#0052FF", fontWeight: 700 }}>4.9/5</span>
             <span style={{ fontSize: 14, color: "rgba(255, 255, 255, 0.5)" }}>Client Rating</span>
           </div>
         </div>

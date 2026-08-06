@@ -40,10 +40,10 @@ const getColorClasses = (color) => {
       badge: "bg-blue-600",
     },
     purple: {
-      bg: "bg-purple-50",
-      border: "border-purple-200",
-      accent: "text-purple-600",
-      badge: "bg-purple-600",
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      accent: "text-blue-600",
+      badge: "bg-blue-600",
     },
   };
   return colors[color] || colors.blue;

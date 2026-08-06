@@ -96,7 +96,7 @@ export default function Home() {
       <FounderSection />
       <ProductsSection />
       <Testimonials />
-      <Pricing />
+      {/* <Pricing /> */}
       <BlogPreview />
       <FAQ />
       <FAQSchema />
