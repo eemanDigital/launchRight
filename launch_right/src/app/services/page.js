@@ -7,13 +7,13 @@ import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 
 export const metadata = {
-  title: "Our Services — CAC Registration, Websites, Legal Documents & Software",
+  title: "Our Services — Custom Software, Websites & Business Incorporation",
   description:
-    "Explore all JurisTech services: CAC business registration in 24-48hrs, professional websites, Nigeria-compliant legal documents, compliance support, and custom software development.",
+    "Explore all JurisTech services: custom software and apps, professional websites, CAC business incorporation in 24-48hrs, Nigeria-compliant legal documents, and compliance support.",
   openGraph: {
-    title: "Our Services — CAC Registration, Websites & Legal Documents",
+    title: "Our Services — Custom Software, Websites & Business Incorporation",
     description:
-      "CAC registration, professional websites, legal documents, and software development — all from one Nigerian legal-tech company.",
+      "Custom software, professional websites, business incorporation, and legal documents — all from one Nigerian studio.",
     url: "https://juristech.com.ng/services",
     type: "website",
   },
@@ -30,7 +30,7 @@ export default function ServicesPage() {
         ]}
       />
       <Navbar />
-      <div className="pt-24 pb-12 bg-navy">
+      <div className="pt-28 pb-12 bg-navy">
         <div className="container-wide">
           <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
             Our Services

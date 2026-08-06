@@ -9,6 +9,9 @@ import {
   MapPinIcon,
   PhoneIcon,
   ChevronDownIcon,
+  DocumentTextIcon,
+  ArrowDownTrayIcon,
+  ScaleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -28,6 +31,9 @@ export default function Navbar() {
   }, []);
 
   const isDark = !isScrolled && pathname === "/";
+  const isLight = isScrolled || !isDark;
+  const isResourceActive =
+    pathname.startsWith("/resources") || pathname.startsWith("/tools");
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -38,9 +44,9 @@ export default function Navbar() {
 
   const dropdownItems = {
     resources: [
-      { name: "Blog", href: "/resources/blog", icon: "📝", desc: "Legal tips & business guides" },
-      { name: "Free Downloads", href: "/resources#downloads", icon: "📥", desc: "Checklists & templates" },
-      { name: "Document Generator", href: "/tools/document-generator", icon: "⚖️", desc: "Generate legal docs free" },
+      { name: "Blog", href: "/resources/blog", icon: DocumentTextIcon, desc: "Legal tips & business guides" },
+      { name: "Free Downloads", href: "/resources#downloads", icon: ArrowDownTrayIcon, desc: "Checklists & templates" },
+      { name: "Document Generator", href: "/tools/document-generator", icon: ScaleIcon, desc: "Generate legal docs free" },
     ],
   };
 
@@ -53,150 +59,176 @@ export default function Navbar() {
           : "text-gray-600 hover:text-navy"
     }`;
 
+  const underline = (isActive) =>
+    isActive && (
+      <motion.span
+        layoutId="nav-underline"
+        className="absolute left-0 right-0 -bottom-0.5 h-0.5 rounded-full bg-gold"
+        transition={{ type: "spring", stiffness: 400, damping: 32 }}
+      />
+    );
+
   return (
     <>
-      <div className={`transition-colors duration-300 ${isDark ? "bg-navy-deep/80" : "bg-navy"} text-white/70 text-sm`}>
-        <div className="container-wide">
-          <div className="flex items-center justify-between h-10">
-            <div className="hidden md:flex items-center gap-6">
-              <a
-                href="tel:08067234189"
-                className="flex items-center gap-2 hover:text-white transition-colors">
-                <PhoneIcon className="w-4 h-4 text-gold" />
-                08067234189
-              </a>
-              <div className="flex items-center gap-2">
-                <MapPinIcon className="w-4 h-4 text-gold flex-shrink-0" />
-                <span className="truncate">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 md:hidden">
-              <a
-                href="tel:08067234189"
-                className="flex items-center gap-2 hover:text-white">
-                <PhoneIcon className="w-4 h-4 text-gold" />
-                08067234189
-              </a>
-            </div>
-            <div className="hidden md:flex items-center gap-2 text-xs">
-              <span className="w-2 h-2 bg-success rounded-full animate-pulse"></span>
-              <span>Lawyer · CAC Agent · Developer</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <motion.nav
+      <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-gray-100/80 shadow-sm"
-            : isDark
-              ? "bg-transparent"
-              : "bg-white/90 backdrop-blur-xl border-b border-gray-100/80 shadow-sm"
-        }`}>
-        <div className="container-wide">
-          <div className="flex items-center justify-between h-16 lg:h-18">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-gold to-gold-light flex items-center justify-center shadow-sm group-hover:shadow-gold/30 transition-shadow">
-                <CheckCircleIcon className="w-5 h-5 text-white" />
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="fixed top-0 left-0 right-0 z-50">
+        {/* Top utility bar - collapses on scroll */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-in-out ${
+            isScrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
+          } bg-navy-deep/95 backdrop-blur-sm border-b border-white/5`}>
+          <div className="container-wide">
+            <div className="flex items-center justify-between h-10">
+              <div className="hidden md:flex items-center gap-6">
+                <a
+                  href="tel:08067234189"
+                  className="flex items-center gap-2 hover:text-white transition-colors">
+                  <PhoneIcon className="w-4 h-4 text-gold" />
+                  08067234189
+                </a>
+                <div className="flex items-center gap-2">
+                  <MapPinIcon className="w-4 h-4 text-gold flex-shrink-0" />
+                  <span className="truncate">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</span>
+                </div>
               </div>
-              <span
-                className={`text-xl font-semibold tracking-tight transition-colors ${isDark ? "text-white" : "text-navy"}`}>
-                JurisTech
-              </span>
-            </Link>
-
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={linkBaseClasses(link.href)}>
-                  {link.name}
-                </Link>
-              ))}
-
-              <div
-                className="relative"
-                onMouseEnter={() => setActiveDropdown("resources")}
-                onMouseLeave={() => setActiveDropdown(null)}>
-                <button
-                  className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 py-1 ${
-                    pathname.startsWith("/resources") || pathname.startsWith("/tools")
-                      ? "text-gold"
-                      : isDark
-                        ? "text-white/75 hover:text-white"
-                        : "text-gray-600 hover:text-navy"
-                  }`}>
-                  Resources
-                  <ChevronDownIcon className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "resources" ? "rotate-180" : ""}`} />
-                </button>
-
-                <AnimatePresence>
-                  {activeDropdown === "resources" && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-xl shadow-xl border border-gray-100/80 p-2 overflow-hidden">
-                      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-                      {dropdownItems.resources.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50/80 transition-colors group"
-                          onClick={() => setActiveDropdown(null)}>
-                          <span className="text-lg mt-0.5">{item.icon}</span>
-                          <div>
-                            <p className="text-sm font-medium text-navy group-hover:text-gold transition-colors">{item.name}</p>
-                            <p className="text-xs text-gray-500 mt-0.5">{item.desc}</p>
-                          </div>
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div className="flex items-center gap-4 md:hidden">
+                <a
+                  href="tel:08067234189"
+                  className="flex items-center gap-2 hover:text-white">
+                  <PhoneIcon className="w-4 h-4 text-gold" />
+                  08067234189
+                </a>
               </div>
-
-              <Link
-                href="/about"
-                className={linkBaseClasses("/about")}>
-                About
-              </Link>
+              <div className="hidden md:flex items-center gap-2 text-xs">
+                <span className="w-2 h-2 bg-success rounded-full animate-pulse"></span>
+                <span>Lawyer · CAC Agent · Developer</span>
+              </div>
             </div>
-
-            <div className="hidden lg:flex items-center gap-4">
-              <Link
-                href="/contact"
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isDark ? "text-white/75 hover:text-white" : "text-gray-600 hover:text-navy"
-                }`}>
-                Contact
-              </Link>
-              <a
-                href="https://wa.me/message/KTFL2G2JM3JTP1"
-                className="btn-primary text-sm py-2.5 px-5">
-                Start Project
-              </a>
-            </div>
-
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${isDark ? "text-white hover:bg-white/10" : "text-gray-600 hover:bg-gray-100"}`}
-              aria-label="Toggle menu">
-              {isMobileMenuOpen ? (
-                <XMarkIcon className="w-6 h-6" />
-              ) : (
-                <Bars3Icon className="w-6 h-6" />
-              )}
-            </button>
           </div>
         </div>
-      </motion.nav>
+
+        {/* Main nav */}
+        <nav
+          className={`transition-all duration-300 ${
+            isLight
+              ? "bg-white/85 backdrop-blur-2xl border-b border-border/80 shadow-sm"
+              : "bg-transparent"
+          }`}>
+          <div className="container-wide">
+            <div className="flex items-center justify-between h-16 lg:h-18">
+              <Link href="/" className="flex items-center gap-2.5 group">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-gold to-gold-light flex items-center justify-center shadow-sm group-hover:shadow-gold/40 group-hover:scale-105 transition-all duration-300">
+                  <CheckCircleIcon className="w-5 h-5 text-white" />
+                </div>
+                <span
+                  className={`text-xl font-semibold tracking-tight transition-colors ${isDark ? "text-white" : "text-navy"}`}>
+                  JurisTech
+                </span>
+              </Link>
+
+              <div className="hidden lg:flex items-center gap-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={linkBaseClasses(link.href)}>
+                    {link.name}
+                    {underline(pathname === link.href)}
+                  </Link>
+                ))}
+
+                <div
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown("resources")}
+                  onMouseLeave={() => setActiveDropdown(null)}>
+                  <button
+                    className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 py-1 relative ${
+                      isResourceActive
+                        ? "text-gold"
+                        : isDark
+                          ? "text-white/75 hover:text-white"
+                          : "text-gray-600 hover:text-navy"
+                    }`}>
+                    Resources
+                    <ChevronDownIcon
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        activeDropdown === "resources" ? "rotate-180" : ""
+                      }`}
+                    />
+                    {underline(isResourceActive)}
+                  </button>
+
+                  <AnimatePresence>
+                    {activeDropdown === "resources" && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-xl border border-border/80 p-2 overflow-hidden">
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+                        {dropdownItems.resources.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-dark transition-colors group"
+                            onClick={() => setActiveDropdown(null)}>
+                          <span className="w-9 h-9 rounded-lg bg-surface-dark flex items-center justify-center flex-shrink-0">
+                            <item.icon className="w-5 h-5 text-gold" />
+                          </span>
+                            <div>
+                              <p className="text-sm font-medium text-navy group-hover:text-gold transition-colors">
+                                {item.name}
+                              </p>
+                              <p className="text-xs text-muted mt-0.5">{item.desc}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Link
+                  href="/about"
+                  className={linkBaseClasses("/about")}>
+                  About
+                  {underline(pathname === "/about")}
+                </Link>
+              </div>
+
+              <div className="hidden lg:flex items-center gap-4">
+                <Link
+                  href="/contact"
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isDark ? "text-white/75 hover:text-white" : "text-gray-600 hover:text-navy"
+                  }`}>
+                  Contact
+                </Link>
+                <a
+                  href="https://wa.me/message/KTFL2G2JM3JTP1"
+                  className="btn-primary text-sm py-2.5 px-5">
+                  Start Project
+                </a>
+              </div>
+
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`lg:hidden p-2 rounded-lg transition-colors ${isDark ? "text-white hover:bg-white/10" : "text-gray-600 hover:bg-gray-100"}`}
+                aria-label="Toggle menu">
+                {isMobileMenuOpen ? (
+                  <XMarkIcon className="w-6 h-6" />
+                ) : (
+                  <Bars3Icon className="w-6 h-6" />
+                )}
+              </button>
+            </div>
+          </div>
+        </nav>
+      </motion.header>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -206,7 +238,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-navy/95 backdrop-blur-lg lg:hidden">
-            <div className="flex flex-col h-full px-6 pt-24 pb-8">
+            <div className="flex flex-col h-full px-6 pt-28 pb-8">
               <div className="flex-1 space-y-1">
                 {[
                   ...navLinks,
@@ -242,7 +274,9 @@ export default function Navbar() {
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="flex items-center gap-3 py-2.5 text-white/70 hover:text-gold transition-colors">
-                        <span className="text-base">{item.icon}</span>
+                        <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-5 h-5 text-gold" />
+                        </span>
                         <span className="text-sm">{item.name}</span>
                       </Link>
                     ))}

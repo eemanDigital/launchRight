@@ -109,7 +109,7 @@ export default function ProductsPage() {
       <ProductSchema />
       <Navbar />
 
-      <div className="pt-24 pb-12 bg-navy">
+      <div className="pt-28 pb-12 bg-navy">
         <div className="container-wide">
           <div className="text-center">
             <motion.span

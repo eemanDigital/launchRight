@@ -136,7 +136,7 @@ export default function PricingPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="pt-24 pb-12 bg-navy">
+      <div className="pt-28 pb-12 bg-navy">
         <div className="container-wide">
           <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
             CAC Registration Packages

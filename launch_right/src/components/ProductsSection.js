@@ -17,7 +17,7 @@ const products = [
     color: "from-emerald-500 to-emerald-600",
     image: "/image/product-vendpadi.svg",
     metrics: "WhatsApp-first",
-    metricsIcon: "💬",
+    metricsIcon: ChatBubbleLeftRightIcon,
   },
   {
     icon: ScaleIcon,
@@ -31,7 +31,7 @@ const products = [
     color: "from-blue-500 to-blue-600",
     image: "/image/product-casemaster.svg",
     metrics: "Built by lawyers",
-    metricsIcon: "⚖️",
+    metricsIcon: ScaleIcon,
   },
   {
     icon: DocumentTextIcon,
@@ -45,7 +45,7 @@ const products = [
     color: "from-gold to-gold-light",
     image: "/image/product-docgen.svg",
     metrics: "6 templates",
-    metricsIcon: "📄",
+    metricsIcon: DocumentTextIcon,
   },
 ];
 
@@ -96,8 +96,9 @@ export default function ProductsSection() {
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-navy border border-gray-100">
-                      {product.metricsIcon} {product.metrics}
+                    <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-navy border border-gray-100 flex items-center gap-1.5">
+                      <product.metricsIcon className="w-3.5 h-3.5" />
+                      {product.metrics}
                     </span>
                   </div>
                 </div>

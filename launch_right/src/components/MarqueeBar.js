@@ -2,12 +2,12 @@
 
 export default function MarqueeBar() {
   const items = [
-    "2,000+ Businesses Registered",
-    "CAC Accredited Agent",
-    "Legal Compliance Experts",
+    "2,000+ Clients Served",
+    "Custom Software & Apps",
     "Professional Websites",
-    "Custom Software Solutions",
-    "Document Generation",
+    "Business Incorporation",
+    "Legal Documents",
+    "CAC Accredited Agent",
     "Trusted Across Nigeria",
   ];
 

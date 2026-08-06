@@ -18,10 +18,28 @@ import Link from "next/link";
 
 const serviceCategories = [
   {
+    id: "software",
+    icon: CodeBracketIcon,
+    title: "Custom Software & Apps",
+    description: "Bespoke software solutions — mobile apps, POS systems, SaaS platforms, and API integrations.",
+    color: "bg-slate-500",
+    items: ["Mobile Apps (Android)", "POS Systems", "Custom SaaS Platforms", "API Integrations", "Database Design"],
+    link: "/software",
+  },
+  {
+    id: "web",
+    icon: GlobeAltIcon,
+    title: "Website Development",
+    description: "Professional business websites built for conversion — from landing pages to full e-commerce stores.",
+    color: "bg-gold",
+    items: ["Landing Pages", "Business Websites", "E-commerce Stores", "Domain & Email Setup", "SEO Optimization"],
+    link: "/website",
+  },
+  {
     id: "cac",
     icon: BuildingOfficeIcon,
-    title: "CAC Business Registration",
-    description: "Register your business with the Corporate Affairs Commission — fast, compliant, and handled by accredited agents.",
+    title: "Business Incorporation (CAC)",
+    description: "Register and incorporate your business with the Corporate Affairs Commission — fast, compliant, and handled by accredited agents.",
     color: "bg-blue-500",
     items: ["Business Name Registration", "Private Limited Company (LTD)", "Public Limited Company (PLC)", "NGO / Incorporated Trustees", "Post-Registration Services"],
     link: "/pricing",
@@ -46,24 +64,6 @@ const serviceCategories = [
     link: "/contact",
   },
   {
-    id: "web",
-    icon: GlobeAltIcon,
-    title: "Website Development",
-    description: "Professional business websites built for conversion — from landing pages to full e-commerce stores.",
-    color: "bg-gold",
-    items: ["Landing Pages", "Business Websites", "E-commerce Stores", "Domain & Email Setup", "SEO Optimization"],
-    link: "/website",
-  },
-  {
-    id: "software",
-    icon: CodeBracketIcon,
-    title: "Custom Software & Apps",
-    description: "Bespoke software solutions — mobile apps, POS systems, SaaS platforms, and API integrations.",
-    color: "bg-slate-500",
-    items: ["Mobile Apps (Android)", "POS Systems", "Custom SaaS Platforms", "API Integrations", "Database Design"],
-    link: "/software",
-  },
-  {
     id: "products",
     icon: CommandLineIcon,
     title: "Legal-Tech Tools",
@@ -76,11 +76,11 @@ const serviceCategories = [
 ];
 
 const guarantees = [
-  "CAC-Accredited Agents",
-  "Official CAC Portal Filing",
+  "Lawyer-Reviewed Deliverables",
+  "In-House Engineering",
   "Transparent Pricing",
-  "Dedicated Account Manager",
-  "Post-Registration Support",
+  "Dedicated Project Manager",
+  "Post-Launch Support",
   "Satisfaction Guaranteed",
 ];
 
@@ -145,7 +145,7 @@ export default function Services() {
               Our Promise to You
             </h3>
             <p className="text-gray-400 max-w-xl mx-auto">
-              We don't collect your money and disappear. Every document is filed on the official CAC portal. You receive updates at every stage.
+              We don't collect your money and disappear. Every project is tracked and delivered with updates at every stage.
             </p>
           </div>
 
@@ -172,8 +172,8 @@ export default function Services() {
               icon: <ClockIcon className="w-6 h-6" />,
             },
             {
-              label: "Government Fees",
-              value: "Included",
+              label: "Pricing",
+              value: "Transparent & Clear",
               icon: <BanknotesIcon className="w-6 h-6" />,
             },
             {

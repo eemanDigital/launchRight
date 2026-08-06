@@ -9,7 +9,7 @@ const audiences = [
     image: "/image/starting-business.svg",
     step: "01",
     title: "Starting a Business",
-    description: "You have an idea and need to make it legal. We handle your CAC registration, business name search, and the legal setup so you can focus on building.",
+    description: "You have an idea and need to make it legal. We handle incorporation, business name search, the legal setup, and a website so your brand launches properly.",
     link: "/services#cac",
     tag: "Launch",
   },

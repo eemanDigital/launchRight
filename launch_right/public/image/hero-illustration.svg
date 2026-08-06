@@ -86,7 +86,7 @@
     <circle cx="340" cy="169" r="4" fill="#10B981" opacity="0.6"/>
     
     <!-- Dashboard title -->
-    <text x="450" y="173" font-family="system-ui, sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle" font-weight="500">JurisTech Dashboard — Business Registration</text>
+    <text x="450" y="173" font-family="system-ui, sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle" font-weight="500">JurisTech Client Dashboard</text>
     
     <!-- Status indicators row -->
     <g transform="translate(305, 198)">
@@ -111,7 +111,7 @@
     <g transform="translate(305, 260)">
       <rect width="295" height="6" rx="3" fill="#16235A"/>
       <rect width="210" height="6" rx="3" fill="url(#greenGrad)"/>
-      <text x="0" y="20" font-family="system-ui, sans-serif" font-size="7" fill="#64748B">Registration progress: 71%</text>
+      <text x="0" y="20" font-family="system-ui, sans-serif" font-size="7" fill="#64748B">Project build: 71%</text>
     </g>
     
     <!-- Progress bar 2 -->

@@ -11,16 +11,16 @@ import Link from "next/link";
 
 export default function Hero() {
   const services = [
-    { label: "CAC Registration", verified: true },
+    { label: "Custom Software & Apps", verified: true },
     { label: "Website Development", verified: true },
+    { label: "Business Incorporation", verified: true },
     { label: "Legal Documents", verified: true },
-    { label: "Software & SaaS", verified: true },
   ];
 
   const stats = [
-    { value: "2,000+", label: "Businesses Registered" },
+    { value: "2,000+", label: "Clients Served" },
     { value: "5+", label: "Years Experience" },
-    { value: "24-48h", label: "Business Name Approval" },
+    { value: "24-48h", label: "Fast Turnaround" },
     { value: "4.9", label: "Client Rating", suffix: "★" },
   ];
 
@@ -48,7 +48,7 @@ export default function Hero() {
       <div className="relative container-ultra pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center min-w-0">
           <div className="space-y-10 min-w-0">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -57,16 +57,16 @@ export default function Hero() {
               <span className="text-white/80 text-sm font-medium">
                 Built by a Lawyer Who Codes
               </span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[1.05] tracking-tight break-words">
-              Launch Your Business{" "}
+              Build Your Business{" "}
               <span className="text-gradient-gold block">
-                Legally &amp; Digitally
+                Digitally &amp; Legally
               </span>
             </motion.h1>
 
@@ -76,8 +76,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="space-y-4">
               <p className="text-lg text-white/60 max-w-xl leading-relaxed">
-                Built by a practising Nigerian lawyer who also codes. We handle
-                the legal, digital, and technical so you can focus on building.
+                A Nigerian studio building custom software, professional
+                websites, and business incorporation — led by a practising
+                lawyer who codes.
               </p>
             </motion.div>
 
@@ -90,9 +91,9 @@ export default function Hero() {
                 href="https://wa.me/message/KTFL2G2JM3JTP1"
                 className="btn-gold text-base shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
                 onClick={() =>
-                  trackWhatsAppClick("Hero CTA - Register My Business")
+                  trackWhatsAppClick("Hero CTA - Start Project")
                 }>
-                Register My Business
+                Start Your Project
                 <ArrowRightIcon className="w-4 h-4" />
               </a>
               <Link
@@ -146,7 +147,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative hidden lg:flex items-center justify-center">
             {/* Background glow behind illustration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-green/5 blur-3xl rounded-full scale-110" />
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-green/5 blur-3xl rounded-full scale-110" /> */}
 
             {/* Floating accent badges */}
             <motion.div
@@ -156,7 +157,7 @@ export default function Hero() {
               <div className="bg-navy/80 backdrop-blur-sm border border-gold/20 rounded-xl px-4 py-2.5 shadow-lg">
                 <p className="text-gold text-lg font-bold">24-48h</p>
                 <p className="text-white/50 text-[10px] uppercase tracking-wider">
-                  Approval
+                  Turnaround
                 </p>
               </div>
             </motion.div>
@@ -181,7 +182,7 @@ export default function Hero() {
             <div className="relative w-full max-w-lg">
               <img
                 src="/image/hero-illustration.svg"
-                alt="JurisTech services hub connecting legal, digital, and technical solutions"
+                alt="JurisTech hub connecting incorporation, website, and software solutions"
                 className="w-full h-auto drop-shadow-2xl"
                 width={400}
                 height={400}

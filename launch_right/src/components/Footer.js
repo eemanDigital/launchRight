@@ -21,11 +21,11 @@ export default function Footer() {
   ];
 
   const serviceLinks = [
+    { name: "Custom Software", href: "/services#software" },
+    { name: "Website Dev", href: "/services#web" },
     { name: "CAC Registration", href: "/services#cac" },
     { name: "Legal Documents", href: "/services#legal" },
     { name: "Compliance", href: "/services#compliance" },
-    { name: "Website Dev", href: "/services#web" },
-    { name: "Custom Software", href: "/services#software" },
   ];
 
   const socialLinks = [
@@ -49,7 +49,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-muted text-sm mb-6 max-w-md leading-relaxed">
-              Nigerian legal-tech company — CAC registration, websites, legal documents, and software built by a practising lawyer who codes.
+              We build custom software, professional websites, and handle business incorporation — a full-service Nigerian studio led by a practising lawyer who codes.
             </p>
             <div className="space-y-3 text-sm text-muted">
               <p className="flex items-start gap-2.5">

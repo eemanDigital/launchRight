@@ -12,11 +12,11 @@ const SITE_URL = "https://juristech.com.ng";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+    default: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     template: "%s | JurisTech",
   },
   description:
-    "Nigeria's legal-tech company built by a practising lawyer who codes. CAC business registration in 24-48hrs, professional websites, legal documents, and custom software. 2,000+ clients served.",
+    "Nigeria's full-service digital studio led by a practising lawyer who codes. Custom software development, professional websites, and CAC business incorporation — 2,000+ clients served.",
   keywords: [
     "CAC registration Nigeria",
     "business registration Nigeria",
@@ -46,16 +46,16 @@ export const metadata = {
     locale: "en_NG",
     alternateLocale: ["en_US"],
     siteName: "JurisTech",
-    title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+    title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
-      "Nigeria's legal-tech company built by a practising lawyer who codes. CAC registration, professional websites, legal documents, and custom software.",
+      "Nigeria's full-service digital studio built by a practising lawyer who codes. Custom software, professional websites, and CAC business incorporation.",
     url: SITE_URL,
     images: [
       {
         url: "/image/og-image.png",
         width: 1200,
         height: 630,
-        alt: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+        alt: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
         type: "image/png",
       },
     ],
@@ -64,9 +64,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@juristech",
     creator: "@juristech",
-    title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+    title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
-      "Nigeria's legal-tech company built by a practising lawyer who codes. CAC registration, websites, legal documents, and software.",
+      "Nigeria's full-service digital studio. Custom software, professional websites, and business incorporation — led by a lawyer who codes.",
     images: ["/image/og-image.png"],
   },
   robots: {

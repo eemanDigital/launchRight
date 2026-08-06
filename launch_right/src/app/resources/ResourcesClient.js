@@ -39,7 +39,7 @@ export default function ResourcesPage() {
     <main className="min-h-screen bg-surface">
       <Navbar />
 
-      <div className="pt-24 pb-12 bg-navy">
+      <div className="pt-28 pb-12 bg-navy">
         <div className="container-wide">
           <div className="text-center">
             <motion.span

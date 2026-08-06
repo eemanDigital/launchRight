@@ -40,10 +40,10 @@ export default function FinalCTA() {
           </motion.span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 tracking-tight">
-            Ready to Launch Your Business?
+            Ready to Build Your Business?
           </h2>
           <p className="text-lg text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            Get CAC registration, a professional website, and legal documents — all from one team that understands your business.
+            Get incorporated, launch a professional website, and ship custom software — all from one team that understands your business.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
@@ -107,7 +107,7 @@ export default function FinalCTA() {
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheckIcon className="w-4 h-4 text-gold" />
-              2,000+ registered
+              2,000+ clients served
             </span>
           </div>
         </motion.div>

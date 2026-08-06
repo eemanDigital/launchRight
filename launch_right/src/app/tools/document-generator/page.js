@@ -12,7 +12,7 @@ export default function DocumentGenerator() {
     <main className="min-h-screen bg-surface">
       <Navbar />
 
-      <div className="pt-24 pb-12 bg-navy">
+      <div className="pt-28 pb-12 bg-navy">
         <div className="container-wide">
           <div className="text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-white">

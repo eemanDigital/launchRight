@@ -131,7 +131,7 @@ export default async function BlogPost({ params }) {
       />
       <Navbar />
 
-      <div className="pt-24 pb-8 bg-navy">
+      <div className="pt-28 pb-8 bg-navy">
         <div className="container-wide">
           <Link
             href="/resources/blog"

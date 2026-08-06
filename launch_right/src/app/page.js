@@ -7,6 +7,9 @@ import FAQSchema from "@/components/FAQSchema";
 const WhoIsThisFor = dynamic(() => import("@/components/WhoIsThisFor"), {
   loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
 });
+const Pillars = dynamic(() => import("@/components/Pillars"), {
+  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
+});
 const ProblemSolution = dynamic(() => import("@/components/ProblemSolution"), {
   loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
 });
@@ -39,25 +42,27 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 });
 
 export const metadata = {
-  title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+  title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
   description:
-    "Nigeria's legal-tech company built by a practising lawyer who codes. CAC business registration in 24-48hrs, professional websites, legal documents, and custom software. 2,000+ clients served.",
+    "Nigeria's full-service digital studio led by a practising lawyer who codes. Custom software development, professional websites, CAC business incorporation in 24-48hrs, and legal documents. 2,000+ clients served.",
   metadataBase: new URL("https://juristech.com.ng"),
   alternates: {
     canonical: "https://juristech.com.ng",
   },
   keywords: [
-    "CAC registration",
-    "Nigeria business registration",
-    "legal documents",
+    "custom software development",
+    "Nigeria software development",
     "website development",
-    "legal tech",
-    "Nigerian lawyer",
+    "CAC registration",
+    "Nigeria business incorporation",
+    "legal documents",
+    "Nigerian lawyer developer",
+    "software house Nigeria",
   ],
   openGraph: {
-    title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+    title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
-      "Nigeria's legal-tech company built by a practising lawyer who codes. CAC business registration in 24-48hrs, professional websites, legal documents, and custom software.",
+      "Nigeria's full-service digital studio built by a practising lawyer who codes. Custom software, professional websites, CAC business incorporation, and legal documents.",
     url: "https://juristech.com.ng",
     siteName: "JurisTech",
     type: "website",
@@ -67,15 +72,15 @@ export const metadata = {
         url: "/image/og-image.png",
         width: 1200,
         height: 630,
-        alt: "JurisTech legal-tech services in Nigeria",
+        alt: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JurisTech — CAC Registration, Websites & Legal Documents Nigeria",
+    title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
-      "Nigeria's legal-tech company built by a practising lawyer who codes. CAC business registration in 24-48hrs, professional websites, legal documents, and custom software.",
+      "Nigeria's full-service digital studio. Custom software, professional websites, and business incorporation — led by a lawyer who codes.",
     images: ["/image/og-image.png"],
   },
   robots: {
@@ -90,6 +95,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MarqueeBar />
+      <Pillars />
       <WhoIsThisFor />
       <ProblemSolution />
       <Process />

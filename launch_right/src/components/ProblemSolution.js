@@ -14,11 +14,11 @@ export default function ProblemSolution() {
 
   const solutions = [
     "Everything under one roof — lawyer, CAC agent, and developer",
+    "Custom software and websites built in-house by real engineers",
     "Legally vetted documents reviewed by qualified lawyers",
-    "Professional websites built for Nigerian businesses",
+    "Business incorporation done right the first time",
     "Full compliance support — CAC, FIRS, SCUML",
     "24-48 hours for Business Name (guaranteed)",
-    "7-14 days for company registration",
     "Ongoing support for your business growth",
   ];
 
@@ -41,7 +41,7 @@ export default function ProblemSolution() {
             One Team. Legal, Digital &amp; Technical.
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            We combine legal expertise, CAC accreditation, and technology to handle everything — right the first time.
+            We combine legal expertise, engineering, and design to handle everything — right the first time.
           </p>
         </motion.div>
 

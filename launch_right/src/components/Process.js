@@ -43,7 +43,7 @@ export default function Process() {
   const stats = [
     { value: "2,000+", suffix: "", label: "Clients Served" },
     { value: "5+", suffix: "", label: "Years Experience" },
-    { value: "24-48", suffix: "hrs", label: "Business Name (Guaranteed)" },
+    { value: "24-48", suffix: "hrs", label: "Fast Turnaround" },
     { value: "4.9", suffix: "★", label: "Client Rating" },
   ];
 

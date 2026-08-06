@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "JurisTech — CAC Registration, Websites & Legal Documents Nigeria";
+  "JurisTech — Custom Software, Websites & Business Incorporation Nigeria";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -65,8 +65,8 @@ export default function Image() {
           maxWidth: 900,
           marginBottom: 24,
         }}>
-        CAC Registration, Websites
-        <br />& Legal Documents Nigeria
+        Custom Software, Websites
+        <br />& Business Incorporation
       </div>
 
       <div
@@ -92,7 +92,7 @@ export default function Image() {
             24-48hrs
           </span>
           <span style={{ fontSize: 14, color: "rgba(255, 255, 255, 0.5)" }}>
-            CAC Approval
+            Fast Turnaround
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
