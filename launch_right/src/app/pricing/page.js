@@ -1,11 +1,11 @@
 export const metadata = {
-  title: "CAC Registration Packages — Pricing & Plans | JurisTech",
+  title: "Pricing & Packages — CAC Registration, Websites & More | JurisTech",
   description:
-    "Transparent CAC registration pricing from ₦35,000. Packages include business registration, professional websites, legal documents, and dedicated support. No hidden fees.",
+    "Transparent pricing: premium packages, NGO & diaspora special packages, standalone CAC registrations, add-on services, website development, and custom software. No hidden fees.",
   openGraph: {
-    title: "CAC Registration Packages — Pricing & Plans",
+    title: "Pricing & Packages — CAC Registration, Websites & More",
     description:
-      "CAC registration from ₦35,000. Packages with websites, legal documents, and ongoing support. Money-back guarantee.",
+      "Premium bundles, special NGO/diaspora packages, standalone CAC registrations, add-ons, websites and software. Transparent pricing from one team.",
     url: "https://juristech.com.ng/pricing",
     type: "website",
   },

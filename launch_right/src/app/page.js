@@ -42,7 +42,8 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 });
 
 export const metadata = {
-  title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
+  title:
+    "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
   description:
     "Nigeria's full-service digital studio led by a practising lawyer who codes. Custom software development, professional websites, CAC business incorporation in 24-48hrs, and legal documents. 2,000+ clients served.",
   metadataBase: new URL("https://juristech.com.ng"),
@@ -60,7 +61,8 @@ export const metadata = {
     "software house Nigeria",
   ],
   openGraph: {
-    title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
+    title:
+      "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
       "Nigeria's full-service digital studio built by a practising lawyer who codes. Custom software, professional websites, CAC business incorporation, and legal documents.",
     url: "https://juristech.com.ng",
@@ -70,7 +72,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
+    title:
+      "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
     description:
       "Nigeria's full-service digital studio. Custom software, professional websites, and business incorporation — led by a lawyer who codes.",
   },
@@ -93,7 +96,7 @@ export default function Home() {
       <FounderSection />
       <ProductsSection />
       <Testimonials />
-      {/* <Pricing /> */}
+      <Pricing />
       <BlogPreview />
       <FAQ />
       <FAQSchema />

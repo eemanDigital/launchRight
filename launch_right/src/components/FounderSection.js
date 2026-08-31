@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRightIcon, ShieldCheckIcon, AcademicCapIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  ShieldCheckIcon,
+  AcademicCapIcon,
+  CodeBracketIcon,
+} from "@heroicons/react/24/outline";
 
 export default function FounderSection() {
   return (
@@ -51,7 +56,10 @@ export default function FounderSection() {
                 I'm Lukman Asinmi
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6 max-w-2xl">
-                I'm a practising Nigerian lawyer, CAC-accredited agent, and MERN stack developer. I built JurisTech because I got tired of watching businesses fail over preventable legal and technical mistakes. Everything we deliver, I personally stand behind.
+                I'm a Nigerian lawyer, CAC-accredited agent, and a Software
+                Developer. I built JurisTech because I got tired of watching
+                businesses fail over preventable legal and technical mistakes.
+                Everything we deliver, I personally stand behind.
               </p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
                 <span className="inline-flex items-center gap-2 text-sm text-muted bg-surface px-4 py-2 rounded-full border border-gray-100">
@@ -64,7 +72,7 @@ export default function FounderSection() {
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-muted bg-surface px-4 py-2 rounded-full border border-gray-100">
                   <CodeBracketIcon className="w-4 h-4 text-gold" />
-                  MERN Developer
+                  Software Developer
                 </span>
               </div>
               <Link
