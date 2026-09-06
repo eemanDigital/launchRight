@@ -7,7 +7,7 @@ export default function LocalBusinessSchema() {
     image: "https://juristech.com.ng/image/juristech-logo.png",
     url: "https://juristech.com.ng",
     telephone: "+234-806-723-4189",
-    email: "hello@juristech.com.ng",
+    email: "info@juristech.com.ng.ng",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Suite 412, IT Igbani Street, MKK Plaza, Jabi",
