@@ -99,11 +99,11 @@ export default function Navbar() {
               <div className="hidden md:flex items-center gap-6">
                 <a
                   href="tel:08067234189"
-                  className="flex items-center gap-2 hover:text-white transition-colors">
+                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
                   <PhoneIcon className="w-4 h-4 text-gold" />
                   08067234189
                 </a>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-white/80">
                   <MapPinIcon className="w-4 h-4 text-gold flex-shrink-0" />
                   <span className="truncate">
                     Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja
@@ -113,12 +113,12 @@ export default function Navbar() {
               <div className="flex items-center gap-4 md:hidden">
                 <a
                   href="tel:08067234189"
-                  className="flex items-center gap-2 hover:text-white">
+                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
                   <PhoneIcon className="w-4 h-4 text-gold" />
                   08067234189
                 </a>
               </div>
-              <div className="hidden md:flex items-center gap-2 text-xs">
+              <div className="hidden md:flex items-center gap-2 text-xs text-white/60">
                 <span className="w-2 h-2 bg-success rounded-full animate-pulse"></span>
                 <span>Lawyer · CAC Agent · Developer</span>
               </div>
