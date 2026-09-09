@@ -64,15 +64,15 @@ function HeroSection() {
           alt=""
           width={1376}
           height={768}
-          className="absolute top-30 left-0  w-full h-[67%]  object-center"
+          className="absolute top-0 sm:top-30 left-0 w-full h-full sm:h-[67%] object-cover object-center"
           loading="eager"
         />
         {/* Light scrim: keeps text readable without clouding the image */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/25 to-transparent" />
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto lg:ml-0 lg:mr-auto pl-6 pr-6 lg:pl-16 lg:pr-8 pt-28 pb-24 lg:pt-36 lg:pb-32">
-        <div className="max-w-2xl text-left space-y-8">
+      <div className="relative w-full max-w-7xl mx-auto lg:ml-0 lg:mr-auto pl-5 pr-5 sm:pl-6 sm:pr-6 lg:pl-16 lg:pr-8 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
+        <div className="max-w-2xl text-left space-y-5 sm:space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight">
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight">
             Don&apos;t just register your business.{" "}
             <span className="text-gradient-gold block">Build it properly.</span>
           </motion.h1>
@@ -97,7 +97,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-lg text-white/60 max-w-xl leading-relaxed">
+            className="text-base sm:text-lg text-white/60 max-w-xl leading-relaxed">
             Company registration, professional website, essential legal
             documents and digital setup — handled in one launch package.
           </motion.p>
@@ -110,7 +110,7 @@ function HeroSection() {
             <span className="text-white/50 text-sm font-medium">
               Business Launch
             </span>
-            <span className="text-white text-3xl font-bold">₦225,000</span>
+            <span className="text-white text-2xl sm:text-3xl font-bold">₦225,000</span>
           </motion.div>
 
           <motion.div
