@@ -69,6 +69,8 @@ function HeroSection() {
         />
         {/* Light scrim: keeps text readable without clouding the image */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/25 to-transparent" />
+        {/* Stronger overlay for mobile readability */}
+        <div className="absolute inset-0 bg-navy/60 sm:bg-navy/30 md:bg-transparent" />
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto lg:ml-0 lg:mr-auto pl-5 pr-5 sm:pl-6 sm:pr-6 lg:pl-16 lg:pr-8 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
@@ -106,7 +108,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-baseline gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4">
+            className="inline-flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-5 py-3 sm:px-6 sm:py-4 w-full sm:w-auto">
             <span className="text-white/50 text-sm font-medium">
               Business Launch
             </span>
@@ -896,7 +898,7 @@ function WhyJurisTechSection() {
               whileInView="visible"
               custom={i}
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-colors">
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-white/20 transition-colors">
               <div
                 className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 ${d.iconWrap}`}>
                 <d.icon className={`w-6 h-6 ${d.iconColor}`} />
@@ -915,12 +917,12 @@ function WhyJurisTechSection() {
           whileInView="visible"
           viewport={{ once: true }}
           className="mt-12 text-center">
-          <div className="inline-flex items-center gap-4 text-white/40">
-            <span className="text-lg font-semibold text-gold">LAW</span>
-            <span className="text-xl">+</span>
-            <span className="text-lg font-semibold text-teal">TECHNOLOGY</span>
-            <span className="text-xl">→</span>
-            <span className="text-lg font-semibold text-white">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/40">
+            <span className="text-base sm:text-lg font-semibold text-gold">LAW</span>
+            <span className="text-base sm:text-xl">+</span>
+            <span className="text-base sm:text-lg font-semibold text-teal">TECHNOLOGY</span>
+            <span className="text-base sm:text-xl">→</span>
+            <span className="text-base sm:text-lg font-semibold text-white">
               BUSINESS LAUNCH
             </span>
           </div>
