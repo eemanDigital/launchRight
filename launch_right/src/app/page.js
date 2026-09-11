@@ -10,6 +10,9 @@ const WhoIsThisFor = dynamic(() => import("@/components/WhoIsThisFor"), {
 const Pillars = dynamic(() => import("@/components/Pillars"), {
   loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
 });
+const CoverBanner = dynamic(() => import("@/components/CoverBanner"), {
+  loading: () => <div className="min-h-[200px] bg-navy-deep animate-pulse" />,
+});
 const ProblemSolution = dynamic(() => import("@/components/ProblemSolution"), {
   loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
 });
@@ -90,13 +93,14 @@ export default function Home() {
       <Hero />
       <MarqueeBar />
       <Pillars />
+      <CoverBanner />
       <WhoIsThisFor />
       <ProblemSolution />
       <Process />
       <FounderSection />
       <ProductsSection />
       <Testimonials />
-      <Pricing />
+      {/* <Pricing /> */}
       <BlogPreview />
       <FAQ />
       <FAQSchema />
