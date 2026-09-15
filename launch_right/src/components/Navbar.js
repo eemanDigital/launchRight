@@ -152,87 +152,91 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <div className="hidden lg:flex items-center gap-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={linkBaseClasses(link.href)}>
-                    {link.name}
-                    {underline(pathname === link.href)}
+              {!isDark && (
+                <div className="hidden lg:flex items-center gap-8">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={linkBaseClasses(link.href)}>
+                      {link.name}
+                      {underline(pathname === link.href)}
+                    </Link>
+                  ))}
+
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setActiveDropdown("resources")}
+                    onMouseLeave={() => setActiveDropdown(null)}>
+                    <button
+                      className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 py-1 relative ${
+                        isResourceActive
+                          ? "text-gold"
+                          : isDark
+                            ? "text-white/75 hover:text-white"
+                            : "text-gray-600 hover:text-navy"
+                      }`}>
+                      Resources
+                      <ChevronDownIcon
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          activeDropdown === "resources" ? "rotate-180" : ""
+                        }`}
+                      />
+                      {underline(isResourceActive)}
+                    </button>
+
+                    <AnimatePresence>
+                      {activeDropdown === "resources" && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-xl border border-border/80 p-2 overflow-hidden">
+                          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+                          {dropdownItems.resources.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-dark transition-colors group"
+                              onClick={() => setActiveDropdown(null)}>
+                              <span className="w-9 h-9 rounded-lg bg-surface-dark flex items-center justify-center flex-shrink-0">
+                                <item.icon className="w-5 h-5 text-gold" />
+                              </span>
+                              <div>
+                                <p className="text-sm font-medium text-navy group-hover:text-gold transition-colors">
+                                  {item.name}
+                                </p>
+                                <p className="text-xs text-muted mt-0.5">
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  <Link href="/about" className={linkBaseClasses("/about")}>
+                    About
+                    {underline(pathname === "/about")}
                   </Link>
-                ))}
-
-                <div
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown("resources")}
-                  onMouseLeave={() => setActiveDropdown(null)}>
-                  <button
-                    className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 py-1 relative ${
-                      isResourceActive
-                        ? "text-gold"
-                        : isDark
-                          ? "text-white/75 hover:text-white"
-                          : "text-gray-600 hover:text-navy"
-                    }`}>
-                    Resources
-                    <ChevronDownIcon
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        activeDropdown === "resources" ? "rotate-180" : ""
-                      }`}
-                    />
-                    {underline(isResourceActive)}
-                  </button>
-
-                  <AnimatePresence>
-                    {activeDropdown === "resources" && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-xl border border-border/80 p-2 overflow-hidden">
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-                        {dropdownItems.resources.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-dark transition-colors group"
-                            onClick={() => setActiveDropdown(null)}>
-                            <span className="w-9 h-9 rounded-lg bg-surface-dark flex items-center justify-center flex-shrink-0">
-                              <item.icon className="w-5 h-5 text-gold" />
-                            </span>
-                            <div>
-                              <p className="text-sm font-medium text-navy group-hover:text-gold transition-colors">
-                                {item.name}
-                              </p>
-                              <p className="text-xs text-muted mt-0.5">
-                                {item.desc}
-                              </p>
-                            </div>
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
-
-                <Link href="/about" className={linkBaseClasses("/about")}>
-                  About
-                  {underline(pathname === "/about")}
-                </Link>
-              </div>
+              )}
 
               <div className="hidden lg:flex items-center gap-4">
-                <Link
-                  href="/contact"
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    isDark
-                      ? "text-white/75 hover:text-white"
-                      : "text-gray-600 hover:text-navy"
-                  }`}>
-                  Contact
-                </Link>
+                {!isDark && (
+                  <Link
+                    href="/contact"
+                    className={`text-sm font-medium transition-colors duration-200 ${
+                      isDark
+                        ? "text-white/75 hover:text-white"
+                        : "text-gray-600 hover:text-navy"
+                    }`}>
+                    Contact
+                  </Link>
+                )}
                 <a
                   href="https://wa.me/message/KTFL2G2JM3JTP1"
                   className="btn-primary text-sm py-2.5 px-5">
