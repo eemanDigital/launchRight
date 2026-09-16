@@ -111,7 +111,9 @@ function HeroSection() {
             <span className="text-white/50 text-sm font-medium">
               Business Launch
             </span>
-            <span className="text-white text-2xl sm:text-3xl font-bold">₦225,000</span>
+            <span className="text-white text-2xl sm:text-3xl font-bold">
+              ₦225,000
+            </span>
           </motion.div>
 
           <motion.div
@@ -321,43 +323,43 @@ function TransformationSection() {
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
             Business Launch is not just about registration. It is about what
-            your business becomes: legally established, professionally
-            presented and ready to serve customers.
+            your business becomes: legally established, professionally presented
+            and ready to serve customers.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {stages.map((stage, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              custom={i}
-              viewport={{ once: true }}
-              className="relative">
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-gold/20 hover:shadow-lg transition-all text-center h-full">
-                <div className="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center mx-auto mb-5 border-2 border-gold/30 shadow-lg">
+        <div className="max-w-4xl mx-auto">
+          <div className="divide-y divide-gray-200/80 border-y border-gray-200/80">
+            {stages.map((stage, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                custom={i}
+                viewport={{ once: true }}
+                className="relative grid sm:grid-cols-[96px_1fr_auto] sm:gap-8 items-center py-8 sm:py-10 group">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 group-hover:h-3/4 bg-gradient-to-b from-gold to-green rounded-full transition-all duration-300" />
+                <div className="text-6xl sm:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-gold/20 via-gold/10 to-green/15 select-none leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="mt-2 sm:mt-0">
+                  <span className="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-1 block">
+                    Pillar {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-navy text-xl sm:text-2xl font-bold tracking-tight">
+                    {stage.title}
+                  </h3>
+                  <p className="text-muted mt-2 text-sm sm:text-base leading-relaxed max-w-lg">
+                    {stage.desc}
+                  </p>
+                </div>
+                <div className="hidden sm:flex w-14 h-14 rounded-full border border-gold/20 bg-white items-center justify-center shadow-sm">
                   <stage.icon className="w-6 h-6 text-gold" />
                 </div>
-                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-1 block">
-                  {stage.step}
-                </span>
-                <h3 className="text-navy text-base font-bold mb-2 tracking-tight">
-                  {stage.title}
-                </h3>
-                <p className="text-muted text-sm">{stage.desc}</p>
-              </div>
-              {i < stages.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gold/30" />
-              )}
-              {i < stages.length - 1 && (
-                <div className="lg:hidden flex justify-center py-2">
-                  <ArrowRightIcon className="w-5 h-5 text-gold/40 rotate-90 md:rotate-0" />
-                </div>
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -444,9 +446,8 @@ function WhatsIncludedSection() {
             Everything your business needs to be ready to do business.
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            Four coordinated sections — legal foundation, professional
-            presence, customer tools and launch support — working as one
-            launch system.
+            Four coordinated sections — legal foundation, professional presence,
+            customer tools and launch support — working as one launch system.
           </p>
         </motion.div>
 
@@ -522,11 +523,11 @@ function WhatsIncludedSection() {
                 </div>
                 <p className="text-white/40 text-xs leading-relaxed">
                   Standard Business Launch tools are implemented with
-                  lightweight frontend functionality and appropriate
-                  third-party integrations — no custom backend or database
-                  required. A normal WhatsApp button/order/enquiry flow is
-                  included. Automated WhatsApp API notifications and custom
-                  systems are a separate paid service.
+                  lightweight frontend functionality and appropriate third-party
+                  integrations — no custom backend or database required. A
+                  normal WhatsApp button/order/enquiry flow is included.
+                  Automated WhatsApp API notifications and custom systems are a
+                  separate paid service.
                 </p>
               </div>
             </div>
@@ -1014,8 +1015,8 @@ function WhyJurisTechSection() {
               customer tools and launch support. Advanced requirements such as
               custom CRM, inventory management, customer accounts, admin
               dashboards, custom databases, advanced automation and custom
-              business software are available as separate Business Automation
-              / Custom Software projects.
+              business software are available as separate Business Automation /
+              Custom Software projects.
             </p>
           </div>
         </motion.div>
@@ -1027,9 +1028,13 @@ function WhyJurisTechSection() {
           viewport={{ once: true }}
           className="mt-12 text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/40">
-            <span className="text-base sm:text-lg font-semibold text-gold">LAW</span>
+            <span className="text-base sm:text-lg font-semibold text-gold">
+              LAW
+            </span>
             <span className="text-base sm:text-xl">+</span>
-            <span className="text-base sm:text-lg font-semibold text-teal">TECHNOLOGY</span>
+            <span className="text-base sm:text-lg font-semibold text-teal">
+              TECHNOLOGY
+            </span>
             <span className="text-base sm:text-xl">→</span>
             <span className="text-base sm:text-lg font-semibold text-white">
               BUSINESS LAUNCH
