@@ -3,12 +3,12 @@ const SITE_URL = "https://juristech.com.ng";
 export const metadata = {
   title: "Business Launch — JurisTech Lab Limited",
   description:
-    "Company registration, professional website, essential legal documents and digital setup — handled in one launch package. ₦225,000. Start your business properly with JurisTech Lab.",
+    "Don't just register your business. Get it ready to do business. Company registration, essential legal documents, professional digital presence and customer-facing business tools in one streamlined launch. ₦225,000.",
   metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Business Launch — JurisTech Lab Limited",
     description:
-      "Don't just register your business. Build it properly. Company registration, professional website, legal documents and digital setup in one package.",
+      "Don't just register your business. Get it ready to do business. Legal foundation, professional business presence and customer tools handled by one team in one launch package. ₦225,000.",
     url: `${SITE_URL}/business-launch`,
     type: "website",
     locale: "en_NG",

@@ -9,8 +9,6 @@ import {
   ChevronDownIcon,
   BuildingOffice2Icon,
   GlobeAltIcon,
-  DocumentTextIcon,
-  LifebuoyIcon,
   LightBulbIcon,
   ChartBarIcon,
   BriefcaseIcon,
@@ -18,10 +16,8 @@ import {
   RocketLaunchIcon,
   CpuChipIcon,
   CommandLineIcon,
-  CheckCircleIcon,
   ShieldCheckIcon,
   DevicePhoneMobileIcon,
-  EnvelopeIcon,
   ChatBubbleLeftRightIcon,
   StarIcon,
   ClockIcon,
@@ -49,10 +45,10 @@ const fadeInUp = {
 
 function HeroSection() {
   const badges = [
-    { icon: CheckCircleIcon, label: "CAC Registered" },
-    { icon: GlobeAltIcon, label: "Website Ready" },
-    { icon: DocumentTextIcon, label: "Legal Documents" },
-    { icon: EnvelopeIcon, label: "Business Email" },
+    { icon: BuildingOffice2Icon, label: "Legally Ready" },
+    { icon: GlobeAltIcon, label: "Credibility Ready" },
+    { icon: ChatBubbleLeftRightIcon, label: "Customer Ready" },
+    { icon: RocketLaunchIcon, label: "Ready to Grow" },
   ];
 
   return (
@@ -92,7 +88,9 @@ function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight">
             Don&apos;t just register your business.{" "}
-            <span className="text-gradient-gold block">Build it properly.</span>
+            <span className="text-gradient-gold block">
+              Get it ready to do business.
+            </span>
           </motion.h1>
 
           <motion.p
@@ -100,8 +98,9 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-base sm:text-lg text-white/60 max-w-xl leading-relaxed">
-            Company registration, professional website, essential legal
-            documents and digital setup — handled in one launch package.
+            We bring your company registration, essential legal documents,
+            professional digital presence and customer-facing business tools
+            together in one streamlined launch.
           </motion.p>
 
           <motion.div
@@ -180,11 +179,11 @@ function ProblemSection() {
   ];
 
   const after = [
-    "Properly incorporated company",
-    "Professional website",
-    "Business email",
-    "Essential legal documentation",
-    "Clear professional digital presence",
+    "Legally ready — properly incorporated company with essential documentation",
+    "Credibility ready — a professional digital identity customers can trust",
+    "Customer ready — customers can discover, enquire, book or order",
+    "Professionally presented — business email, website and contact channels",
+    "Ready to grow — a digital foundation you can expand as the business grows",
   ];
 
   return (
@@ -202,13 +201,19 @@ function ProblemSection() {
           className="text-center mb-16">
           <span className="badge badge-navy mb-4 inline-flex">THE PROBLEM</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            Your business shouldn&apos;t look unfinished.
+            Stop piecing your business together.
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            Many entrepreneurs have registered — or are trying to register — a
-            business but still lack the basic infrastructure needed to operate
-            professionally.
+            Instead of coordinating a CAC agent, lawyer, web developer and IT
+            provider separately, JurisTech brings the legal and technology
+            pieces together in one streamlined process.
           </p>
+          <div className="inline-flex items-center gap-2 mt-6 bg-white rounded-xl px-5 py-3 border border-gray-100 shadow-sm">
+            <ShieldCheckIcon className="w-5 h-5 text-gold" />
+            <span className="text-navy font-semibold text-sm">
+              One team. One process. One launch.
+            </span>
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
@@ -271,22 +276,27 @@ function TransformationSection() {
   const stages = [
     {
       step: "1",
-      title: "REGISTER",
-      desc: "Private Limited Company",
-      color: "gold",
+      icon: ScaleIcon,
+      title: "LEGALLY READY",
+      desc: "Your business is properly established with essential corporate and legal documentation.",
     },
-    { step: "2", title: "STRUCTURE", desc: "Legal documents", color: "teal" },
+    {
+      step: "2",
+      icon: GlobeAltIcon,
+      title: "CREDIBILITY READY",
+      desc: "Your business has a professional digital identity that gives customers and potential partners a clear place to understand and engage with your business.",
+    },
     {
       step: "3",
-      title: "LAUNCH",
-      desc: "Website + domain + email",
-      color: "green",
+      icon: ChatBubbleLeftRightIcon,
+      title: "CUSTOMER READY",
+      desc: "Customers can discover your business, enquire, book, order or pay through appropriate digital tools.",
     },
     {
       step: "4",
-      title: "OPERATE",
-      desc: "60 days post-launch support",
-      color: "cyan",
+      icon: RocketLaunchIcon,
+      title: "READY TO GROW",
+      desc: "Your business has a practical digital foundation that can later be expanded with automation and custom software as the business grows.",
     },
   ];
 
@@ -304,11 +314,16 @@ function TransformationSection() {
           viewport={{ once: true }}
           className="text-center mb-16">
           <span className="badge-gold badge mb-4 inline-flex">
-            THE TRANSFORMATION
+            WHAT YOU GET OUT OF IT
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            From business idea to business that looks ready for business.
+            From business idea to business that is ready to do business.
           </h2>
+          <p className="text-muted max-w-2xl mx-auto text-lg">
+            Business Launch is not just about registration. It is about what
+            your business becomes: legally established, professionally
+            presented and ready to serve customers.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -323,11 +338,12 @@ function TransformationSection() {
               className="relative">
               <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-gold/20 hover:shadow-lg transition-all text-center h-full">
                 <div className="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center mx-auto mb-5 border-2 border-gold/30 shadow-lg">
-                  <span className="text-gold text-lg font-bold">
-                    {stage.step}
-                  </span>
+                  <stage.icon className="w-6 h-6 text-gold" />
                 </div>
-                <h3 className="text-navy text-lg font-bold mb-2 tracking-tight">
+                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-1 block">
+                  {stage.step}
+                </span>
+                <h3 className="text-navy text-base font-bold mb-2 tracking-tight">
                   {stage.title}
                 </h3>
                 <p className="text-muted text-sm">{stage.desc}</p>
@@ -352,41 +368,59 @@ function WhatsIncludedSection() {
   const categories = [
     {
       icon: BuildingOffice2Icon,
-      title: "COMPANY SETUP",
+      title: "SECTION 1 — LEGAL FOUNDATION",
       iconWrap: "bg-gold/10 border-gold/20",
       iconColor: "text-gold",
       items: [
         "Private Limited Company registration",
-        "Certificate of Incorporation + MEMART",
+        "Certificate of Incorporation",
+        "MEMART",
         "Shareholders Agreement",
+        "One Service Agreement OR Employment Agreement",
       ],
     },
     {
       icon: GlobeAltIcon,
-      title: "DIGITAL SETUP",
+      title: "SECTION 2 — PROFESSIONAL BUSINESS PRESENCE",
       iconWrap: "bg-teal/10 border-teal/20",
       iconColor: "text-teal",
       items: [
-        "Professional 4-page website",
-        "Domain — 1 year",
+        "Professional responsive website",
+        "Custom domain — 1 year",
         "Commercial hosting — 1 year",
         "Business email setup",
         "WhatsApp integration",
+        "Basic SEO setup",
+        "Google Analytics / Search Console setup",
       ],
+      note: "More than a brochure — your website is a professional digital presence where customers can learn about your business, contact you, make enquiries, book, order or take other relevant actions.",
     },
     {
-      icon: DocumentTextIcon,
-      title: "LEGAL SETUP",
-      iconWrap: "bg-green/10 border-green/20",
-      iconColor: "text-green",
-      items: ["1 employment OR service contract"],
-    },
-    {
-      icon: LifebuoyIcon,
-      title: "SUPPORT",
+      icon: CommandLineIcon,
+      title: "SECTION 4 — LAUNCH SUPPORT",
       iconWrap: "bg-cyan/10 border-cyan/20",
       iconColor: "text-cyan",
-      items: ["60 days post-launch support"],
+      items: [
+        "60 days post-launch support",
+        "One coordinated team for legal + digital setup",
+      ],
+    },
+  ];
+
+  const toolOptions = [
+    { name: "SELL", desc: "Product/service catalogue + WhatsApp ordering" },
+    {
+      name: "BOOK",
+      desc: "Appointment/consultation booking + WhatsApp integration",
+    },
+    { name: "GET PAID", desc: "Payment/checkout integration" },
+    {
+      name: "GET LEADS",
+      desc: "Lead/enquiry form + email notification where technically appropriate",
+    },
+    {
+      name: "QUOTE",
+      desc: "Quote/request workflow + simple price calculator where suitable",
     },
   ];
 
@@ -407,11 +441,12 @@ function WhatsIncludedSection() {
             WHAT YOU GET
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            Everything you need to launch properly.
+            Everything your business needs to be ready to do business.
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            Not a list of separate services. One integrated system to get your
-            business running professionally.
+            Four coordinated sections — legal foundation, professional
+            presence, customer tools and launch support — working as one
+            launch system.
           </p>
         </motion.div>
 
@@ -442,8 +477,60 @@ function WhatsIncludedSection() {
                   </li>
                 ))}
               </ul>
+              {cat.note && (
+                <p className="mt-6 pt-5 border-t border-gray-100 text-muted text-sm leading-relaxed">
+                  {cat.note}
+                </p>
+              )}
             </motion.div>
           ))}
+
+          {/* Customer & Revenue Tools — highlighted card */}
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            custom={3}
+            viewport={{ once: true }}
+            className="md:col-span-2">
+            <div className="bg-gradient-to-br from-navy to-navy-deep text-white rounded-3xl overflow-hidden shadow-2xl shadow-navy/20 ring-2 ring-gold/30">
+              <div className="p-8 lg:p-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-green/20 border border-green/30 flex items-center justify-center">
+                    <CommandLineIcon className="w-6 h-6 text-green" />
+                  </div>
+                  <h3 className="text-sm font-bold tracking-widest uppercase">
+                    SECTION 3 — CUSTOMER &amp; REVENUE TOOLS
+                  </h3>
+                </div>
+                <p className="text-white/70 text-sm mb-6">
+                  Choose 2 business tools based on what your business needs.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+                  {toolOptions.map((tool, j) => (
+                    <div
+                      key={j}
+                      className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-gold/40 transition-colors">
+                      <span className="text-gold text-xs font-bold tracking-widest block mb-2">
+                        {tool.name}
+                      </span>
+                      <span className="text-white/70 text-xs leading-relaxed">
+                        {tool.desc}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-white/40 text-xs leading-relaxed">
+                  Standard Business Launch tools are implemented with
+                  lightweight frontend functionality and appropriate
+                  third-party integrations — no custom backend or database
+                  required. A normal WhatsApp button/order/enquiry flow is
+                  included. Automated WhatsApp API notifications and custom
+                  systems are a separate paid service.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -468,11 +555,13 @@ function WebsiteShowcaseSection() {
             YOUR WEBSITE
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            Your business gets a professional digital home.
+            Your professional digital presence.
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            Not a generic template thrown together overnight. A responsive
-            professional website built around your business.
+            Not a generic template or a corporate brochure. A responsive,
+            professional website built around your business — where customers
+            can learn about you, contact you, make enquiries, book, order or
+            take other relevant actions.
           </p>
         </motion.div>
 
@@ -844,7 +933,7 @@ function WhyJurisTechSection() {
     {
       icon: CommandLineIcon,
       title: "ONE PROCESS",
-      desc: "Instead of coordinating different providers for registration, legal documents and website development.",
+      desc: "Stop running your business setup as separate tasks. Registration, legal documents, digital presence and customer tools handled in one coordinated process.",
       iconWrap: "bg-green/20 border-green/30",
       iconColor: "text-green",
     },
@@ -880,12 +969,13 @@ function WhyJurisTechSection() {
             </span>
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-5 tracking-tight">
-            Legal thinking. Technology execution. One team.
+            Stop piecing your business together.
           </h2>
           <p className="text-white/50 max-w-2xl mx-auto text-lg">
-            We combine legal and technology capabilities to help businesses not
-            only register, but build the basic legal and digital infrastructure
-            required to operate professionally.
+            One team. One process. One launch. We combine legal and technology
+            capabilities so your business doesn&apos;t just get registered — it
+            gets the legal and digital infrastructure needed to operate
+            professionally.
           </p>
         </motion.div>
 
@@ -916,6 +1006,25 @@ function WhyJurisTechSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          className="mt-10 text-center">
+          <div className="inline-flex items-start gap-3 max-w-3xl bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-5 text-left">
+            <LightBulbIcon className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+            <p className="text-white/50 text-sm leading-relaxed">
+              Business Launch covers legal foundation, professional presence,
+              customer tools and launch support. Advanced requirements such as
+              custom CRM, inventory management, customer accounts, admin
+              dashboards, custom databases, advanced automation and custom
+              business software are available as separate Business Automation
+              / Custom Software projects.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           className="mt-12 text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/40">
             <span className="text-base sm:text-lg font-semibold text-gold">LAW</span>
@@ -939,12 +1048,13 @@ function PricingSection() {
     "Private Limited Company registration",
     "Certificate of Incorporation + MEMART",
     "Shareholders Agreement",
-    "Professional 4-page website",
-    "Domain — 1 year",
+    "1 employment OR service contract",
+    "Professional responsive website",
+    "Custom domain — 1 year",
     "Commercial hosting — 1 year",
     "Business email setup",
     "WhatsApp integration",
-    "1 employment OR service contract",
+    "2 customer & revenue tools (your choice)",
     "60 days post-launch support",
   ];
 
@@ -1030,7 +1140,9 @@ function PricingSection() {
           viewport={{ once: true }}
           className="text-center text-muted text-sm mt-8 max-w-md mx-auto">
           Additional pages, contracts, major functionality and work outside the
-          agreed scope are quoted separately.
+          agreed scope are quoted separately. Automated WhatsApp API
+          notifications, custom systems and Business Automation / Custom
+          Software projects are priced separately.
         </motion.p>
       </div>
     </section>
@@ -1043,15 +1155,19 @@ function FAQSection() {
   const faqs = [
     {
       q: "Is the ₦225,000 the total price?",
-      a: "Yes. ₦225,000 covers everything listed in the Business Launch package — company registration, website, legal documents, email setup, and 60 days of post-launch support. Additional pages, contracts, or major functionality outside the agreed scope are quoted separately.",
+      a: "Yes. ₦225,000 covers everything in the Business Launch package — legal foundation, professional digital presence, two customer & revenue tools of your choice, and 60 days of post-launch support. Additional pages, contracts, tools or major functionality outside the agreed scope are quoted separately.",
     },
     {
       q: "How long does the process take?",
-      a: "Typical delivery is 7–15 working days from when we receive your information and initial payment. This covers CAC registration, website development, and document preparation.",
+      a: "Typical delivery is 7–15 working days from when we receive your information and initial payment. This covers CAC registration, digital setup, and document preparation.",
     },
     {
       q: "What information do I need to provide?",
-      a: "You'll need to complete a short onboarding form with your business details, provide valid IDs (NIN, passport, or driver's license), a utility bill, and any specific requirements for your website. We'll send you a clear checklist.",
+      a: "You'll need to complete a short onboarding form with your business details, provide valid IDs (NIN, passport, or driver's license), a utility bill, and any specific requirements for your business tools and website. We'll send you a clear checklist.",
+    },
+    {
+      q: "Which customer & revenue tools can I choose?",
+      a: "You choose 2 from SELL (product/service catalogue + WhatsApp ordering), BOOK (appointment booking + WhatsApp integration), GET PAID (payment/checkout integration), GET LEADS (lead/enquiry form + email notification where technically appropriate) and QUOTE (quote/request workflow + simple price calculator where suitable). If you need more than 2, the additional tools are quoted separately.",
     },
     {
       q: "Can I choose between an employment contract and service contract?",
@@ -1059,11 +1175,15 @@ function FAQSection() {
     },
     {
       q: "Can I request additional website pages?",
-      a: "Absolutely. The package includes 4 pages. Additional pages, e-commerce functionality, or custom features are quoted separately based on your requirements.",
+      a: "Yes. The package includes a professional responsive website suited to your business. If you need additional pages, e-commerce functionality, or custom features, they are quoted separately based on your requirements.",
     },
     {
-      q: "Can I upgrade my website later?",
-      a: "Yes. You can upgrade your website at any time — add pages, e-commerce, booking systems, or any other functionality. We'll provide a quote based on your needs.",
+      q: "Can I upgrade my website or add automation later?",
+      a: "Yes. You can expand your digital setup at any time — add more customer tools, business automation, or custom software like a CRM, inventory system, admin dashboard or custom database. These are available as separate Business Automation / Custom Software projects.",
+    },
+    {
+      q: "Can you guarantee sales, rankings or payment gateway approval?",
+      a: "No, and we don't make those promises. Business Launch delivers legal establishment, professional presentation and the right customer tools. Outcomes like sales and Google rankings depend on your product, market and how you run the business. Payment gateway approval is at the discretion of the payment provider.",
     },
     {
       q: "What happens after the 60-day support period?",
@@ -1168,12 +1288,11 @@ function FinalCTASection() {
           viewport={{ once: true }}
           className="text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 tracking-tight">
-            Ready to build your business properly?
+            Ready to stop piecing your business together?
           </h2>
           <p className="text-lg text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            Get your company structure, essential legal documents and
-            professional digital presence handled through one streamlined
-            process.
+            Get your business legally established, professionally presented and
+            customer-ready through one team, one process, one launch.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
