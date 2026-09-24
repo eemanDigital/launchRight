@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
@@ -30,17 +31,17 @@ export default function ServicesPage() {
         ]}
       />
       <Navbar />
-      <div className="pt-28 pb-12 bg-navy">
-        <div className="container-wide">
-          <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
-            Our Services
-          </h1>
-          <p className="text-white/60 text-center mt-4 max-w-2xl mx-auto">
-            Everything you need to launch, operate, and grow your business — legally
-            and digitally
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="OUR SERVICES"
+        title={
+          <>
+            Everything you need to launch,{" "}
+            <span className="text-gradient-brand">operate &amp; grow.</span>
+          </>
+        }
+        subtitle="Custom software, professional websites, CAC incorporation and Nigeria-compliant legal documents — all from one accountable team."
+        period="LEGAL · DIGITAL · TECHNICAL"
+      />
       <Services />
       <FAQSchema />
       <FinalCTA />

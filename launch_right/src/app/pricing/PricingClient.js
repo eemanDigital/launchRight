@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import {
   pricingPlans,
   specialPackages,
@@ -22,34 +23,34 @@ import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 const getColorClasses = (color) => {
   const colors = {
     emerald: {
-      bg: "bg-emerald-50",
-      border: "border-emerald-200",
-      accent: "text-emerald-600",
-      badge: "bg-emerald-500",
+      bg: "bg-green-soft",
+      border: "border-green-2/25",
+      accent: "text-green-2",
+      badge: "bg-green-2",
     },
     blue: {
-      bg: "bg-blue-50",
-      border: "border-blue-200",
-      accent: "text-blue-600",
-      badge: "bg-blue-600",
+      bg: "bg-blue-soft",
+      border: "border-blue-2/25",
+      accent: "text-blue-2",
+      badge: "bg-blue-2",
     },
     gold: {
-      bg: "bg-blue-50",
-      border: "border-blue-200",
-      accent: "text-blue-600",
-      badge: "bg-blue-600",
+      bg: "bg-blue-soft",
+      border: "border-blue-2/25",
+      accent: "text-blue-2",
+      badge: "bg-blue-2",
     },
     purple: {
-      bg: "bg-blue-50",
-      border: "border-blue-200",
-      accent: "text-blue-600",
-      badge: "bg-blue-600",
+      bg: "bg-blue-soft",
+      border: "border-blue-2/25",
+      accent: "text-blue-2",
+      badge: "bg-blue-2",
     },
     slate: {
-      bg: "bg-slate-50",
-      border: "border-slate-200",
-      accent: "text-slate-600",
-      badge: "bg-slate-700",
+      bg: "bg-surface",
+      border: "border-line",
+      accent: "text-muted",
+      badge: "bg-navy",
     },
   };
   return colors[color] || colors.blue;
@@ -68,31 +69,31 @@ function PackageCard({ plan }) {
       viewport={{ once: true }}
       className={`relative flex flex-col rounded-2xl overflow-hidden ${
         isHighlighted
-          ? "bg-navy text-white shadow-2xl ring-2 ring-blue-500"
+          ? "bg-navy text-white shadow-2xl ring-2 ring-blue-2/60"
           : isDark
-            ? "bg-gradient-to-br from-slate-800 to-slate-900 text-white shadow-xl ring-2 ring-gold"
-            : `${colors.bg} border ${colors.border} shadow-lg`
+            ? "bg-gradient-to-br from-navy-light to-navy text-white shadow-xl ring-1 ring-white/20"
+            : `${colors.bg} border ${colors.border} shadow-card`
       }`}>
       {isHighlighted && plan.popular && (
-        <div className="absolute top-0 left-0 right-0 bg-blue-500 text-white py-2 text-center text-sm font-bold flex items-center justify-center gap-1">
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-2 to-green-dark text-white py-2 text-center text-sm font-bold flex items-center justify-center gap-1">
           <StarIconSolid className="w-4 h-4" /> Most Popular
         </div>
       )}
       {!isHighlighted && plan.badge && (
-        <div className="absolute top-0 left-0 right-0 bg-gold text-white py-2 text-center text-sm font-bold">
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-2 to-blue text-white py-2 text-center text-sm font-bold">
           {plan.badge}
         </div>
       )}
 
       <div className={`p-6 flex flex-col flex-1 ${isHighlighted || plan.badge ? "pt-10" : ""}`}>
-        <p className={`text-sm font-medium mb-1 ${isHighlighted || isDark ? "text-gray-300" : "text-gray-500"}`}>
+        <p className={`text-sm font-medium mb-1 ${isHighlighted || isDark ? "text-white/50" : "text-muted"}`}>
           {plan.subtitle}
         </p>
         <h3 className={`text-xl font-bold mb-1 ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
           {plan.name}
         </h3>
         {plan.tagline && (
-          <p className={`text-sm font-medium mb-4 ${isHighlighted || isDark ? "text-gold" : "text-gold"}`}>
+          <p className={`text-sm font-medium mb-4 ${isHighlighted || isDark ? "text-green-2" : "text-green-2"}`}>
             {plan.tagline}
           </p>
         )}
@@ -103,7 +104,7 @@ function PackageCard({ plan }) {
           </span>
         </div>
 
-        <div className={`flex items-center gap-2 text-sm font-medium mb-4 ${isHighlighted || isDark ? "text-gray-300" : colors.accent}`}>
+        <div className={`flex items-center gap-2 text-sm font-medium mb-4 ${isHighlighted || isDark ? "text-white/50" : colors.accent}`}>
           <ClockIcon className="w-4 h-4" />
           <span>{plan.timeline}</span>
         </div>
@@ -112,9 +113,9 @@ function PackageCard({ plan }) {
           {plan.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
               <CheckIcon
-                className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : colors.accent}`}
+                className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-green-2" : colors.accent}`}
               />
-              <span className={isHighlighted || isDark ? "text-gray-200" : "text-gray-700"}>
+              <span className={isHighlighted || isDark ? "text-white/75" : "text-ink-soft"}>
                 {feature}
               </span>
             </li>
@@ -125,16 +126,16 @@ function PackageCard({ plan }) {
           href="https://wa.me/message/KTFL2G2JM3JTP1"
           className={`block w-full text-center py-3 rounded-lg font-bold text-sm transition-all ${
             isHighlighted && plan.popular
-              ? "bg-blue-500 text-white hover:bg-blue-600"
+              ? "bg-gradient-to-r from-green-2 to-green-dark text-white hover:shadow-[0_8px_20px_rgba(22,166,106,0.4)]"
               : isDark
-                ? "bg-gold text-white hover:bg-gold-light"
+                ? "bg-white text-navy hover:bg-white/90"
                 : "bg-navy text-white hover:bg-navy-light"
           }`}>
           Get Started
         </a>
 
         {plan.highlight && (
-          <p className={`text-sm italic text-center mt-4 ${isHighlighted || isDark ? "text-gray-400" : "text-gray-400"}`}>
+          <p className={`text-sm italic text-center mt-4 ${isHighlighted || isDark ? "text-white/40" : "text-muted"}`}>
             "{plan.highlight}"
           </p>
         )}
@@ -176,7 +177,7 @@ function SpecialPackageCard({ plan }) {
           {plan.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
               <CheckIcon className={`w-5 h-5 flex-shrink-0 mt-0.5 ${colors.accent}`} />
-              <span className="text-gray-700">
+              <span className="text-ink-soft">
                 {feature}
               </span>
             </li>
@@ -190,7 +191,7 @@ function SpecialPackageCard({ plan }) {
         </a>
 
         {plan.highlight && (
-          <p className={`text-sm italic text-center mt-4 text-gray-400`}>
+          <p className={`text-sm italic text-center mt-4 text-muted`}>
             "{plan.highlight}"
           </p>
         )}
@@ -208,9 +209,9 @@ function RegularPackageCard({ pkg }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className={`flex flex-col rounded-2xl overflow-hidden ${colors.bg} border ${colors.border} shadow-md`}>
+      className={`flex flex-col rounded-2xl overflow-hidden ${colors.bg} border ${colors.border} shadow-card`}>
       <div className="p-6 flex flex-col flex-1">
-        <h3 className={`text-lg font-bold mb-2 text-navy`}>
+        <h3 className={`text-lg font-bold mb-2 text-navy tracking-tight`}>
           {pkg.name}
         </h3>
 
@@ -219,7 +220,7 @@ function RegularPackageCard({ pkg }) {
             {pkg.price}
           </span>
           {pkg.originalPrice && (
-            <span className="text-sm line-through ml-2 text-gray-500">
+            <span className="text-sm line-through ml-2 text-muted-light">
               {pkg.originalPrice}
             </span>
           )}
@@ -234,7 +235,7 @@ function RegularPackageCard({ pkg }) {
           {pkg.features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
               <CheckIcon className={`w-5 h-5 flex-shrink-0 mt-0.5 ${colors.accent}`} />
-              <span className="text-gray-700">
+              <span className="text-ink-soft">
                 {feature}
               </span>
             </li>
@@ -242,7 +243,7 @@ function RegularPackageCard({ pkg }) {
         </ul>
 
         {pkg.note && (
-          <p className={`text-xs italic text-center mb-4 text-gray-400`}>
+          <p className={`text-xs italic text-center mb-4 text-muted`}>
             {pkg.note}
           </p>
         )}
@@ -276,18 +277,17 @@ export default function PricingPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="pt-28 pb-12 bg-navy">
-        <div className="container-wide">
-          <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
-            Pricing & Packages
-          </h1>
-          <p className="text-white/60 text-center mt-4 max-w-2xl mx-auto">
-            Complete packages combining CAC registration websites, legal
-            documents, and dedicated support — with standalone options and
-            add-ons to fit your needs
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="PRICING & PACKAGES"
+        title={
+          <>
+            Transparent pricing.{" "}
+            <span className="text-gradient-brand">No hidden fees.</span>
+          </>
+        }
+        subtitle="Complete packages combining CAC registration, websites, legal documents, and dedicated support — with standalone options and add-ons to fit your needs."
+        period="PREMIUM · SPECIAL · STANDALONE · ADD-ONS"
+      />
 
       <section className="section-pad bg-surface">
         <div className="container-wide">
@@ -297,10 +297,11 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">
+            <span className="eyebrow-label mb-4">PREMIUM</span>
+            <h2 className="text-3xl font-extrabold text-navy mb-4 tracking-tight">
               Premium Packages
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-muted max-w-2xl mx-auto">
               Complete registration packages with websites, legal documents, and
               ongoing support
             </p>
@@ -318,10 +319,11 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">
+            <span className="eyebrow-label mb-4">SPECIAL</span>
+            <h2 className="text-3xl font-extrabold text-navy mb-4 tracking-tight">
               Special Packages
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-muted max-w-2xl mx-auto">
               Tailored packages for organisations, NGOs, and investors
             </p>
           </motion.div>
@@ -338,10 +340,11 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">
+            <span className="eyebrow-label mb-4">STANDALONE</span>
+            <h2 className="text-3xl font-extrabold text-navy mb-4 tracking-tight">
               Standalone Registrations
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-muted max-w-2xl mx-auto">
               Don&apos;t need a full package? Register your business with a
               single service
             </p>
@@ -358,25 +361,26 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-xl max-w-4xl mx-auto mb-16">
-            <h2 className="text-xl md:text-2xl font-bold text-navy text-center mb-6">
+            className="bg-white rounded-3xl p-6 md:p-8 border border-line shadow-card max-w-4xl mx-auto mb-16">
+            <span className="eyebrow-label mb-3">ADD-ONS</span>
+            <h2 className="text-xl md:text-2xl font-extrabold text-navy text-center mb-6 tracking-tight">
               Add-On Services
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
               {addons.map((addon, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between gap-3 p-3 sm:p-4 rounded-xl border border-gray-100 bg-surface">
-                  <span className="text-sm font-medium text-gray-700">
+                  className="flex items-center justify-between gap-3 p-3 sm:p-4 rounded-xl border border-line-soft bg-surface">
+                  <span className="text-sm font-medium text-ink-soft">
                     {addon.name}
                   </span>
-                  <span className="text-sm font-bold text-navy whitespace-nowrap">
+                  <span className="text-sm font-extrabold text-navy whitespace-nowrap">
                     {addon.price}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-center text-gray-500 text-sm mt-6">
+            <p className="text-center text-muted text-sm mt-6">
               Mix and match add-ons to create a solution that fits your business
             </p>
           </motion.div>
@@ -387,7 +391,7 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-navy mb-6">
+            <h2 className="text-2xl font-extrabold text-navy mb-6 tracking-tight">
               More Services
             </h2>
           </motion.div>
@@ -402,10 +406,10 @@ export default function PricingPage() {
                 viewport={{ once: true }}>
                 <Link
                   href={service.link}
-                  className="group flex items-center justify-between gap-4 p-5 rounded-xl border border-gray-100 bg-white hover:border-gold/20 hover:shadow-md transition-all">
+                  className="group flex items-center justify-between gap-4 p-5 rounded-xl border border-line bg-white hover:border-blue-2/30 hover:shadow-pop transition-all">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-navy/5 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
-                      <service.icon className="w-5 h-5 text-navy/60 group-hover:text-gold transition-colors" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-2/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-blue group-hover:to-green transition-colors">
+                      <service.icon className="w-5 h-5 text-blue-2 group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-navy tracking-tight">
@@ -414,7 +418,7 @@ export default function PricingPage() {
                       <p className="text-muted text-xs">{service.desc}</p>
                     </div>
                   </div>
-                  <ArrowRightIcon className="w-4 h-4 text-gray-400 group-hover:text-gold transition-colors" />
+                  <ArrowRightIcon className="w-4 h-4 text-muted group-hover:text-blue-2 group-hover:translate-x-0.5 transition-all" />
                 </Link>
               </motion.div>
             ))}
@@ -426,12 +430,12 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mt-16">
-            <p className="text-gray-600 mb-4">
+            <p className="text-muted mb-4">
               Need help choosing the right package or a custom solution?
             </p>
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors shadow-lg shadow-navy/10 text-sm sm:text-base">
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-gradient-to-r from-green-2 to-green-dark text-white font-bold rounded-full hover:shadow-[0_12px_30px_rgba(22,166,106,0.4)] transition-all text-sm sm:text-base">
               Chat With Us for a Tailored Quote
               <ArrowRightIcon className="w-4 h-4" />
             </a>

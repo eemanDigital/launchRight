@@ -24,9 +24,7 @@ const pillars = [
     ],
     href: "/software",
     cta: "Explore software",
-    iconWrap: "bg-gold/15 border-gold/25",
-    iconColor: "text-gold",
-    glow: "bg-gold/15",
+    accent: "blue",
   },
   {
     icon: GlobeAltIcon,
@@ -41,9 +39,7 @@ const pillars = [
     ],
     href: "/website",
     cta: "See website packages",
-    iconWrap: "bg-teal/15 border-teal/25",
-    iconColor: "text-teal",
-    glow: "bg-teal/15",
+    accent: "green",
   },
   {
     icon: BuildingOfficeIcon,
@@ -58,16 +54,66 @@ const pillars = [
     ],
     href: "/pricing",
     cta: "View packages",
-    iconWrap: "bg-green/15 border-green/25",
-    iconColor: "text-green",
-    glow: "bg-green/15",
+    accent: "amber",
   },
 ];
 
+const accentMap = {
+  blue: {
+    ring: "border-blue-2/40",
+    glow: "rgba(45,124,255,0.3)",
+    tile: "from-blue to-blue-2",
+    chip: "border-blue-2/50 text-white bg-white/5",
+    check: "bg-blue-2/20 border-blue-2/40 text-blue-2",
+    dot: "bg-blue-2",
+    line: "bg-blue-2/40",
+  },
+  green: {
+    ring: "border-green-2/40",
+    glow: "rgba(30,200,127,0.3)",
+    tile: "from-green to-green-2",
+    chip: "border-green-2/50 text-white bg-white/5",
+    check: "bg-green-2/20 border-green-2/40 text-green-2",
+    dot: "bg-green-2",
+    line: "bg-green-2/40",
+  },
+  amber: {
+    ring: "border-blue-2/40",
+    glow: "rgba(30,200,127,0.3)",
+    tile: "from-blue-2 to-green-2",
+    chip: "border-blue-2/50 text-white bg-white/5",
+    check: "bg-gradient-to-br from-blue-2/20 to-green-2/20 border-blue-2/40 text-white",
+    dot: "bg-gradient-to-br from-blue-2 to-green-2",
+    line: "bg-blue-2/40",
+  },
+};
+
 export default function Pillars() {
   return (
-    <section className="section-pad bg-surface relative overflow-hidden">
-      <div className="absolute inset-0 mesh-gradient-bg pointer-events-none" />
+    <section className="section-pad band-cover relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        {/* wave texture behind cards */}
+        <svg
+          className="absolute -top-10 left-1/2 -translate-x-1/2 w-[1100px] opacity-[0.06]"
+          viewBox="0 0 1440 320"
+          fill="none">
+          <path
+            d="M0,160 C240,40 480,280 720,180 C960,80 1200,260 1440,140"
+            stroke="#2d7cff"
+            strokeWidth="2"
+          />
+          <path
+            d="M0,200 C240,80 480,320 720,220 C960,120 1200,300 1440,180"
+            stroke="#1fc87f"
+            strokeWidth="2"
+          />
+          <path
+            d="M0,240 C240,120 480,360 720,260 C960,160 1200,340 1440,220"
+            stroke="#ffffff"
+            strokeWidth="2"
+          />
+        </svg>
+      </div>
 
       <div className="relative container-wide">
         <motion.div
@@ -76,97 +122,114 @@ export default function Pillars() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16 lg:mb-20">
-          <span className="badge-gold badge mb-4 inline-flex">
+          <span className="eyebrow-label eyebrow-label--light mb-5">
             WHAT WE BUILD
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-5 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight">
             Software, Websites &amp; Incorporation
           </h2>
-          <p className="text-muted max-w-xl mx-auto text-lg">
+          <p className="text-white/60 max-w-xl mx-auto text-lg">
             Three core pillars, one accountable team — no juggling agencies, no
             missed deadlines.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {pillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: index * 0.12 }}
-              viewport={{ once: true }}
-              className="group h-full">
-              <Link href={pillar.href} className="block h-full">
-                <div className="relative h-full rounded-2xl p-8 overflow-hidden bg-gradient-to-br from-navy via-navy to-navy-lighter border border-white/10 transition-all duration-500 group-hover:-translate-y-2 group-hover:border-gold/40 group-hover:shadow-2xl group-hover:shadow-navy/25">
-                  {/* Corner accent glow */}
-                  <div
-                    className={`absolute -top-24 -right-24 w-60 h-60 ${pillar.glow} rounded-full blur-3xl transition-all duration-700 opacity-40 group-hover:opacity-100 group-hover:scale-125 pointer-events-none`}
-                  />
-                  {/* Light sheen sweep */}
-                  <div className="absolute inset-0 -translate-x-[105%] group-hover:translate-x-[105%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/[0.06] to-transparent skew-x-[-12deg] pointer-events-none" />
-                  {/* Grid texture */}
-                  <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto relative">
+          {/* connector lines between cards */}
+          <svg
+            className="absolute -top-6 hidden lg:block w-full h-8 pointer-events-none"
+            viewBox="0 0 1000 30"
+            preserveAspectRatio="none">
+            <line
+              x1="335"
+              y1="15"
+              x2="665"
+              y2="15"
+              stroke="rgba(45,124,255,0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="4 6"
+            />
+            <circle cx="335" cy="15" r="4" fill="#2d7cff" />
+            <circle cx="665" cy="15" r="4" fill="#1fc87f" />
+          </svg>
+
+          {pillars.map((pillar, index) => {
+            const accent = accentMap[pillar.accent];
+            return (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: index * 0.12 }}
+                viewport={{ once: true }}
+                className="group h-full">
+                <Link href={pillar.href} className="block h-full">
+                  <div className="relative h-full rounded-3xl p-8 overflow-hidden bg-white/10 backdrop-blur-md border border-white/15 transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-2/50 group-hover:shadow-cover">
+                    {/* top hairline highlight */}
+                    <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+
+                    {/* node glow */}
                     <div
-                      className="w-full h-full"
-                      style={{
-                        backgroundImage: `linear-gradient(rgba(0,82,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,82,255,0.3) 1px, transparent 1px)`,
-                        backgroundSize: "36px 36px",
-                      }}
+                      className="absolute -top-16 -right-16 w-56 h-56 rounded-full blur-3xl opacity-50 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none"
+                      style={{ background: accent.glow }}
                     />
-                  </div>
 
-                  {/* Background number watermark */}
-                  <span className="absolute top-6 right-7 text-6xl font-black text-white/[0.05] select-none pointer-events-none">
-                    0{index + 1}
-                  </span>
+                    {/* light sheen sweep */}
+                    <div className="absolute inset-0 -translate-x-[105%] group-hover:translate-x-[105%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-[-12deg] pointer-events-none" />
 
-                  <div className="relative z-10">
-                    {/* Icon */}
-                    <div className="mb-7 relative">
-                      <span
-                        className={`absolute -inset-3 rounded-2xl ${pillar.iconWrap} opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100`}
-                      />
+                    {/* orbital node */}
+                    <div className="relative mb-8 flex items-center justify-center">
                       <div
-                        className={`relative w-14 h-14 ${pillar.iconWrap} rounded-xl border flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 shadow-lg shadow-navy/30`}>
-                        <pillar.icon className="w-7 h-7 text-white" />
+                        className={`absolute w-28 h-28 rounded-full border border-dashed ${accent.ring} animate-spin-slow [animation-duration:18s]`}>
+                        <span
+                          className={`absolute -top-[3px] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full ${accent.dot} shadow-[0_0_12px_rgba(255,255,255,0.5)]`}
+                        />
+                      </div>
+                      <div
+                        className={`w-16 h-16 relative flex items-center justify-center rounded-2xl bg-gradient-to-br ${accent.tile} shadow-lg shadow-black/30 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500`}>
+                        <pillar.icon className="w-8 h-8 text-white drop-shadow-sm" />
+                      </div>
+                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-black text-white/50 tracking-widest">
+                        NODE 0{index + 1}
+                      </span>
+                    </div>
+
+                    <div className="relative z-10 text-center">
+                      <h3 className="text-xl font-bold text-white mb-3 tracking-tight">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-white/75 text-sm leading-relaxed mb-6">
+                        {pillar.description}
+                      </p>
+
+                      <ul className="space-y-2.5 mb-8 text-left">
+                        {pillar.points.map((point) => (
+                          <li
+                            key={point}
+                            className="flex items-start gap-2.5 text-sm text-white/85">
+                            <span
+                              className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 mt-0.5 ${accent.check}`}>
+                              <CheckIcon className="w-3 h-3" />
+                            </span>
+                            <span className="font-medium leading-snug">
+                              {point}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex items-center justify-center gap-2 text-blue-2 text-sm font-bold group-hover:gap-3.5 transition-all duration-300">
+                        <span className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold backdrop-blur ${accent.chip}`}>
+                          {pillar.cta}
+                          <ArrowRightIcon className="w-3 h-3" />
+                        </span>
                       </div>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight">
-                      {pillar.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-white/60 text-sm leading-relaxed mb-6">
-                      {pillar.description}
-                    </p>
-
-                    {/* Points */}
-                    <ul className="space-y-2.5 mb-8">
-                      {pillar.points.map((point) => (
-                        <li
-                          key={point}
-                          className="flex items-start gap-2.5 text-sm text-white/75">
-                          <span className="w-5 h-5 rounded-full bg-gold/15 border border-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckIcon className="w-3 h-3 text-gold" />
-                          </span>
-                          <span className="font-medium leading-snug">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA */}
-                    <div className="flex items-center gap-2 text-gold text-sm font-bold group-hover:gap-3.5 transition-all duration-300">
-                      {pillar.cta}
-                      <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

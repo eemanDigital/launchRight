@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import {
   ArrowRightIcon,
   ChatBubbleLeftRightIcon,
@@ -29,12 +30,12 @@ const products = [
       "Built for the Nigerian market",
     ],
     status: "Beta — Coming Soon",
-    statusColor: "bg-blue-100 text-blue-700",
+    statusColor: "bg-blue-2/15 text-blue-2 border-blue-2/30",
     cta: "Join Waitlist",
     ctaType: "email",
     icon: ChatBubbleLeftRightIcon,
-    iconColor: "text-emerald-600",
-    iconBg: "bg-emerald-100",
+    iconColor: "text-green-2",
+    iconBg: "bg-green-2/15 border border-green-2/30",
   },
   {
     id: "case-master",
@@ -50,12 +51,12 @@ const products = [
       "Billing & invoicing",
     ],
     status: "In Development",
-    statusColor: "bg-blue-100 text-blue-700",
+    statusColor: "bg-blue-2/15 text-blue-2 border-blue-2/30",
     cta: "Get Early Access",
     ctaType: "whatsapp",
     icon: ScaleIcon,
-    iconColor: "text-blue-600",
-    iconBg: "bg-blue-100",
+    iconColor: "text-blue-2",
+    iconBg: "bg-blue-2/15 border border-blue-2/30",
   },
   {
     id: "doc-generator",
@@ -71,13 +72,13 @@ const products = [
       "Lawyer-reviewed templates",
     ],
     status: "MVP Live",
-    statusColor: "bg-green-100 text-green-700",
+    statusColor: "bg-green-2/15 text-green-2 border-green-2/30",
     cta: "Try It Free",
     ctaType: "link",
     ctaLink: "/tools/document-generator",
     icon: DevicePhoneMobileIcon,
-    iconColor: "text-gold",
-    iconBg: "bg-gold/10",
+    iconColor: "text-green-2",
+    iconBg: "bg-gradient-to-br from-blue-2/15 to-green-2/15 border border-blue-2/30",
   },
 ];
 
@@ -109,24 +110,17 @@ export default function ProductsPage() {
       <ProductSchema />
       <Navbar />
 
-      <div className="pt-28 pb-12 bg-navy">
-        <div className="container-wide">
-          <div className="text-center">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-gold font-semibold text-sm uppercase tracking-wider">
-              JurisTech Products
-            </motion.span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4">
-              We Build Legal-Tech Products
-            </h1>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Beyond client services, JurisTech builds its own products for Nigerian businesses and professionals.
-            </p>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="JURISTECH PRODUCTS"
+        title={
+          <>
+            Legal-tech products,{" "}
+            <span className="text-gradient-brand">built in-house.</span>
+          </>
+        }
+        subtitle="Beyond client services, JurisTech builds its own products for Nigerian businesses and professionals."
+        period="VEND PADI · CASE-MASTER · DOC GENERATOR"
+      />
 
       <div className="container-wide py-16">
         <div className="space-y-16">
@@ -143,19 +137,21 @@ export default function ProductsPage() {
                   <div className={`w-12 h-12 ${product.iconBg} rounded-xl flex items-center justify-center`}>
                     <product.icon className={`w-6 h-6 ${product.iconColor}`} />
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${product.statusColor}`}>
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${product.statusColor}`}>
                     {product.status}
                   </span>
                 </div>
 
-                <h2 className="text-3xl font-bold text-navy mb-2">{product.name}</h2>
-                <p className="text-gold font-medium mb-4">{product.tagline}</p>
-                <p className="text-gray-600 leading-relaxed mb-6">{product.description}</p>
+                <h2 className="text-3xl font-extrabold text-navy mb-2 tracking-tight">{product.name}</h2>
+                <p className="text-green-2 font-semibold mb-4">{product.tagline}</p>
+                <p className="text-muted leading-relaxed mb-6">{product.description}</p>
 
                 <ul className="space-y-2 mb-8">
                   {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckIcon className="w-4 h-4 text-green" />
+                    <li key={i} className="flex items-center gap-2 text-sm text-ink-soft">
+                      <span className="w-5 h-5 rounded-full border border-green-2/30 bg-green-2/15 flex items-center justify-center flex-shrink-0">
+                        <CheckIcon className="w-3 h-3 text-green-2" />
+                      </span>
                       {feature}
                     </li>
                   ))}
@@ -163,15 +159,15 @@ export default function ProductsPage() {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   {product.ctaType === "link" ? (
-                    <Link href={product.ctaLink} className="btn-primary">
+                    <Link href={product.ctaLink} className="btn-gradient-green">
                       {product.cta} <ArrowRightIcon className="w-4 h-4" />
                     </Link>
                   ) : product.ctaType === "whatsapp" ? (
-                    <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-green">
+                    <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gradient-green">
                       {product.cta} <ArrowRightIcon className="w-4 h-4" />
                     </a>
                   ) : (
-                    <button onClick={() => setActiveProduct(product.id)} className="btn-primary">
+                    <button onClick={() => setActiveProduct(product.id)} className="btn-gradient-green">
                       {product.cta} <ArrowRightIcon className="w-4 h-4" />
                     </button>
                   )}
@@ -179,17 +175,29 @@ export default function ProductsPage() {
               </div>
 
               <div className="flex-1">
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-                  <div className="bg-gradient-to-br from-navy to-navy-light rounded-xl p-6 text-white">
-                    <product.icon className="w-10 h-10 text-gold mb-4" />
-                    <h3 className="text-xl font-bold mb-2">{product.name}</h3>
+                <div className="bg-white rounded-3xl p-8 border border-line shadow-card relative overflow-hidden">
+                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-blue-2/40 to-transparent" />
+                  <div className="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-40">
+                      <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-2/40 rounded-full blur-2xl" />
+                      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-green-2/40 rounded-full blur-2xl" />
+                    </div>
+                    <div className="relative flex items-center gap-4 mb-5">
+                      <product.icon className="w-10 h-10 text-green-2" />
+                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${product.statusColor}`}>
+                        {product.status}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-1 tracking-tight">{product.name}</h3>
                     <p className="text-white/60 text-sm">{product.tagline}</p>
                   </div>
                   <div className="mt-6 space-y-3">
                     {product.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                        <CheckIcon className="w-5 h-5 text-green flex-shrink-0" />
-                        <span className="text-sm text-gray-700">{feature}</span>
+                      <div key={i} className="flex items-center gap-3 p-3 bg-surface rounded-lg">
+                        <span className="w-5 h-5 rounded-full border border-green-2/30 bg-green-2/15 flex items-center justify-center flex-shrink-0">
+                          <CheckIcon className="w-3 h-3 text-green-2" />
+                        </span>
+                        <span className="text-sm text-ink-soft">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -212,18 +220,18 @@ export default function ProductsPage() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
               className="bg-white rounded-2xl p-8 max-w-md w-full">
-              <h3 className="text-xl font-bold text-navy mb-2">Join the VendPadi Waitlist</h3>
-              <p className="text-gray-500 text-sm mb-6">
+              <h3 className="text-xl font-extrabold text-navy mb-2 tracking-tight">Join the VendPadi Waitlist</h3>
+              <p className="text-muted text-sm mb-6">
                 Be the first to know when VendPadi launches. We'll notify you via email.
               </p>
               {waitlistSubmitted ? (
                 <div className="text-center py-8">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckIcon className="w-6 h-6 text-green" />
+                  <div className="w-12 h-12 bg-green-2/15 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckIcon className="w-6 h-6 text-green-2" />
                   </div>
                   <p className="text-navy font-semibold">You're on the list!</p>
-                  <p className="text-gray-500 text-sm">We'll be in touch when we launch.</p>
-                  <button onClick={() => setActiveProduct(null)} className="mt-6 text-sm text-gray-500 hover:text-navy">
+                  <p className="text-muted text-sm">We'll be in touch when we launch.</p>
+                  <button onClick={() => setActiveProduct(null)} className="mt-6 text-sm text-muted hover:text-navy">
                     Close
                   </button>
                 </div>
@@ -235,13 +243,13 @@ export default function ProductsPage() {
                     onChange={(e) => setWaitlistEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold"
+                    className="w-full px-4 py-3 rounded-lg border border-line focus:outline-none focus:ring-2 focus:ring-blue-2/30 focus:border-blue-2"
                   />
                   <div className="flex gap-3">
-                    <button type="submit" className="flex-1 btn-primary">
+                    <button type="submit" className="flex-1 btn-gradient-green">
                       Join Waitlist
                     </button>
-                    <button type="button" onClick={() => setActiveProduct(null)} className="px-4 py-3 border border-gray-200 rounded-lg text-gray-600">
+                    <button type="button" onClick={() => setActiveProduct(null)} className="px-4 py-3 border border-line rounded-lg text-ink-soft">
                       Cancel
                     </button>
                   </div>
@@ -252,15 +260,20 @@ export default function ProductsPage() {
         )}
       </AnimatePresence>
 
-      <div className="bg-navy py-16">
-        <div className="container-wide text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">
+      <div className="band-cover py-16 relative overflow-hidden">
+        <div className="absolute inset-0 hero-gradient-cover" />
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 -left-24 w-[300px] h-[300px] bg-blue-2/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 w-[300px] h-[300px] bg-green-2/20 rounded-full blur-3xl" />
+        </div>
+        <div className="relative container-wide text-center">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-tight">
             Want to Build Something Together?
           </h2>
           <p className="text-white/60 max-w-lg mx-auto mb-8">
             We also build custom software for clients. If you have an idea for a product, let's talk.
           </p>
-          <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gold">
+          <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gradient-green">
             Start a Project <ArrowRightIcon className="w-4 h-4" />
           </a>
         </div>

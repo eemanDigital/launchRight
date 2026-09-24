@@ -15,11 +15,12 @@ const audiences = [
       "You have an idea and need to make it legal. We handle incorporation, business name search, the legal setup, and a website so your brand launches properly.",
     link: "/services#cac",
     chip: [
-      { text: "CAC Name Search", color: "text-gold bg-gold/10 border-gold/20" },
-      { text: "Registered Business", color: "text-gold bg-gold/10 border-gold/20" },
-      { text: "Starter Website", color: "text-gold bg-gold/10 border-gold/20" },
+      { text: "CAC Name Search", c: "border-blue-2/25 bg-blue-2/10 text-blue-2" },
+      { text: "Registered Business", c: "border-blue-2/25 bg-blue-2/10 text-blue-2" },
+      { text: "Starter Website", c: "border-blue-2/25 bg-blue-2/10 text-blue-2" },
     ],
-    glow: "from-gold/30 via-gold/10 to-transparent",
+    node: "bg-blue-2",
+    ring: "border-blue-2/30",
   },
   {
     image: "/image/growing-sme.svg",
@@ -30,11 +31,12 @@ const audiences = [
       "Your business is running but you need compliance support, contracts, annual returns, and a professional digital presence to scale.",
     link: "/services#compliance",
     chip: [
-      { text: "Annual Returns", color: "text-teal bg-teal/10 border-teal/20" },
-      { text: "Contracts & Policies", color: "text-teal bg-teal/10 border-teal/20" },
-      { text: "Digital Presence", color: "text-teal bg-teal/10 border-teal/20" },
+      { text: "Annual Returns", c: "border-green-2/25 bg-green-2/10 text-green-2" },
+      { text: "Contracts & Policies", c: "border-green-2/25 bg-green-2/10 text-green-2" },
+      { text: "Digital Presence", c: "border-green-2/25 bg-green-2/10 text-green-2" },
     ],
-    glow: "from-teal/30 via-teal/10 to-transparent",
+    node: "bg-green-2",
+    ring: "border-green-2/30",
   },
   {
     image: "/image/building-product.svg",
@@ -45,11 +47,12 @@ const audiences = [
       "You're a startup or tech founder who needs both legal infrastructure (contracts, compliance) and technical execution (websites, apps, SaaS).",
     link: "/products",
     chip: [
-      { text: "Legal Foundation", color: "text-green bg-green/10 border-green/20" },
-      { text: "Web Apps & SaaS", color: "text-green bg-green/10 border-green/20" },
-      { text: "API Integrations", color: "text-green bg-green/10 border-green/20" },
+      { text: "Legal Foundation", c: "border-gold/25 bg-gold/10 text-gold" },
+      { text: "Web Apps & SaaS", c: "border-gold/25 bg-gold/10 text-gold" },
+      { text: "API Integrations", c: "border-gold/25 bg-gold/10 text-gold" },
     ],
-    glow: "from-green/30 via-green/10 to-transparent",
+    node: "bg-gold",
+    ring: "border-gold/30",
   },
 ];
 
@@ -68,8 +71,15 @@ export default function WhoIsThisFor() {
   }, [paused]);
 
   return (
-    <section className="section-pad bg-surface relative overflow-hidden">
-      <div className="absolute inset-0 mesh-gradient-bg pointer-events-none" />
+    <section className="section-pad bg-white relative overflow-hidden">
+      {/* wave top separator */}
+      <svg className="wave-divider wave-divider--top absolute top-0 left-0 text-surface" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path fill="currentColor" d="M0,30 C240,0 480,60 720,35 C960,10 1200,55 1440,25 L1440,0 L0,0 Z" />
+      </svg>
+
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 -right-40 w-[520px] h-[520px] bg-gradient-to-br from-blue-soft to-transparent rounded-full blur-3xl" />
+      </div>
 
       <div className="relative container-wide">
         <motion.div
@@ -78,11 +88,9 @@ export default function WhoIsThisFor() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-14 lg:mb-16">
-          <span className="badge-gold badge mb-4 inline-flex">
-            WHO THIS IS FOR
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-5 tracking-tight">
-            Built for Wherever You Are
+          <span className="eyebrow-label mb-5">WHO THIS IS FOR</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy mb-5 tracking-tight">
+            Built for <span className="text-gradient-brand">Wherever You Are</span>
           </h2>
           <p className="text-muted max-w-xl mx-auto text-lg">
             Pick your stage — we&apos;ll take it from there.
@@ -93,23 +101,37 @@ export default function WhoIsThisFor() {
           className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}>
-          {/* Visual stage */}
+          {/* ——— Visual stage: ripple radar ——— */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative h-[300px] sm:h-[360px] flex items-center justify-center">
-            {/* Animated glow */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-b ${current.glow} rounded-full blur-3xl transition-colors duration-700`}
-            />
-            {/* Ghost number */}
-            <span className="absolute text-[10rem] sm:text-[13rem] font-black text-navy/5 select-none">
-              {current.step}
-            </span>
+            className="relative h-[300px] sm:h-[380px] flex items-center justify-center">
+            {/* ripple rings */}
+            {["w-72 h-72", "w-56 h-56", "w-40 h-40"].map((size, i) => (
+              <span
+                key={i}
+                className={`absolute ${size} rounded-full ${current.ring} ${
+                  i === 2 ? "border-dashed animate-spin-slow [animation-duration:24s]" : ""
+                } transition-colors duration-700`}
+                style={{
+                  animation: i < 2 ? `ring-pulse 3s ease-out ${i * 0.9}s infinite` : undefined,
+                }}
+              />
+            ))}
 
-            {/* Illustration */}
+            {/* crosshair nodes */}
+            {[
+              "-top-1 left-1/2 -translate-x-1/2",
+              "-bottom-1 left-1/2 -translate-x-1/2",
+              "-left-1 top-1/2 -translate-y-1/2",
+              "-right-1 top-1/2 -translate-y-1/2",
+            ].map((pos, i) => (
+              <span key={i} className={`absolute ${pos} w-2.5 h-2.5 rounded-full ${current.node} shadow-[0_0_16px_currentColor] transition-colors duration-700 animate-pulse`} />
+            ))}
+
+            {/* center illustration */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -117,32 +139,38 @@ export default function WhoIsThisFor() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -24, scale: 0.92 }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
-                className="relative w-64 sm:w-80">
+                className="relative flex items-center justify-center">
                 <img
                   src={current.image}
                   alt={current.title}
-                  className="w-full h-auto object-contain drop-shadow-2xl"
+                  className="w-56 sm:w-72 h-auto object-contain drop-shadow-2xl animate-float-slow"
                 />
-                {/* Floating chips */}
-                <AnimatePresence>
-                  <motion.span
-                    key={`chip-${active}`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ delay: 0.15 }}
-                    className="absolute -top-2 -right-3 sm:-right-8 text-[11px] font-bold px-3 py-1.5 rounded-full bg-white border border-navy/10 shadow-lg">
-                    {current.label} · 0{active + 1}
-                  </motion.span>
-                </AnimatePresence>
               </motion.div>
+            </AnimatePresence>
+
+            {/* step orb badge */}
+            <AnimatePresence>
+              <motion.span
+                key={`orb-${active}`}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ delay: 0.2 }}
+                className="absolute top-1 right-0 sm:right-6 flex flex-col items-center">
+                <span className="orb-check w-12 h-12 text-sm font-black">
+                  {current.step}
+                </span>
+                <span className="mt-2 text-[10px] font-black uppercase tracking-widest text-navy/40">
+                  {current.label}
+                </span>
+              </motion.span>
             </AnimatePresence>
           </motion.div>
 
-          {/* Content stage */}
+          {/* ——— Content stage ——— */}
           <div>
-            {/* Segmented selector */}
-            <div className="relative inline-flex items-center gap-1 p-1.5 rounded-full bg-white border border-navy/10 shadow-sm mb-8">
+            {/* segmented selector */}
+            <div className="relative inline-flex items-center gap-1 p-1.5 rounded-full bg-surface border border-line shadow-soft mb-8">
               {audiences.map((a, i) => {
                 const isActive = i === active;
                 return (
@@ -156,7 +184,7 @@ export default function WhoIsThisFor() {
                       <motion.span
                         layoutId="who-pill"
                         transition={{ type: "spring", stiffness: 320, damping: 28 }}
-                        className="absolute inset-0 rounded-full bg-gradient-to-r from-gold to-gold-light shadow-md shadow-gold/30"
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue to-green"
                       />
                     )}
                     <span className="relative z-10">{a.label}</span>
@@ -176,19 +204,18 @@ export default function WhoIsThisFor() {
                   <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                   Step {current.step}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-navy mb-4 tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-navy mb-4 tracking-tight">
                   {current.title}
                 </h3>
                 <p className="text-muted text-base leading-relaxed mb-6 max-w-md">
                   {current.description}
                 </p>
 
-                {/* Relevant tags */}
                 <div className="flex flex-wrap gap-2 mb-8">
                   {current.chip.map((c) => (
                     <span
                       key={c.text}
-                      className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-xs font-bold ${c.color}`}>
+                      className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-xs font-bold ${c.c}`}>
                       {c.text}
                     </span>
                   ))}
@@ -196,7 +223,7 @@ export default function WhoIsThisFor() {
 
                 <Link
                   href={current.link}
-                  className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-light text-white text-sm font-bold px-6 py-3.5 rounded-full shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5 transition-all duration-300">
+                  className="group inline-flex items-center gap-3 bg-navy text-white text-sm font-semibold px-7 py-3.5 rounded-full shadow-soft hover:shadow-pop hover:-translate-y-0.5 transition-all duration-300 hover:bg-navy-light">
                   Learn more
                   <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
@@ -205,7 +232,6 @@ export default function WhoIsThisFor() {
           </div>
         </div>
 
-        {/* Not sure CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

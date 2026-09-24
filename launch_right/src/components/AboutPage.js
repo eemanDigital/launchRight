@@ -2,43 +2,83 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Footer from "@/components/Footer";
 import {
   ScaleIcon,
   ShieldCheckIcon,
   CodeBracketIcon,
   ArrowRightIcon,
   CheckCircleIcon,
-  ChatBubbleLeftRightIcon,
   BuildingOfficeIcon,
   ComputerDesktopIcon,
 } from "@heroicons/react/24/outline";
 
 const credentials = [
-  { icon: ScaleIcon, text: "Called to the Nigerian Bar" },
-  { icon: ShieldCheckIcon, text: "CAC-Accredited Agent" },
-  { icon: CodeBracketIcon, text: "MERN Stack Developer" },
-  { icon: CheckCircleIcon, text: "NBA Member" },
+  { icon: ScaleIcon, text: "Called to the Nigerian Bar", accent: "blue" },
+  { icon: ShieldCheckIcon, text: "CAC-Accredited Agent", accent: "green" },
+  { icon: CodeBracketIcon, text: "MERN Stack Developer", accent: "green" },
+  { icon: CheckCircleIcon, text: "NBA Member", accent: "blue" },
 ];
+
+const credentialAccents = {
+  blue: {
+    tile: "from-blue to-blue-2",
+    ring: "border-blue-2/30",
+  },
+  green: {
+    tile: "from-green to-green-2",
+    ring: "border-green-2/30",
+  },
+};
 
 const currentBuilds = [
   {
     name: "JurisTech",
     desc: "Legal-tech business services platform",
     status: "Live",
-    statusColor: "bg-green/10 text-green",
+    statusColor: "bg-green-2/15 text-green-2 border-green-2/30",
   },
   {
     name: "VendPadi",
     desc: "WhatsApp storefront for Nigerian merchants",
     status: "Beta",
-    statusColor: "bg-blue-100 text-blue-700",
+    statusColor: "bg-blue-2/15 text-blue-2 border-blue-2/30",
   },
   {
     name: "case-master-app",
     desc: "Law firm management software",
     status: "In Development",
-    statusColor: "bg-blue-100 text-blue-700",
+    statusColor: "bg-blue-2/15 text-blue-2 border-blue-2/30",
+  },
+];
+
+const servicesOverview = [
+  {
+    icon: BuildingOfficeIcon,
+    name: "CAC Registration",
+    desc: "Business Name, LTD, NGO",
+    link: "/services",
+    tile: "from-blue to-blue-2",
+  },
+  {
+    icon: ScaleIcon,
+    name: "Legal Documents",
+    desc: "Contracts, Agreements, Compliance",
+    link: "/services",
+    tile: "from-green to-green-2",
+  },
+  {
+    icon: CodeBracketIcon,
+    name: "Website Development",
+    desc: "Landing pages to e-commerce",
+    link: "/services",
+    tile: "from-blue-2 to-green-2",
+  },
+  {
+    icon: ComputerDesktopIcon,
+    name: "Custom Software",
+    desc: "SaaS, Mobile, POS systems",
+    link: "/services",
+    tile: "from-green to-green-2",
   },
 ];
 
@@ -46,13 +86,14 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-navy via-navy to-navy-light overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+      <section className="band-cover relative overflow-hidden">
+        <div className="absolute inset-0 hero-gradient-cover" />
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-1/4 w-72 h-72 bg-blue-2/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-green-2/20 rounded-full blur-3xl" />
         </div>
 
-        <div className="container-wide relative">
+        <div className="container-wide relative pt-32 pb-16 lg:pt-40 lg:pb-20">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 min-w-0">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -60,7 +101,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="flex-shrink-0 min-w-0">
               <div className="relative">
-                <div className="w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden border-2 border-gold/30 shadow-2xl">
+                {/* orbit slots */}
+                <div className="absolute -inset-4 rounded-full border border-dashed border-blue-2/30 animate-spin-slow [animation-duration:36s]" />
+                <div className="absolute -inset-8 rounded-full border border-white/10" />
+                <div className="w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden ring-2 ring-green-2/40 shadow-cover">
                   <img
                     src="/image/my-image.png"
                     alt="Lukman Asinmi - Founder of JurisTech"
@@ -68,7 +112,7 @@ export default function AboutPage() {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute -bottom-3 -right-3 bg-gold text-white px-4 py-2 rounded-xl font-bold text-xs shadow-xl flex items-center gap-1.5">
+                <div className="absolute -bottom-4 -right-3 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-green-2 to-green-dark text-white px-4 py-2 font-bold text-xs shadow-[0_10px_24px_rgba(22,166,106,0.4)]">
                   <ShieldCheckIcon className="w-4 h-4" />
                   CAC Accredited
                 </div>
@@ -85,16 +129,16 @@ export default function AboutPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
-                <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
+                <span className="w-2 h-2 bg-green-2 rounded-full animate-pulse" />
                 <span className="text-white/80 text-sm font-medium">
                   Lawyer · CAC Agent · Developer
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-5 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight tracking-tight">
                 Lukman Asinmi
               </h1>
-              <p className="text-gold text-lg md:text-xl mb-4">
+              <p className="text-green-2 text-lg md:text-xl mb-4 font-semibold">
                 Lawyer. CAC Agent. Developer. Founder of JurisTech.
               </p>
               <p className="text-white/70 text-lg leading-relaxed max-w-xl">
@@ -108,21 +152,24 @@ export default function AboutPage() {
       </section>
 
       {/* Background Story */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white relative overflow-hidden">
+        <svg className="absolute top-0 left-0 w-full opacity-[0.04] pointer-events-none" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path fill="none" stroke="#2d7cff" strokeWidth="2" d="M0,70 C160,10 320,110 480,60 C640,10 800,110 960,60 C1120,10 1280,110 1440,50" />
+        </svg>
         <div className="container-wide">
           <div className="max-w-3xl mx-auto">
-            <motion.span
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-gold font-semibold text-sm uppercase tracking-wider">
-              My Story
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-10">
-              How JurisTech Came to Be
-            </h2>
+              className="mb-8">
+              <span className="eyebrow-label">MY STORY</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
+                How JurisTech <span className="text-gradient-brand">Came to Be</span>
+              </h2>
+            </motion.div>
 
-            <div className="space-y-5 text-gray-600 leading-relaxed text-lg">
+            <div className="space-y-5 text-muted leading-relaxed text-lg">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -182,34 +229,31 @@ export default function AboutPage() {
       <section className="py-16 bg-surface">
         <div className="container-wide">
           <div className="text-center mb-12">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="badge badge-gold mb-4 inline-block">
-              CREDENTIALS
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3">
+            <span className="eyebrow-label mb-4 inline-flex">CREDENTIALS</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 tracking-tight">
               Qualifications
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {credentials.map((cred, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="card-accent p-6 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <cred.icon className="w-6 h-6 text-gold" />
-                </div>
-                <p className="text-sm font-semibold text-navy leading-snug">
-                  {cred.text}
-                </p>
-              </motion.div>
-            ))}
+            {credentials.map((cred, index) => {
+              const accent = credentialAccents[cred.accent];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl p-6 text-center border border-line shadow-soft">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${accent.tile} rounded-lg flex items-center justify-center mx-auto mb-4 shadow-md shadow-black/10`}>
+                    <cred.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-sm font-bold text-navy leading-snug">
+                    {cred.text}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -218,17 +262,11 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container-wide">
           <div className="text-center mb-16">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="badge badge-gold mb-4 inline-block">
-              CURRENT PROJECTS
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-5">
-              What I'm Building
+            <span className="eyebrow-label mb-4 inline-flex">CURRENT PROJECTS</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 mb-5 tracking-tight">
+              What I&apos;m <span className="text-gradient-brand">Building</span>
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            <p className="text-muted text-lg max-w-2xl mx-auto">
               Products and platforms currently in development or live
             </p>
           </div>
@@ -241,15 +279,17 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="card-premium p-8">
+                className="bg-white rounded-2xl p-8 border border-line shadow-card relative overflow-hidden">
+                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-blue-2/40 to-transparent" />
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="font-bold text-navy text-lg">{build.name}</h3>
+                  <h3 className="font-bold text-navy text-lg tracking-tight">{build.name}</h3>
                   <span
-                    className={`px-2.5 py-1 rounded-full text-xs font-semibold ${build.statusColor}`}>
+                    className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${build.statusColor}`}>
+                    <span className="w-1.5 h-1.5 inline-block rounded-full bg-current mr-1.5" />
                     {build.status}
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-muted text-sm leading-relaxed">
                   {build.desc}
                 </p>
               </motion.div>
@@ -259,28 +299,29 @@ export default function AboutPage() {
       </section>
 
       {/* Personal Note */}
-      <section className="relative py-24 bg-gradient-to-br from-navy via-navy to-navy-light overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-gold rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-80 h-80 bg-green rounded-full blur-3xl" />
+      <section className="band-cover py-24 relative overflow-hidden">
+        <div className="absolute inset-0 hero-gradient-cover" />
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 right-20 w-96 h-96 bg-blue-2/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-green-2/20 rounded-full blur-3xl" />
         </div>
         <div className="container-narrow text-center relative">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="badge badge-gold mb-4 inline-block">
+            className="eyebrow-label eyebrow-label--light mb-4 inline-flex">
             A PERSONAL NOTE
           </motion.span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-8 leading-tight">
-            You're Trusting Me Directly
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-3 mb-8 leading-tight tracking-tight">
+            You&apos;re Trusting Me Directly
           </h2>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/75 text-lg leading-relaxed mb-10 font-light">
+            className="text-white/75 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             If you're wondering whether to trust JurisTech with your business
             registration or legal documents — you're trusting me directly. My
             name is on every document we produce. My accreditation number is on
@@ -295,12 +336,12 @@ export default function AboutPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="btn-gold text-base">
+              className="btn-gradient-green text-base">
               Work With Me <ArrowRightIcon className="w-4 h-4" />
             </a>
             <Link
               href="/tools/document-generator"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/20 text-white rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300">
               Try Our Free Tools
             </Link>
           </motion.div>
@@ -311,49 +352,18 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="container-wide">
           <div className="text-center mb-16">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="badge badge-gold mb-4 inline-block">
-              SERVICES
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy mt-3 mb-5">
-              What JurisTech Offers
+            <span className="eyebrow-label mb-4 inline-flex">SERVICES</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 mb-5 tracking-tight">
+              What JurisTech <span className="text-gradient-brand">Offers</span>
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            <p className="text-muted text-lg max-w-2xl mx-auto">
               Everything you need to launch, operate, and grow your business —
               legally and digitally.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: BuildingOfficeIcon,
-                name: "CAC Registration",
-                desc: "Business Name, LTD, NGO",
-                link: "/services",
-              },
-              {
-                icon: ScaleIcon,
-                name: "Legal Documents",
-                desc: "Contracts, Agreements, Compliance",
-                link: "/services",
-              },
-              {
-                icon: CodeBracketIcon,
-                name: "Website Development",
-                desc: "Landing pages to e-commerce",
-                link: "/services",
-              },
-              {
-                icon: ComputerDesktopIcon,
-                name: "Custom Software",
-                desc: "SaaS, Mobile, POS systems",
-                link: "/services",
-              },
-            ].map((service, index) => (
+            {servicesOverview.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -362,17 +372,17 @@ export default function AboutPage() {
                 viewport={{ once: true }}>
                 <Link
                   href={service.link}
-                  className="block card-premium p-8 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mb-5 group-hover:from-gold/30 group-hover:to-gold/15 transition-all duration-300">
-                    <service.icon className="w-7 h-7 text-gold" />
+                  className="block bg-white rounded-2xl p-8 border border-line shadow-soft group hover:shadow-pop hover:-translate-y-1 hover:border-blue-2/30 transition-all duration-300">
+                  <div className={`w-14 h-14 bg-gradient-to-br ${service.tile} rounded-xl flex items-center justify-center mb-5 shadow-md shadow-black/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300`}>
+                    <service.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-navy mb-2">
+                  <h3 className="text-lg font-bold text-navy mb-2 tracking-tight">
                     {service.name}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  <p className="text-muted text-sm mb-4 leading-relaxed">
                     {service.desc}
                   </p>
-                  <div className="flex items-center gap-1.5 text-gold text-sm font-semibold group-hover:gap-2.5 transition-all duration-300">
+                  <div className="flex items-center gap-1.5 text-green-2 text-sm font-semibold group-hover:gap-2.5 transition-all duration-300">
                     Learn more <ArrowRightIcon className="w-4 h-4" />
                   </div>
                 </Link>
@@ -381,8 +391,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* <Footer /> */}
     </main>
   );
 }

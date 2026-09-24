@@ -1,7 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+} from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 export default function FAQ() {
@@ -52,9 +55,10 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="section-pad bg-white relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-gradient-to-l from-gold/3 to-transparent rounded-full blur-3xl" />
-      </div>
+      {/* faint wave texture */}
+      <svg className="absolute top-0 left-0 w-full opacity-[0.05] pointer-events-none" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path fill="none" stroke="#2d7cff" strokeWidth="2" d="M0,70 C160,10 320,110 480,60 C640,10 800,110 960,60 C1120,10 1280,110 1440,50" />
+      </svg>
 
       <div className="relative container-narrow">
         <motion.div
@@ -63,52 +67,98 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-12">
-          <span className="badge-gold badge mb-4 inline-flex">FAQ</span>
-          <h2 className="text-3xl md:text-4xl font-semibold text-navy tracking-tight">
-            Frequently Asked Questions
+          <span className="eyebrow-label mb-5">FAQ</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">
+            Frequently Asked <span className="text-gradient-brand">Questions</span>
           </h2>
+
+          {/* floating hint orb */}
+          <div className="mt-5 inline-flex items-center gap-2 bg-surface border border-line rounded-full px-5 py-2.5 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-green-2 animate-pulse" />
+            <span className="text-xs font-semibold text-muted">
+              Answers in plain language — no legal jargon
+            </span>
+          </div>
         </motion.div>
 
-        <div className="space-y-2">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className={`rounded-xl border transition-colors ${
-                openIndex === index
-                  ? "border-gold/20 bg-gold/[0.03]"
-                  : "border-gray-100 hover:border-gray-200"
-              }`}>
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-5 px-6 flex justify-between items-center text-left">
-                <span className={`font-medium text-sm pr-4 ${openIndex === index ? "text-gold" : "text-navy"}`}>{faq.question}</span>
-                <ChevronDownIcon
-                  className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                    openIndex === index ? "rotate-180 text-gold" : "text-muted-light"
-                  }`}
-                />
-              </button>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="overflow-hidden">
-                    <div className="pb-5 px-6 text-muted text-sm leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+        <div className="space-y-2.5">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
+                viewport={{ once: true }}
+                className={`rounded-2xl border transition-all duration-300 ${
+                  isOpen
+                    ? "border-blue-2/25 bg-surface shadow-soft"
+                    : "border-line hover:border-blue-2/20 bg-white"
+                }`}>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full py-5 px-5 sm:px-6 flex justify-between items-center text-left gap-4">
+                  <span className="flex items-center gap-3.5">
+                    {/* number orb */}
+                    <span
+                      className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-black border transition-colors duration-300 ${
+                        isOpen
+                          ? "bg-gradient-to-br from-blue to-green text-white border-transparent"
+                          : "bg-surface border-line text-muted"
+                      }`}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className={`font-bold text-sm pr-2 transition-colors ${
+                        isOpen ? "text-navy" : "text-ink/80"
+                      }`}>
+                      {faq.question}
+                    </span>
+                  </span>
+                  <span
+                    className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      isOpen ? "bg-navy text-white rotate-180" : "bg-surface border border-line text-muted"
+                    }`}>
+                    <ChevronDownIcon className="w-4 h-4" />
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden">
+                      <div className="pb-5 pl-[3.35rem] pr-6 text-muted text-sm leading-relaxed">
+                        <div className="border-l-2 border-blue-2/20 pl-4">
+                          {faq.answer}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mt-10 text-center">
+          <a
+            href="https://wa.me/message/KTFL2G2JM3JTP1"
+            className="group inline-flex items-center gap-3 rounded-full bg-navy text-white text-sm font-semibold px-7 py-3.5 shadow-soft hover:bg-navy-light hover:-translate-y-0.5 hover:shadow-pop transition-all duration-300">
+            <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-green-2/20 transition-colors">
+              <ChatBubbleOvalLeftEllipsisIcon className="w-4 h-4 text-green-2" />
+            </span>
+            Still have questions? Chat with us
+          </a>
+        </motion.div>
       </div>
     </section>
   );

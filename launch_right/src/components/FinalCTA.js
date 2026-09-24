@@ -1,119 +1,154 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRightIcon, CheckIcon, ShieldCheckIcon, StarIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  CheckIcon,
+  ShieldCheckIcon,
+  StarIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 import { event } from "@/lib/fpixel";
 
 export default function FinalCTA() {
   return (
-    <section className="section-pad bg-navy relative overflow-hidden">
-      <div className="absolute inset-0 hero-gradient-mesh" />
+    <section className="relative overflow-hidden">
+      {/* white wave top (from FAQ white section) */}
+      <svg className="wave-divider wave-divider--top absolute top-0 left-0 text-white" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path fill="currentColor" d="M0,30 C240,0 480,60 720,35 C960,10 1200,55 1440,25 L1440,0 L0,0 Z" />
+      </svg>
 
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-gold/8 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-gold/8 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green/5 rounded-full blur-3xl" />
-      </div>
+      <div className="relative pt-10 lg:pt-14 pb-20 lg:pb-24 bg-navy overflow-hidden">
+        <div className="absolute inset-0 hero-gradient-cover" />
 
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(rgba(0,82,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,82,255,0.3) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+        {/* concentric launch rings */}
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none">
+          {["w-[520px] h-[520px]", "w-[400px] h-[400px]", "w-[280px] h-[280px]"].map((size, i) => (
+            <span
+              key={i}
+              className={`absolute -translate-x-1/2 -translate-y-1/2 ${size} rounded-full ${
+                i === 1 ? "border border-dashed border-blue-2/25 animate-spin-slow [animation-duration:36s]" : "border border-white/10"
+              }`}
+              style={{
+                left: "50%",
+                top: "50%",
+                animation: i === 0 ? "ring-pulse 3s ease-out infinite" : undefined,
+              }}
+            />
+          ))}
+          {/* center orb */}
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-navy-light to-navy-deep border border-white/20 flex items-center justify-center shadow-cover">
+            <span className="text-white font-black text-xl tracking-tighter">JT</span>
+          </span>
+        </div>
 
-      <div className="container-narrow relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center">
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+        {/* glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-2/15 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-green-2/15 rounded-full blur-3xl" />
+        </div>
+
+        {/* faint grid */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="w-full h-full" style={{
+            backgroundImage: `linear-gradient(rgba(45,124,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45,124,255,0.5) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+
+        <div className="container-narrow relative pt-40 lg:pt-56">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-8">
-            <StarIcon className="w-4 h-4 text-gold" />
-            <span className="text-white/70 text-sm font-medium">Trusted by 2,000+ entrepreneurs</span>
-          </motion.span>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 tracking-tight">
-            Ready to Build Your Business?
-          </h2>
-          <p className="text-lg text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            Get incorporated, launch a professional website, and ship custom software — all from one team that understands your business.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="btn-gold text-base shadow-lg shadow-gold/20"
-              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}>
-              Start Your Project
-              <ArrowRightIcon className="w-4 h-4" />
-            </motion.a>
-            <a
-              href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/25 transition-all"
-              onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Get Quote' })}>
-              Get a Quote
-            </a>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
+            className="text-center">
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
-              <MapPinIcon className="w-6 h-6 text-gold mx-auto mb-3" />
-              <p className="text-white/70 text-sm">Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
-              <PhoneIcon className="w-6 h-6 text-gold mx-auto mb-3" />
-              <a href="tel:08067234189" className="text-white/70 text-sm hover:text-white transition-colors">
-                08067234189
+              className="inline-flex items-center gap-2 bg-white/5 backdrop-blur border border-white/15 rounded-full px-5 py-2.5 mb-8">
+              <StarIcon className="w-4 h-4 text-green-2" />
+              <span className="text-white/70 text-sm font-medium">Trusted by 2,000+ entrepreneurs</span>
+            </motion.span>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 tracking-tight">
+              Ready to Build Your{" "}
+              <span className="text-gradient-brand">Business?</span>
+            </h2>
+            <p className="text-lg text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
+              Get incorporated, launch a professional website, and ship custom software — all from one team that understands your business.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="https://wa.me/message/KTFL2G2JM3JTP1"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[15px] font-semibold text-white bg-gradient-to-r from-green-2 to-green-dark shadow-[0_12px_30px_rgba(22,166,106,0.4)] hover:shadow-[0_16px_40px_rgba(22,166,106,0.5)] transition-all duration-300"
+                onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Start Project' })}>
+                Start Your Project
+                <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
+              </motion.a>
+              <a
+                href="https://wa.me/message/KTFL2G2JM3JTP1"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-[15px] font-semibold text-white/90 bg-white/10 backdrop-blur border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300"
+                onClick={() => event('Contact', { content_name: 'Final CTA', method: 'WhatsApp', action: 'Get Quote' })}>
+                Get a Quote
               </a>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/8 hover:border-white/15 transition-colors">
-              <ShieldCheckIcon className="w-6 h-6 text-gold mx-auto mb-3" />
-              <p className="text-white/70 text-sm">CAC-Accredited Agent</p>
-            </motion.div>
-          </div>
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-8 text-white/50 text-sm">
-            <span className="flex items-center gap-2">
-              <CheckIcon className="w-4 h-4 text-success" />
-              Money-back guarantee
-            </span>
-            <span className="flex items-center gap-2">
-              <StarIcon className="w-4 h-4 text-gold" />
-              4.9/5 rating
-            </span>
-            <span className="flex items-center gap-2">
-              <ShieldCheckIcon className="w-4 h-4 text-gold" />
-              2,000+ clients served
-            </span>
-          </div>
-        </motion.div>
+            <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
+              {[
+                { icon: MapPinIcon, text: "Suite 412, IT Igbani Street, MKK Plaza, Jabi Abuja" },
+                { icon: PhoneIcon, text: "08067234189", href: "tel:08067234189" },
+                { icon: ShieldCheckIcon, text: "CAC-Accredited Agent" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white/5 backdrop-blur rounded-2xl p-5 border border-white/10 hover:border-white/20 transition-colors">
+                  <span className="mx-auto mb-3 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-green-2" />
+                  </span>
+                  {item.href ? (
+                    <a href={item.href} className="text-white/70 text-sm hover:text-white transition-colors">
+                      {item.text}
+                    </a>
+                  ) : (
+                    <p className="text-white/70 text-sm">{item.text}</p>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-8 text-white/50 text-sm">
+              <span className="flex items-center gap-2">
+                <CheckIcon className="w-4 h-4 text-green-2" />
+                Money-back guarantee
+              </span>
+              <span className="flex items-center gap-2">
+                <StarIcon className="w-4 h-4 text-green-2" />
+                4.9/5 rating
+              </span>
+              <span className="flex items-center gap-2">
+                <ShieldCheckIcon className="w-4 h-4 text-green-2" />
+                2,000+ clients served
+              </span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* wave bottom into footer */}
+        <svg className="wave-divider wave-divider--bottom absolute bottom-0 left-0 text-navy-deep" viewBox="0 0 1440 80" preserveAspectRatio="none">
+          <path fill="currentColor" d="M0,50 C240,10 480,70 720,40 C960,10 1200,65 1440,30 L1440,80 L0,80 Z" />
+        </svg>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );
 }

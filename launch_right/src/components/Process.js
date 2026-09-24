@@ -7,14 +7,6 @@ import {
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 
-function Counter({ value, suffix = "" }) {
-  return (
-    <span className="text-navy">
-      {value}{suffix}
-    </span>
-  );
-}
-
 const steps = [
   {
     step: "01",
@@ -22,6 +14,7 @@ const steps = [
     title: "Tell Us Your Needs",
     desc: "We listen and recommend the best path for your business goals.",
     pills: ["Free Consultation", "Name Search"],
+    node: "bg-blue-2 before:border-blue-2/40",
   },
   {
     step: "02",
@@ -29,6 +22,7 @@ const steps = [
     title: "We Handle Everything",
     desc: "CAC registration, website development, and legal documents — all in parallel.",
     pills: ["CAC Filing", "Web Design", "Legal Docs"],
+    node: "bg-gradient-to-br from-blue to-green",
   },
   {
     step: "03",
@@ -36,21 +30,29 @@ const steps = [
     title: "Launch With Confidence",
     desc: "Your business is legally registered, digitally present, and ready from day one.",
     pills: ["Certificate", "Website", "Ongoing Support"],
+    node: "bg-green-2",
   },
 ];
 
-export default function Process() {
-  const stats = [
-    { value: "2,000+", suffix: "", label: "Clients Served" },
-    { value: "5+", suffix: "", label: "Years Experience" },
-    { value: "24-48", suffix: "hrs", label: "Fast Turnaround" },
-    { value: "4.9", suffix: "★", label: "Client Rating" },
-  ];
+const stats = [
+  { value: "2,000+", label: "Clients Served" },
+  { value: "5+", label: "Years Experience" },
+  { value: "24-48hrs", label: "Fast Turnaround" },
+  { value: "4.9★", label: "Client Rating" },
+];
 
+export default function Process() {
   return (
-    <section id="process" className="section-pad bg-surface relative overflow-hidden">
+    <section
+      id="process"
+      className="section-pad bg-surface relative overflow-hidden">
+      {/* faint wave texture */}
+      <svg className="absolute bottom-0 left-0 w-full opacity-[0.05] pointer-events-none" viewBox="0 0 1440 200" preserveAspectRatio="none">
+        <path fill="none" stroke="#2d7cff" strokeWidth="2" d="M0,140 C240,60 480,200 720,120 C960,40 1200,180 1440,100" />
+        <path fill="none" stroke="#1fc87f" strokeWidth="2" d="M0,170 C240,90 480,230 720,150 C960,70 1200,210 1440,130" />
+      </svg>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-gold/3 via-transparent to-green/3 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-soft via-transparent to-green-pale rounded-full blur-3xl" />
       </div>
 
       <div className="relative container-wide">
@@ -59,68 +61,85 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12">
-          <span className="badge-gold badge mb-4 inline-flex">HOW WE WORK</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-navy mb-5 tracking-tight">
-            From Idea to Launch
+          className="text-center mb-14">
+          <span className="eyebrow-label mb-5">HOW WE WORK</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy mb-5 tracking-tight">
+            From Idea to <span className="text-gradient-brand">Launch</span>
           </h2>
           <p className="text-muted max-w-xl mx-auto text-lg">
             Registration, websites, and legal documents — all under one roof.
           </p>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto mb-16 space-y-6">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="relative">
+        {/* trajectory */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* flight path line (desktop) */}
+          <svg className="absolute top-8 hidden lg:block inset-x-0 h-16 pointer-events-none" viewBox="0 0 1024 64" preserveAspectRatio="none">
+            <path
+              d="M60,54 C240,10 380,10 560,50 C700,80 860,80 964,30"
+              fill="none"
+              stroke="url(#flightGrad)"
+              strokeWidth="2"
+              strokeDasharray="6 8"
+            />
+            <defs>
+              <linearGradient id="flightGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#0758f7" />
+                <stop offset="100%" stopColor="#1fc87f" />
+              </linearGradient>
+            </defs>
+          </svg>
 
-              {index < steps.length - 1 && (
-                <div className="absolute left-7 top-16 bottom-0 w-px bg-gradient-to-b from-gold/30 via-gold/50 to-gold/30 hidden md:block" />
-              )}
-
-              <div className="flex gap-4 md:gap-6">
-                <div className="relative flex-shrink-0">
-                  <div className="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center border-2 border-gold/30 shadow-lg">
-                    <step.icon className="w-6 h-6 text-gold" />
+          <div className="grid lg:grid-cols-3 gap-10 lg:gap-8">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="relative text-center">
+                {/* node puck */}
+                <div className="relative inline-flex items-center justify-center">
+                  <span className="absolute w-24 h-24 rounded-full border border-dashed border-blue-2/25 animate-spin-slow [animation-duration:20s]" style={{ animationDelay: `${index * 0.4}s` }} />
+                  <div
+                    className={`relative w-16 h-16 rounded-2xl flex items-center justify-center ${step.node} text-white border border-white/50 shadow-soft`}>
+                    <step.icon className="w-7 h-7" />
                   </div>
-                  <span className="absolute -top-2 -left-2 w-7 h-7 rounded-full bg-gold/15 text-gold text-[10px] font-bold flex items-center justify-center">
+                  <span className="absolute -top-1.5 -right-1.5 w-8 h-8 rounded-full bg-white border border-line text-blue-2 text-[11px] font-black flex items-center justify-center shadow-sm">
                     {step.step}
                   </span>
+                  {/* satellite dot */}
+                  <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-green-2 shadow-[0_0_12px_rgba(30,200,127,0.7)] animate-pulse" />
                 </div>
 
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg md:text-xl font-bold text-navy mb-1">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted text-sm md:text-base mb-3">
-                    {step.desc}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {step.pills.map((pill) => (
-                      <span
-                        key={pill}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-gold/8 border border-gold/15 text-gold">
-                        {pill}
-                      </span>
-                    ))}
-                  </div>
+                <h3 className="text-lg md:text-xl font-bold text-navy mt-6 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-muted text-sm md:text-base leading-relaxed mb-4 max-w-xs mx-auto">
+                  {step.desc}
+                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {step.pills.map((pill) => (
+                    <span
+                      key={pill}
+                      className="px-3 py-1 rounded-full text-xs font-bold bg-blue-soft border border-line text-blue-2">
+                      {pill}
+                    </span>
+                  ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
+        {/* stats band */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 max-w-4xl mx-auto">
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 max-w-4xl mx-auto mt-16">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -128,11 +147,12 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-6 lg:p-8 text-center border border-gray-100/80 hover:border-gold/20 transition-colors group">
-              <div className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight group-hover:text-gold transition-colors">
-                <Counter value={stat.value} suffix={stat.suffix} />
+              className="relative rounded-2xl p-6 lg:p-7 text-center bg-white border border-line shadow-soft group hover:border-blue-2/30 transition-colors">
+              <div className="absolute inset-x-6 top-0 h-[3px] rounded-b-full bg-gradient-to-r from-blue-2 to-green-2 opacity-60 group-hover:opacity-100 transition-opacity" />
+              <div className="text-3xl lg:text-4xl font-extrabold mb-2 tracking-tight group-hover:text-gold transition-colors text-navy">
+                {stat.value}
               </div>
-              <p className="text-muted text-sm">{stat.label}</p>
+              <p className="text-muted text-sm font-medium">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
