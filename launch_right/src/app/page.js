@@ -4,8 +4,10 @@ import Hero from "@/components/Hero";
 import MarqueeBar from "@/components/MarqueeBar";
 import FAQSchema from "@/components/FAQSchema";
 import AboutPreviewSection from "@/components/home/AboutPreviewSection";
-import ServicesSection from "@/components/home/ServicesSection";
-import AllInOneSection from "@/components/home/AllInOneSection";
+import {
+  ServicesSection,
+  AllInOneSection,
+} from "@/components/ServicesSections";
 import OldVsNew from "@/components/home/OldVsNew";
 import HowWeWork from "@/components/home/HowWeWork";
 import WhoFor from "@/components/home/WhoFor";
@@ -67,10 +69,10 @@ export default function Home() {
       <Hero />
       <MarqueeBar />
       <AboutPreviewSection />
-      {/* <ServicesSection /> */}
+      <ServicesSection />
       <AllInOneSection />
-      <OldVsNew />
-      <HowWeWork />
+      {/* <OldVsNew /> */}
+      {/* <HowWeWork /> */}
       <WhoFor />
       <StatsBand />
       <HomeCTA />
