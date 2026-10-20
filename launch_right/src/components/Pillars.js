@@ -82,7 +82,8 @@ const accentMap = {
     glow: "rgba(30,200,127,0.3)",
     tile: "from-blue-2 to-green-2",
     chip: "border-blue-2/50 text-white bg-white/5",
-    check: "bg-gradient-to-br from-blue-2/20 to-green-2/20 border-blue-2/40 text-white",
+    check:
+      "bg-gradient-to-br from-blue-2/20 to-green-2/20 border-blue-2/40 text-white",
     dot: "bg-gradient-to-br from-blue-2 to-green-2",
     line: "bg-blue-2/40",
   },
@@ -90,7 +91,38 @@ const accentMap = {
 
 export default function Pillars() {
   return (
-    <section className="section-pad band-cover relative overflow-hidden">
+    <section className="section-pad band-cover relative overflow-hidden mt-25">
+      {/* Top divider wave — separates Pillars from the marquee bar above */}
+      {/* <div className="absolute inset-x-0 top-0 z-0 pointer-events-none">
+        <svg
+          className="wave-divider"
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none">
+          <path
+            fill="#030b20"
+            d="M0,40 C240,85 480,15 720,50 C960,85 1200,25 1440,60 L1440,0 L0,0 Z"
+          />
+          <path
+            fill="#071d4f"
+            opacity="0.65"
+            d="M0,70 C260,30 520,100 820,72 C1080,45 1260,78 1440,64 L1440,0 L0,0 Z"
+          />
+          <path
+            d="M0,40 C240,85 480,15 720,50 C960,85 1200,25 1440,60"
+            stroke="url(#pillarWaveTopGrad)"
+            strokeWidth="2"
+            fill="none"
+            opacity="0.9"
+          />
+          <defs>
+            <linearGradient id="pillarWaveTopGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#2d7cff" />
+              <stop offset="100%" stopColor="#1fc87f" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div> */}
+
       <div className="absolute inset-0 pointer-events-none">
         {/* wave texture behind cards */}
         <svg
@@ -115,7 +147,7 @@ export default function Pillars() {
         </svg>
       </div>
 
-      <div className="relative container-wide">
+      <div className="relative z-10 container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +251,8 @@ export default function Pillars() {
                       </ul>
 
                       <div className="flex items-center justify-center gap-2 text-blue-2 text-sm font-bold group-hover:gap-3.5 transition-all duration-300">
-                        <span className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold backdrop-blur ${accent.chip}`}>
+                        <span
+                          className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold backdrop-blur ${accent.chip}`}>
                           {pillar.cta}
                           <ArrowRightIcon className="w-3 h-3" />
                         </span>
@@ -231,6 +264,42 @@ export default function Pillars() {
             );
           })}
         </div>
+      </div>
+
+      {/* Bottom divider wave — separates Pillars from the banner below */}
+      <div className="absolute inset-x-0 bottom-0 z-0 pointer-events-none">
+        <svg
+          className="wave-divider"
+          viewBox="0 0 1440 110"
+          preserveAspectRatio="none">
+          <path
+            fill="#f4f7ff"
+            d="M0,45 C240,90 480,20 720,55 C960,90 1200,30 1440,65 L1440,110 L0,110 Z"
+          />
+          <path
+            fill="#eaf0f8"
+            opacity="0.7"
+            d="M0,75 C260,35 520,110 820,78 C1080,50 1260,84 1440,70 L1440,110 L0,110 Z"
+          />
+          <path
+            d="M0,45 C240,90 480,20 720,55 C960,90 1200,30 1440,65"
+            stroke="url(#pillarWaveBottomGrad)"
+            strokeWidth="2"
+            fill="none"
+            opacity="0.9"
+          />
+          <defs>
+            <linearGradient
+              id="pillarWaveBottomGrad"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="0">
+              <stop offset="0%" stopColor="#2d7cff" />
+              <stop offset="100%" stopColor="#1fc87f" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </section>
   );

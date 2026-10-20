@@ -481,6 +481,78 @@ p {
   transform: translateY(0);
 }
 
+/* Pill-shaped primary CTA. Self-contained on purpose: the button classes in
+   this file are unlayered CSS, which outranks Tailwind utilities, so overriding
+   the shape with `rounded-full` on a markup class silently does nothing. */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.375rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-2) 0%,
+    var(--color-blue) 100%
+  );
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(7, 88, 247, 0.28);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.btn-pill:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 12px 28px rgba(7, 88, 247, 0.38);
+}
+
+.btn-pill:active {
+  transform: translateY(0);
+}
+
+/* Neutral pill — for hero CTAs that sit on a light background */
+.btn-pill--ghost {
+  background: var(--color-white);
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-pill--ghost:hover {
+  background: var(--color-surface);
+  border-color: var(--color-blue-2);
+  box-shadow: var(--shadow-md);
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -1095,6 +1167,36 @@ p {
   padding-right: 1.5rem;
 }
 
+/* Redesign primitives */
+.hex {
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+.highlight {
+  background-image: linear-gradient(
+    120deg,
+    rgba(31, 200, 127, 0.25),
+    rgba(31, 200, 127, 0.25)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 82%;
+  background-size: 100% 0.4em;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(7, 29, 79, 0.2) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+.stripe-circle {
+  border-radius: 9999px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(7, 29, 79, 0.16) 0 2px,
+    transparent 2px 8px
+  );
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -1587,6 +1689,36 @@ select {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ===== Hero: contact bar, collage + decorative primitives ===== */
+
+/* Angled segment holding the social cluster in the contact bar */
+.topbar-social-clip {
+  clip-path: polygon(2.25rem 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Top-right counterpart, so the white bar appears to tuck under the slant */
+.topbar-social-clip--mirror {
+  clip-path: polygon(0 0, calc(100% - 2.25rem) 0, 100% 100%, 0 100%);
+}
+
+/* Ticker edge fade so items dissolve instead of clipping */
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 9%,
+    #000 91%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 9%,
+    #000 91%,
+    transparent 100%
+  );
 }
 
 /* Section cover band (navy with blue/green mesh) */

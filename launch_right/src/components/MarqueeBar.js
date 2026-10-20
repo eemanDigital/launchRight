@@ -1,40 +1,49 @@
 "use client";
 
 const items = [
-  "2,000+ Clients Served",
   "Custom Software & Apps",
   "Professional Websites",
   "Business Incorporation",
   "Legal Documents",
-  "CAC Accredited Agent",
-  "Trusted Across Nigeria",
+  "CAC Registration",
+  "Compliance Support",
 ];
 
-export default function MarqueeBar() {
+function Asterisk({ className }) {
   return (
-    <div className="relative bg-navy-deep border-y border-white/10 overflow-hidden">
-      {/* hairline gradients */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-2/40 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-green-2/40 to-transparent" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true">
+      <path d="M12 1.5c.55 5.6 4.35 9.4 9.95 9.95-5.6.55-9.4 4.35-9.95 9.95-.55-5.6-4.35-9.4-9.95-9.95C7.65 10.9 11.45 7.1 12 1.5Z" />
+      <path
+        d="M18.72 15.6c.25 2.55 1.98 4.28 4.53 4.53-2.55.25-4.28 1.98-4.53 4.53-.25-2.55-1.98-4.28-4.53-4.53 2.55-.25 4.28-1.98 4.53-4.53Z"
+        opacity="0.55"
+      />
+    </svg>
+  );
+}
 
-      {/* soft orb glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full bg-blue-2/10 blur-3xl pointer-events-none" />
+export default function MarqueeBar() {
+  const loop = [...items, ...items];
 
-      <div className="animate-marquee flex whitespace-nowrap py-4 relative">
-        {[...items, ...items, ...items].map((item, index) => (
-          <span
-            key={index}
-            className="mx-9 text-sm font-semibold text-white/55 flex items-center gap-3.5">
+  return (
+    <div className="relative bg-white border-y border-border overflow-hidden">
+      <div className="marquee-fade relative overflow-hidden">
+        <div
+          role="marquee"
+          aria-label="Services we offer"
+          className="animate-marquee flex w-max whitespace-nowrap h-[60px] items-center">
+          {loop.map((item, index) => (
             <span
-              className={`w-2.5 h-2.5 rounded-full ring-2 ring-offset-0 ${
-                index % 2 === 0
-                  ? "bg-green-2 shadow-[0_0_12px_rgba(30,200,127,0.7)] ring-green-2/20"
-                  : "bg-blue-2 shadow-[0_0_12px_rgba(45,124,255,0.7)] ring-blue-2/20"
-              }`}
-            />
-            {item}
-          </span>
-        ))}
+              key={`${item}-${index}`}
+              className="flex items-center gap-5 pr-5 text-[15px] font-semibold text-navy tracking-[-0.01em]">
+              {item}
+              <Asterisk className="w-3 h-3 flex-shrink-0 text-green-2" />
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

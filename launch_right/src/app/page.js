@@ -3,43 +3,17 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeBar from "@/components/MarqueeBar";
 import FAQSchema from "@/components/FAQSchema";
+import AboutPreviewSection from "@/components/home/AboutPreviewSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import AllInOneSection from "@/components/home/AllInOneSection";
+import OldVsNew from "@/components/home/OldVsNew";
+import HowWeWork from "@/components/home/HowWeWork";
+import WhoFor from "@/components/home/WhoFor";
+import StatsBand from "@/components/home/StatsBand";
+import HomeCTA from "@/components/home/HomeCTA";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import FAQSection from "@/components/home/FAQSection";
 
-const WhoIsThisFor = dynamic(() => import("@/components/WhoIsThisFor"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const Pillars = dynamic(() => import("@/components/Pillars"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const CoverBanner = dynamic(() => import("@/components/CoverBanner"), {
-  loading: () => <div className="min-h-[200px] bg-navy-deep animate-pulse" />,
-});
-const ProblemSolution = dynamic(() => import("@/components/ProblemSolution"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const Process = dynamic(() => import("@/components/Process"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const FounderSection = dynamic(() => import("@/components/FounderSection"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const ProductsSection = dynamic(() => import("@/components/ProductsSection"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const Pricing = dynamic(() => import("@/components/Pricing"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const BlogPreview = dynamic(() => import("@/components/BlogPreview"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const FAQ = dynamic(() => import("@/components/FAQ"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
-const FinalCTA = dynamic(() => import("@/components/FinalCTA"), {
-  loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
-});
 const Footer = dynamic(() => import("@/components/Footer"), {
   loading: () => <div className="min-h-[400px] bg-surface animate-pulse" />,
 });
@@ -92,19 +66,17 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MarqueeBar />
-      <Pillars />
-      <CoverBanner />
-      <WhoIsThisFor />
-      <ProblemSolution />
-      <Process />
-      <FounderSection />
-      <ProductsSection />
-      <Testimonials />
-      {/* <Pricing /> */}
-      <BlogPreview />
-      <FAQ />
+      <AboutPreviewSection />
+      {/* <ServicesSection /> */}
+      <AllInOneSection />
+      <OldVsNew />
+      <HowWeWork />
+      <WhoFor />
+      <StatsBand />
+      <HomeCTA />
+      <TestimonialsSection />
+      <FAQSection />
       <FAQSchema />
-      <FinalCTA />
       <Footer />
     </main>
   );

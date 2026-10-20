@@ -103,8 +103,8 @@ export default function RootLayout({ children }) {
         <link
           rel="preload"
           as="image"
-          href="/image/hero-illustration.svg"
-          type="image/svg+xml"
+          href="/image/my-image.png"
+          type="image/png"
         />
 
       </head>

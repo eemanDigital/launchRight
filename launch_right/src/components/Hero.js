@@ -1,261 +1,244 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRightIcon,
-  PlayIcon,
-} from "@heroicons/react/24/outline";
-import { trackWhatsAppClick } from "@/lib/analytics";
+import { ArrowRightIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
-const stats = [
-  { value: "2,000+", label: "Clients Served" },
-  { value: "5+", label: "Years Experience" },
-  { value: "24-48h", label: "Fast Turnaround" },
-  { value: "4.9", label: "Client Rating" },
-];
-
-const chips = [
-  { text: "CAC Registered", pos: "top-2 -left-6 sm:-left-10 rotate-[-6deg]" },
-  { text: "Website Ready", pos: "top-0 right-0 sm:-right-8 rotate-[5deg]" },
-  { text: "Legal Documents", pos: "bottom-24 left-0 sm:-left-12 rotate-[6deg]" },
-  { text: "Business Email", pos: "-bottom-3 right-4 sm:-right-6 rotate-[-5deg]" },
-];
+const WHATSAPP = "https://wa.me/message/KTFL2G2JM3JTP1";
+const PHONE = "08067234189";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
+const fadeIn = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.85 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const trustMarkers = [
+  "Lawyer-led Studio",
+  "CAC Accredited Agent",
+  "24–48h Turnaround",
+];
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Cover background */}
-      <div className="absolute inset-0 hero-gradient-cover" />
+    <section className="relative flex flex-col overflow-hidden">
+      <div className="relative flex flex-1 flex-col pb-24 lg:pb-[92px]">
+        {/* The stage grows to fill whatever height is left in the viewport after
+            the nav offset and padding. The navy panel is a flex child, so it
+            stretches with it and the photo — pinned top and bottom — matches
+            automatically, keeping the two blocks on one height at any screen
+            size instead of sitting at a fixed 620px with dead space below. */}
+        <div className="relative flex flex-1 flex-col">
+          {/* ——— Navy copy panel ——— */}
+          <div className="relative z-10 flex w-full flex-col lg:w-[70%] lg:flex-1 overflow-hidden rounded-tl-[44px] rounded-tr-[44px] lg:rounded-tr-none lg:rounded-tl-[70px] shadow-cover">
+            {/* Navy fill. On lg its right edge is cut on a diagonal so the
+                photo reads as a triangular wedge meeting the panel. */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-navy-lighter lg:[clip-path:polygon(0_0,100%_0,82%_100%,0_100%)]"
+              aria-hidden="true"
+            />
+            {/* Decorative rings, clipped by the panel */}
+            <motion.div
+              variants={scaleIn}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.9 }}
+              className="absolute w-[450px] h-[450px] rounded-full border-[70px] border-white/[0.035] -right-[220px] -bottom-[220px] pointer-events-none animate-spin-slow [animation-duration:80s]"
+              aria-hidden="true"
+            />
+            <motion.div
+              variants={scaleIn}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 1 }}
+              className="absolute w-[180px] h-[180px] rounded-full bg-white/[0.035] -top-16 -left-14 pointer-events-none"
+              aria-hidden="true"
+            />
 
-      {/* Ambient glows */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-32 w-[640px] h-[640px] rounded-full bg-blue-2/20 blur-3xl" />
-        <div className="absolute top-1/2 -left-48 w-[560px] h-[560px] rounded-full bg-green-2/15 blur-3xl" />
-      </div>
+            {/* Accent line, flush with the panel's base. It lives inside the
+                panel so it stays welded to that edge at every breakpoint. */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.1, delay: 1.2, ease: "easeOut" }}
+              style={{ originX: 0 }}
+              className="absolute bottom-0 left-0 z-20 h-[13px] w-full bg-green-2"
+              aria-hidden="true"
+            />
 
-      {/* Faint grid */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `linear-gradient(rgba(45,124,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45,124,255,0.5) 1px, transparent 1px)`,
-            backgroundSize: "56px 56px",
-          }}
-        />
-      </div>
+            <div className="relative z-10 flex flex-1 flex-col justify-center px-6 pt-[120px] pb-12 sm:px-10 sm:pt-[132px] sm:pb-14 lg:pt-[150px] lg:pb-[76px] xl:px-[72px]">
+              <motion.div
+                initial="hidden"
+                animate="show"
+                transition={{ staggerChildren: 0.07 }}>
+                {/* Eyebrow */}
+                <motion.p
+                  variants={fadeUp}
+                  className="text-[12px] font-extrabold uppercase tracking-[0.23em] text-green-2">
+                  Nigeria&apos;s Full-Stack Digital Studio
+                </motion.p>
 
-      <div className="relative container-ultra pt-32 pb-16 lg:pt-40 lg:pb-24">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
-          {/* ——— Left: copy ——— */}
+                {/* Headline — fixed three-line composition. Each step is sized so
+                    the longest line ("Build Your Business") still fits on one
+                    line at the width the panel actually has at that breakpoint. */}
+                <motion.h1
+                  variants={fadeUp}
+                  className="mt-4 text-[25px] sm:text-[42px] md:text-[50px] lg:text-[46px] xl:text-[54px] 2xl:text-[64px] font-black leading-[0.98] tracking-[-0.03em] text-white">
+                  <span className="block">Build Your Business</span>
+                  <span className="block text-green-2">Digitally &amp;</span>
+                  <span className="block text-green-2">Legally</span>
+                </motion.h1>
+
+                {/* Supporting copy */}
+                <motion.p
+                  variants={fadeUp}
+                  className="mt-7 max-w-[480px] text-[16px] leading-[1.7] text-white/85">
+                  Custom software, professional websites, and business
+                  incorporation — led by a practising lawyer who codes.
+                </motion.p>
+
+                {/* CTA row */}
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href={WHATSAPP}
+                    onClick={() =>
+                      trackWhatsAppClick("Hero CTA - Explore More")
+                    }
+                    className="btn-gradient-green group">
+                    Explore More
+                    <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center rounded-full border border-white/35 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/60 hover:scale-[1.03] active:scale-[0.98]">
+                    View All Services
+                  </Link>
+                </motion.div>
+
+                {/* Trust markers */}
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[11.5px] font-medium text-white/60">
+                  {trustMarkers.map((t) => (
+                    <span key={t} className="flex items-center gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-green-2 flex-shrink-0" />
+                      {t}
+                    </span>
+                  ))}
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* ——— Photo: below the panel on mobile; on desktop it bleeds behind
+                the navy panel so the clip-path diagonal reads as a wedge. The
+                stat badge and call card float inside the photo at every
+                breakpoint, right-aligned and sized to their content. ——— */}
+          <div className="relative h-[340px] sm:h-[420px] lg:absolute lg:inset-0 lg:h-auto overflow-hidden rounded-bl-[44px] rounded-br-[44px] lg:rounded-tl-[70px] lg:rounded-tr-[70px]">
+            <motion.img
+              src="/image/hero-studio.jpg"
+              alt="JurisTech team working on client software and website projects"
+              width={1600}
+              height={1067}
+              loading="eager"
+              initial={{ scale: 1.12 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.8, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              className="absolute inset-0 w-full h-full object-cover object-center grayscale contrast-[1.05]"
+            />
+            {/* Navy wash so the photo sits inside the panel's colour world */}
+            <div className="absolute inset-0 bg-gradient-to-r from-navy/45 via-navy/20 to-navy/10" />
+
+            {/* Skewed stat badge */}
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.85 }}
+              className="absolute bottom-8 right-4 z-20 w-fit sm:bottom-12 sm:right-6 lg:bottom-[250px] lg:right-6">
+              <div className="animate-float [animation-duration:7s]">
+                <div className="-skew-x-[15deg] flex items-center gap-3 bg-navy-deep px-5 py-4 shadow-pop sm:gap-4 sm:px-6">
+                  <div className="skew-x-[15deg] text-[26px] font-black leading-none text-green-2 sm:text-[30px]">
+                    2,000+
+                  </div>
+                  <div className="skew-x-[15deg] text-[10px] font-semibold leading-[1.4] text-white/80 sm:text-[11px]">
+                    <strong className="text-green-2">Clients</strong> served
+                    <br />
+                    across Nigeria
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Call card — glassy navy card so the phone stays classy and legible
+                over the photo. */}
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 1 }}
+              className="absolute right-4 bottom-[122px] z-20 w-fit sm:right-6 sm:bottom-[144px] lg:bottom-[145px]">
+              <a
+                href={`tel:${PHONE}`}
+                className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-navy-deep/80 px-5 py-3.5 shadow-cover backdrop-blur-md transition-all duration-300 hover:border-green-2/40 hover:shadow-pop sm:gap-4 animate-float-gentle">
+                <span className="text-right">
+                  <span className="block text-[11px] font-semibold uppercase tracking-[0.08em] text-green-2">
+                    Call For More Info
+                  </span>
+                  <strong className="block mt-1 text-[20px] tracking-[0.05em] text-white">
+                    {PHONE}
+                  </strong>
+                </span>
+                <span className="w-[46px] h-[46px] rounded-full bg-green-2 grid place-items-center text-navy transition-all duration-300 group-hover:scale-110 group-hover:rotate-[8deg]">
+                  <PhoneIcon className="w-[19px] h-[19px]" />
+                </span>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* ——— Decorative skewed bars above the photo ——— */}
           <motion.div
+            variants={fadeUp}
             initial="hidden"
             animate="show"
-            transition={{ staggerChildren: 0.08 }}
-            className="text-center lg:text-left">
-            {/* Eyebrow */}
-            <motion.div variants={fadeUp} className="flex justify-center lg:justify-start">
-              <span className="eyebrow-label eyebrow-label--light">
-                Nigeria&apos;s Full-Stack Digital Studio
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              variants={fadeUp}
-              className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.06] tracking-tight">
-              Build Your Business{" "}
-              <span className="text-gradient-brand block">
-                Digitally &amp; Legally
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              variants={fadeUp}
-              className="mt-6 max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-white/70 leading-relaxed">
-              Custom software, professional websites, and business incorporation
-              — led by a practising lawyer who codes.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="https://wa.me/message/KTFL2G2JM3JTP1"
-                onClick={() => trackWhatsAppClick("Hero CTA - Start Project")}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[15px] font-semibold text-white bg-gradient-to-r from-green-2 to-green-dark shadow-[0_12px_30px_rgba(22,166,106,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(22,166,106,0.5)]">
-                Start Your Project
-                <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <Link
-                href="/tools/document-generator"
-                className="inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[15px] font-semibold text-white/90 bg-white/10 backdrop-blur border border-white/20 transition-all duration-300 hover:bg-white/15 hover:border-white/30">
-                <PlayIcon className="w-4 h-4" />
-                Explore Our Tools
-              </Link>
-            </motion.div>
-
-            {/* Trust line */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-white/55">
-              {["Lawyer-led Studio", "CAC Accredited Agent", "24–48h Turnaround"].map(
-                (t) => (
-                  <span key={t} className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-green-2" />
-                    {t}
-                  </span>
-                )
-              )}
-            </motion.div>
-          </motion.div>
-
-          {/* ——— Right: monogram orb + chips ——— */}
+            transition={{ delay: 1.15 }}
+            className="hidden lg:block absolute -top-[18px] right-[300px] w-8 h-[82px] skew-x-[-25deg] rounded-[5px] bg-green-2"
+            aria-hidden="true"
+          />
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-[440px]">
-            {/* Orb art */}
-            <div className="orb aspect-square w-full animate-float-slow">
-              {/* halo */}
-              <div className="absolute inset-[-12%] rounded-full bg-blue-2/10 blur-2xl" />
-
-              {/* radiating rings */}
-              <div className="orb-ring inset-[4%]" />
-              <div className="orb-ring inset-[10%]" style={{ opacity: 0.7 }} />
-              <div
-                className="orb-ring inset-[16%]"
-                style={{ opacity: 0.4, borderColor: "rgba(45,124,255,0.35)" }}
-              />
-
-              {/* rotating dashed orbit */}
-              <div className="orb-ring orb-ring--dashed inset-[2%] animate-spin-slow [animation-duration:26s]">
-                <span className="absolute -top-[5px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-green-2 shadow-[0_0_16px_rgba(30,200,127,0.8)]" />
-              </div>
-              <div className="orb-ring orb-ring--dashed inset-[13%] animate-rotate-slow [animation-duration:40s] [animation-direction:reverse]">
-                <span className="absolute top-1/2 -right-[4px] -translate-y-1/2 w-2 h-2 rounded-full bg-blue-2 shadow-[0_0_14px_rgba(45,124,255,0.8)]" />
-              </div>
-
-              {/* wave arcs */}
-              <svg
-                className="absolute inset-[7%] w-[86%] h-[86%] pointer-events-none"
-                viewBox="0 0 100 100"
-                fill="none">
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="48"
-                  stroke="url(#waveGrad)"
-                  strokeDasharray="1 3"
-                  strokeLinecap="round"
-                  strokeWidth="0.5"
-                  opacity="0.6"
-                />
-                <defs>
-                  <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#2d7cff" />
-                    <stop offset="100%" stopColor="#1fc87f" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              {/* core disc */}
-              <div className="relative z-10 flex flex-col items-center justify-center w-[58%] aspect-square">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-2/20 via-navy-light/40 to-green-2/15 backdrop-blur-sm border border-white/15 shadow-cover" />
-                <p className="relative text-white/75 text-[11px] font-bold tracking-[0.35em] uppercase">
-                  Juris
-                </p>
-                <p className="relative text-6xl sm:text-7xl font-black text-white tracking-tighter leading-none mt-2">
-                  JT
-                </p>
-                <p className="relative text-white/60 text-[10px] font-bold tracking-[0.28em] uppercase mt-3">
-                  Technology Ltd
-                </p>
-              </div>
-
-              {/* green check orb */}
-              <div className="orb-check absolute z-20 right-[6%] top-[7%] w-14 h-14 sm:w-16 sm:h-16 animate-float">
-                <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4.5 12.5l5 5 10-11" />
-                </svg>
-              </div>
-
-              {/* pulse rings from check orb */}
-              <span className="absolute right-[6%] top-[7%] z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-2/40" style={{ animation: "ring-pulse 2.4s ease-out infinite" }} />
-            </div>
-
-            {/* Floating chips */}
-            {chips.map((chip, i) => (
-              <motion.div
-                key={chip.text}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + i * 0.12 }}
-                className={`absolute z-30 ${chip.pos} animate-float`}
-                style={{ animationDelay: `${i * 0.7}s` }}>
-                <span className="chip-pill">
-                  <span className="chip-check">✓</span>
-                  {chip.text}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 1.3 }}
+            className="hidden lg:block absolute -top-[18px] right-[266px] w-8 h-[82px] skew-x-[-25deg] rounded-[5px] bg-navy"
+            aria-hidden="true"
+          />
         </div>
-
-        {/* Stats band */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-16 lg:mt-20 pt-8 border-t border-white/10">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                className="flex flex-col items-center">
-                <p className="text-white text-3xl sm:text-4xl font-extrabold tracking-tight">
-                  {stat.value}
-                </p>
-                <p className="text-white/50 text-[11px] mt-2 font-semibold uppercase tracking-widest">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Wave divider */}
-      <div className="relative -mb-px">
-        <svg
-          className="wave-divider wave-divider--bottom"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none">
-          <path
-            fill="#05132f"
-            d="M0,64 C240,110 480,10 720,38 C960,66 1200,16 1440,58 L1440,120 L0,120 Z"
-          />
-          <path
-            fill="#030b20"
-            d="M0,96 C300,56 620,128 960,92 C1160,72 1320,86 1440,98 L1440,120 L0,120 Z"
-            opacity="0.7"
-          />
-        </svg>
       </div>
     </section>
   );
