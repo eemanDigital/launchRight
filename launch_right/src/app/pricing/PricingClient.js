@@ -73,14 +73,12 @@ function Price({ amount, originalAmount, dark = false, large = false }) {
   return (
     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
       <span
-        className={`font-black tracking-tight ${large ? "text-4xl sm:text-5xl" : "text-3xl"} ${dark ? "text-white" : "text-navy"}`}
-      >
+        className={`font-black tracking-tight ${large ? "text-4xl sm:text-5xl" : "text-3xl"} ${dark ? "text-white" : "text-navy"}`}>
         {amount}
       </span>
       {originalAmount && (
         <span
-          className={`text-sm line-through ${dark ? "text-white/45" : "text-muted"}`}
-        >
+          className={`text-sm line-through ${dark ? "text-white/45" : "text-muted"}`}>
           {originalAmount}
         </span>
       )}
@@ -94,11 +92,9 @@ function FeatureList({ features, dark = false, compact = false }) {
       {features.map((feature) => (
         <li
           key={feature}
-          className={`flex items-start gap-2.5 text-sm leading-relaxed ${dark ? "text-white/75" : "text-ink-soft"}`}
-        >
+          className={`flex items-start gap-2.5 text-sm leading-relaxed ${dark ? "text-white/75" : "text-ink-soft"}`}>
           <span
-            className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${dark ? "bg-green-2/15" : "bg-green-2/15"}`}
-          >
+            className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${dark ? "bg-green-2/15" : "bg-green-2/15"}`}>
             <CheckIcon
               className={`h-3.5 w-3.5 ${dark ? "text-green-2" : "text-green-dark"}`}
             />
@@ -113,8 +109,7 @@ function FeatureList({ features, dark = false, compact = false }) {
 function Timeline({ children, dark = false }) {
   return (
     <div
-      className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${dark ? "bg-white/10 text-white/70" : "bg-surface text-muted"}`}
-    >
+      className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${dark ? "bg-white/10 text-white/70" : "bg-surface text-muted"}`}>
       <ClockIcon className="h-4 w-4 text-green-2" />
       {children}
     </div>
@@ -134,26 +129,22 @@ function PremiumPackageCard({ plan, index }) {
         featured
           ? "border-navy bg-navy text-white shadow-cover lg:scale-[1.03]"
           : "border-line bg-white"
-      }`}
-    >
+      }`}>
       {featured && (
         <span className="absolute right-5 top-5 rounded-full border border-green-2/30 bg-green-2/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-green-2">
           Most popular
         </span>
       )}
       <p
-        className={`pr-24 text-xs font-bold uppercase tracking-[0.16em] ${featured ? "text-white/55" : "text-muted"}`}
-      >
+        className={`pr-24 text-xs font-bold uppercase tracking-[0.16em] ${featured ? "text-white/55" : "text-muted"}`}>
         {plan.tagline}
       </p>
       <h3
-        className={`mt-3 text-xl font-extrabold tracking-tight sm:text-2xl ${featured ? "text-white" : "text-navy"}`}
-      >
+        className={`mt-3 text-xl font-extrabold tracking-tight sm:text-2xl ${featured ? "text-white" : "text-navy"}`}>
         {plan.name}
       </h3>
       <p
-        className={`mt-2 min-h-[3rem] text-sm leading-relaxed ${featured ? "text-white/65" : "text-muted"}`}
-      >
+        className={`mt-2 min-h-[3rem] text-sm leading-relaxed ${featured ? "text-white/65" : "text-muted"}`}>
         {plan.subtitle}
       </p>
       <div className="mt-6">
@@ -179,15 +170,13 @@ function PremiumPackageCard({ plan, index }) {
           featured
             ? "bg-green-2 text-navy hover:bg-white"
             : "bg-navy text-white hover:bg-green-2 hover:text-navy"
-        }`}
-      >
+        }`}>
         Get started
         <ArrowRightIcon className="h-4 w-4" />
       </a>
       {plan.highlight && (
         <p
-          className={`mt-4 text-center text-xs leading-relaxed ${featured ? "text-white/50" : "text-muted"}`}
-        >
+          className={`mt-4 text-center text-xs leading-relaxed ${featured ? "text-white/50" : "text-muted"}`}>
           {plan.highlight}
         </p>
       )}
@@ -202,8 +191,7 @@ function DetailPackageCard({ plan, index, compact = false }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
       viewport={{ once: true }}
-      className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card sm:p-7"
-    >
+      className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card sm:p-7">
       <p className="text-xs font-bold uppercase tracking-[0.16em] text-green-dark">
         {plan.subtitle || "Standalone registration"}
       </p>
@@ -232,8 +220,7 @@ function DetailPackageCard({ plan, index, compact = false }) {
       )}
       <a
         href={WHATSAPP}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-green-2 hover:text-navy"
-      >
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-green-2 hover:text-navy">
         Get started
         <ArrowRightIcon className="h-4 w-4" />
       </a>
@@ -264,8 +251,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative z-10 max-w-2xl"
-          >
+            className="relative z-10 max-w-2xl">
             <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-green-2">
               Pricing and packages
             </p>
@@ -281,15 +267,13 @@ export default function PricingPage() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="#premium-packages"
-                className="group inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
-              >
+                className="group inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:bg-white">
                 Compare packages
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
                 href={WHATSAPP}
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition-colors hover:border-green-2 hover:bg-white/5"
-              >
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition-colors hover:border-green-2 hover:bg-white/5">
                 Ask a question
               </a>
             </div>
@@ -309,11 +293,10 @@ export default function PricingPage() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative mx-auto h-[350px] w-full max-w-[530px] sm:h-[440px] lg:h-[490px]"
-          >
+            className="relative mx-auto h-[350px] w-full max-w-[530px] sm:h-[440px] lg:h-[490px]">
             <div className="absolute inset-x-8 top-0 h-[92%] overflow-hidden rounded-t-[10rem] rounded-b-[2rem] border border-white/10 sm:inset-x-12">
               <img
-                src="/image/my-image.png"
+                src="/images/young-man.jpg"
                 alt="JurisTech founder Lukman Asinmi"
                 className="h-full w-full object-cover object-[center_15%]"
                 fetchPriority="high"
@@ -338,8 +321,7 @@ export default function PricingPage() {
 
       <section
         aria-label="Pricing highlights"
-        className="border-b border-line bg-white"
-      >
+        className="border-b border-line bg-white">
         <div className="container-wide grid grid-cols-2 gap-4 py-7 sm:grid-cols-4 sm:gap-6 sm:py-9">
           {[
             "CAC registration",
@@ -349,8 +331,7 @@ export default function PricingPage() {
           ].map((item) => (
             <div
               key={item}
-              className="flex items-center justify-center gap-2 text-center text-xs font-bold text-navy sm:text-sm"
-            >
+              className="flex items-center justify-center gap-2 text-center text-xs font-bold text-navy sm:text-sm">
               <CheckIcon className="h-5 w-5 shrink-0 text-green-2" />
               <span>{item}</span>
             </div>
@@ -372,40 +353,39 @@ export default function PricingPage() {
             </p>
             <Link
               href="#premium-packages"
-              className="group mt-7 inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-green-2 hover:text-navy"
-            >
+              className="group mt-7 inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-green-2 hover:text-navy">
               See package options
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {supportingServices.map(({ icon: Icon, title, description, href }) => (
-              <Link
-                key={title}
-                href={href}
-                className="group flex items-start gap-4 rounded-2xl border border-white bg-white/80 p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-card sm:p-5"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-green-soft text-green-dark transition-colors group-hover:bg-green-2 group-hover:text-white">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block font-extrabold text-navy">
-                    {title}
+            {supportingServices.map(
+              ({ icon: Icon, title, description, href }) => (
+                <Link
+                  key={title}
+                  href={href}
+                  className="group flex items-start gap-4 rounded-2xl border border-white bg-white/80 p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-card sm:p-5">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-green-soft text-green-dark transition-colors group-hover:bg-green-2 group-hover:text-white">
+                    <Icon className="h-5 w-5" />
                   </span>
-                  <span className="mt-1 block text-xs leading-relaxed text-muted">
-                    {description}
+                  <span>
+                    <span className="block font-extrabold text-navy">
+                      {title}
+                    </span>
+                    <span className="mt-1 block text-xs leading-relaxed text-muted">
+                      {description}
+                    </span>
                   </span>
-                </span>
-              </Link>
-            ))}
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </section>
 
       <section
         id="premium-packages"
-        className="section-pad scroll-mt-20 bg-white"
-      >
+        className="section-pad scroll-mt-20 bg-white">
         <div className="container-wide">
           <SectionHeading
             eyebrow="Premium packages"
@@ -418,8 +398,8 @@ export default function PricingPage() {
             ))}
           </div>
           <p className="mt-8 text-center text-xs leading-relaxed text-muted">
-            Package scope and timelines are subject to required information,
-            CAC processing, and any applicable third-party fees.
+            Package scope and timelines are subject to required information, CAC
+            processing, and any applicable third-party fees.
           </p>
         </div>
       </section>
@@ -449,26 +429,27 @@ export default function PricingPage() {
               </div>
             </div>
             <div className="space-y-3">
-              {supportingServices.map(({ icon: Icon, title, description, href }) => (
-                <Link
-                  key={title}
-                  href={href}
-                  className="group flex items-center gap-4 rounded-2xl border border-line bg-white p-4 shadow-sm transition-all hover:border-green-2/40 hover:shadow-card sm:p-5"
-                >
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-green-soft text-green-dark transition-colors group-hover:bg-green-2 group-hover:text-white">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block font-extrabold text-navy">
-                      {title}
+              {supportingServices.map(
+                ({ icon: Icon, title, description, href }) => (
+                  <Link
+                    key={title}
+                    href={href}
+                    className="group flex items-center gap-4 rounded-2xl border border-line bg-white p-4 shadow-sm transition-all hover:border-green-2/40 hover:shadow-card sm:p-5">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-green-soft text-green-dark transition-colors group-hover:bg-green-2 group-hover:text-white">
+                      <Icon className="h-5 w-5" />
                     </span>
-                    <span className="mt-1 block text-xs leading-relaxed text-muted">
-                      {description}
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-extrabold text-navy">
+                        {title}
+                      </span>
+                      <span className="mt-1 block text-xs leading-relaxed text-muted">
+                        {description}
+                      </span>
                     </span>
-                  </span>
-                  <ArrowRightIcon className="h-5 w-5 shrink-0 text-muted transition-all group-hover:translate-x-1 group-hover:text-green-dark" />
-                </Link>
-              ))}
+                    <ArrowRightIcon className="h-5 w-5 shrink-0 text-muted transition-all group-hover:translate-x-1 group-hover:text-green-dark" />
+                  </Link>
+                ),
+              )}
             </div>
           </div>
         </div>
@@ -483,11 +464,7 @@ export default function PricingPage() {
           />
           <div className="mx-auto grid max-w-5xl items-stretch gap-5 md:grid-cols-2">
             {specialPackages.map((plan, index) => (
-              <DetailPackageCard
-                key={plan.name}
-                plan={plan}
-                index={index}
-              />
+              <DetailPackageCard key={plan.name} plan={plan} index={index} />
             ))}
           </div>
         </div>
@@ -495,8 +472,7 @@ export default function PricingPage() {
 
       <section
         id="standalone"
-        className="section-pad scroll-mt-20 bg-green-pale"
-      >
+        className="section-pad scroll-mt-20 bg-green-pale">
         <div className="container-wide">
           <SectionHeading
             eyebrow="Standalone registrations"
@@ -535,8 +511,7 @@ export default function PricingPage() {
               {addons.map((addon) => (
                 <div
                   key={addon.name}
-                  className="flex min-h-16 items-center justify-between gap-3 rounded-xl border border-line-soft bg-white px-4 py-3"
-                >
+                  className="flex min-h-16 items-center justify-between gap-3 rounded-xl border border-line-soft bg-white px-4 py-3">
                   <span className="text-sm font-medium leading-snug text-ink-soft">
                     {addon.name}
                   </span>
@@ -568,8 +543,7 @@ export default function PricingPage() {
           </p>
           <a
             href={WHATSAPP}
-            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-green-2 px-7 py-3.5 text-sm font-extrabold text-navy shadow-pop transition-all hover:-translate-y-0.5 hover:bg-white"
-          >
+            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-green-2 px-7 py-3.5 text-sm font-extrabold text-navy shadow-pop transition-all hover:-translate-y-0.5 hover:bg-white">
             Chat with us for a quote
             <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>

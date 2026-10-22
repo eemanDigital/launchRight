@@ -123,69 +123,84 @@ const SERVICE_TONES = {
     icon: "text-green-dark",
     body: "text-ink-soft",
     details: "text-navy/55",
-    button: "bg-green-2 text-navy shadow-sm hover:-translate-y-0.5 hover:bg-navy hover:text-white hover:shadow-md",
+    ring: "border-green-2/25 bg-green-2/[0.04]",
+    button:
+      "bg-green-2 text-navy hover:bg-navy hover:text-white",
   },
   mint: {
     card: "bg-green-2 text-navy",
     icon: "text-navy",
     body: "text-navy/75",
     details: "text-navy/60",
-    button: "bg-navy text-white shadow-sm hover:-translate-y-0.5 hover:bg-white hover:text-navy hover:shadow-md",
+    ring: "border-white/35 bg-white/[0.08]",
+    button:
+      "bg-navy text-white hover:bg-white hover:text-navy",
   },
   navy: {
     card: "bg-navy text-white",
     icon: "text-green-2",
     body: "text-white/75",
     details: "text-white/55",
-    button: "bg-white text-navy shadow-sm hover:-translate-y-0.5 hover:bg-green-2 hover:shadow-md",
+    ring: "border-white/25 bg-white/[0.06]",
+    button:
+      "bg-white text-navy hover:bg-green-2",
   },
   sky: {
     card: "bg-blue-soft text-navy",
     icon: "text-blue",
     body: "text-navy/70",
     details: "text-navy/55",
-    button: "bg-blue text-white shadow-sm hover:-translate-y-0.5 hover:bg-navy hover:shadow-md",
+    ring: "border-blue/20 bg-blue/[0.04]",
+    button:
+      "bg-blue text-white hover:bg-navy",
   },
 };
 
 const SERVICE_CTA_NOTCH =
-  "absolute bottom-0 left-0 rounded-tr-[24px] bg-[var(--notch)] pb-2 pr-2 pt-2 " +
-  "after:absolute after:bottom-0 after:left-full after:h-6 after:w-6 after:content-[''] " +
-  "after:bg-[radial-gradient(circle_at_100%_0,transparent_23px,var(--notch)_24px)]";
+  "absolute bottom-0 left-0 rounded-tr-[28px] bg-[var(--notch)] pb-2 pr-3 pt-3 " +
+  "after:absolute after:bottom-0 after:left-full after:h-7 after:w-7 after:content-[''] " +
+  "after:bg-[radial-gradient(circle_at_100%_0,transparent_27px,var(--notch)_28px)]";
 
 function ServiceCard({ s }) {
   const tone = SERVICE_TONES[s.tone] ?? SERVICE_TONES.light;
 
   return (
     <article
-      className={`group relative flex min-h-[320px] flex-col overflow-hidden rounded-3xl p-6 pb-20 transition-transform duration-300 hover:-translate-y-1 sm:p-7 sm:pb-20 ${tone.card}`}>
-      <div className="flex items-center justify-between">
-        <span className={tone.icon}>
-          <Icon name={s.icon} />
-        </span>
-        <span className="font-mono text-xs font-bold tracking-wide opacity-45">
-          {s.num}
-        </span>
+      className={`group relative flex min-h-[320px] flex-col overflow-hidden rounded-3xl p-6 pb-20 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none sm:p-7 sm:pb-20 ${tone.card}`}>
+      <div className="relative z-10 flex flex-1 flex-col">
+        <div className="flex items-center justify-between">
+          <span
+            className={`${tone.icon} transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
+            <Icon name={s.icon} />
+          </span>
+          <span className="font-mono text-xs font-bold tracking-wide opacity-45">
+            {s.num}
+          </span>
+        </div>
+
+        <h3 className="mt-8 text-xl font-bold leading-tight tracking-tight">
+          {s.title}
+        </h3>
+        <p className={`mt-3 text-sm leading-relaxed ${tone.body}`}>
+          {s.description}
+        </p>
+        <p
+          className={`mt-3 text-[11px] font-semibold leading-relaxed ${tone.details}`}>
+          {s.points.join(" · ")}
+        </p>
       </div>
-
-      <h3 className="mt-8 text-xl font-bold leading-tight tracking-tight">
-        {s.title}
-      </h3>
-      <p className={`mt-3 text-sm leading-relaxed ${tone.body}`}>
-        {s.description}
-      </p>
-      <p className={`mt-3 text-[11px] font-semibold leading-relaxed ${tone.details}`}>
-        {s.points.join(" · ")}
-      </p>
-
-      <div className={SERVICE_CTA_NOTCH}>
+      <div className={`${SERVICE_CTA_NOTCH} z-10 transition-shadow duration-500 ease-out group-hover:shadow-[0_10px_24px_rgba(7,29,79,0.18)] motion-reduce:transition-none`}>
         <Link
           href={s.cta.href}
-          className={`group/cta inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${tone.button}`}>
+          className={`group/cta inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${tone.button}`}>
           Explore More
           <Chevron className="h-3.5 w-3.5 transition-transform duration-300 group-hover/cta:translate-x-1" />
         </Link>
       </div>
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute -bottom-6 -right-3 z-0 h-24 w-24 rounded-full border-[14px] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-125 group-hover:rotate-12 motion-reduce:transition-none ${tone.ring}`}
+      />
     </article>
   );
 }
@@ -194,8 +209,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-surface py-20 [--notch:var(--color-surface)] sm:py-24 lg:py-28"
-    >
+      className="bg-surface py-20 [--notch:var(--color-surface)] sm:py-24 lg:py-28">
       <div className="container-wide">
         <div className="grid items-end gap-5 lg:grid-cols-[1.2fr,0.8fr] lg:gap-16">
           <div>
@@ -363,37 +377,42 @@ export function AllInOneSection() {
     <section className="bg-surface px-4 pb-20 sm:px-6 sm:pb-24 lg:px-8 lg:pb-28">
       <div className="container-wide">
         <div className="relative grid gap-10 overflow-hidden rounded-[2rem] bg-navy p-7 shadow-cover sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-16 lg:p-14">
-          <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full border-[48px] border-white/[0.04]" />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full border-[48px] border-white/[0.04]"
+          />
           <div className="relative">
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-green-2">
-            {allInOne.eyebrow}
-          </p>
-          <h2 className="mt-4 max-w-xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-5xl">
-            {allInOne.heading}
-          </h2>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70">
-            {allInOne.text}
-          </p>
-          <Link
-            href={allInOne.cta.href}
-            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy transition-all hover:-translate-y-0.5 hover:bg-white">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-green-2">
+              {allInOne.eyebrow}
+            </p>
+            <h2 className="mt-4 max-w-xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-5xl">
+              {allInOne.heading}
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70">
+              {allInOne.text}
+            </p>
+            <Link
+              href={allInOne.cta.href}
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy transition-all hover:-translate-y-0.5 hover:bg-white">
               {allInOne.cta.label}
               <DoubleChevron />
-          </Link>
-        </div>
+            </Link>
+          </div>
 
-        <ol className="relative grid gap-3">
-          {allInOne.list.map((item, i) => (
-            <li
-              key={item}
-              className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 transition-colors hover:border-green-2/40 hover:bg-white/[0.09]">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-green-2/15 font-mono text-xs font-bold text-green-2">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="text-base font-semibold text-white sm:text-lg">{item}</span>
-            </li>
-          ))}
-        </ol>
+          <ol className="relative grid gap-3">
+            {allInOne.list.map((item, i) => (
+              <li
+                key={item}
+                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 transition-colors hover:border-green-2/40 hover:bg-white/[0.09]">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-green-2/15 font-mono text-xs font-bold text-green-2">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-base font-semibold text-white sm:text-lg">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

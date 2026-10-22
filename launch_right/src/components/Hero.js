@@ -158,18 +158,18 @@ export default function Hero() {
                 the navy panel so the clip-path diagonal reads as a wedge. The
                 stat badge and call card float inside the photo at every
                 breakpoint, right-aligned and sized to their content. ——— */}
-          <div className="relative h-[340px] sm:h-[420px] lg:absolute lg:inset-0 lg:h-auto overflow-hidden rounded-bl-[44px] rounded-br-[44px] lg:rounded-tl-[70px] lg:rounded-tr-[70px]">
+          <div className="relative h-[340px] sm:h-[420px] lg:absolute lg:inset-0 lg:h-auto overflow-hidden ">
             <motion.img
-              src="/image/hero-studio.jpg"
+              src="/image/building.jpg"
               alt="JurisTech team working on client software and website projects"
-              width={1600}
-              height={1067}
+              width={1400}
+              height={800}
               loading="eager"
               initial={{ scale: 1.12 }}
               animate={{ scale: 1 }}
               transition={{ duration: 1.8, ease: "easeOut" }}
               whileHover={{ scale: 1.05 }}
-              className="absolute inset-0 w-full h-full object-cover object-center grayscale contrast-[1.05]"
+              className="absolute inset-0 h-full  w-full object-center transition-transform duration-300"
             />
             {/* Navy wash so the photo sits inside the panel's colour world */}
             <div className="absolute inset-0 bg-gradient-to-r from-navy/45 via-navy/20 to-navy/10" />

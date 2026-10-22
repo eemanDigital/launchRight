@@ -8,17 +8,17 @@ import { stages, site } from "@/lib/homeData";
 
 const photos = {
   meeting: {
-    src: "/images/about/meeting-african.jpg",
+    src: "/images/services-2.jpg",
     alt: "Entrepreneurs planning their next stage of growth",
     caption: "Good ideas deserve a clear plan.",
   },
   team: {
-    src: "/images/about/team-african.jpg",
+    src: "/images/services-1.jpg",
     alt: "JurisTech team collaborating on a client project",
     caption: "One team for the whole journey.",
   },
   celebration: {
-    src: "/images/about/celebration-african.jpg",
+    src: "/images/growth.jpg",
     alt: "Business owners celebrating a milestone",
     caption: "Built to help you move forward.",
   },
@@ -39,14 +39,12 @@ function StageCard({ stage, active, onSelect }) {
         active
           ? "border-green-2 bg-green-pale shadow-card"
           : "border-line bg-white hover:-translate-y-0.5 hover:border-green-2/50 hover:shadow-card"
-      }`}
-    >
+      }`}>
       <span className="flex w-full items-center justify-between">
         <span
           className={`grid h-11 w-11 place-items-center rounded-xl transition-colors duration-300 ${
             active ? "bg-green-2 text-navy" : "bg-surface text-navy"
-          }`}
-        >
+          }`}>
           <Icon className="h-6 w-6" strokeWidth={1.7} />
         </span>
         <ArrowRightIcon
@@ -70,8 +68,7 @@ function StageCard({ stage, active, onSelect }) {
 function PhotoTile({ photo, className = "" }) {
   return (
     <figure
-      className={`group relative min-h-[190px] overflow-hidden rounded-3xl bg-navy ${className}`}
-    >
+      className={`group relative min-h-[190px] overflow-hidden rounded-3xl bg-navy ${className}`}>
       <img
         src={photo.src}
         alt={photo.alt}
@@ -113,8 +110,7 @@ export default function WhoFor() {
         <div
           role="tablist"
           aria-label="Choose your business stage"
-          className="grid gap-4 md:grid-cols-2 lg:gap-5"
-        >
+          className="grid gap-4 md:grid-cols-2 lg:gap-5">
           <div className="grid gap-4 lg:gap-5">
             <StageCard
               stage={stages[0]}
@@ -126,17 +122,26 @@ export default function WhoFor() {
               active={active.id === stages[1].id}
               onSelect={() => setActive(stages[1])}
             />
-            <PhotoTile photo={photos.team} className="min-h-[280px] sm:min-h-[320px]" />
+            <PhotoTile
+              photo={photos.team}
+              className="min-h-[280px] sm:min-h-[320px]"
+            />
           </div>
 
           <div className="grid gap-4 lg:gap-5">
-            <PhotoTile photo={photos.meeting} className="min-h-[280px] sm:min-h-[320px]" />
+            <PhotoTile
+              photo={photos.meeting}
+              className="min-h-[280px] sm:min-h-[320px]"
+            />
             <StageCard
               stage={stages[2]}
               active={active.id === stages[2].id}
               onSelect={() => setActive(stages[2])}
             />
-            <PhotoTile photo={photos.celebration} className="min-h-[260px] sm:min-h-[300px]" />
+            <PhotoTile
+              photo={photos.celebration}
+              className="min-h-[260px] sm:min-h-[300px]"
+            />
           </div>
         </div>
 
@@ -150,8 +155,7 @@ export default function WhoFor() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="mt-6 flex flex-col gap-6 rounded-3xl bg-navy p-6 text-white sm:mt-7 sm:flex-row sm:items-center sm:justify-between sm:p-8"
-          >
+            className="mt-6 flex flex-col gap-6 rounded-3xl bg-navy p-6 text-white sm:mt-7 sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div className="flex items-start gap-4">
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-green-2 text-navy">
                 <ActiveIcon className="h-6 w-6" strokeWidth={1.7} />
@@ -164,8 +168,7 @@ export default function WhoFor() {
                   {active.tags.map((tag) => (
                     <li
                       key={tag}
-                      className="rounded-full border border-white/20 px-3 py-1.5 text-[11px] font-semibold text-white/80"
-                    >
+                      className="rounded-full border border-white/20 px-3 py-1.5 text-[11px] font-semibold text-white/80">
                       {tag}
                     </li>
                   ))}
@@ -176,12 +179,7 @@ export default function WhoFor() {
               <Button href={active.href} size="sm">
                 {active.cta}
               </Button>
-              <Button
-                href={site.whatsapp}
-                external
-                variant="outline"
-                size="sm"
-              >
+              <Button href={site.whatsapp} external variant="outline" size="sm">
                 Chat With Us
               </Button>
             </div>

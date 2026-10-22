@@ -131,8 +131,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative z-10 max-w-2xl"
-          >
+            className="relative z-10 max-w-2xl">
             <p className="eyebrow-label">Meet the founder</p>
             <h1 className="mt-5 text-4xl font-black leading-[1.04] tracking-tight text-navy sm:text-5xl lg:text-6xl">
               Legal insight.
@@ -149,15 +148,13 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="#our-story"
-                className="group inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-light"
-              >
+                className="group inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-light">
                 Get to know us
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-white"
-              >
+                className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-white">
                 Work with us
               </Link>
             </div>
@@ -167,8 +164,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative mx-auto h-[360px] w-full max-w-[530px] sm:h-[440px] lg:h-[500px]"
-          >
+            className="relative mx-auto h-[360px] w-full max-w-[530px] sm:h-[440px] lg:h-[500px]">
             <div className="absolute inset-x-8 top-0 h-[88%] overflow-hidden rounded-t-[10rem] rounded-b-[2rem] border-[6px] border-white shadow-cover sm:inset-x-12">
               <img
                 src="/image/my-image.png"
@@ -195,13 +191,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-label="Founder qualifications" className="border-b border-line bg-white">
+      <section
+        aria-label="Founder qualifications"
+        className="border-b border-line bg-white">
         <div className="container-wide grid grid-cols-2 gap-4 py-7 sm:grid-cols-4 sm:gap-6 sm:py-9">
           {credentials.map(({ icon: Icon, text }) => (
             <div
               key={text}
-              className="flex items-center justify-center gap-2 text-center text-xs font-bold text-navy sm:text-sm"
-            >
+              className="flex items-center justify-center gap-2 text-center text-xs font-bold text-navy sm:text-sm">
               <Icon className="h-5 w-5 shrink-0 text-green-2" />
               <span>{text}</span>
             </div>
@@ -227,8 +224,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
             viewport={{ once: true }}
-            className="grid overflow-hidden rounded-[2rem] bg-green-pale shadow-card md:grid-cols-2"
-          >
+            className="grid overflow-hidden rounded-[2rem] bg-green-pale shadow-card md:grid-cols-2">
             <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
               <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-green-dark">
                 Why JurisTech began
@@ -245,9 +241,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Coordinating different providers made the process harder and
-                  more expensive. So I became a CAC-accredited agent and
-                  learned to build software, bringing those capabilities
-                  together under one roof.
+                  more expensive. So I became a CAC-accredited agent and learned
+                  to build software, bringing those capabilities together under
+                  one roof.
                 </p>
                 <p>
                   Today, JurisTech combines legal practice, business
@@ -257,22 +253,23 @@ export default function AboutPage() {
               </div>
               <Link
                 href="/services"
-                className="group mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-navy shadow-sm transition-all hover:-translate-y-0.5 hover:text-green-dark"
-              >
+                className="group mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-navy shadow-sm transition-all hover:-translate-y-0.5 hover:text-green-dark">
                 Explore what we do
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
             <div className="relative min-h-[300px] sm:min-h-[380px]">
               <img
-                src="/images/about/meeting-african.jpg"
+                src="/images/services/hero-office.jpg"
                 alt="Business team working together around a table"
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-pop backdrop-blur sm:bottom-7 sm:left-7">
-                <span className="text-2xl font-black text-green-dark">2,000+</span>
+                <span className="text-2xl font-black text-green-dark">
+                  2,000+
+                </span>
                 <span className="max-w-24 text-xs font-semibold leading-snug text-navy">
                   businesses served
                 </span>
@@ -290,30 +287,31 @@ export default function AboutPage() {
             description="Our approach connects the essentials, so entrepreneurs can focus on building what comes next."
           />
           <div className="grid gap-5 md:grid-cols-3">
-            {principles.map(({ icon: Icon, title, description, color }, index) => (
-              <motion.article
-                key={title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className={`relative flex min-h-[280px] flex-col overflow-hidden rounded-3xl p-7 sm:p-8 ${color}`}
-              >
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-navy shadow-sm">
-                  <Icon className="h-7 w-7" />
-                </div>
-                <h3 className="mt-6 text-xl font-extrabold tracking-tight text-navy">
-                  {title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {description}
-                </p>
-                <div
-                  className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-white/40"
-                  aria-hidden="true"
-                />
-              </motion.article>
-            ))}
+            {principles.map(
+              ({ icon: Icon, title, description, color }, index) => (
+                <motion.article
+                  key={title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                  className={`relative flex min-h-[280px] flex-col overflow-hidden rounded-3xl p-7 sm:p-8 ${color}`}>
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-navy shadow-sm">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-extrabold tracking-tight text-navy">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                    {description}
+                  </p>
+                  <div
+                    className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-white/40"
+                    aria-hidden="true"
+                  />
+                </motion.article>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -326,8 +324,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="relative min-h-[340px] sm:min-h-[440px]"
-            >
+              className="relative min-h-[340px] sm:min-h-[440px]">
               <img
                 src="/images/about/team-african.jpg"
                 alt="JurisTech colleagues collaborating on business solutions"
@@ -348,17 +345,16 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 18 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }}>
               <span className="eyebrow-label">A personal commitment</span>
               <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl">
                 Your business deserves a team that sees the whole picture.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted">
-                When you work with JurisTech, you work with me directly. My
-                name is on every document we produce, my accreditation number
-                is on every CAC filing, and my code powers the systems we
-                build. I personally stand behind the work we deliver.
+                When you work with JurisTech, you work with me directly. My name
+                is on every document we produce, my accreditation number is on
+                every CAC filing, and my code powers the systems we build. I
+                personally stand behind the work we deliver.
               </p>
               <div className="mt-6 space-y-3">
                 {[
@@ -375,15 +371,13 @@ export default function AboutPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy shadow-pop transition-all hover:-translate-y-0.5 hover:bg-green-dark hover:text-white"
-                >
+                  className="group inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy shadow-pop transition-all hover:-translate-y-0.5 hover:bg-green-dark hover:text-white">
                   Talk to our team
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/tools/document-generator"
-                  className="inline-flex items-center rounded-full border border-line px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-green-pale"
-                >
+                  className="inline-flex items-center rounded-full border border-line px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-green-pale">
                   Try our free tools
                 </Link>
               </div>
@@ -407,12 +401,10 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="h-full"
-              >
+                className="h-full">
                 <Link
                   href={build.href}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-green-2/40 hover:shadow-pop"
-                >
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-green-2/40 hover:shadow-pop">
                   <div className="relative aspect-[1.65] overflow-hidden bg-green-pale">
                     <img
                       src={build.image}
@@ -421,8 +413,7 @@ export default function AboutPage() {
                       loading="lazy"
                     />
                     <span
-                      className={`absolute left-4 top-4 rounded-full border bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur ${build.statusColor}`}
-                    >
+                      className={`absolute left-4 top-4 rounded-full border bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur ${build.statusColor}`}>
                       <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-current" />
                       {build.status}
                     </span>
@@ -466,12 +457,10 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.07 }}
-                viewport={{ once: true }}
-              >
+                viewport={{ once: true }}>
                 <Link
                   href="/services"
-                  className={`group relative flex min-h-[280px] h-full flex-col overflow-hidden rounded-3xl p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-pop sm:p-8 ${color}`}
-                >
+                  className={`group relative flex min-h-[280px] h-full flex-col overflow-hidden rounded-3xl p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-pop sm:p-8 ${color}`}>
                   <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-green-dark shadow-sm transition-all duration-300 group-hover:-rotate-3 group-hover:scale-105 group-hover:bg-green-2 group-hover:text-white">
                     <Icon className="h-6 w-6" />
                   </span>

@@ -20,7 +20,7 @@ export default function Pricing() {
     {
       icon: DocumentTextIcon,
       name: "NGO & Foundation",
-      desc: "Churches, charities, non-profits",
+      desc: "clubs charities non-profits",
       link: "/pricing",
     },
     {
@@ -44,7 +44,9 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="section-pad mesh-gradient-bg relative overflow-hidden">
+    <section
+      id="pricing"
+      className="section-pad mesh-gradient-bg relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-gold/4 to-transparent rounded-full blur-3xl" />
       </div>
@@ -61,7 +63,8 @@ export default function Pricing() {
             Transparent Pricing, Real Results
           </h2>
           <p className="text-muted max-w-2xl mx-auto text-lg">
-            CAC registration, professional websites, and legal documents — all from one team. No hidden fees.
+            CAC registration, professional websites, and legal documents — all
+            from one team. No hidden fees.
           </p>
         </motion.div>
 
@@ -95,29 +98,36 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <div className={`p-8 ${isHighlighted || plan.badge ? "pt-8" : ""}`}>
-                  <p className={`text-sm font-medium mb-1 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
+                <div
+                  className={`p-8 ${isHighlighted || plan.badge ? "pt-8" : ""}`}>
+                  <p
+                    className={`text-sm font-medium mb-1 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
                     {plan.subtitle}
                   </p>
-                  <h3 className={`text-lg font-bold mb-1 tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
+                  <h3
+                    className={`text-lg font-bold mb-1 tracking-tight ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
                     {plan.name}
                   </h3>
                   {plan.tagline && (
-                    <p className={`text-sm font-medium mb-5 ${isHighlighted || isDark ? "text-gold" : "text-gold"}`}>
+                    <p
+                      className={`text-sm font-medium mb-5 ${isHighlighted || isDark ? "text-gold" : "text-gold"}`}>
                       {plan.tagline}
                     </p>
                   )}
 
                   <div className="my-6">
-                    <span className={`text-sm ${isHighlighted || isDark ? "text-gray-400" : "text-muted-light"}`}>
+                    <span
+                      className={`text-sm ${isHighlighted || isDark ? "text-gray-400" : "text-muted-light"}`}>
                       From
                     </span>
-                    <span className={`text-4xl font-extrabold tracking-tight ml-1.5 ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
+                    <span
+                      className={`text-4xl font-extrabold tracking-tight ml-1.5 ${isHighlighted || isDark ? "text-white" : "text-navy"}`}>
                       {plan.price}
                     </span>
                   </div>
 
-                  <div className={`flex items-center gap-2 text-sm font-medium mb-6 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
+                  <div
+                    className={`flex items-center gap-2 text-sm font-medium mb-6 ${isHighlighted || isDark ? "text-gray-400" : "text-muted"}`}>
                     <ClockIcon className="w-4 h-4" />
                     <span>{plan.timeline}</span>
                   </div>
@@ -125,8 +135,15 @@ export default function Pricing() {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm">
-                        <CheckIcon className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : "text-success"}`} />
-                        <span className={isHighlighted || isDark ? "text-gray-300" : "text-gray-600"}>
+                        <CheckIcon
+                          className={`w-4 h-4 flex-shrink-0 mt-0.5 ${isHighlighted || isDark ? "text-gold" : "text-success"}`}
+                        />
+                        <span
+                          className={
+                            isHighlighted || isDark
+                              ? "text-gray-300"
+                              : "text-gray-600"
+                          }>
                           {feature}
                         </span>
                       </li>
@@ -142,11 +159,17 @@ export default function Pricing() {
                           ? "bg-gold text-white hover:bg-gold-light"
                           : "bg-navy text-white hover:bg-navy-light"
                     }`}
-                    onClick={() => event('SelectPlan', { plan_name: plan.name, price: plan.price })}>
+                    onClick={() =>
+                      event("SelectPlan", {
+                        plan_name: plan.name,
+                        price: plan.price,
+                      })
+                    }>
                     {getCTAText(plan)}
                   </a>
 
-                  <p className={`text-xs italic text-center mt-4 ${isHighlighted || isDark ? "text-gray-500" : "text-muted"}`}>
+                  <p
+                    className={`text-xs italic text-center mt-4 ${isHighlighted || isDark ? "text-gray-500" : "text-muted"}`}>
                     "{plan.highlight}"
                   </p>
                 </div>
@@ -164,10 +187,13 @@ export default function Pricing() {
           <div className="bg-gradient-to-r from-gold/8 via-gold/4 to-gold/8 rounded-2xl p-6 text-center border border-gold/15">
             <div className="flex items-center justify-center gap-2 mb-2">
               <SparklesIcon className="w-5 h-5 text-gold" />
-              <span className="font-semibold text-navy">Personal Attention, Every Time</span>
+              <span className="font-semibold text-navy">
+                Personal Attention, Every Time
+              </span>
             </div>
             <p className="text-muted text-sm">
-              We limit client intake weekly to ensure quality delivery and dedicated support for your project.
+              We limit client intake weekly to ensure quality delivery and
+              dedicated support for your project.
             </p>
           </div>
         </motion.div>
@@ -215,12 +241,18 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mt-16">
           <p className="text-muted mb-4">
-            Need NGO registration, Foreign Investor packages, or custom services?
+            Need NGO registration, Foreign Investor packages, or custom
+            services?
           </p>
           <a
             href="https://wa.me/message/KTFL2G2JM3JTP1"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy text-white font-bold rounded-xl hover:bg-navy-light transition-colors shadow-lg shadow-navy/10"
-            onClick={() => event('Contact', { content_name: 'Pricing Custom Quote', method: 'WhatsApp' })}>
+            onClick={() =>
+              event("Contact", {
+                content_name: "Pricing Custom Quote",
+                method: "WhatsApp",
+              })
+            }>
             Chat With Us for a Tailored Quote
             <ArrowRightIcon className="w-4 h-4" />
           </a>

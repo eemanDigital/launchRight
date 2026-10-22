@@ -66,7 +66,7 @@ export const about = {
       alt: "JurisTech team at work",
     },
     secondary: {
-      src: "/images/about/meeting-african.jpg",
+      src: "/images/about/handshake.jpg",
       alt: "Clients collaborating",
     },
   },
