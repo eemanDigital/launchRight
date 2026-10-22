@@ -275,7 +275,7 @@ We also offer an affordable annual returns filing service at ₦15,000 per year 
     categoryColor: "bg-blue-100 text-blue-700",
     readTime: "5 min read",
     date: "2025-03-15",
-    cover: "/blog/founder-story.jpg",
+    cover: "/image/blog-legal-tips.svg",
     content: `## The Problem I Kept Seeing
 
 Early in my legal practice, I noticed a pattern that frustrated me deeply. Hardworking Nigerian entrepreneurs would come to my office needing legal documents — contracts, agreements, compliance filings. The documents themselves were straightforward. But the real problem wasn't legal; it was structural.
@@ -345,7 +345,7 @@ If you're building something in Nigeria — a business, a product, a career — 
     categoryColor: "bg-blue-100 text-blue-700",
     readTime: "7 min read",
     date: "2025-03-05",
-    cover: "/blog/bn-vs-ltd.jpg",
+    cover: "/image/blog-cac-guide.svg",
     content: `## The Question That Starts Every Conversation
 
 Every single day at JurisTech, someone asks us: "Should I register a Business Name or a Limited Company?"

@@ -74,7 +74,7 @@ export default function Home() {
       {/* <OldVsNew /> */}
       {/* <HowWeWork /> */}
       <WhoFor />
-      <StatsBand />
+      {/* <StatsBand /> */}
       <HomeCTA />
       <TestimonialsSection />
       <FAQSection />

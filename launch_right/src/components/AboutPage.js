@@ -3,388 +3,494 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
+  ArrowRightIcon,
+  BuildingOfficeIcon,
+  CheckBadgeIcon,
+  CheckCircleIcon,
+  CodeBracketIcon,
+  ComputerDesktopIcon,
   ScaleIcon,
   ShieldCheckIcon,
-  CodeBracketIcon,
-  ArrowRightIcon,
-  CheckCircleIcon,
-  BuildingOfficeIcon,
-  ComputerDesktopIcon,
 } from "@heroicons/react/24/outline";
 
 const credentials = [
-  { icon: ScaleIcon, text: "Called to the Nigerian Bar", accent: "blue" },
-  { icon: ShieldCheckIcon, text: "CAC-Accredited Agent", accent: "green" },
-  { icon: CodeBracketIcon, text: "MERN Stack Developer", accent: "green" },
-  { icon: CheckCircleIcon, text: "NBA Member", accent: "blue" },
+  { icon: ScaleIcon, text: "Called to the Nigerian Bar" },
+  { icon: ShieldCheckIcon, text: "CAC-accredited agent" },
+  { icon: CodeBracketIcon, text: "MERN stack developer" },
+  { icon: CheckBadgeIcon, text: "NBA member" },
 ];
 
-const credentialAccents = {
-  blue: {
-    tile: "from-blue to-blue-2",
-    ring: "border-blue-2/30",
+const principles = [
+  {
+    icon: ScaleIcon,
+    title: "Legal foundations",
+    description:
+      "Sound legal guidance and compliant documentation help businesses start with clarity and operate with confidence.",
+    color: "bg-green-soft",
   },
-  green: {
-    tile: "from-green to-green-2",
-    ring: "border-green-2/30",
+  {
+    icon: ComputerDesktopIcon,
+    title: "Practical technology",
+    description:
+      "Websites, software, and digital tools should solve real business problems and make everyday work simpler.",
+    color: "bg-blue-soft",
   },
-};
+  {
+    icon: BuildingOfficeIcon,
+    title: "Growth that lasts",
+    description:
+      "We bring legal, compliance, and technology support together so businesses can move forward without unnecessary handoffs.",
+    color: "bg-mist",
+  },
+];
 
 const currentBuilds = [
   {
     name: "JurisTech",
-    desc: "Legal-tech business services platform",
+    description: "Legal-tech business services platform",
     status: "Live",
-    statusColor: "bg-green-2/15 text-green-2 border-green-2/30",
+    statusColor: "border-green-2/30 bg-green-2/10 text-green-dark",
+    image: "/image/juristech-cover-page.png",
+    href: "/",
   },
   {
     name: "VendPadi",
-    desc: "WhatsApp storefront for Nigerian merchants",
+    description: "WhatsApp storefront for Nigerian merchants",
     status: "Beta",
-    statusColor: "bg-blue-2/15 text-blue-2 border-blue-2/30",
+    statusColor: "border-blue-2/30 bg-blue-2/10 text-blue",
+    image: "/image/product-vendpadi.svg",
+    href: "/products#vendpadi",
   },
   {
     name: "case-master-app",
-    desc: "Law firm management software",
-    status: "In Development",
-    statusColor: "bg-blue-2/15 text-blue-2 border-blue-2/30",
+    description: "Law firm management software",
+    status: "In development",
+    statusColor: "border-blue-2/30 bg-blue-2/10 text-blue",
+    image: "/image/product-casemaster.svg",
+    href: "/products#case-master",
   },
 ];
 
-const servicesOverview = [
+const services = [
   {
     icon: BuildingOfficeIcon,
-    name: "CAC Registration",
-    desc: "Business Name, LTD, NGO",
-    link: "/services",
-    tile: "from-blue to-blue-2",
+    name: "CAC registration",
+    description: "Business names, limited companies, and NGOs.",
+    color: "bg-green-soft",
   },
   {
     icon: ScaleIcon,
-    name: "Legal Documents",
-    desc: "Contracts, Agreements, Compliance",
-    link: "/services",
-    tile: "from-green to-green-2",
+    name: "Legal documents",
+    description: "Contracts, agreements, and compliance support.",
+    color: "bg-blue-soft",
   },
   {
     icon: CodeBracketIcon,
-    name: "Website Development",
-    desc: "Landing pages to e-commerce",
-    link: "/services",
-    tile: "from-blue-2 to-green-2",
+    name: "Website development",
+    description: "Professional websites, from landing pages to e-commerce.",
+    color: "bg-green-pale",
   },
   {
     icon: ComputerDesktopIcon,
-    name: "Custom Software",
-    desc: "SaaS, Mobile, POS systems",
-    link: "/services",
-    tile: "from-green to-green-2",
+    name: "Custom software",
+    description: "Purpose-built SaaS, mobile, and business systems.",
+    color: "bg-mist",
   },
 ];
 
+function SectionHeading({ eyebrow, title, description }) {
+  return (
+    <div className="mx-auto mb-12 max-w-2xl text-center">
+      <span className="eyebrow-label">{eyebrow}</span>
+      <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl">
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+          {description}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="band-cover relative overflow-hidden">
-        <div className="absolute inset-0 hero-gradient-cover" />
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-1/4 w-72 h-72 bg-blue-2/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-green-2/20 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container-wide relative pt-32 pb-16 lg:pt-40 lg:pb-20">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 min-w-0">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex-shrink-0 min-w-0">
-              <div className="relative">
-                {/* orbit slots */}
-                <div className="absolute -inset-4 rounded-full border border-dashed border-blue-2/30 animate-spin-slow [animation-duration:36s]" />
-                <div className="absolute -inset-8 rounded-full border border-white/10" />
-                <div className="w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden ring-2 ring-green-2/40 shadow-cover">
-                  <img
-                    src="/image/my-image.png"
-                    alt="Lukman Asinmi - Founder of JurisTech"
-                    className="w-full h-full object-cover object-[center_15%]"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-3 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-green-2 to-green-dark text-white px-4 py-2 font-bold text-xs shadow-[0_10px_24px_rgba(22,166,106,0.4)]">
-                  <ShieldCheckIcon className="w-4 h-4" />
-                  CAC Accredited
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex-1 text-center lg:text-left min-w-0">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
-                <span className="w-2 h-2 bg-green-2 rounded-full animate-pulse" />
-                <span className="text-white/80 text-sm font-medium">
-                  Lawyer · CAC Agent · Developer
-                </span>
-              </motion.div>
-
-              <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight tracking-tight">
-                Lukman Asinmi
-              </h1>
-              <p className="text-green-2 text-lg md:text-xl mb-4 font-semibold">
-                Lawyer. CAC Agent. Developer. Founder of JurisTech.
-              </p>
-              <p className="text-white/70 text-lg leading-relaxed max-w-xl">
-                I built JurisTech at the intersection of law, compliance, and
-                technology — because Nigerian businesses deserve all three from
-                someone who actually understands them.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Background Story */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <svg className="absolute top-0 left-0 w-full opacity-[0.04] pointer-events-none" viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path fill="none" stroke="#2d7cff" strokeWidth="2" d="M0,70 C160,10 320,110 480,60 C640,10 800,110 960,60 C1120,10 1280,110 1440,50" />
-        </svg>
-        <div className="container-wide">
-          <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="mb-8">
-              <span className="eyebrow-label">MY STORY</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
-                How JurisTech <span className="text-gradient-brand">Came to Be</span>
-              </h2>
-            </motion.div>
-
-            <div className="space-y-5 text-muted leading-relaxed text-lg">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}>
-                Early in my legal practice, I kept watching the same pattern
-                play out. Entrepreneurs would come to my office needing legal
-                documents — contracts, agreements, compliance filings. The
-                documents themselves were straightforward. But the real problem
-                wasn't legal; it was structural.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}>
-                These entrepreneurs needed three things simultaneously: legal
-                documents and compliance support, CAC registration and
-                regulatory filings, and a professional website and digital
-                presence. And the people struggling the most were the ones who
-                could least afford to hire three different professionals.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}>
-                I became a CAC-accredited agent so I could handle registration
-                filings directly. Then I taught myself to code — JavaScript,
-                React, Node.js, the full MERN stack — because the problems I saw
-                in my legal practice couldn't be solved with documents alone.
-                The bottlenecks were technological. The inefficiencies were
-                systemic.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}>
-                JurisTech is the answer. It's a legal-tech company that combines
-                legal practice, CAC accreditation, and software development
-                under one roof. I'm not outsourcing any of these disciplines. I
-                personally oversee and execute across all three. Every
-                registration, every website, every document that leaves
-                JurisTech meets a standard I am personally willing to put my
-                name on.
-              </motion.p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Credentials */}
-      <section className="py-16 bg-surface">
-        <div className="container-wide">
-          <div className="text-center mb-12">
-            <span className="eyebrow-label mb-4 inline-flex">CREDENTIALS</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 tracking-tight">
-              Qualifications
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {credentials.map((cred, index) => {
-              const accent = credentialAccents[cred.accent];
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-6 text-center border border-line shadow-soft">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${accent.tile} rounded-lg flex items-center justify-center mx-auto mb-4 shadow-md shadow-black/10`}>
-                    <cred.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <p className="text-sm font-bold text-navy leading-snug">
-                    {cred.text}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Current Builds */}
-      <section className="py-20 bg-white">
-        <div className="container-wide">
-          <div className="text-center mb-16">
-            <span className="eyebrow-label mb-4 inline-flex">CURRENT PROJECTS</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 mb-5 tracking-tight">
-              What I&apos;m <span className="text-gradient-brand">Building</span>
-            </h2>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
-              Products and platforms currently in development or live
+    <main className="min-h-screen overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-green-pale">
+        <div
+          className="pointer-events-none absolute -right-20 top-12 h-72 w-72 rounded-full border-[42px] border-green-2/10 sm:h-96 sm:w-96"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-16 left-0 h-40 w-40 rounded-full bg-blue-2/10 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="container-wide relative grid items-center gap-10 pb-16 pt-32 sm:pb-20 sm:pt-36 lg:min-h-[600px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pb-24 lg:pt-40">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 max-w-2xl"
+          >
+            <p className="eyebrow-label">Meet the founder</p>
+            <h1 className="mt-5 text-4xl font-black leading-[1.04] tracking-tight text-navy sm:text-5xl lg:text-6xl">
+              Legal insight.
+              <br />
+              <span className="text-green-2">Digital thinking.</span>
+              <br />
+              Business built better.
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
+              I&apos;m Lukman Asinmi, a Nigerian lawyer, CAC-accredited agent,
+              and software developer. I built JurisTech to bring the legal and
+              digital support businesses need together in one place.
             </p>
-          </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="#our-story"
+                className="group inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-light"
+              >
+                Get to know us
+                <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-white"
+              >
+                Work with us
+              </Link>
+            </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {currentBuilds.map((build, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 border border-line shadow-card relative overflow-hidden">
-                <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-blue-2/40 to-transparent" />
-                <div className="flex items-center justify-between mb-5">
-                  <h3 className="font-bold text-navy text-lg tracking-tight">{build.name}</h3>
-                  <span
-                    className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${build.statusColor}`}>
-                    <span className="w-1.5 h-1.5 inline-block rounded-full bg-current mr-1.5" />
-                    {build.status}
-                  </span>
-                </div>
-                <p className="text-muted text-sm leading-relaxed">
-                  {build.desc}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative mx-auto h-[360px] w-full max-w-[530px] sm:h-[440px] lg:h-[500px]"
+          >
+            <div className="absolute inset-x-8 top-0 h-[88%] overflow-hidden rounded-t-[10rem] rounded-b-[2rem] border-[6px] border-white shadow-cover sm:inset-x-12">
+              <img
+                src="/image/my-image.png"
+                alt="Lukman Asinmi, founder of JurisTech"
+                className="h-full w-full object-cover object-[center_15%]"
+                fetchPriority="high"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
+            </div>
+            <div className="absolute bottom-0 left-0 z-10 flex items-center gap-3 rounded-2xl bg-navy px-5 py-4 text-white shadow-pop sm:left-2">
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-green-2 text-navy">
+                <CheckBadgeIcon className="h-6 w-6" />
+              </span>
+              <div>
+                <p className="text-sm font-extrabold">Law + tech</p>
+                <p className="text-xs text-white/70">One accountable team</p>
+              </div>
+            </div>
+            <div
+              className="absolute right-0 top-12 hidden h-20 w-20 rotate-12 rounded-2xl border-2 border-green-2/40 sm:block"
+              aria-hidden="true"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      <section aria-label="Founder qualifications" className="border-b border-line bg-white">
+        <div className="container-wide grid grid-cols-2 gap-4 py-7 sm:grid-cols-4 sm:gap-6 sm:py-9">
+          {credentials.map(({ icon: Icon, text }) => (
+            <div
+              key={text}
+              className="flex items-center justify-center gap-2 text-center text-xs font-bold text-navy sm:text-sm"
+            >
+              <Icon className="h-5 w-5 shrink-0 text-green-2" />
+              <span>{text}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="our-story" className="section-pad bg-white">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="Our story"
+            title={
+              <>
+                One vision, built at the intersection of{" "}
+                <span className="text-green-dark">law and technology</span>
+              </>
+            }
+            description="JurisTech exists to make it easier for Nigerian businesses to get the right foundations and tools to move forward."
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            viewport={{ once: true }}
+            className="grid overflow-hidden rounded-[2rem] bg-green-pale shadow-card md:grid-cols-2"
+          >
+            <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-green-dark">
+                Why JurisTech began
+              </p>
+              <h3 className="mt-4 text-2xl font-extrabold leading-tight text-navy sm:text-3xl">
+                Businesses shouldn&apos;t have to piece together the support
+                they need.
+              </h3>
+              <div className="mt-5 space-y-4 text-sm leading-relaxed text-ink-soft sm:text-base">
+                <p>
+                  In legal practice, I kept meeting entrepreneurs who needed
+                  more than documents. They also needed CAC registration,
+                  compliance support, and a professional digital presence.
                 </p>
-              </motion.div>
+                <p>
+                  Coordinating different providers made the process harder and
+                  more expensive. So I became a CAC-accredited agent and
+                  learned to build software, bringing those capabilities
+                  together under one roof.
+                </p>
+                <p>
+                  Today, JurisTech combines legal practice, business
+                  incorporation, and technology to help businesses launch,
+                  operate, and grow with confidence.
+                </p>
+              </div>
+              <Link
+                href="/services"
+                className="group mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-navy shadow-sm transition-all hover:-translate-y-0.5 hover:text-green-dark"
+              >
+                Explore what we do
+                <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+            <div className="relative min-h-[300px] sm:min-h-[380px]">
+              <img
+                src="/images/about/meeting-african.jpg"
+                alt="Business team working together around a table"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-pop backdrop-blur sm:bottom-7 sm:left-7">
+                <span className="text-2xl font-black text-green-dark">2,000+</span>
+                <span className="max-w-24 text-xs font-semibold leading-snug text-navy">
+                  businesses served
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-surface">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="What guides us"
+            title="We make business foundations work together"
+            description="Our approach connects the essentials, so entrepreneurs can focus on building what comes next."
+          />
+          <div className="grid gap-5 md:grid-cols-3">
+            {principles.map(({ icon: Icon, title, description, color }, index) => (
+              <motion.article
+                key={title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className={`relative flex min-h-[280px] flex-col overflow-hidden rounded-3xl p-7 sm:p-8 ${color}`}
+              >
+                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-navy shadow-sm">
+                  <Icon className="h-7 w-7" />
+                </div>
+                <h3 className="mt-6 text-xl font-extrabold tracking-tight text-navy">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {description}
+                </p>
+                <div
+                  className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-white/40"
+                  aria-hidden="true"
+                />
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Personal Note */}
-      <section className="band-cover py-24 relative overflow-hidden">
-        <div className="absolute inset-0 hero-gradient-cover" />
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-20 w-96 h-96 bg-blue-2/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-80 h-80 bg-green-2/20 rounded-full blur-3xl" />
-        </div>
-        <div className="container-narrow text-center relative">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="eyebrow-label eyebrow-label--light mb-4 inline-flex">
-            A PERSONAL NOTE
-          </motion.span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-3 mb-8 leading-tight tracking-tight">
-            You&apos;re Trusting Me Directly
-          </h2>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-white/75 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            If you're wondering whether to trust JurisTech with your business
-            registration or legal documents — you're trusting me directly. My
-            name is on every document we produce. My accreditation number is on
-            every CAC filing. My code powers every system we build. That's a
-            level of personal accountability most service providers can't offer.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/message/KTFL2G2JM3JTP1"
-              className="btn-gradient-green text-base">
-              Work With Me <ArrowRightIcon className="w-4 h-4" />
-            </a>
-            <Link
-              href="/tools/document-generator"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-              Try Our Free Tools
-            </Link>
-          </motion.div>
+      <section className="section-pad bg-white">
+        <div className="container-wide">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="relative min-h-[340px] sm:min-h-[440px]"
+            >
+              <img
+                src="/images/about/team-african.jpg"
+                alt="JurisTech colleagues collaborating on business solutions"
+                className="absolute inset-0 h-full w-full rounded-[2rem] object-cover shadow-cover"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-5 right-4 rounded-2xl border border-white/20 bg-navy px-5 py-4 text-white shadow-pop sm:right-8">
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-green-2">
+                  Built on accountability
+                </p>
+                <p className="mt-1 text-sm font-semibold">
+                  Every detail has our name on it.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <span className="eyebrow-label">A personal commitment</span>
+              <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl">
+                Your business deserves a team that sees the whole picture.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted">
+                When you work with JurisTech, you work with me directly. My
+                name is on every document we produce, my accreditation number
+                is on every CAC filing, and my code powers the systems we
+                build. I personally stand behind the work we deliver.
+              </p>
+              <div className="mt-6 space-y-3">
+                {[
+                  "One team across law, compliance, and technology",
+                  "Practical solutions shaped around your business",
+                  "Personal accountability from start to delivery",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircleIcon className="mt-0.5 h-5 w-5 shrink-0 text-green-2" />
+                    <p className="text-sm font-semibold text-navy">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy shadow-pop transition-all hover:-translate-y-0.5 hover:bg-green-dark hover:text-white"
+                >
+                  Talk to our team
+                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href="/tools/document-generator"
+                  className="inline-flex items-center rounded-full border border-line px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-green-pale"
+                >
+                  Try our free tools
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-24 bg-white">
+      <section className="section-pad bg-surface">
         <div className="container-wide">
-          <div className="text-center mb-16">
-            <span className="eyebrow-label mb-4 inline-flex">SERVICES</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 mb-5 tracking-tight">
-              What JurisTech <span className="text-gradient-brand">Offers</span>
-            </h2>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
-              Everything you need to launch, operate, and grow your business —
-              legally and digitally.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {servicesOverview.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}>
+          <SectionHeading
+            eyebrow="What we're building"
+            title="Technology for real business needs"
+            description="Alongside our client services, we develop practical products for Nigerian businesses and professionals."
+          />
+          <div className="grid gap-5 md:grid-cols-3">
+            {currentBuilds.map((build, index) => (
+              <motion.article
+                key={build.name}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="h-full"
+              >
                 <Link
-                  href={service.link}
-                  className="block bg-white rounded-2xl p-8 border border-line shadow-soft group hover:shadow-pop hover:-translate-y-1 hover:border-blue-2/30 transition-all duration-300">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${service.tile} rounded-xl flex items-center justify-center mb-5 shadow-md shadow-black/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300`}>
-                    <service.icon className="w-7 h-7 text-white" />
+                  href={build.href}
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-green-2/40 hover:shadow-pop"
+                >
+                  <div className="relative aspect-[1.65] overflow-hidden bg-green-pale">
+                    <img
+                      src={build.image}
+                      alt={`${build.name} project preview`}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
+                    />
+                    <span
+                      className={`absolute left-4 top-4 rounded-full border bg-white/95 px-3 py-1.5 text-[11px] font-bold shadow-sm backdrop-blur ${build.statusColor}`}
+                    >
+                      <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-current" />
+                      {build.status}
+                    </span>
+                    <span className="absolute bottom-4 right-4 grid h-10 w-10 place-items-center rounded-full bg-white text-navy shadow-pop transition-all duration-300 group-hover:rotate-[-45deg] group-hover:bg-green-2">
+                      <ArrowRightIcon className="h-5 w-5" />
+                    </span>
                   </div>
-                  <h3 className="text-lg font-bold text-navy mb-2 tracking-tight">
-                    {service.name}
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-green-dark">
+                      JurisTech product
+                    </p>
+                    <h3 className="mt-2 text-xl font-extrabold tracking-tight text-navy">
+                      {build.name}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                      {build.description}
+                    </p>
+                    <span className="mt-6 inline-flex w-fit items-center gap-3 rounded-full bg-green-pale px-4 py-2.5 text-sm font-bold text-navy transition-all duration-300 group-hover:gap-4 group-hover:bg-green-2">
+                      View project
+                      <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-white">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="How we help"
+            title="Everything you need to move forward"
+            description="From getting established to building your digital operations, JurisTech brings core business services together."
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map(({ icon: Icon, name, description, color }, index) => (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                viewport={{ once: true }}
+              >
+                <Link
+                  href="/services"
+                  className={`group relative flex min-h-[280px] h-full flex-col overflow-hidden rounded-3xl p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-pop sm:p-8 ${color}`}
+                >
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-green-dark shadow-sm transition-all duration-300 group-hover:-rotate-3 group-hover:scale-105 group-hover:bg-green-2 group-hover:text-white">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-6 text-xl font-extrabold tracking-tight text-navy">
+                    {name}
                   </h3>
-                  <p className="text-muted text-sm mb-4 leading-relaxed">
-                    {service.desc}
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">
+                    {description}
                   </p>
-                  <div className="flex items-center gap-1.5 text-green-2 text-sm font-semibold group-hover:gap-2.5 transition-all duration-300">
-                    Learn more <ArrowRightIcon className="w-4 h-4" />
-                  </div>
+                  <span className="mt-6 inline-flex w-fit items-center gap-3 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-navy shadow-sm transition-all duration-300 group-hover:gap-4 group-hover:shadow-pop">
+                    Explore service
+                    <span className="grid h-7 w-7 place-items-center rounded-full bg-green-2 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
+                      <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </span>
+                  <span
+                    className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-white/40 transition-transform duration-500 group-hover:scale-110"
+                    aria-hidden="true"
+                  />
                 </Link>
               </motion.div>
             ))}

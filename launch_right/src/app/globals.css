@@ -22,6 +22,11 @@
   --color-green-soft: #e8f8f0;
   --color-green-pale: #f2fbf6;
   --color-green-glow: rgba(22, 166, 106, 0.4);
+  --color-brand: #0758f7;
+  --color-leaf: #16a66a;
+  --color-mint: #c8f1de;
+  --color-mist: #f4f7fc;
+  --color-sky: #e4eeff;
   --color-emerald: #10b981;
   --color-emerald-light: #34d399;
   --color-emerald-dark: #059669;
@@ -91,6 +96,11 @@
   --color-green-dark: var(--color-green-dark);
   --color-green-soft: var(--color-green-soft);
   --color-green-pale: var(--color-green-pale);
+  --color-brand: var(--color-brand);
+  --color-leaf: var(--color-leaf);
+  --color-mint: var(--color-mint);
+  --color-mist: var(--color-mist);
+  --color-sky: var(--color-sky);
   --color-emerald: var(--color-emerald);
   --color-emerald-light: var(--color-emerald-light);
   --color-emerald-dark: var(--color-emerald-dark);

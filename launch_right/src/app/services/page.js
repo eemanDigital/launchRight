@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/PageHero";
+import ServicePageHero from "@/components/ServicePageHero";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
@@ -31,20 +31,10 @@ export default function ServicesPage() {
         ]}
       />
       <Navbar />
-      <PageHero
-        eyebrow="OUR SERVICES"
-        title={
-          <>
-            Everything you need to launch,{" "}
-            <span className="text-gradient-brand">operate &amp; grow.</span>
-          </>
-        }
-        subtitle="Custom software, professional websites, CAC incorporation and Nigeria-compliant legal documents — all from one accountable team."
-        period="LEGAL · DIGITAL · TECHNICAL"
-      />
+      <ServicePageHero />
       <Services />
       <FAQSchema />
-      <FinalCTA />
+      <FinalCTA variant="services" />
       <Footer />
     </main>
   );

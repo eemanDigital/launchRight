@@ -11,19 +11,39 @@ import {
 } from "@heroicons/react/24/outline";
 import { event } from "@/lib/fpixel";
 
-export default function FinalCTA() {
-  return (
-    <section className="relative overflow-hidden">
-      {/* white wave top (from FAQ white section) */}
-      <svg className="wave-divider wave-divider--top absolute top-0 left-0 text-white" viewBox="0 0 1440 60" preserveAspectRatio="none">
-        <path fill="currentColor" d="M0,30 C240,0 480,60 720,35 C960,10 1200,55 1440,25 L1440,0 L0,0 Z" />
-      </svg>
+export default function FinalCTA({ variant }) {
+  const isServicesVariant = variant === "services";
 
-      <div className="relative pt-10 lg:pt-14 pb-20 lg:pb-24 bg-navy overflow-hidden">
-        <div className="absolute inset-0 hero-gradient-cover" />
+  return (
+    <section
+      className={
+        isServicesVariant
+          ? "bg-surface py-16 sm:py-20 lg:py-24"
+          : "relative overflow-hidden"
+      }
+    >
+      {!isServicesVariant && (
+        <svg className="wave-divider wave-divider--top absolute top-0 left-0 text-white" viewBox="0 0 1440 60" preserveAspectRatio="none">
+          <path fill="currentColor" d="M0,30 C240,0 480,60 720,35 C960,10 1200,55 1440,25 L1440,0 L0,0 Z" />
+        </svg>
+      )}
+
+      <div
+        className={
+          isServicesVariant
+            ? "container-wide relative"
+            : "relative pt-10 lg:pt-14 pb-20 lg:pb-24 bg-navy overflow-hidden"
+        }
+      >
+        {isServicesVariant ? (
+          <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-40 max-w-5xl rounded-full bg-green-2/10 blur-3xl" />
+        ) : (
+          <div className="absolute inset-0 hero-gradient-cover" />
+        )}
 
         {/* concentric launch rings */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none">
+        {!isServicesVariant && (
+          <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none">
           {["w-[520px] h-[520px]", "w-[400px] h-[400px]", "w-[280px] h-[280px]"].map((size, i) => (
             <span
               key={i}
@@ -41,31 +61,48 @@ export default function FinalCTA() {
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-navy-light to-navy-deep border border-white/20 flex items-center justify-center shadow-cover">
             <span className="text-white font-black text-xl tracking-tighter">JT</span>
           </span>
-        </div>
+          </div>
+        )}
 
         {/* glows */}
-        <div className="absolute inset-0 pointer-events-none">
+        {!isServicesVariant && (
+          <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-2/15 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-green-2/15 rounded-full blur-3xl" />
-        </div>
+          </div>
+        )}
 
         {/* faint grid */}
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        {!isServicesVariant && (
+          <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
           <div className="w-full h-full" style={{
             backgroundImage: `linear-gradient(rgba(45,124,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45,124,255,0.5) 1px, transparent 1px)`,
             backgroundSize: '60px 60px'
           }} />
-        </div>
+          </div>
+        )}
 
-        <div className="container-narrow relative pt-40 lg:pt-56">
+        <div
+          className={
+            isServicesVariant
+              ? "relative overflow-hidden rounded-[2rem] bg-navy px-6 py-12 text-white shadow-cover sm:px-12 sm:py-16 lg:py-20"
+              : "container-narrow relative pt-40 lg:pt-56"
+          }
+        >
+          {isServicesVariant && (
+            <>
+              <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-green-2/15 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-full border-[40px] border-white/[0.04]" />
+            </>
+          )}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={isServicesVariant ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center">
             <motion.span
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={isServicesVariant ? false : { opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
@@ -108,7 +145,7 @@ export default function FinalCTA() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={isServicesVariant ? false : { opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
                   viewport={{ once: true }}
@@ -144,10 +181,11 @@ export default function FinalCTA() {
           </motion.div>
         </div>
 
-        {/* wave bottom into footer */}
-        <svg className="wave-divider wave-divider--bottom absolute bottom-0 left-0 text-navy-deep" viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path fill="currentColor" d="M0,50 C240,10 480,70 720,40 C960,10 1200,65 1440,30 L1440,80 L0,80 Z" />
-        </svg>
+        {!isServicesVariant && (
+          <svg className="wave-divider wave-divider--bottom absolute bottom-0 left-0 text-navy-deep" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path fill="currentColor" d="M0,50 C240,10 480,70 720,40 C960,10 1200,65 1440,30 L1440,80 L0,80 Z" />
+          </svg>
+        )}
       </div>
     </section>
   );

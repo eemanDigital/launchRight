@@ -104,7 +104,7 @@ function Icon({ name }) {
     <svg
       aria-hidden
       viewBox="0 0 24 24"
-      className="h-11 w-11"
+      className="h-8 w-8"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.3"
@@ -117,97 +117,73 @@ function Icon({ name }) {
 
 /* --------------------------- 1. services section --------------------------- */
 
-const TONES = {
+const SERVICE_TONES = {
   light: {
     card: "bg-white text-navy",
-    icon: "text-leaf",
-    num: "text-navy/25",
-    body: "text-navy/60",
-    tag: "border-navy/15 text-navy/70",
-    btn: "bg-white text-navy hover:bg-navy hover:text-white",
+    icon: "text-green-dark",
+    body: "text-ink-soft",
+    details: "text-navy/55",
+    button: "bg-green-2 text-navy shadow-sm hover:-translate-y-0.5 hover:bg-navy hover:text-white hover:shadow-md",
   },
   mint: {
-    card: "bg-mint text-navy",
+    card: "bg-green-2 text-navy",
     icon: "text-navy",
-    num: "text-navy/30",
-    body: "text-navy/65",
-    tag: "border-navy/20 text-navy/75",
-    btn: "bg-mint text-navy hover:bg-navy hover:text-white",
+    body: "text-navy/75",
+    details: "text-navy/60",
+    button: "bg-navy text-white shadow-sm hover:-translate-y-0.5 hover:bg-white hover:text-navy hover:shadow-md",
   },
   navy: {
     card: "bg-navy text-white",
-    icon: "text-[#4fd49a]",
-    num: "text-white/25",
-    body: "text-white/65",
-    tag: "border-white/25 text-white/80",
-    btn: "bg-navy text-white hover:bg-leaf",
+    icon: "text-green-2",
+    body: "text-white/75",
+    details: "text-white/55",
+    button: "bg-white text-navy shadow-sm hover:-translate-y-0.5 hover:bg-green-2 hover:shadow-md",
   },
   sky: {
-    card: "bg-sky text-navy",
-    icon: "text-brand",
-    num: "text-navy/25",
-    body: "text-navy/60",
-    tag: "border-navy/15 text-navy/70",
-    btn: "bg-sky text-navy hover:bg-navy hover:text-white",
+    card: "bg-blue-soft text-navy",
+    icon: "text-blue",
+    body: "text-navy/70",
+    details: "text-navy/55",
+    button: "bg-blue text-white shadow-sm hover:-translate-y-0.5 hover:bg-navy hover:shadow-md",
   },
 };
 
-/* The cream notch holding the button. --notch must equal the section background. */
-const NOTCH =
-  "absolute bottom-0 left-0 rounded-tr-[28px] bg-[var(--notch)] pb-2 pr-3 pt-3 " +
-  "after:absolute after:bottom-0 after:left-full after:h-7 after:w-7 after:content-[''] " +
-  "after:bg-[radial-gradient(circle_at_100%_0,transparent_27px,var(--notch)_28px)]";
+const SERVICE_CTA_NOTCH =
+  "absolute bottom-0 left-0 rounded-tr-[24px] bg-[var(--notch)] pb-2 pr-2 pt-2 " +
+  "after:absolute after:bottom-0 after:left-full after:h-6 after:w-6 after:content-[''] " +
+  "after:bg-[radial-gradient(circle_at_100%_0,transparent_23px,var(--notch)_24px)]";
 
 function ServiceCard({ s }) {
-  const t = TONES[s.tone] ?? TONES.light;
+  const tone = SERVICE_TONES[s.tone] ?? SERVICE_TONES.light;
+
   return (
     <article
-      className={`relative flex min-h-[440px] flex-col overflow-hidden rounded-[28px] p-7 pb-24 sm:p-8 sm:pb-24 ${t.card}`}>
-      {s.tone === "mint" && (
-        <>
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full border border-navy/10"
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -bottom-20 -right-12 h-40 w-40 rounded-full bg-leaf/20"
-          />
-        </>
-      )}
-
-      <div className="flex items-start justify-between">
-        <span className={t.icon}>
+      className={`group relative flex min-h-[320px] flex-col overflow-hidden rounded-3xl p-6 pb-20 transition-transform duration-300 hover:-translate-y-1 sm:p-7 sm:pb-20 ${tone.card}`}>
+      <div className="flex items-center justify-between">
+        <span className={tone.icon}>
           <Icon name={s.icon} />
         </span>
-        <span className={`text-sm font-medium tabular-nums ${t.num}`}>
+        <span className="font-mono text-xs font-bold tracking-wide opacity-45">
           {s.num}
         </span>
       </div>
 
-      <h3 className="mt-12 text-[1.6rem] font-medium leading-[1.15] tracking-tight">
+      <h3 className="mt-8 text-xl font-bold leading-tight tracking-tight">
         {s.title}
       </h3>
-      <p className={`mt-3 text-[15px] leading-relaxed ${t.body}`}>
+      <p className={`mt-3 text-sm leading-relaxed ${tone.body}`}>
         {s.description}
       </p>
+      <p className={`mt-3 text-[11px] font-semibold leading-relaxed ${tone.details}`}>
+        {s.points.join(" · ")}
+      </p>
 
-      <ul className="mt-5 flex flex-wrap gap-2">
-        {s.points.map((p) => (
-          <li
-            key={p}
-            className={`rounded-full border px-3 py-1 text-[11px] font-medium uppercase tracking-wide ${t.tag}`}>
-            {p}
-          </li>
-        ))}
-      </ul>
-
-      <div className={NOTCH}>
+      <div className={SERVICE_CTA_NOTCH}>
         <Link
           href={s.cta.href}
-          className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${t.btn}`}>
-          {s.cta.label}
-          <Chevron />
+          className={`group/cta inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${tone.button}`}>
+          Explore More
+          <Chevron className="h-3.5 w-3.5 transition-transform duration-300 group-hover/cta:translate-x-1" />
         </Link>
       </div>
     </article>
@@ -216,21 +192,25 @@ function ServiceCard({ s }) {
 
 export function ServicesSection() {
   return (
-    <section className="bg-mist py-16 [--notch:#f4f7fc] sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-end gap-6 lg:grid-cols-2 lg:gap-20">
+    <section
+      id="services"
+      className="bg-surface py-20 [--notch:var(--color-surface)] sm:py-24 lg:py-28"
+    >
+      <div className="container-wide">
+        <div className="grid items-end gap-5 lg:grid-cols-[1.2fr,0.8fr] lg:gap-16">
           <div>
-            <Pill>{servicesIntro.eyebrow}</Pill>
-            <h2 className="mt-5 max-w-xl text-4xl font-medium leading-[1.1] tracking-tight text-navy sm:text-[2.6rem]">
-              {servicesIntro.heading}
+            <p className="eyebrow-label">{servicesIntro.eyebrow}</p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl">
+              {servicesIntro.headingLead}{" "}
+              <span className="highlight">{servicesIntro.headingAccent}</span>
             </h2>
           </div>
-          <p className="max-w-md pb-1 text-[15px] leading-relaxed text-navy/65">
+          <p className="max-w-xl pb-1 text-base leading-relaxed text-ink-soft lg:justify-self-end">
             {servicesIntro.text}
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:mt-12 xl:grid-cols-4">
           {services.map((s) => (
             <ServiceCard key={s.num} s={s} />
           ))}
@@ -380,40 +360,41 @@ export function AboutSection() {
 
 export function AllInOneSection() {
   return (
-    <section className="bg-mist px-4 pb-16 pt-4 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
-      <div className="mx-auto grid max-w-7xl gap-10 rounded-[28px] bg-navy p-7 sm:p-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:p-16">
-        <div>
-          <Pill dark>{allInOne.eyebrow}</Pill>
-          <h2 className="mt-5 text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-[2.6rem]">
+    <section className="bg-surface px-4 pb-20 sm:px-6 sm:pb-24 lg:px-8 lg:pb-28">
+      <div className="container-wide">
+        <div className="relative grid gap-10 overflow-hidden rounded-[2rem] bg-navy p-7 shadow-cover sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-16 lg:p-14">
+          <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full border-[48px] border-white/[0.04]" />
+          <div className="relative">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-green-2">
+            {allInOne.eyebrow}
+          </p>
+          <h2 className="mt-4 max-w-xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-5xl">
             {allInOne.heading}
           </h2>
-          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/65">
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70">
             {allInOne.text}
           </p>
           <Link
             href={allInOne.cta.href}
-            className="group mt-8 inline-flex items-center rounded-full bg-leaf p-1 transition-colors hover:bg-white">
-            <span className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-navy">
+            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-green-2 px-6 py-3 text-sm font-bold text-navy transition-all hover:-translate-y-0.5 hover:bg-white">
               {allInOne.cta.label}
-            </span>
-            <span className="px-3 text-white group-hover:text-navy">
               <DoubleChevron />
-            </span>
           </Link>
         </div>
 
-        <ol className="grid gap-3">
+        <ol className="relative grid gap-3">
           {allInOne.list.map((item, i) => (
             <li
               key={item}
-              className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4">
-              <span className="text-sm font-medium tabular-nums text-[#4fd49a]">
+              className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 transition-colors hover:border-green-2/40 hover:bg-white/[0.09]">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-green-2/15 font-mono text-xs font-bold text-green-2">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="text-lg font-medium text-white">{item}</span>
+              <span className="text-base font-semibold text-white sm:text-lg">{item}</span>
             </li>
           ))}
         </ol>
+        </div>
       </div>
     </section>
   );

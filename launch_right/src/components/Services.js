@@ -2,17 +2,17 @@
 
 import { motion } from "framer-motion";
 import {
-  BuildingOfficeIcon,
-  GlobeAltIcon,
-  DocumentCheckIcon,
-  ShieldCheckIcon,
-  CodeBracketIcon,
-  ChatBubbleLeftRightIcon,
-  ClockIcon,
-  BanknotesIcon,
-  CheckCircleIcon,
   ArrowRightIcon,
+  BanknotesIcon,
+  BuildingOfficeIcon,
+  ChatBubbleLeftRightIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  CodeBracketIcon,
   CommandLineIcon,
+  DocumentCheckIcon,
+  GlobeAltIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
@@ -20,282 +20,432 @@ const serviceCategories = [
   {
     id: "software",
     icon: CodeBracketIcon,
-    title: "Custom Software & Apps",
+    title: "Custom software & apps",
     description:
-      "Bespoke software solutions — mobile apps, POS systems, SaaS platforms, and API integrations.",
-    items: [
-      "Mobile Apps (Android)",
-      "POS Systems",
-      "Custom SaaS Platforms",
-      "API Integrations",
-      "Database Design",
-    ],
+      "Purpose-built digital products designed around the way your business works.",
+    items: ["Mobile apps", "POS systems", "SaaS platforms", "API integrations"],
     link: "/software",
     accent: "blue",
   },
   {
     id: "web",
     icon: GlobeAltIcon,
-    title: "Website Development",
+    title: "Website development",
     description:
-      "Professional business websites built for conversion — from landing pages to full e-commerce stores.",
-    items: [
-      "Landing Pages",
-      "Business Websites",
-      "E-commerce Stores",
-      "Domain & Email Setup",
-      "SEO Optimization",
-    ],
+      "Fast, professional websites that make it easier for customers to choose you.",
+    items: ["Landing pages", "Business websites", "Online stores", "SEO setup"],
     link: "/website",
     accent: "green",
   },
   {
     id: "cac",
     icon: BuildingOfficeIcon,
-    title: "Business Incorporation (CAC)",
+    title: "CAC business registration",
     description:
-      "Register and incorporate your business with the Corporate Affairs Commission — fast, compliant, and handled by accredited agents.",
-    items: [
-      "Business Name Registration",
-      "Private Limited Company (LTD)",
-      "Public Limited Company (PLC)",
-      "NGO / Incorporated Trustees",
-      "Post-Registration Services",
-    ],
+      "Get your business registered correctly, with guidance from accredited agents.",
+    items: ["Business names", "Limited companies", "NGOs & trustees", "Post-registration"],
     link: "/pricing",
     accent: "blue",
   },
   {
     id: "legal",
     icon: DocumentCheckIcon,
-    title: "Legal Documentation",
+    title: "Legal documents",
     description:
-      "Lawyer-drafted contracts, agreements, and compliance documents tailored to Nigerian law.",
-    items: [
-      "Shareholders Agreements",
-      "Employment Contracts",
-      "Service Agreements",
-      "Terms & Conditions / Privacy Policies",
-      "Letters of Demand",
-    ],
+      "Clear, lawyer-prepared documents shaped around your business and Nigerian law.",
+    items: ["Shareholder agreements", "Employment contracts", "Service agreements", "Policies"],
     link: "/tools/document-generator",
-    linkText: "Try Free Generator",
+    linkText: "Explore document tools",
     accent: "green",
   },
   {
     id: "compliance",
     icon: ShieldCheckIcon,
-    title: "Compliance Services",
+    title: "Compliance support",
     description:
-      "Stay on top of your regulatory obligations — FIRS, SCUML, annual returns, and more.",
-    items: [
-      "FIRS TIN Registration",
-      "SCUML Registration",
-      "Annual Returns Filing",
-      "CAC Post-Registration Compliance",
-      "Compliance Advisory",
-    ],
+      "Stay organised with practical help for ongoing filings and regulatory obligations.",
+    items: ["Annual returns", "FIRS TIN", "SCUML registration", "Compliance advice"],
     link: "/contact",
     accent: "blue",
   },
   {
     id: "products",
     icon: CommandLineIcon,
-    title: "Legal-Tech Tools",
+    title: "Legal-tech products",
     description:
-      "JurisTech's own products — built for Nigerian businesses and professionals.",
-    items: [
-      "VendPadi (WhatsApp Storefront)",
-      "case-master-app (Law Firm Management)",
-      "Legal Document Generator (Free)",
-    ],
+      "Useful tools built to make everyday business and legal workflows simpler.",
+    items: ["VendPadi storefront", "Case management", "Document generator"],
     link: "/products",
-    linkText: "View Products",
+    linkText: "View our products",
     accent: "green",
   },
 ];
 
-const guarantees = [
-  "Lawyer-Reviewed Deliverables",
-  "In-House Engineering",
-  "Transparent Pricing",
-  "Dedicated Project Manager",
-  "Post-Launch Support",
-  "Satisfaction Guaranteed",
-];
-
-const accentMap = {
+const serviceAccent = {
   blue: {
-    icon: "from-blue to-blue-2",
-    check: "bg-blue-2/15 border-blue-2/25 text-blue-2",
-    chip: "border-blue-2/40 text-blue-2 hover:bg-blue-2/10",
-    ring: "border-blue-2/30",
+    icon: "bg-blue-soft text-blue",
+    arrow: "bg-blue text-white group-hover:bg-navy",
+    dot: "bg-blue",
   },
   green: {
-    icon: "from-green to-green-2",
-    check: "bg-green-2/15 border-green-2/25 text-green-2",
-    chip: "border-green-2/40 text-green-2 hover:bg-green-2/10",
-    ring: "border-green-2/30",
+    icon: "bg-green-soft text-green-dark",
+    arrow: "bg-green-2 text-navy group-hover:bg-navy group-hover:text-white",
+    dot: "bg-green-dark",
   },
 };
 
-export default function Services() {
+const reasons = [
+  {
+    image: "/images/services/business-consulting.jpg",
+    imageAlt: "Business owners discussing a plan together",
+    icon: BuildingOfficeIcon,
+    title: "Everything under one roof",
+    description:
+      "Bring legal, registration, and digital specialists together around one business goal.",
+  },
+  {
+    image: "/images/services/team-collaboration.jpg",
+    imageAlt: "Colleagues working together in a technology team",
+    icon: ShieldCheckIcon,
+    title: "Experience you can trust",
+    description:
+      "Get practical guidance, lawyer-reviewed documents, and software built by our in-house team.",
+  },
+  {
+    image: "/images/services/growth-planning.jpg",
+    imageAlt: "A team mapping out a business growth plan",
+    icon: GlobeAltIcon,
+    title: "Support that grows with you",
+    description:
+      "Start with what you need now, then add the legal and digital support for what comes next.",
+  },
+];
+
+const additionalServices = serviceCategories.slice(4);
+
+const guarantees = [
+  "Lawyer-reviewed deliverables",
+  "In-house engineering",
+  "Transparent pricing",
+  "Dedicated project coordination",
+  "Post-launch support",
+  "Clear progress updates",
+];
+
+const serviceStats = [
+  {
+    label: "Registration timelines",
+    value: "24–48 hours*",
+    detail: "Business Name applications",
+    icon: ClockIcon,
+    accent: "text-blue",
+    ring: "border-blue/25 bg-blue-soft",
+  },
+  {
+    label: "Project scope",
+    value: "Clear from day one",
+    detail: "A plan before work begins",
+    icon: BanknotesIcon,
+    accent: "text-green-dark",
+    ring: "border-green-2/25 bg-green-soft",
+  },
+  {
+    label: "Client support",
+    value: "Here when you need us",
+    detail: "Guidance beyond handover",
+    icon: ChatBubbleLeftRightIcon,
+    accent: "text-blue",
+    ring: "border-blue/25 bg-blue-soft",
+  },
+];
+
+function ServiceCard({ category, index }) {
+  const accent = serviceAccent[category.accent];
+  const Icon = category.icon;
+
   return (
-    <section className="section-pad bg-surface relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-soft to-transparent rounded-full blur-3xl" />
+    <motion.article
+      id={category.id}
+      initial={false}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: (index % 3) * 0.07 }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="group flex min-h-[220px] flex-col rounded-2xl border border-line bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-2/25 hover:shadow-card sm:p-6"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <span className="hex grid h-14 w-14 place-items-center bg-line-soft p-0.5">
+          <span className={`hex grid h-full w-full place-items-center ${accent.icon}`}>
+            <Icon className="h-6 w-6" strokeWidth={1.7} />
+          </span>
+        </span>
+        <span className="font-mono text-[10px] font-bold tracking-[0.16em] text-muted-light">
+          0{index + 1}
+        </span>
       </div>
+      <h3 className="mt-5 text-lg font-extrabold leading-tight tracking-tight text-navy">
+        {category.title}
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+        {category.description}
+      </p>
+      <p className="mt-3 text-[10px] font-semibold leading-relaxed text-muted">
+        {category.items.join(" · ")}
+      </p>
+      <Link
+        href={category.link}
+        aria-label={`${category.linkText || "Explore"}: ${category.title}`}
+        className="mt-auto inline-flex w-fit items-center gap-3 pt-5 text-xs font-bold text-navy"
+      >
+        <span className={`grid h-8 w-8 place-items-center rounded-full transition-all duration-300 group-hover:scale-110 ${accent.arrow}`}>
+          <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+        </span>
+        {category.linkText || "Explore service"}
+      </Link>
+    </motion.article>
+  );
+}
 
-      <div className="relative container-wide mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16">
-          <span className="eyebrow-label mb-4">WHAT WE DO</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">
-            One team. <span className="text-gradient-brand">Six disciplines.</span>
-          </h2>
-          <p className="text-muted max-w-2xl mx-auto text-lg mt-4">
-            We combine legal, regulatory, and technical expertise so you don't
-            have to hire three different people.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {serviceCategories.map((category, index) => {
-            const accent = accentMap[category.accent];
-            return (
-              <motion.div
+function ServiceOverview() {
+  return (
+    <section
+      id="our-services"
+      className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
+    >
+      <div className="pointer-events-none absolute -left-28 top-16 h-72 w-72 rounded-full border-[36px] border-blue-soft/70" />
+      <div className="container-wide relative">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+          <div className="relative grid gap-4 sm:grid-cols-2 lg:gap-5">
+            <span aria-hidden="true" className="pointer-events-none absolute -left-6 -top-8 hidden h-40 w-24 rounded-full border border-green-2/20 sm:block" />
+            {serviceCategories.slice(0, 4).map((category, index) => (
+              <ServiceCard
                 key={category.id}
-                id={category.id}
-                initial={{ opacity: 0, y: 20 }}
+                category={category}
+                index={index}
+              />
+            ))}
+          </div>
+
+          <motion.div
+            initial={false}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="lg:pl-2"
+          >
+            <p className="eyebrow-label">Our services</p>
+            <h2 className="mt-4 text-3xl font-extrabold uppercase leading-[1.08] tracking-tight text-navy sm:text-4xl">
+              Business support
+              <br />
+              that moves you forward.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-ink-soft">
+              Build your business with legal, regulatory, and technical
+              expertise working together. From registration and essential
+              documents to websites and custom software, we make it easier to
+              take the next step with confidence.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Clear guidance from first conversation to delivery",
+                "Solutions tailored to Nigerian businesses",
+                "One accountable team, fewer handoffs",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm font-medium text-navy/80"
+                >
+                  <CheckCircleIcon className="mt-0.5 h-4 w-4 shrink-0 text-green-dark" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7 space-y-3">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
+                Additional ways we can help
+              </p>
+              {additionalServices.map((service) => {
+                const Icon = service.icon;
+                return (
+                  <Link
+                    key={service.id}
+                    id={service.id}
+                    href={service.link}
+                    className="group flex items-center gap-3 rounded-xl border border-line bg-surface/80 p-3 transition-colors hover:border-green-2/50 hover:bg-green-pale"
+                  >
+                    <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${serviceAccent[service.accent].icon}`}>
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-bold text-navy">{service.title}</span>
+                      <span className="mt-0.5 block text-xs leading-relaxed text-ink-soft">{service.description}</span>
+                      <span className="mt-1 block text-[10px] font-semibold leading-relaxed text-muted">{service.items.join(" · ")}</span>
+                    </span>
+                    <ArrowRightIcon className="h-4 w-4 shrink-0 text-muted transition-transform group-hover:translate-x-1 group-hover:text-green-dark" />
+                  </Link>
+                );
+              })}
+            </div>
+            <Link
+              href="/contact"
+              className="group mt-7 inline-flex items-center gap-3 rounded-full bg-green-2 px-6 py-3 text-xs font-bold uppercase tracking-wide text-navy transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy hover:text-white"
+            >
+              Get started
+              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <p className="mt-4 text-[11px] leading-relaxed text-muted">
+              *Business Name turnaround is subject to complete documents and
+              CAC processing.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyChooseUs() {
+  return (
+    <section className="relative overflow-hidden bg-surface py-20 sm:py-24 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(var(--color-line)_1px,transparent_1px)] [background-size:18px_18px]" />
+      <div className="container-wide relative">
+        <motion.header
+          initial={false}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-12 max-w-2xl text-center"
+        >
+          <p className="eyebrow-label justify-center">What we offer</p>
+          <h2 className="mt-4 text-3xl font-extrabold uppercase leading-tight tracking-tight text-navy sm:text-4xl">
+            Why you should choose us
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">
+            Clear advice, connected expertise, and dependable delivery at every
+            stage of your business journey.
+          </p>
+        </motion.header>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {reasons.map((reason, index) => {
+            const Icon = reason.icon;
+            return (
+              <motion.article
+                key={reason.title}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-6 border border-line hover:border-blue-2/30 hover:shadow-pop transition-all duration-300">
-                <div className="relative inline-flex mb-4">
-                  <div
-                    className={`absolute inset-0 rounded-xl border border-dashed ${accent.ring} animate-spin-slow [animation-duration:22s] opacity-0 group-hover:opacity-100 transition-opacity`} />
-                  <div
-                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${accent.icon} flex items-center justify-center text-white shadow-lg shadow-black/10 group-hover:scale-110 transition-transform`}>
-                    <category.icon className="w-7 h-7" />
-                  </div>
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="group overflow-hidden rounded-3xl border border-line bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+              >
+                <div className="relative h-52 overflow-hidden sm:h-60">
+                  <img
+                    src={reason.image}
+                    alt={reason.imageAlt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/45 to-transparent" />
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-2 tracking-tight">
-                  {category.title}
-                </h3>
-                <p className="text-muted text-sm mb-4 leading-relaxed">
-                  {category.description}
-                </p>
-                <ul className="space-y-2 mb-5">
-                  {category.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-sm text-ink-soft">
-                      <span
-                        className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 mt-0.5 ${accent.check}`}>
-                        <CheckCircleIcon className="w-3 h-3" />
-                      </span>
-                      <span className="font-medium leading-snug">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={category.link}
-                  className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold transition-all ${accent.chip}`}>
-                  {category.linkText || "Learn more"}{" "}
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
-                </Link>
-              </motion.div>
+                <div className="relative px-6 pb-6 pt-9">
+                  <span className="absolute -top-7 left-6 grid h-14 w-14 place-items-center rounded-full border-4 border-white bg-green-2 text-navy shadow-card">
+                    <Icon className="h-6 w-6" strokeWidth={1.7} />
+                  </span>
+                  <h3 className="text-lg font-extrabold tracking-tight text-navy">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {reason.description}
+                  </p>
+                </div>
+              </motion.article>
             );
           })}
         </div>
+      </div>
+    </section>
+  );
+}
 
+function ServicePromise() {
+  return (
+    <section className="bg-white py-20 sm:py-24 lg:py-28">
+      <div className="container-wide">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="band-cover rounded-3xl p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute inset-0 hero-gradient-cover" />
-          <div className="relative">
-            <div className="text-center mb-8">
-              <span className="eyebrow-label eyebrow-label--light mb-3">
-                OUR PROMISE
-              </span>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">
-                The JurisTech Guarantee
-              </h3>
-              <p className="text-white/60 max-w-xl mx-auto">
-                We don't collect your money and disappear. Every project is
-                tracked and delivered with updates at every stage.
+          className="relative overflow-hidden rounded-3xl bg-navy p-7 text-white shadow-cover sm:p-10 lg:p-12"
+        >
+          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border-[48px] border-white/[0.04]" />
+          <div className="relative grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-green-2">
+                Our promise
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Good work.
+                <br />
+                Clear communication.
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
+                Know what happens next, who is handling it, and how your
+                project is progressing.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {guarantees.map((guarantee, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-white/5 backdrop-blur rounded-xl border border-white/10">
-                  <span className="w-6 h-6 rounded-full bg-green-2/20 border border-green-2/30 flex items-center justify-center flex-shrink-0">
-                    <CheckCircleIcon className="w-3.5 h-3.5 text-green-2" />
-                  </span>
-                  <span className="text-white font-medium text-sm">
-                    {guarantee}
-                  </span>
-                </div>
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {guarantees.map((guarantee) => (
+                <li
+                  key={guarantee}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-4 text-sm font-semibold text-white/90"
+                >
+                  <CheckCircleIcon className="h-5 w-5 shrink-0 text-green-2" />
+                  {guarantee}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-12 grid md:grid-cols-3 gap-6">
-          {[
-            {
-              label: "Processing Time",
-              value: "24hrs – 15 Days",
-              icon: <ClockIcon className="w-6 h-6" />,
-              accent: "text-blue-2",
-              ring: "border-blue-2/30",
-            },
-            {
-              label: "Pricing",
-              value: "Transparent & Clear",
-              icon: <BanknotesIcon className="w-6 h-6" />,
-              accent: "text-green-2",
-              ring: "border-green-2/30",
-            },
-            {
-              label: "Support",
-              value: "30-90 Days",
-              icon: <ChatBubbleLeftRightIcon className="w-6 h-6" />,
-              accent: "text-blue-2",
-              ring: "border-blue-2/30",
-            },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 bg-white rounded-2xl border border-line shadow-soft">
-              <div
-                className={`w-12 h-12 border rounded-xl flex items-center justify-center mx-auto mb-3 ${stat.ring} ${stat.accent}`}>
-                {stat.icon}
-              </div>
-              <p className="text-sm text-muted mb-1">{stat.label}</p>
-              <p className="text-2xl font-extrabold text-navy tracking-tight">
-                {stat.value}
-              </p>
-              <div className="mt-3 w-16 h-1 rounded-full bg-gradient-to-r from-blue-2 to-green-2 mx-auto" />
-            </div>
-          ))}
-        </motion.div>
+        <div className="mt-7 grid gap-4 md:grid-cols-3">
+          {serviceStats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <motion.article
+                key={stat.label}
+                initial={false}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                viewport={{ once: true }}
+                className="rounded-2xl border border-line bg-white p-6 text-center shadow-sm"
+              >
+                <span
+                  className={`mx-auto grid h-12 w-12 place-items-center rounded-xl border ${stat.ring} ${stat.accent}`}
+                >
+                  <Icon className="h-6 w-6" />
+                </span>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted">
+                  {stat.label}
+                </p>
+                <p className="mt-1 text-lg font-extrabold tracking-tight text-navy">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs text-ink-soft">{stat.detail}</p>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
     </section>
+  );
+}
+
+export default function Services() {
+  return (
+    <>
+      <ServiceOverview />
+      <WhyChooseUs />
+      <ServicePromise />
+    </>
   );
 }

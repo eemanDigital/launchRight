@@ -48,8 +48,8 @@ export default function AboutPreviewSection() {
               className="absolute bottom-6 right-0 w-40 h-40 sm:w-44 sm:h-44 rounded-2xl object-cover border-4 border-white shadow-xl z-20"
             />
 
-            <div className="absolute bottom-0 left-0 z-20 flex w-56 items-center gap-4 rounded-2xl bg-green-2 px-5 py-4 text-white shadow-pop">
-              <span className="grid h-11 w-11 place-items-center rounded-lg bg-white text-green-2">
+            <div className="absolute bottom-0 left-0 z-20 flex w-56 items-center gap-4 rounded-2xl bg-blue-2 px-5 py-4 text-white shadow-pop">
+              <span className="grid h-11 w-11 place-items-center rounded-lg bg-white text-blue-2">
                 <TrophyIcon className="h-6 w-6" />
               </span>
               <div>

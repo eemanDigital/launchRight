@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/PageHero";
 import {
   ArrowRightIcon,
   ChatBubbleLeftRightIcon,
@@ -18,6 +17,8 @@ import ProductSchema from "@/components/ProductSchema";
 const products = [
   {
     id: "vendpadi",
+    image: "/image/product-vendpadi.svg",
+    color: "bg-green-soft",
     name: "VendPadi",
     tagline: "The WhatsApp storefront for Nigerian merchants",
     description:
@@ -39,6 +40,8 @@ const products = [
   },
   {
     id: "case-master",
+    image: "/image/product-casemaster.svg",
+    color: "bg-blue-soft",
     name: "case-master-app",
     tagline: "Law firm management, built for Nigerian practice",
     description:
@@ -60,6 +63,8 @@ const products = [
   },
   {
     id: "doc-generator",
+    image: "/image/product-docgen.svg",
+    color: "bg-mist",
     name: "Legal Document Generator",
     tagline: "Generate Nigerian legal documents in minutes",
     description:
@@ -106,107 +111,214 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-surface">
+    <main className="min-h-screen overflow-hidden bg-white">
       <ProductSchema />
       <Navbar />
 
-      <PageHero
-        eyebrow="JURISTECH PRODUCTS"
-        title={
-          <>
-            Legal-tech products,{" "}
-            <span className="text-gradient-brand">built in-house.</span>
-          </>
-        }
-        subtitle="Beyond client services, JurisTech builds its own products for Nigerian businesses and professionals."
-        period="VEND PADI · CASE-MASTER · DOC GENERATOR"
-      />
+      <section className="relative overflow-hidden bg-green-pale">
+        <div
+          className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full border-[42px] border-green-2/10 sm:h-96 sm:w-96"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-16 left-0 h-40 w-40 rounded-full bg-blue-2/10 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="container-wide relative grid items-center gap-10 pb-16 pt-32 sm:pb-20 sm:pt-36 lg:min-h-[600px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pb-24 lg:pt-40">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 max-w-2xl"
+          >
+            <p className="eyebrow-label">JurisTech projects</p>
+            <h1 className="mt-5 text-4xl font-black leading-[1.04] tracking-tight text-navy sm:text-5xl lg:text-6xl">
+              Useful technology.
+              <br />
+              <span className="text-green-2">Built for real work.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
+              We build practical digital products for Nigerian businesses and
+              professionals—grounded in real needs, legal insight, and
+              first-hand experience.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="#projects"
+                className="group inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-bold text-white shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-light"
+              >
+                Explore our projects
+                <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-6 py-3 text-sm font-bold text-navy transition-colors hover:border-green-2 hover:bg-white"
+              >
+                Build with us
+              </Link>
+            </div>
+          </motion.div>
 
-      <div className="container-wide py-16">
-        <div className="space-y-16">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 ${product.iconBg} rounded-xl flex items-center justify-center`}>
-                    <product.icon className={`w-6 h-6 ${product.iconColor}`} />
-                  </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${product.statusColor}`}>
-                    {product.status}
-                  </span>
-                </div>
-
-                <h2 className="text-3xl font-extrabold text-navy mb-2 tracking-tight">{product.name}</h2>
-                <p className="text-green-2 font-semibold mb-4">{product.tagline}</p>
-                <p className="text-muted leading-relaxed mb-6">{product.description}</p>
-
-                <ul className="space-y-2 mb-8">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-ink-soft">
-                      <span className="w-5 h-5 rounded-full border border-green-2/30 bg-green-2/15 flex items-center justify-center flex-shrink-0">
-                        <CheckIcon className="w-3 h-3 text-green-2" />
-                      </span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  {product.ctaType === "link" ? (
-                    <Link href={product.ctaLink} className="btn-gradient-green">
-                      {product.cta} <ArrowRightIcon className="w-4 h-4" />
-                    </Link>
-                  ) : product.ctaType === "whatsapp" ? (
-                    <a href="https://wa.me/message/KTFL2G2JM3JTP1" className="btn-gradient-green">
-                      {product.cta} <ArrowRightIcon className="w-4 h-4" />
-                    </a>
-                  ) : (
-                    <button onClick={() => setActiveProduct(product.id)} className="btn-gradient-green">
-                      {product.cta} <ArrowRightIcon className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative mx-auto w-full max-w-[530px] py-4"
+          >
+            <div className="absolute -left-4 top-0 h-20 w-20 rounded-2xl border-2 border-green-2/40 sm:-left-2 sm:h-24 sm:w-24" />
+            <div className="relative overflow-hidden rounded-[2rem] border-[6px] border-white bg-white shadow-cover">
+              <img
+                src="/image/product-vendpadi.svg"
+                alt="VendPadi storefront product concept"
+                className="aspect-[10/7] w-full object-cover"
+                fetchPriority="high"
+              />
+            </div>
+            <div className="absolute -bottom-3 right-0 flex items-center gap-3 rounded-2xl bg-navy px-5 py-4 text-white shadow-pop sm:right-2">
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-green-2 text-navy">
+                <ChatBubbleLeftRightIcon className="h-6 w-6" />
+              </span>
+              <div>
+                <p className="text-sm font-extrabold">Built in-house</p>
+                <p className="text-xs text-white/70">Made for local workflows</p>
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-              <div className="flex-1">
-                <div className="bg-white rounded-3xl p-8 border border-line shadow-card relative overflow-hidden">
-                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-blue-2/40 to-transparent" />
-                  <div className="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-40">
-                      <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-2/40 rounded-full blur-2xl" />
-                      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-green-2/40 rounded-full blur-2xl" />
-                    </div>
-                    <div className="relative flex items-center gap-4 mb-5">
-                      <product.icon className="w-10 h-10 text-green-2" />
-                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${product.statusColor}`}>
+      <section aria-label="Project approach" className="border-b border-line bg-white">
+        <div className="container-wide grid grid-cols-2 gap-4 py-7 sm:grid-cols-4 sm:gap-6 sm:py-9">
+          {[
+            "Designed for Nigerian users",
+            "Built by our in-house team",
+            "Grounded in real workflows",
+            "Made to grow over time",
+          ].map((item) => (
+            <div
+              key={item}
+              className="flex items-center justify-center gap-2 text-center text-xs font-bold text-navy sm:text-sm"
+            >
+              <CheckIcon className="h-5 w-5 shrink-0 text-green-2" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="projects" className="section-pad scroll-mt-20 bg-surface">
+        <div className="container-wide">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="eyebrow-label">What we're building</span>
+            <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl">
+              Technology for everyday business needs
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+              Explore the products JurisTech is creating for merchants,
+              businesses, and legal professionals.
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-6xl space-y-6 lg:space-y-8">
+            {products.map((product, index) => (
+              <motion.article
+                id={product.id}
+                key={product.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="scroll-mt-28"
+              >
+                <div
+                  className={`group flex flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-card transition-shadow duration-300 hover:shadow-pop lg:flex-row ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
+                >
+                  <div
+                    className={`relative flex min-h-[250px] items-center justify-center p-7 sm:min-h-[320px] sm:p-10 lg:min-h-[390px] lg:w-[44%] ${product.color}`}
+                  >
+                    <span className="absolute left-5 top-5 text-xs font-black tracking-[0.2em] text-navy/35">
+                      0{index + 1}
+                    </span>
+                    <img
+                      src={product.image}
+                      alt={`${product.name} product preview`}
+                      className="max-h-[280px] w-full max-w-[420px] object-contain transition-transform duration-500 group-hover:scale-[1.03] sm:max-h-[320px] lg:max-h-[340px]"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 lg:p-10">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span
+                        className={`grid h-11 w-11 place-items-center rounded-xl ${product.iconBg}`}
+                      >
+                        <product.icon
+                          className={`h-5 w-5 ${product.iconColor}`}
+                        />
+                      </span>
+                      <span
+                        className={`rounded-full border px-3 py-1.5 text-[11px] font-bold ${product.statusColor}`}
+                      >
                         {product.status}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold mb-1 tracking-tight">{product.name}</h3>
-                    <p className="text-white/60 text-sm">{product.tagline}</p>
-                  </div>
-                  <div className="mt-6 space-y-3">
-                    {product.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 bg-surface rounded-lg">
-                        <span className="w-5 h-5 rounded-full border border-green-2/30 bg-green-2/15 flex items-center justify-center flex-shrink-0">
-                          <CheckIcon className="w-3 h-3 text-green-2" />
-                        </span>
-                        <span className="text-sm text-ink-soft">{feature}</span>
-                      </div>
-                    ))}
+
+                    <p className="mt-6 text-xs font-extrabold uppercase tracking-[0.16em] text-green-dark">
+                      JurisTech project
+                    </p>
+                    <h3 className="mt-2 text-2xl font-extrabold leading-tight tracking-tight text-navy sm:text-3xl">
+                      {product.name}
+                    </h3>
+                    <p className="mt-2 text-sm font-bold leading-relaxed text-green-dark sm:text-base">
+                      {product.tagline}
+                    </p>
+                    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
+                      {product.description}
+                    </p>
+
+                    <ul className="mt-6 grid gap-x-5 gap-y-3 sm:grid-cols-2">
+                      {product.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-start gap-2.5 text-xs leading-relaxed text-ink-soft sm:text-sm"
+                        >
+                          <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-green-2/15">
+                            <CheckIcon className="h-3.5 w-3.5 text-green-dark" />
+                          </span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-7 border-t border-line-soft pt-6">
+                      {product.ctaType === "link" ? (
+                        <Link
+                          href={product.ctaLink}
+                          className="group/cta inline-flex items-center gap-3 rounded-full bg-navy px-5 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-green-2 hover:text-navy"
+                        >
+                          {product.cta}
+                          <ArrowRightIcon className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => handleCTA(product)}
+                          className="group/cta inline-flex items-center gap-3 rounded-full bg-navy px-5 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-green-2 hover:text-navy"
+                        >
+                          {product.cta}
+                          <ArrowRightIcon className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       <AnimatePresence>
         {activeProduct === "vendpadi" && (

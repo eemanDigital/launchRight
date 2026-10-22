@@ -13,7 +13,7 @@ function FaqItem({ faq, defaultOpen = false }) {
   return (
     <div
       className={`rounded-2xl border transition-colors duration-300 ${
-        open ? "border-green-2 bg-surface" : "border-line bg-white"
+        open ? "border-green-2/60 bg-surface" : "border-line bg-white"
       }`}
     >
       <button
@@ -53,7 +53,7 @@ function FaqItem({ faq, defaultOpen = false }) {
 
 export default function FAQSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-white">
+    <section className="bg-surface py-20 sm:py-24 lg:py-28">
       <div className="container-wide max-w-4xl">
         <Reveal>
           <SectionHeading
@@ -64,7 +64,7 @@ export default function FAQSection() {
           />
         </Reveal>
 
-        <div className="mt-14 space-y-4">
+        <div className="mt-10 space-y-3 sm:mt-12">
           <Reveal>
             <FaqItem faq={faqs[0]} defaultOpen />
           </Reveal>

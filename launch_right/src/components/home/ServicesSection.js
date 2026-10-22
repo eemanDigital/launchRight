@@ -9,41 +9,47 @@ import { services } from "@/lib/homeData";
 function ServiceCard({ s, n }) {
   const Icon = s.icon;
   return (
-    <article className="group flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-green-2/30 hover:shadow-pop">
-      <div className="flex items-start justify-between">
-        <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-white shadow-[5px_5px_0_0_var(--color-green-2)] transition-colors duration-300 group-hover:bg-green-2 group-hover:text-navy">
-          <Icon className="h-7 w-7" strokeWidth={1.5} />
-        </span>
-        <span className="font-mono text-5xl font-bold leading-none text-navy/10">
-          {n}
-        </span>
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white p-6 shadow-card transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-green-2/40 hover:shadow-pop motion-reduce:transform-none motion-reduce:transition-none">
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="flex items-start justify-between">
+          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-white shadow-[5px_5px_0_0_var(--color-green-2)] transition-all duration-300 group-hover:rotate-[-4deg] group-hover:bg-green-2 group-hover:text-navy">
+            <Icon className="h-7 w-7 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+          </span>
+          <span className="font-mono text-5xl font-bold leading-none text-navy/10">
+            {n}
+          </span>
+        </div>
+
+        <h3 className="mt-5 text-lg font-extrabold tracking-tight text-navy">
+          {s.title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+          {s.description}
+        </p>
+
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {s.items.map((item) => (
+            <li
+              key={item}
+              className="rounded-full bg-surface px-3 py-1 text-[11px] font-semibold text-navy transition-colors duration-300 group-hover:bg-green-pale"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          href={s.href}
+          className="mt-auto inline-flex items-center gap-1 pt-5 text-xs font-bold uppercase tracking-wide text-navy transition-colors hover:text-green-dark"
+        >
+          <span className="highlight">{s.cta}</span>
+          <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
       </div>
-
-      <h3 className="mt-5 text-lg font-extrabold tracking-tight text-navy">
-        {s.title}
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-        {s.description}
-      </p>
-
-      <ul className="mt-4 flex flex-wrap gap-2">
-        {s.items.map((item) => (
-          <li
-            key={item}
-            className="rounded-full bg-surface px-3 py-1 text-[11px] font-semibold text-navy"
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-
-      <Link
-        href={s.href}
-        className="mt-auto inline-flex items-center gap-1 pt-5 text-xs font-bold uppercase tracking-wide text-navy transition-colors hover:text-green-2"
-      >
-        <span className="highlight">{s.cta}</span>
-        <ArrowUpRightIcon className="h-3.5 w-3.5" />
-      </Link>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-green-2/15 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-12 motion-reduce:transition-none"
+      />
     </article>
   );
 }
@@ -54,30 +60,36 @@ function GrowthCard() {
     { label: "On-Time Delivery", value: 95 },
   ];
   return (
-    <article className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card">
-      <h3 className="text-lg font-extrabold leading-snug tracking-tight text-navy">
-        We Deliver <span className="highlight">Flawless Business Growth</span>
-      </h3>
-      <div className="mt-5 space-y-4 text-xs text-ink-soft">
-        {bars.map((bar) => (
-          <div key={bar.label}>
-            <div className="mb-1.5 flex items-center justify-between font-semibold text-navy">
-              <span>{bar.label}</span>
-              <span>{bar.value}%</span>
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white p-6 shadow-card transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-green-2/40 hover:shadow-pop motion-reduce:transform-none motion-reduce:transition-none">
+      <div className="relative z-10 flex h-full flex-col">
+        <h3 className="text-lg font-extrabold leading-snug tracking-tight text-navy">
+          We Deliver <span className="highlight">Flawless Business Growth</span>
+        </h3>
+        <div className="mt-5 space-y-4 text-xs text-ink-soft">
+          {bars.map((bar) => (
+            <div key={bar.label}>
+              <div className="mb-1.5 flex items-center justify-between font-semibold text-navy">
+                <span>{bar.label}</span>
+                <span>{bar.value}%</span>
+              </div>
+              <div className="h-2 rounded-full bg-surface">
+                <div
+                  className="h-2 rounded-full bg-green-2 transition-[width] duration-700 ease-out group-hover:bg-green-dark"
+                  style={{ width: `${bar.value}%` }}
+                />
+              </div>
             </div>
-            <div className="h-2 rounded-full bg-surface">
-              <div
-                className="h-2 rounded-full bg-green-2"
-                style={{ width: `${bar.value}%` }}
-              />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <p className="mt-auto pt-5 text-[11px] leading-relaxed text-muted">
+          From CAC approval to launch day — measured on the outcomes that matter
+          to your business.
+        </p>
       </div>
-      <p className="mt-auto pt-5 text-[11px] leading-relaxed text-muted">
-        From CAC approval to launch day — measured on the outcomes that matter
-        to your business.
-      </p>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-green-2/15 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-12 motion-reduce:transition-none"
+      />
     </article>
   );
 }
@@ -85,28 +97,34 @@ function GrowthCard() {
 function TeamCard() {
   const members = ["LA", "DV", "WB", "LG"];
   return (
-    <article className="flex h-full flex-col items-center justify-center rounded-3xl bg-navy p-6 text-center text-white shadow-card">
-      <p className="text-lg font-extrabold tracking-tight">Lawyer-Led Team</p>
-      <p className="mt-1 text-xs text-white/60">
-        Legal · Digital — all under one roof
-      </p>
-      <div className="mt-5 flex items-center justify-center -space-x-2">
-        {members.map((m) => (
-          <span
-            key={m}
-            className="grid h-9 w-9 place-items-center rounded-full border-2 border-navy bg-navy-lighter text-[10px] font-bold text-green-2"
+    <article className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-3xl bg-navy p-6 text-center text-white shadow-card transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-pop motion-reduce:transform-none motion-reduce:transition-none">
+      <div className="relative z-10">
+        <p className="text-lg font-extrabold tracking-tight">Lawyer-Led Team</p>
+        <p className="mt-1 text-xs text-white/60">
+          Legal · Digital — all under one roof
+        </p>
+        <div className="mt-5 flex items-center justify-center -space-x-2">
+          {members.map((m) => (
+            <span
+              key={m}
+              className="grid h-9 w-9 place-items-center rounded-full border-2 border-navy bg-navy-lighter text-[10px] font-bold text-green-2"
+            >
+              {m}
+            </span>
+          ))}
+          <Link
+            href="/about"
+            aria-label="Meet the team"
+            className="grid h-9 w-9 place-items-center rounded-full border-2 border-navy bg-green-2 text-navy transition-transform hover:scale-110"
           >
-            {m}
-          </span>
-        ))}
-        <Link
-          href="/about"
-          aria-label="Meet the team"
-          className="grid h-9 w-9 place-items-center rounded-full border-2 border-navy bg-green-2 text-navy transition-transform hover:scale-110"
-        >
-          <ArrowUpRightIcon className="h-4 w-4" />
-        </Link>
+            <ArrowUpRightIcon className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-8 -right-6 h-28 w-28 rounded-full border-[18px] border-white/20 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-12 motion-reduce:transition-none"
+      />
     </article>
   );
 }
