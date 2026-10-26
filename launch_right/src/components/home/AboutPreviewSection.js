@@ -55,7 +55,7 @@ export default function AboutPreviewSection() {
                 <TrophyIcon className="h-6 w-6" />
               </span>
               <div>
-                <p className="text-2xl font-extrabold leading-none">25+</p>
+                <p className="text-2xl font-extrabold leading-none">10+</p>
                 <p className="mt-1 text-xs">Years Of Experience</p>
               </div>
             </div>

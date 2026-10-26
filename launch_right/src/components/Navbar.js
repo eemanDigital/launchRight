@@ -86,7 +86,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50">
+      <header className="fixed top-0 left-0 right-0 z-50 max-w-full overflow-x-clip">
         {/* ——— Contact bar ——— */}
         <div
           className={`overflow-hidden bg-white border-b border-border transition-all duration-500 ease-in-out ${
@@ -147,30 +147,30 @@ export default function Navbar() {
               ? "border-b border-border shadow-[0_4px_20px_rgba(9,33,84,0.06)]"
               : "border-b border-border-light"
           }`}>
-          <div className="container-wide">
-            <div className="flex items-center justify-between gap-6 h-[58px]">
+          <div className="container-wide max-w-[100%]">
+            <div className="flex items-center justify-between gap-3 sm:gap-4 h-[58px] min-w-0">
               {/* Logo: rounded icon tile + wordmark */}
               <Link
                 href="/"
-                className="group flex items-center gap-2.5 flex-shrink-0"
+                className="group flex items-center gap-2.5 flex-shrink-0 min-w-0"
                 aria-label="JurisTech — home">
-                <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-2 to-blue grid place-items-center shadow-[0_4px_12px_rgba(7,88,247,0.28)] transition-transform duration-300 group-hover:scale-105">
+                <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-2 to-blue grid place-items-center shadow-[0_4px_12px_rgba(7,88,247,0.28)] transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
                   <span className="text-white text-[13px] font-black tracking-tighter">
                     JT
                   </span>
                 </span>
-                <span className="leading-none">
-                  <span className="block text-[15px] font-bold text-navy tracking-tight">
+                <span className="leading-none min-w-0">
+                  <span className="block text-[15px] font-bold text-navy tracking-tight whitespace-nowrap">
                     JurisTech<span className="text-green-2">.</span>
                   </span>
-                  <span className="block mt-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-muted-light">
+                  <span className="block mt-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-muted-light whitespace-nowrap">
                     Legal · Digital
                   </span>
                 </span>
               </Link>
 
               {/* Centre links */}
-              <div className="hidden lg:flex flex-1 items-center justify-center gap-8">
+              <div className="hidden lg:flex flex-1 items-center justify-center gap-8 min-w-0">
                 {navLinks.map((link) => {
                   const isActive =
                     pathname === link.href ||
@@ -199,13 +199,13 @@ export default function Navbar() {
               </div>
 
               {/* CTA */}
-              <a href={WHATSAPP} className="btn-pill hidden lg:inline-flex flex-shrink-0">
+              <a href={WHATSAPP} className="btn-pill hidden lg:inline-flex flex-shrink-0 whitespace-nowrap">
                 Get A Quote
               </a>
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden -mr-1 p-2 rounded-lg text-navy hover:bg-surface transition-colors"
+                className="lg:hidden -mr-1 ml-1 p-2 rounded-lg text-navy hover:bg-surface transition-colors flex-shrink-0"
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}>
                 {isMobileMenuOpen ? (
@@ -226,8 +226,8 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white lg:hidden">
-            <div className="flex flex-col h-full px-6 pt-28 pb-8 overflow-y-auto">
+            className="fixed inset-0 z-40 bg-white lg:hidden overflow-hidden">
+            <div className="flex flex-col h-full w-full max-w-full px-4 sm:px-6 pt-28 pb-8 overflow-y-auto overflow-x-hidden">
               <nav className="flex-1 space-y-1">
                 {navLinks.map((link, i) => (
                   <motion.div
