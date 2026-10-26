@@ -3,8 +3,28 @@ import Footer from "@/components/Footer";
 import DocGenClientWrapper from "@/components/DocGenClientWrapper";
 
 export const metadata = {
-  title: "Legal Document Generator | JurisTech",
+  title: "Legal Document Generator",
   description: "Generate Nigeria-compliant legal documents in minutes. Free templates for tenancy agreements, NDAs, employment letters, and more.",
+  openGraph: {
+    title: "Legal Document Generator | JurisTech",
+    description:
+      "Generate Nigeria-compliant legal documents in minutes. Free templates for tenancy agreements, NDAs, employment letters, and more.",
+    url: "https://juristech.com.ng/tools/document-generator",
+    siteName: "JurisTech",
+    type: "website",
+    locale: "en_NG",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Legal Document Generator | JurisTech",
+    description:
+      "Generate Nigeria-compliant legal documents in minutes. Free templates for tenancy agreements, NDAs, employment letters, and more.",
+    images: ["/opengraph-image"],
+  },
+  alternates: {
+    canonical: "https://juristech.com.ng/tools/document-generator",
+  },
 };
 
 export default function DocumentGenerator() {

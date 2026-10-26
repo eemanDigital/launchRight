@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   if (!post) return { title: "Post Not Found" };
 
   return {
-    title: `${post.title} | JurisTech Blog`,
+    title: `${post.title} | Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: ["/opengraph-image"],
     },
     alternates: {
       canonical: `https://juristech.com.ng/resources/blog/${post.slug}`,

@@ -7,7 +7,7 @@ export default function LocalBusinessSchema() {
     image: "https://juristech.com.ng/image/juristech-logo.png",
     url: "https://juristech.com.ng",
     telephone: "+234-806-723-4189",
-    email: "info@juristech.com.ng.ng",
+    email: "info@juristech.com.ng",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Suite 412, IT Igbani Street, MKK Plaza, Jabi",
@@ -75,12 +75,6 @@ export default function LocalBusinessSchema() {
           priceCurrency: "NGN",
         },
       ],
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "127",
-      bestRating: "5",
     },
   };
 

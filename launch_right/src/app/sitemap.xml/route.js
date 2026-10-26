@@ -1,3 +1,5 @@
+import { blogPosts } from "@/data/blogPosts";
+
 const BASE_URL = "https://juristech.com.ng";
 
 const staticPages = [
@@ -11,26 +13,16 @@ const staticPages = [
   { loc: "/software", priority: "0.7", changefreq: "monthly" },
   { loc: "/resources", priority: "0.7", changefreq: "weekly" },
   { loc: "/resources/blog", priority: "0.8", changefreq: "weekly" },
+  { loc: "/business-launch", priority: "0.9", changefreq: "monthly" },
   { loc: "/tools/document-generator", priority: "0.9", changefreq: "monthly" },
 ];
 
-const blogPosts = [
-  { slug: "how-to-register-business-nigeria-2025", date: "2025-04-15" },
-  { slug: "3-legal-documents-every-nigerian-business-needs", date: "2025-04-10" },
-  { slug: "cac-annual-returns-explained", date: "2025-03-28" },
-  { slug: "why-i-built-legal-tech-company", date: "2025-03-15" },
-  { slug: "business-name-vs-ltd-nigeria", date: "2025-03-05" },
-];
-
 const generateXML = () => {
-  const today = new Date().toISOString().split("T")[0];
-
   const staticEntries = staticPages
     .map(
       (page) => `
     <url>
       <loc>${BASE_URL}${page.loc}</loc>
-      <lastmod>${today}</lastmod>
       <changefreq>${page.changefreq}</changefreq>
       <priority>${page.priority}</priority>
     </url>`
@@ -42,7 +34,6 @@ const generateXML = () => {
       (post) => `
     <url>
       <loc>${BASE_URL}/resources/blog/${post.slug}</loc>
-      <lastmod>${post.date}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>`

@@ -16,7 +16,20 @@ export const metadata = {
     description:
       "Custom software, professional websites, business incorporation, and legal documents — all from one Nigerian studio.",
     url: "https://juristech.com.ng/services",
+    siteName: "JurisTech",
     type: "website",
+    locale: "en_NG",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Services — Custom Software, Websites & Business Incorporation",
+    description:
+      "Custom software, professional websites, business incorporation, and legal documents — all from one Nigerian studio.",
+    images: ["/opengraph-image"],
+  },
+  alternates: {
+    canonical: "https://juristech.com.ng/services",
   },
 };
 

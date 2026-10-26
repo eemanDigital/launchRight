@@ -74,9 +74,6 @@ export const metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
   category: "technology",
 };
 

@@ -42,9 +42,11 @@ export default function OrganizationSchema() {
       },
     ],
     sameAs: [
-      "https://wa.me/2348067234189",
+      "https://wa.me/message/KTFL2G2JM3JTP1",
+      "https://facebook.com/juristech",
       "https://instagram.com/juristech",
       "https://twitter.com/juristech",
+      "https://linkedin.com/company/juristech",
     ],
     areaServed: {
       "@type": "Country",

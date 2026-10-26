@@ -21,8 +21,10 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 });
 
 export const metadata = {
-  title:
-    "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
+  title: {
+    absolute:
+      "JurisTech — Custom Software, Websites & Business Incorporation Nigeria",
+  },
   description:
     "Nigeria's full-service digital studio led by a practising lawyer who codes. Custom software development, professional websites, CAC business incorporation in 24-48hrs, and legal documents. 2,000+ clients served.",
   metadataBase: new URL("https://juristech.com.ng"),

@@ -66,11 +66,6 @@ export default function ProductSchema() {
         },
         applicationCategory: "LegalApplication",
         operatingSystem: "Web",
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.8",
-          ratingCount: "342",
-        },
         featureList: [
           "6 document types available",
           "Nigeria-specific clauses",

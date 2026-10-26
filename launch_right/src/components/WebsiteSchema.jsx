@@ -10,24 +10,14 @@ export default function WebsiteSchema() {
     publisher: {
       "@id": "https://juristech.com.ng/#organization",
     },
-    potentialAction: [
-      {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: "https://juristech.com.ng/search?q={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
+    potentialAction: {
+      "@type": "ContactAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://wa.me/message/KTFL2G2JM3JTP1",
       },
-      {
-        "@type": "ContactAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: "https://wa.me/2348067234189",
-        },
-        description: "Contact via WhatsApp",
-      },
-    ],
+      description: "Contact via WhatsApp",
+    },
     inLanguage: "en-NG",
   };
 
